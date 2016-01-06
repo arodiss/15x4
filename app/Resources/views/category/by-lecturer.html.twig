@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">{{ lecturers|length }} человек стали нашими лекторами!</h1>
+    {% for lecturer in lecturers %}
+        <h3><a href="{{ path("LectureByLecturer", { "id": lecturer.getId() }) }}">{{ lecturer.getName() }} (тут будет количество)</a></h3>
+        <hr/>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'shared/lecture-list.html.twig' %}
+
+{% block listHeader %}
+    <div class="row">
+        <div class="col-lg-8">
+            {#todo remove browser resize when using proper scale imgs#}
+            <img
+                style="width: 750px; height: 400px;"
+                src="{{ field.getImageName() ? : field.getDefaultImageName() }}"
+            />
+        </div>
+        <div class="col-lg-4">
+            <h3 class="text-capitalize">{{ field.getName() }}</h3>
+            <hr/>
+            <p class="text-muted">
+                {{ field.getDescription() }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

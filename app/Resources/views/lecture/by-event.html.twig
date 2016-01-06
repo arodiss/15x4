@@ -1,0 +1,5 @@
+{% extends 'shared/lecture-list.html.twig' %}
+
+{% block listHeader %}
+    <h1>Лекции за {{ event.getDate() | date("M d, Y")}}</h1>
+{% endblock %}

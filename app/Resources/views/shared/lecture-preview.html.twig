@@ -1,0 +1,16 @@
+<h3><a href="{{ path("LectureDetails", { "id": lecture.getId() }) }}">{{ lecture.getTitle() }}</a></h3>
+
+<p class="small"><a href="{{ path("LectureByEvent", { "id": lecture.getEvent().getId() }) }}">{{ lecture.getDate() | date("M d, Y") }}</a>, <a href="{{ path("LectureByCity", { "id": lecture.city.id }) }}">{{ lecture.city.name }}</a> - <a href="{{ path("LectureByLecturer", { "id": lecture.getLecturer().getId() }) }}">{{ lecture.getLecturer().getName() }}</a></p>
+
+<p class="small"><a href="{{ path("LectureByField", { "id": lecture.getField().getId() }) }}">{{ lecture.getField().getName() }}</a></p>
+
+<p>{{ lecture.teaser }}</p>
+
+<p>
+    Темы:
+    {% for tag in lecture.getTags()  %}
+        <a href="{{ path("LectureByTag", { "id": tag.getId() }) }}">{{ tag.getName() }}</a>&nbsp;
+    {% endfor %}
+</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ lecture.getVideoId() }}" frameborder="0" allowfullscreen></iframe>

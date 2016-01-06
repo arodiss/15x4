@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">Наши мероприятия проходят в {{ cities|length }} городах!</h1>
+    {% for city in cities %}
+        <h3><a href="{{ path("LectureByCity", { "id": city.getId() }) }}">{{ city.getName() }} (тут будет количество)</a></h3>
+        <hr/>
+    {% endfor %}
+{% endblock %}

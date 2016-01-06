@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">Все встречи в городе {{ city.getName() }}</h1>
+    {% for event in events %}
+        <h3><a href="{{ path("LectureByEvent", { "id": event.getId() }) }}">{{ event.getDate() | date("M d, Y")}} (тут будут темы / теги)</a></h3>
+        <hr/>
+    {% endfor %}
+{% endblock %}

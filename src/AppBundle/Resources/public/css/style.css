@@ -1,0 +1,110 @@
+footer {
+    margin-top: 20px;
+    border-top: 2px solid orangered;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: #333;
+    color: #fff;
+    line-height: 70%;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: orangered;
+}
+
+a .glyphicon {
+    color: black;
+}
+
+a:hover .glyphicon {
+    color: gray;
+}
+
+.jumbotron {
+    margin-top: 60px;
+    border-left: 4px solid orangered;
+}
+
+.nav > li > a.social {
+    padding: 10px 0;
+}
+
+.nav > li > a:not(.dropdown-toggle):before {
+    content: "";
+    position: absolute;
+    width: 88%;
+    margin-left: 6%;
+    height: 2px;
+    top: 38px;
+    bottom: 0;
+    left: 0;
+    background-color: orangered;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.nav > li > a:not(.dropdown-toggle):hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 999;
+    background-color: #666;
+    color: #eee;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    right: 65px;
+    bottom: 45px;
+    border-radius: 40px;
+    transition: all 0.5s ease-in-out;
+}
+
+.scroll-top-wrapper:hover {
+    background-color: #888;
+}
+.scroll-top-wrapper.show {
+    visibility: visible;
+    cursor: pointer;
+    opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+
+h3:not(.anchor) {
+    border-left: 2px solid orangered;
+    padding-left: 10px;
+}
+
+.panel-collapse .panel-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.panel-collapse .panel-body .row {
+    margin-bottom: 0;
+}
+
+.list-group-item {
+    border-width: 0;
+}
+
+body > .container {
+    min-height: 53vh;
+}

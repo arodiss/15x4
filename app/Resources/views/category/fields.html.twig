@@ -1,0 +1,54 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">Все дисциплины</h1>
+
+    <div class="panel-group" role="tablist">
+        {% for field in fields %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="field-{{ field.id }}-heading">
+                    <h3 class="panel-title">
+                        <a href="{{ path("LectureByField", { "id": field.id }) }}">
+                            {{ field.name }} (тут будет количество)
+                        </a>
+
+                        <a
+                            class="pull-right"
+                            role="button"
+                            data-toggle="collapse"
+                            href="#field-{{ field.id }}-body"
+                            data-target="#field-{{ field.id }}-body"
+                            aria-expanded="false"
+                        >
+                            <i class="fa fa-lg fa-arrow-circle-down expand-field" data-field-id="{{ field.id }}"></i>
+                        </a>
+                    </h3>
+                </div>
+                <div class="panel-collapse collapse" id="field-{{ field.id }}-body" role="tabpanel">
+                    <div class="panel-body">
+                        {#todo cut long strings#}
+                        <ul class="list-group row">
+                            {% for tag in field.tags %}
+                                <li class="list-group-item col-lg-2">
+                                    <a href="{{ path("LectureFiltered", { tag: tag.id, field: field.id }) }}">
+                                        {{ tag.name }} ({{ tag.lecture_count }})
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(".expand-field").click(function () {
+            $(this).toggleClass("fa-arrow-circle-down").toggleClass("fa-arrow-circle-up");
+            $("#field-" + $(this).data("field-id") + "-body").collapse('toggle');
+        });
+    </script>
+{% endblock %}
