@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">У нас есть лекции на {{ tags|length }} тем!</h1>
+    {% for tag in tags %}
+        <h3><a href="{{ path("LectureByTag", { "id": tag.getId() }) }}">{{ tag.getName() }} (тут будет количество)</a></h3>
+        <hr/>
+    {% endfor %}
+{% endblock %}
