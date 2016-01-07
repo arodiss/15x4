@@ -55,15 +55,12 @@ a:hover .glyphicon {
     left: 0;
     background-color: orangered;
     visibility: hidden;
-    -webkit-transform: scaleX(0);
     transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
 }
 
 .nav > li > a:not(.dropdown-toggle):hover:before {
     visibility: visible;
-    -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
@@ -115,6 +112,15 @@ h3:not(.anchor) {
     border-width: 0;
 }
 
-body > .container {
+body > .container:last-of-type {
     min-height: 53vh;
+}
+
+.flash {
+    position: absolute;
+    top: 2%;
+    max-width: 200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
