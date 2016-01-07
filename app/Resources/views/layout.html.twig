@@ -26,6 +26,7 @@
     </head>
     <body>
         {% block navigation %}{% include "navigation.html.twig" %}{% endblock %}
+        {% block alerts %}{% include "alerts.html.twig" %}{% endblock %}
         {% block header %}{% include "header.html.twig" %}{% endblock %}
         <div class="container">
             {% block content %}{% endblock %}
@@ -64,6 +65,8 @@
                     $('.scroll-top-wrapper').on('click', function () {
                         $('html, body').animate({scrollTop: $('body').offset().top}, 500, 'linear');
                     });
+
+                    $(".flash").fadeOut(2000);
                 });
             </script>
         {% endblock %}

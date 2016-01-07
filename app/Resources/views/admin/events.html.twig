@@ -1,15 +1,16 @@
-{% extends "admin/layout.html.twig" %}
+{% extends "admin/list-layout.html.twig" %}
 
 {% block admin_panel_header %}
     Наши встречи
 {% endblock %}
 
-{% block admin_content %}
+{% block admin_list_content %}
     <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Дата</th>
                 <th>Город</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,10 @@
                 <tr>
                     <td>{{ event.date | date }}</td>
                     <td>{{ event.city }}</td>
+                    <td>
+                        <a href="{{ path("AdminEventEdit", { "id": event.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="delete" href="{{ path("AdminEventDelete", { "id": event.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
