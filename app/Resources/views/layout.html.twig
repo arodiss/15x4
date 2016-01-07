@@ -1,10 +1,12 @@
 {#todo: Google Analytics#}
-{#todo: admin area#}
+
+{#todo cool 404 and 500 pages#}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Добро пожаловать на 15x4{% endblock %}</title>
+        <title>{% block page_title %}Добро пожаловать на 15x4{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link
             rel="stylesheet"
@@ -23,8 +25,8 @@
         ></script>
     </head>
     <body>
-        {% include "navigation.html.twig" %}
-        {% include "header.html.twig" %}
+        {% block navigation %}{% include "navigation.html.twig" %}{% endblock %}
+        {% block header %}{% include "header.html.twig" %}{% endblock %}
         <div class="container">
             {% block content %}{% endblock %}
             <div class="scroll-top-wrapper ">
@@ -33,7 +35,7 @@
                 </span>
             </div>
         </div>
-        {% include "footer.html.twig" %}
+        {% block footer %}{% include "footer.html.twig" %}{% endblock %}
 
         {% block javascripts %}
             <script type="text/javascript">

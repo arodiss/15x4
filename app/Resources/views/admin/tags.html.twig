@@ -1,0 +1,22 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block admin_panel_header %}
+    Теги (метки) для лекций
+{% endblock %}
+
+{% block admin_content %}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Имя тега</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tag in entities %}
+                <tr>
+                    <td>{{ tag }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

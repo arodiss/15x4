@@ -28,12 +28,12 @@ class Lecture
     protected $teaser;
 
     /**
-     * @ORM\Column(name="video_id", type="text", nullable=false)
+     * @ORM\Column(name="video_id", type="text", nullable=false, unique=true)
      */
     protected $videoId;
 
     /**
-     * @ORM\Column(name="discussion_video_id", type="text", nullable=false)
+     * @ORM\Column(name="discussion_video_id", type="text", nullable=false, unique=true)
      */
     protected $discussionVideoId;
 
@@ -75,6 +75,12 @@ class Lecture
      * )
      */
     protected $tags;
+
+    /** {@inheritdoc} */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 
     /** @return int */
     public function getId()
@@ -164,6 +170,12 @@ class Lecture
     public function setVideoId($videoId)
     {
         $this->videoId = $videoId;
+    }
+
+    /** @param Tag[] $tags */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
     }
 
     /** @return Tag[] */
