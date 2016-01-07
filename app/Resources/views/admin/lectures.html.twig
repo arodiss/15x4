@@ -1,0 +1,30 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block admin_panel_header %}
+    Прочитанные лекции
+{% endblock %}
+
+{% block admin_content %}
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Дисциплина</th>
+                <th>Лектор</th>
+                <th>Ивент</th>
+                <th>Теги</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lecture in entities %}
+                <tr>
+                    <td>{{ lecture.title }}</td>
+                    <td>{{ lecture.field }}</td>
+                    <td>{{ lecture.lecturer }}</td>
+                    <td>{{ lecture.event.city }}, {{ lecture.event.date | date }}</td>
+                    <td>{{ lecture.tags | join(", ") }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

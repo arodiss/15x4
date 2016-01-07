@@ -18,9 +18,15 @@ class Tag
     private $id;
 
     /**
-     * @ORM\Column(name="name", type="string", length=63, nullable=false)
+     * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
      */
     protected $name;
+
+    /** {@inheritdoc} */
+    public function __toString()
+    {
+        return "#" . $this->getName();
+    }
 
     /** @return int */
     public function getId()

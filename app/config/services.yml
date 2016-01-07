@@ -1,30 +1,4 @@
-services:
-    repository.lecture:
-        class:                                      AppBundle\Entity\Repository\LectureRepository
-        factory:                                    ['@doctrine', 'getRepository']
-        arguments:                                  [ AppBundle\Entity\Lecture ]
-
-    repository.lecturer:
-        class:                                      AppBundle\Entity\Repository\LecturerRepository
-        factory:                                    ['@doctrine', 'getRepository']
-        arguments:                                  [ AppBundle\Entity\Lecturer ]
-
-    repository.city:
-        class:                                      AppBundle\Entity\Repository\CityRepository
-        factory:                                    ['@doctrine', 'getRepository']
-        arguments:                                  [ AppBundle\Entity\City ]
-
-    repository.tag:
-        class:                                      AppBundle\Entity\Repository\TagRepository
-        factory:                                    ['@doctrine', 'getRepository']
-        arguments:                                  [ AppBundle\Entity\Tag ]
-
-    repository.field:
-        class:                                      AppBundle\Entity\Repository\FieldRepository
-        factory:                                    ['@doctrine', 'getRepository']
-        arguments:                                  [ AppBundle\Entity\Field ]
-
-    repository.event:
-        class:                                      AppBundle\Entity\Repository\EventRepository
-        factory:                                    ['@doctrine', 'getRepository']
-        arguments:                                  [ AppBundle\Entity\Event ]
+imports:
+    - { resource: services/repositories.yml }
+    - { resource: services/forms.yml }
+    - { resource: services/misc.yml }

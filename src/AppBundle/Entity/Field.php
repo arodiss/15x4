@@ -18,7 +18,7 @@ class Field
     private $id;
 
     /**
-     * @ORM\Column(name="name", type="string", length=63, nullable=false)
+     * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
      */
     protected $name;
 
@@ -36,6 +36,12 @@ class Field
      * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Lecture", mappedBy="field")
      */
     protected $lectures;
+
+    /** {@inheritdoc} */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /** @return int */
     public function getId()

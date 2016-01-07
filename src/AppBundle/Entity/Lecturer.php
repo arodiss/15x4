@@ -22,7 +22,7 @@ class Lecturer
     private $id;
 
     /**
-     * @ORM\Column(name="name", type="string", length=63, nullable=false)
+     * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
      */
     protected $name;
 
@@ -36,6 +36,12 @@ class Lecturer
      * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Lecture", mappedBy="lecturer")
      */
     protected $lectures;
+
+    /** {@inheritdoc} */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /** @return int */
     public function getId()
