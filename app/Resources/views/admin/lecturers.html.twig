@@ -1,15 +1,16 @@
-{% extends "admin/layout.html.twig" %}
+{% extends "admin/list-layout.html.twig" %}
 
 {% block admin_panel_header %}
     Наши лекторы
 {% endblock %}
 
-{% block admin_content %}
+{% block admin_list_content %}
     <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Имя</th>
                 <th>Дополнительная информация</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,10 @@
                 <tr>
                     <td>{{ lecturer }}</td>
                     <td>{{ lecturer.bio }}</td>
+                    <td>
+                        <a href="{{ path("AdminLecturerEdit", { "id": lecturer.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="delete" href="{{ path("AdminLecturerDelete", { "id": lecturer.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

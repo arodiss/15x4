@@ -28,12 +28,12 @@ class Lecture
     protected $teaser;
 
     /**
-     * @ORM\Column(name="video_id", type="text", nullable=false, unique=true)
+     * @ORM\Column(name="video_id", type="string", length=31, nullable=false, unique=true)
      */
     protected $videoId;
 
     /**
-     * @ORM\Column(name="discussion_video_id", type="text", nullable=false, unique=true)
+     * @ORM\Column(name="discussion_video_id", type="string", length=31, nullable=false, unique=true)
      */
     protected $discussionVideoId;
 
@@ -70,8 +70,8 @@ class Lecture
     /**
      * @ORM\ManyToMany(targetEntity="Tag")
      * @ORM\JoinTable(name="tag_lecture",
-     *     joinColumns={@ORM\JoinColumn(name="lecture_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     *     joinColumns={@ORM\JoinColumn(name="lecture_id", referencedColumnName="id", onDelete="CASCADE")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", onDelete="CASCADE")}
      * )
      */
     protected $tags;

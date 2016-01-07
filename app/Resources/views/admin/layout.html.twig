@@ -3,42 +3,15 @@
     {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% endif %}
 
-{#todo: deletion and editing#}
-
 {% block content %}
     <h1>Вы находитесь в админке</h1>
-    <h4>Это значит, что вы можете поломать этот сайт</h4>
-    <h4>Пожалуйста, будьте аккуратны и проверяйте данные, перед тем как загрузить их</h4>
+    <div class="alert alert-warning" role="alert">
+        <p><strong>Это значит, что вы можете поломать этот сайт</strong></p>
+        <p>Пожалуйста, будьте аккуратны и проверяйте данные, перед тем как загрузить их</p>
+    </div>
     <hr/>
     <div class="row">
-        <div class="col-lg-9">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {% block admin_panel_header %}{% endblock %}
-                </div>
-                <div class="panel-body">
-                    {% block admin_content %}
-                        <p>
-                            На этой страничке нет ничего интересного - воспользуйтесь навигацией, чтобы попасть куда-то ещё
-                        </p>
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Добавить ещё
-                </div>
-                <div class="panel-body">
-                    {% if form is defined %}
-                        {{ form(form) }}
-                    {% else %}
-                        На этой странице нечего создавать
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+        {% block admin_content %}{% endblock %}
     </div>
 {% endblock %}
 
@@ -47,6 +20,17 @@
 {% endblock %}
 
 {% block page_title %}15x4 - администрирование{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function () {
+            $("a.delete").click(function () {
+                return confirm("Вы точно хотите удаить это?");
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block header %}{% endblock %}
 {% block footer %}{% endblock %}

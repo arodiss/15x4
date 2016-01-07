@@ -1,10 +1,10 @@
-{% extends "admin/layout.html.twig" %}
+{% extends "admin/list-layout.html.twig" %}
 
 {% block admin_panel_header %}
     Прочитанные лекции
 {% endblock %}
 
-{% block admin_content %}
+{% block admin_list_content %}
     <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -13,6 +13,7 @@
                 <th>Лектор</th>
                 <th>Ивент</th>
                 <th>Теги</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
                     <td>{{ lecture.lecturer }}</td>
                     <td>{{ lecture.event.city }}, {{ lecture.event.date | date }}</td>
                     <td>{{ lecture.tags | join(", ") }}</td>
+                    <td>
+                        <a href="{{ path("AdminLectureEdit", { "id": lecture.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="delete" href="{{ path("AdminLectureDelete", { "id": lecture.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
