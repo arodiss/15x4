@@ -1,0 +1,45 @@
+{% extends 'shared/lecture-list.html.twig' %}
+
+{% block listHeader %}
+    <div class="row">
+        <div class="col-lg-6">
+            <img
+                src="/bundles/app/images/fields/{{ field.getImageName() ? : field.getDefaultImageName() }}"
+            />
+        </div>
+        <div class="col-lg-6">
+            <h3 class="text-capitalize">{{ field.getName() }}</h3>
+            <hr/>
+            <p class="text-muted">
+                {{ field.getDescription() }}
+            </p>
+            <hr/>
+            {% if tags | length > 0  %}
+                <p class="pull-right">
+                    <a
+                        id="field-tags"
+                        tabindex="0"
+                        role="button"
+                        data-trigger="focus"
+                        data-toggle="popover"
+                        data-placement="left"
+                        data-html="true"
+                        data-content="{% filter escape %}{% include "shared/tag-list.html.twig" with { 'tags': tags, 'field': field } %}{% endfilter %}"
+                    >
+                        Теги ({{ tags | length }})
+                    </a>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <hr/>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function () {
+            $("#field-tags").popover({container: 'body'});
+        });
+    </script>
+{% endblock %}
