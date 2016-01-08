@@ -86,11 +86,10 @@ class Field
     }
 
     /**
-     * @todo: real implementation here and in template
      * @return string
      */
     public function getDefaultImageName()
     {
-        return "https://pp.vk.me/c633429/v633429147/ad03/yQN1nr6jgTo.jpg";
+        return "unknown.jpg";
     }
 }
