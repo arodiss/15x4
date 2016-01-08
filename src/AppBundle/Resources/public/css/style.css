@@ -124,3 +124,15 @@ body > .container:last-of-type {
     right: 0;
     margin: 0 auto;
 }
+
+.popover {
+    max-width: 100%;
+}
+
+.popover .list-group-item {
+    min-width: 120px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">Количество захваченных городов: {{ cities|length }}</h1>
+    {% for city in cities %}
+        <h3><a href="{{ path("EventByCity", { "id": city.id }) }}">{{ city.name }} (количество встреч: {{ city.events_count }})</a></h3>
+        <hr/>
+    {% endfor %}
+{% endblock %}

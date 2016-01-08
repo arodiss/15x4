@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">Все дисциплины</h1>
+
+    <div class="panel-group" role="tablist">
+        {% for field in fields %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="field-{{ field.id }}-heading">
+                    <h3 class="panel-title">
+                        <a href="{{ path("LectureByField", { "id": field.id }) }}">
+                            {{ field.name }} ({{ field.lecture_count }})
+                        </a>
+
+                        <a
+                            class="pull-right"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#field-{{ field.id }}-body"
+                            aria-expanded="false"
+                        >
+                            <i class="fa fa-lg fa-arrow-circle-down expand-field" data-field-id="{{ field.id }}"></i>
+                        </a>
+                    </h3>
+                </div>
+                <div class="panel-collapse collapse" id="field-{{ field.id }}-body" role="tabpanel">
+                    <div class="panel-body">
+                        {% include "shared/tag-list.html.twig" with { 'tags': field.tags, 'field': field } %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $('.expand-field').click(function () {
+            $(this).toggleClass('fa-arrow-circle-down').toggleClass('fa-arrow-circle-up');
+            $('#field-' + $(this).data('field-id') + '-body').collapse('toggle');
+        });
+    </script>
+{% endblock %}

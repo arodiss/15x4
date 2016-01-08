@@ -1,0 +1,62 @@
+{% extends 'shared/lecture-list.html.twig' %}
+
+{% block listHeader %}
+    <h1>Выбранные лекции</h1>
+    {#todo possibility to add filters#}
+
+    <div class="row">
+        {% if field %}
+            <div class="col-lg-3 well well-sm">
+                Область: {{ field }}
+                <span class="pull-right">
+                    <span id="remove-field" class="glyphicon glyphicon-remove cursor-pointer"></span>
+                </span>
+            </div>
+        {% endif %}
+        {% if tag %}
+            <div class="col-lg-3 well well-sm">
+                Тег: {{ tag }}
+                <span class="pull-right">
+                    <span id="remove-tag" class="glyphicon glyphicon-remove cursor-pointer"></span>
+                </span>
+            </div>
+        {% endif %}
+        {% if lecturer %}
+            <div class="col-lg-3 well well-sm filter-lecturer" data-title="{{ lecturer.bio }}">
+                Лектор: {{ lecturer }}
+                <span class="pull-right">
+                    <span id="remove-lecturer" class="glyphicon glyphicon-remove cursor-pointer"></span>
+                </span>
+            </div>
+        {% endif %}
+        {% if event %}
+            <div class="col-lg-3 well well-sm">
+                Встреча: {{ event.date | date }}, {{ event.city }}
+                <span class="pull-right">
+                    <span id="remove-event" class="glyphicon glyphicon-remove cursor-pointer"></span>
+                </span>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(function () {
+            $("#remove-field").click(function () {
+                window.location.search = window.location.search.replace(new RegExp("[&;]?field=[^&;]+"), "");
+            });
+            $("#remove-tag").click(function () {
+                window.location.search = window.location.search.replace(new RegExp("[&;]?tag=[^&;]+"), "");
+            });
+            $("#remove-lecturer").click(function () {
+                window.location.search = window.location.search.replace(new RegExp("[&;]?lecturer=[^&;]+"), "");
+            });
+            $("#remove-event").click(function () {
+                window.location.search = window.location.search.replace(new RegExp("[&;]?event=[^&;]+"), "");
+            });
+
+            $(".filter-lecturer").tooltip();
+        });
+    </script>
+{% endblock %}
