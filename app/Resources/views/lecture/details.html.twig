@@ -15,7 +15,7 @@
         Область: <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
         Теги:
         {% for tag in lecture.getTags()  %}
-            <a href="{{ path("LectureFiltered", { "id": tag.id }) }}">{{ tag }}</a>&nbsp;
+            <a href="{{ path("LectureFiltered", { "tag": tag.id }) }}">{{ tag }}</a>&nbsp;
         {% endfor %}
     </p>
 
