@@ -73,12 +73,12 @@ a:hover .glyphicon {
     z-index: 999;
     background-color: #666;
     color: #eee;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    right: 65px;
-    bottom: 45px;
-    border-radius: 40px;
+    width: 60px;
+    height: 60px;
+    line-height: 56px;
+    right: 50px;
+    bottom: 40px;
+    border-radius: 30px;
     transition: all 0.5s ease-in-out;
 }
 
