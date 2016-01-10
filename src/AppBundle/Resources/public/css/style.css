@@ -44,10 +44,6 @@ a:hover .glyphicon {
     border-left: 4px solid orangered;
 }
 
-.nav > li > a.social {
-    padding: 10px 0;
-}
-
 .nav > li > a:not(.dropdown-toggle):before {
     content: "";
     position: absolute;
@@ -66,6 +62,14 @@ a:hover .glyphicon {
 .nav > li > a:not(.dropdown-toggle):hover:before {
     visibility: visible;
     transform: scaleX(1);
+}
+
+.nav .dropdown-menu .fa-stack {
+    top: -2px;
+}
+
+.nav .dropdown-menu .fa-stack .fa-stack-2x {
+    top: 2px;
 }
 
 .scroll-top-wrapper {
