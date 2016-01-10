@@ -8,6 +8,10 @@ footer {
     line-height: 70%;
 }
 
+footer p {
+    line-height: 100%;
+}
+
 header {
     background-color: #A53000;
     background-image: url('/bundles/app/images/bg.png');
@@ -40,10 +44,6 @@ a:hover .glyphicon {
     border-left: 4px solid orangered;
 }
 
-.nav > li > a.social {
-    padding: 10px 0;
-}
-
 .nav > li > a:not(.dropdown-toggle):before {
     content: "";
     position: absolute;
@@ -64,6 +64,14 @@ a:hover .glyphicon {
     transform: scaleX(1);
 }
 
+.nav .dropdown-menu .fa-stack {
+    top: -2px;
+}
+
+.nav .dropdown-menu .fa-stack .fa-stack-2x {
+    top: 2px;
+}
+
 .scroll-top-wrapper {
     position: fixed;
     opacity: 0;
@@ -73,12 +81,12 @@ a:hover .glyphicon {
     z-index: 999;
     background-color: #666;
     color: #eee;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    right: 65px;
-    bottom: 45px;
-    border-radius: 40px;
+    width: 60px;
+    height: 60px;
+    line-height: 56px;
+    right: 50px;
+    bottom: 40px;
+    border-radius: 30px;
     transition: all 0.5s ease-in-out;
 }
 

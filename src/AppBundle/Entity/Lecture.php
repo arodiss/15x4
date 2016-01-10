@@ -68,8 +68,8 @@ class Lecture
     protected $event;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag")
-     * @ORM\JoinTable(name="tag_lecture",
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="lectures")
+     * @ORM\JoinTable(
      *     joinColumns={@ORM\JoinColumn(name="lecture_id", referencedColumnName="id", onDelete="CASCADE")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", onDelete="CASCADE")}
      * )

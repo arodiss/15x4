@@ -1,19 +1,23 @@
-<h3><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h3>
+<div class="row">
+    <div class="col-lg-6">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ lecture.getVideoId() }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-lg-6">
+        <h4 style="text-decoration: underline;"><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h4>
 
-<p class="small">
-    <a href="{{ path("LectureFiltered", { "event": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
-    <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
-    <a href="{{ path("LectureFiltered", { "lecturer": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
-</p>
+        <p class="small">
+            <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+            {% for tag in lecture.getTags()  %}
+                <a href="{{ path("LectureFiltered", { "tag": tag.id }) }}">{{ tag }}</a>&nbsp;
+            {% endfor %}
+        </p>
 
-<p class="small">{{ lecture.teaser }}</p>
+        <p class="small">{{ lecture.teaser }}</p>
 
-<p class="small">
-    Область: <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
-    Теги:
-    {% for tag in lecture.getTags()  %}
-        <a href="{{ path("LectureFiltered", { "id": tag.id }) }}">{{ tag }}</a>&nbsp;
-    {% endfor %}
-</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ lecture.getVideoId() }}" frameborder="0" allowfullscreen></iframe>
+        <p class="small">
+            <a href="{{ path("LectureFiltered", { "event": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
+            <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
+            <a href="{{ path("LectureFiltered", { "lecturer": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
+        </p>
+    </div>
+</div>

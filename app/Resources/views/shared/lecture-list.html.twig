@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+    {% block listHeader %}{% endblock %}
     {% for lecture in lectures %}
         {% include 'shared/lecture-preview.html.twig' %}
         <hr/>

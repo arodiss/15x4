@@ -23,11 +23,7 @@ class Tag
     protected $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Lecture")
-     * @ORM\JoinTable(name="tag_lecture",
-     *     joinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", onDelete="CASCADE")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="lecture_id", referencedColumnName="id", onDelete="CASCADE")}
-     * )
+     * @ORM\ManyToMany(targetEntity="Lecture", mappedBy="tags")
      */
     protected $lectures;
 
