@@ -8,6 +8,10 @@ footer {
     line-height: 70%;
 }
 
+footer p {
+    line-height: 100%;
+}
+
 header {
     background-color: #A53000;
     background-image: url('/bundles/app/images/bg.png');
