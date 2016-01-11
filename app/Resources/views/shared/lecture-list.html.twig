@@ -6,4 +6,7 @@
         {% include 'shared/lecture-preview.html.twig' %}
         <hr/>
     {% endfor %}
+    {% if lectures|length == 0 %}
+        <p>Извините, здесь нечего показывать</p>
+    {% endif %}
 {% endblock %}
