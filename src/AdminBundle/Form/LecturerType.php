@@ -17,7 +17,10 @@ class LecturerType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Имя'])
-            ->add('bio', TextareaType::class, ['label' => 'Дополнительная информация'])
+            ->add('bio', TextareaType::class, [
+                'label' => 'Дополнительная информация',
+                'required' => false,
+            ])
             ->add('save', SubmitType::class)
         ;
     }

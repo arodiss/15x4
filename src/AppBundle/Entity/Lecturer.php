@@ -27,7 +27,7 @@ class Lecturer
     protected $name;
 
     /**
-     * @ORM\Column(name="bio", type="text", nullable=false)
+     * @ORM\Column(name="bio", type="text", nullable=true)
      */
     protected $bio;
 
