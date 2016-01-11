@@ -1,5 +1,7 @@
 {% extends 'layout.html.twig' %}
 
+{% block page_title %}15x4 — Лекторы{% endblock %}
+
 {% block content %}
     <h1 class="page-header">Количество лекторов: {{ lecturers|length }}</h1>
     {% for lecturer in lecturers %}

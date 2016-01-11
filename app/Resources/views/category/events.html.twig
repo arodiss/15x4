@@ -1,5 +1,7 @@
 {% extends 'layout.html.twig' %}
 
+{% block page_title %}15x4 — Встречи в {{ city }}{% endblock %}
+
 {% block content %}
     <h1 class="page-header">Все встречи в городе {{ city }}</h1>
     {% for event in events %}

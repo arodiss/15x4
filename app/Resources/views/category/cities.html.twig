@@ -1,5 +1,7 @@
 {% extends 'layout.html.twig' %}
 
+{% block page_title %}15x4 — Города{% endblock %}
+
 {% block content %}
     <h1 class="page-header">Количество захваченных городов: {{ cities|length }}</h1>
     {% for city in cities %}
