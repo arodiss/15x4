@@ -1,5 +1,7 @@
 {% extends 'layout.html.twig' %}
 
+{% block page_title %}15x4 — {{ lecture }}{% endblock %}
+
 {% block content %}
     <h3><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h3>
 
