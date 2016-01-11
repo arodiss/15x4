@@ -50,7 +50,8 @@ class LectureType extends AbstractType
                     'label' => 'Теги',
                     'class' => Entity\Tag::class,
                     'choice_label' => 'name',
-                    'multiple' => true
+                    'multiple' => true,
+                    'required' => false,
                 ]
             )
             ->add('save', SubmitType::class)
