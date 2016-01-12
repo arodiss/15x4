@@ -28,8 +28,12 @@
     {{ parent() }}
     <script type="text/javascript">
         $(function () {
-            $("a.delete").click(function () {
-                return confirm("Вы точно хотите удаить это?");
+            $('a.delete').click(function () {
+                return confirm('Вы точно хотите удаить это?');
+            });
+
+            $('.selectizable').selectize({
+                placeholder: 'Выбрать ...'
             });
         });
     </script>

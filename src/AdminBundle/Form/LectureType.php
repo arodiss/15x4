@@ -30,18 +30,31 @@ class LectureType extends AbstractType
             ->add(
                 'lecturer',
                 EntityType::class,
-                ['label' => 'Лектор', 'class' => Entity\Lecturer::class, 'choice_label' => 'name']
+                [
+                    'label' => 'Лектор',
+                    'class' => Entity\Lecturer::class,
+                    'choice_label' => 'name',
+                    'required' => false,
+                    'attr' => ['class' => 'selectizable'],
+                ]
             )
             ->add(
                 'event',
                 EntityType::class,
-                ['label' => 'Ивент', 'class' => Entity\Event::class, 'choice_label' => function (Event $event) {
-                    return sprintf(
-                        "%s, %s",
-                        $event->getCity()->getName(),
-                        $event->getDate()->format("d.m.Y")
-                    );
-                }]
+                [
+                    'label' => 'Ивент',
+                    'class' => Entity\Event::class,
+                    'group_by' => 'city',
+                    'required' => false,
+                    'attr' => ['class' => 'selectizable'],
+                    'choice_label' => function (Event $event) {
+                        return sprintf(
+                            "%s, %s",
+                            $event->getCity()->getName(),
+                            $event->getDate()->format("d.m.Y")
+                        );
+                    }
+                ]
             )
             ->add(
                 'tags',
@@ -52,6 +65,7 @@ class LectureType extends AbstractType
                     'choice_label' => 'name',
                     'multiple' => true,
                     'required' => false,
+                    'attr' => ['class' => 'selectizable'],
                 ]
             )
             ->add('save', SubmitType::class)
