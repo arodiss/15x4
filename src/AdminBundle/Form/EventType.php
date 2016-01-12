@@ -16,7 +16,7 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class, ['label' => 'Дата'])
+            ->add('date', DateType::class, ['label' => 'Дата', 'years' => range(2015, date('Y')) ])
             ->add(
                 'city',
                 EntityType::class,

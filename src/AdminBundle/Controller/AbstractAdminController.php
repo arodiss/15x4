@@ -10,8 +10,6 @@ abstract class AbstractAdminController extends Controller
 {
     //todo paging
 
-    //todo better inputs for long lists
-
     /** @return array */
     abstract protected function getAdminConfig();
 
