@@ -27,6 +27,8 @@ framework:
     assets: ~
 
 twig:
+    globals:
+        google_analytics_id: %google_analytics_id%
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     date:
