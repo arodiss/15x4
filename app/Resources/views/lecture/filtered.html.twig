@@ -43,6 +43,8 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
+
     <script type="text/javascript">
         $(function () {
             $("#remove-field").click(function () {
