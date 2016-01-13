@@ -8,16 +8,16 @@ use Doctrine\ORM\EntityRepository;
 class LectureRepository extends EntityRepository
 {
     /**
+     * @param Entity\Field $field
      * @param Entity\Tag $tag
      * @param Entity\Event $event
-     * @param Entity\Field $field
      * @param Entity\Lecturer $lecturer
-     * @return Entity\Lecture[]
+     * @return \Doctrine\ORM\Query
      */
     public function findByFilters(
+        Entity\Field $field = null,
         Entity\Tag $tag = null,
         Entity\Event $event = null,
-        Entity\Field $field = null,
         Entity\Lecturer $lecturer = null
     ) {
         $qb = $this
@@ -39,7 +39,7 @@ class LectureRepository extends EntityRepository
             $qb->andWhere($qb->expr()->eq('lecture.lecturer', $lecturer->getId()));
         }
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery();
     }
 
     /** @return Entity\Lecture */

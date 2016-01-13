@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class AbstractAdminController extends Controller
 {
-    //todo paging
+    const ITEMS_PER_PAGE = 20;
 
     /** @return array */
     abstract protected function getAdminConfig();
@@ -81,5 +81,11 @@ abstract class AbstractAdminController extends Controller
     protected function getEm()
     {
         return $this->get("doctrine.orm.entity_manager");
+    }
+
+    /** @return \Knp\Component\Pager\Paginator */
+    protected function getPager()
+    {
+        return $this->get('knp_paginator');
     }
 } 

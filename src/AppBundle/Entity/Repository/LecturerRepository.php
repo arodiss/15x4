@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityRepository;
 
 class LecturerRepository extends EntityRepository
 {
-    /** @return array */
+    /** @return \Doctrine\ORM\Query */
     public function findForList()
     {
         return $this
@@ -17,7 +17,6 @@ class LecturerRepository extends EntityRepository
             ->select('lecturer.id, lecturer.name, lecturer.bio, COUNT(lecture.id) AS lectures_count')
             ->orderBy('lectures_count', 'DESC')
             ->getQuery()
-            ->getArrayResult()
         ;
     }
 }

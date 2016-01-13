@@ -8,8 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LectureController extends AbstractController
 {
-    //todo paging
-
     /**
      * @Extra\Route("/lecture/discussion/{id}/", name="LectureDetails")
      * @Extra\ParamConverter()
@@ -34,10 +32,14 @@ class LectureController extends AbstractController
     /**
      * @Extra\Route("/lecture/all/", name="LectureAll")
      */
-    public function listAllAction()
+    public function listAllAction(Request $request)
     {
         return $this->render('lecture/all.html.twig', [
-            'lectures' => $this->getLectureRepository()->findByFilters(),
+            'pagination' => $this->getPager()->paginate(
+                $this->getLectureRepository()->findByFilters(),
+                $request->get('page', 1),
+                self::ITEMS_PER_PAGE
+            )
         ]);
     }
 
@@ -57,7 +59,11 @@ class LectureController extends AbstractController
         return $this->render(
             'lecture/filtered.html.twig',
             [
-                'lectures' => $this->getLectureRepository()->findByFilters($tag, $event, $field, $lecturer),
+                'pagination' => $this->getPager()->paginate(
+                    $this->getLectureRepository()->findByFilters($field, $tag, $event, $lecturer),
+                    $request->get('page', 1),
+                    self::ITEMS_PER_PAGE
+                ),
                 'tag' => $tag,
                 'event' => $event,
                 'field' => $field,
@@ -70,10 +76,14 @@ class LectureController extends AbstractController
      * @Extra\Route("/lecture/field/{id}", name="LectureByField")
      * @Extra\ParamConverter()
      */
-    public function listByFieldAction(Entity\Field $field)
+    public function listByFieldAction(Entity\Field $field, Request $request)
     {
         return $this->render('lecture/by-field.html.twig', [
-            'lectures' => $this->getLectureRepository()->findByField($field),
+            'pagination' => $this->getPager()->paginate(
+                $this->getLectureRepository()->findByFilters($field),
+                $request->get('page', 1),
+                self::ITEMS_PER_PAGE
+            ),
             'tags' => $this->getFieldRepository()->findWithTags($field)[0]['tags'],
             'field' => $field,
         ]);

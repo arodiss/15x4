@@ -10,7 +10,7 @@ class EventRepository extends EntityRepository
 {
     /**
      * @param City $city
-     * @return Event[]
+     * @return \Doctrine\ORM\Query
      */
     public function findForList(City $city)
     {
@@ -23,7 +23,6 @@ class EventRepository extends EntityRepository
             ->select('event.date', 'event.id', 'GROUP_CONCAT(field.name) as fields')
             ->orderBy('event.date', 'DESC')
             ->getQuery()
-            ->getArrayResult()
         ;
     }
 }
