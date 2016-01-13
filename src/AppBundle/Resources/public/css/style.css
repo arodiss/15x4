@@ -144,3 +144,26 @@ body > .container:last-of-type {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.well a {
+    color: black;
+    text-decoration: underline;
+}
+
+.well a:hover {
+    color: orangered;
+}
+
+.carousel-indicators li {
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    border: 2px solid orangered;
+}
+
+.carousel-indicators li.active {
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    background-color: orangered;
+}
