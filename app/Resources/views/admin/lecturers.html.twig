@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for lecturer in entities %}
+            {% for lecturer in pagination.items %}
                 <tr>
                     <td>{{ lecturer }}</td>
                     <td>{{ lecturer.bio }}</td>
@@ -25,5 +25,10 @@
                 </tr>
             {% endfor %}
         </tbody>
+        <tfoot>
+            <tr><td colspan="3">
+                {% include 'shared/pagination.html.twig' with { pagination: pagination.paginationData } %}
+            </td></tr>
+        </tfoot>
     </table>
 {% endblock %}

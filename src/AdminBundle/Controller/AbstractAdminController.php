@@ -35,7 +35,11 @@ abstract class AbstractAdminController extends Controller
         return $this->render(
             $this->getAdminConfig()['list_template'],
             [
-                'entities' => $this->get($this->getAdminConfig()['repository_service'])->findAll(),
+                'pagination' => $this->getPager()->paginate(
+                    $this->get($this->getAdminConfig()['repository_service'])->createQueryBuilder('qb'),
+                    $request->get('page', 1),
+                    self::ITEMS_PER_PAGE
+                ),
                 'form' => $this->createForm($this->getAdminConfig()['form_type'])->createView()
             ]
         );
