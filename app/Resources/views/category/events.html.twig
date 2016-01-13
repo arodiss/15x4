@@ -4,9 +4,52 @@
 
 {% block content %}
     <h1 class="page-header">Все встречи в городе {{ city }}</h1>
-    {% for event in pagination.items %}
-        <h3><a href="{{ path("LectureFiltered", { "event": event.id }) }}">{{ event.date | date }} ({{ event.fields }})</a></h3>
-        <hr/>
-    {% endfor %}
+
+    <div class="carousel slide" id="events-carousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for event in pagination.items %}
+                <li data-target="#events-carousel" data-slide-to="{{ loop.index0 }}" {% if loop.first %} class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+            {% for event in pagination.items %}
+                <div class="item{% if loop.first %} active{% endif %}">
+                    <div class="row well" style="margin-bottom: 0;">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <h4><a href="{{ path("LectureFiltered", { "event": event.id }) }}">{{ event.date | date }}</a></h4>
+                            {% for lecture in event.lectures %}
+                                <p>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <a href="{{ path("LectureDetails", { 'id': lecture.id }) }}">{{ lecture.title }}</a>
+                                    -
+                                    <i>
+                                        <a href="{{ path("LectureFiltered", { 'lecturer': lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
+                                    </i>
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <a class="left carousel-control" href="#events-carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Предыдущая встреча</span>
+            </a>
+            <a class="right carousel-control" href="#events-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Следующая встреча</span>
+            </a>
+
+        </div>
+    </div>
     {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $('#events-carousel').carousel({'interval': 50000000})
+    </script>
 {% endblock %}

@@ -18,9 +18,6 @@ class EventRepository extends EntityRepository
 
         return $qb
             ->andWhere($qb->expr()->eq('event.city', $city->getId()))
-            ->leftJoin('event.lectures', 'lecture')
-            ->leftJoin('lecture.field', 'field')
-            ->select('event.date', 'event.id', 'GROUP_CONCAT(field.name) as fields')
             ->orderBy('event.date', 'DESC')
             ->getQuery()
         ;

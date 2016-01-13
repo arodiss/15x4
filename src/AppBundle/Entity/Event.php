@@ -67,4 +67,10 @@ class Event
     {
         $this->city = $city;
     }
+
+    /** @return Lecture[] */
+    public function getLectures()
+    {
+        return $this->lectures;
+    }
 }
