@@ -4,8 +4,9 @@
 
 {% block content %}
     <h1 class="page-header">Все встречи в городе {{ city }}</h1>
-    {% for event in events %}
+    {% for event in pagination.items %}
         <h3><a href="{{ path("LectureFiltered", { "event": event.id }) }}">{{ event.date | date }} ({{ event.fields }})</a></h3>
         <hr/>
     {% endfor %}
+    {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}

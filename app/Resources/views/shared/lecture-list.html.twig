@@ -2,11 +2,12 @@
 
 {% block content %}
     {% block listHeader %}{% endblock %}
-    {% for lecture in lectures %}
+    {% for lecture in pagination.items %}
         {% include 'shared/lecture-preview.html.twig' %}
         <hr/>
     {% endfor %}
-    {% if lectures|length == 0 %}
+    {% if pagination.items|length == 0 %}
         <p>Извините, здесь нечего показывать</p>
     {% endif %}
+    {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}

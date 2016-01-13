@@ -3,10 +3,12 @@
 {% block page_title %}15x4 — Теги{% endblock %}
 
 {% block content %}
-    <h1 class="page-header">Количество тегов: {{ tags|length }}</h1>
+    <h1 class="page-header">Количество тегов: {{ pagination.items|length }}</h1>
 
-    {% for tag in tags %}
+    {% for tag in pagination.items %}
         <h3><a href="{{ path("LectureFiltered", { "tag": tag.id }) }}">{{ tag.name }} ({{ tag.lectures_count }})</a></h3>
         <hr/>
     {% endfor %}
+
+    {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}

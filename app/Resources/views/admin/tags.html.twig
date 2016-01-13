@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for tag in entities %}
+            {% for tag in pagination.items %}
                 <tr>
                     <td>{{ tag }}</td>
                     <td>
@@ -23,5 +23,10 @@
                 </tr>
             {% endfor %}
         </tbody>
+        <tfoot>
+            <tr><td colspan="2">
+                {% include 'shared/pagination.html.twig' with { pagination: pagination.paginationData } %}
+            </td></tr>
+        </tfoot>
     </table>
 {% endblock %}

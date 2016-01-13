@@ -11,7 +11,7 @@ class LandingController extends Controller
     /**
      * @Extra\Route("/", name="Landing")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         return $this->render('landing/landing.html.twig');
     }

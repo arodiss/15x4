@@ -1,0 +1,35 @@
+{% if pagination.pageCount > 1 %}
+    <div class="row">
+        <div class="pull-right">
+            <ul class="pagination">
+                {% if pagination.current != 1 %}
+                    <li><a href="?page={{ pagination.current-1 }}">Предыдущая</a></li>
+                    <li><a href="?page=1">1</a></li>
+                {% endif %}
+                {% if pagination.current >= 4 %}
+                    <li class="disabled"><a href="#">...</a></li>
+                {% endif %}
+                {% if pagination.current >= 3 %}
+                    <li><a href="?page={{ pagination.current - 1 }}">{{ pagination.current - 1 }}</a></li>
+                {% endif %}
+                <li class="active"><a href="#">{{ pagination.current }}</a></li>
+                {% if pagination.last - pagination.current >= 2 %}
+                    <li><a href="?page={{ pagination.current + 1 }}">{{ pagination.current + 1 }}</a></li>
+                {% endif %}
+                {% if pagination.last - pagination.current >= 3 %}
+                    <li class="disabled"><a href="#">...</a></li>
+                {% endif %}
+                {% if pagination.current != pagination.last %}
+                    <li><a href="?page={{ pagination.last }}">{{ pagination.last }}</a></li>
+                    <li><a href="?page={{ pagination.current + 1 }}">Следующая</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <p class="small text-muted pull-right">
+            Показаны элементы с {{ pagination.firstItemNumber }} по {{ pagination.lastItemNumber }}, из {{ pagination.totalCount }}
+        </p>
+    </div>
+{% endif %}

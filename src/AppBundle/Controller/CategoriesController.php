@@ -4,11 +4,10 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AppBundle\Entity\City;
+use Symfony\Component\HttpFoundation\Request;
 
 class CategoriesController extends AbstractController
 {
-    //todo paging
-
     /**
      * @Extra\Route("/fields/", name="Fields")
      * @Extra\ParamConverter()
@@ -24,10 +23,14 @@ class CategoriesController extends AbstractController
      * @Extra\Route("/tags/", name="Tags")
      * @Extra\ParamConverter()
      */
-    public function tagsAction()
+    public function tagsAction(Request $request)
     {
         return $this->render('category/tags.html.twig', [
-            'tags' => $this->getTagRepository()->findForList(),
+            'pagination' => $this->getPager()->paginate(
+                $this->getTagRepository()->findForList(),
+                $request->get('page', 1),
+                self::ITEMS_PER_PAGE
+            )
         ]);
     }
 
@@ -46,10 +49,14 @@ class CategoriesController extends AbstractController
      * @Extra\Route("/lecture/city/{id}", name="EventByCity")
      * @Extra\ParamConverter()
      */
-    public function listByCityAction(City $city)
+    public function listByCityAction(City $city, Request $request)
     {
         return $this->render('category/events.html.twig', [
-            'events' => $this->getEventRepository()->findForList($city),
+            'pagination' => $this->getPager()->paginate(
+                $this->getEventRepository()->findForList($city),
+                $request->get('page', 1),
+                self::ITEMS_PER_PAGE
+            ),
             'city' => $city,
         ]);
     }
@@ -58,10 +65,14 @@ class CategoriesController extends AbstractController
      * @Extra\Route("/lecturers/", name="Lecturers")
      * @Extra\ParamConverter()
      */
-    public function lecturersAction()
+    public function lecturersAction(Request $request)
     {
         return $this->render('category/lecturers.html.twig', [
-            'lecturers' => $this->getLecturerRepository()->findForList(),
+            'pagination' => $this->getPager()->paginate(
+                $this->getLecturerRepository()->findForList(),
+                $request->get('page', 1),
+                self::ITEMS_PER_PAGE
+            ),
         ]);
     }
 }

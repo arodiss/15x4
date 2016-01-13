@@ -7,6 +7,8 @@ use AppBundle\Entity\Repository;
 
 class AbstractController extends Controller
 {
+    const ITEMS_PER_PAGE = 10;
+
     /** @return Repository\LectureRepository */
     protected function getLectureRepository()
     {
@@ -41,5 +43,11 @@ class AbstractController extends Controller
     protected function getCityRepository()
     {
         return $this->get("repository.city");
+    }
+
+    /** @return \Knp\Component\Pager\Paginator */
+    protected function getPager()
+    {
+        return $this->get('knp_paginator');
     }
 } 
