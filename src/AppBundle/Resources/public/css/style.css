@@ -65,11 +65,11 @@ a:hover .glyphicon {
 }
 
 .nav .dropdown-menu .fa-stack {
-    top: -2px;
+    top: -4px;
 }
 
 .nav .dropdown-menu .fa-stack .fa-stack-2x {
-    top: 2px;
+    top: 1px;
 }
 
 .scroll-top-wrapper {
@@ -166,4 +166,19 @@ body > .container:last-of-type {
     height: 14px;
     border-radius: 7px;
     background-color: orangered;
+}
+
+@media(max-width:1000px)  {
+    .navbar-aside {
+        display: none !important;
+    }
+    .navbar-aside-alt {
+        display: block !important;
+    }
+}
+
+@media(min-width:1000px)  {
+    .navbar-aside-alt {
+        display: none !important;
+    }
 }
