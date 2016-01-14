@@ -19,8 +19,8 @@ class LectureType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'Название'])
-            ->add('video_id', TextType::class, ['label' => 'Идентификатор видео лекции'])
-            ->add('discussion_video_id', TextType::class, ['label' => 'Идентификатор видео обсуждения'])
+            ->add('video_url', TextType::class, ['label' => 'Видео лекции'])
+            ->add('discussion_video_url', TextType::class, ['label' => 'Видео обсуждения'])
             ->add('teaser', TextareaType::class, ['label' => 'Тизер'])
             ->add(
                 'field',
