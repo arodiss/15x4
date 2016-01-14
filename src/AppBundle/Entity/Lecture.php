@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Lecture
 {
+    const EMBEDDABLE_URL_PREFIX = 'https://youtube.com/embed/';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -28,14 +30,14 @@ class Lecture
     protected $teaser;
 
     /**
-     * @ORM\Column(name="video_id", type="string", length=31, nullable=false, unique=true)
+     * @ORM\Column(name="video_url", type="string", length=31, nullable=false, unique=true)
      */
-    protected $videoId;
+    protected $videoUrl;
 
     /**
-     * @ORM\Column(name="discussion_video_id", type="string", length=31, nullable=false, unique=true)
+     * @ORM\Column(name="discussion_video_url", type="string", length=31, nullable=false, unique=true)
      */
-    protected $discussionVideoId;
+    protected $discussionVideoUrl;
 
     /**
      * @var Lecturer
@@ -161,15 +163,15 @@ class Lecture
     }
 
     /** @return string */
-    public function getVideoId()
+    public function getVideoUrl()
     {
-        return $this->videoId;
+        return $this->videoUrl;
     }
 
-    /** @param string $videoId */
-    public function setVideoId($videoId)
+    /** @param string $videoUrl */
+    public function setVideoUrl($videoUrl)
     {
-        $this->videoId = $videoId;
+        $this->videoUrl = $this->getEmbeddableUrl($videoUrl);
     }
 
     /** @param Tag[] $tags */
@@ -185,14 +187,30 @@ class Lecture
     }
 
     /** @return string */
-    public function getDiscussionVideoId()
+    public function getDiscussionVideoUrl()
     {
-        return $this->discussionVideoId;
+        return $this->discussionVideoUrl;
     }
 
-    /** @param string $discussionVideoId */
-    public function setDiscussionVideoId($discussionVideoId)
+    /** @param string $discussionVideoUrl */
+    public function setDiscussionVideoUrl($discussionVideoUrl)
     {
-        $this->discussionVideoId = $discussionVideoId;
+        $this->discussionVideoUrl = $this->getEmbeddableUrl($discussionVideoUrl);
+    }
+
+    /**
+     * @param string $watchUrl
+     * @return string
+     */
+    private function getEmbeddableUrl($watchUrl)
+    {
+        if (strpos($watchUrl, self::EMBEDDABLE_URL_PREFIX) === 0) {
+            return $watchUrl;
+        }
+
+        $query = parse_url(($watchUrl), PHP_URL_QUERY);
+        parse_str($query, $queryParsed);
+
+        return self::EMBEDDABLE_URL_PREFIX . $queryParsed['v'];
     }
 }

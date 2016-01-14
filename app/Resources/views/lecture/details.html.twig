@@ -24,11 +24,11 @@
     <div class="row">
         <div class="col-lg-6">
             <h3>Видеозапись выступления</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ lecture.getVideoId() }}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="{{ lecture.videoUrl }}" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-lg-6">
             <h3>Видеозапись обсуждения</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ lecture.getDiscussionVideoId() }}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="{{ lecture.discussionVideoUrl }}" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
