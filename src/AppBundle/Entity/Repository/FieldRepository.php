@@ -2,10 +2,9 @@
 
 namespace AppBundle\Entity\Repository;
 
-use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Field;
 
-class FieldRepository extends EntityRepository
+class FieldRepository extends AbstractRepository
 {
     /**
      * @param Field|null $field
@@ -53,5 +52,20 @@ class FieldRepository extends EntityRepository
         }
 
         return $fields;
+    }
+
+    /**
+     * @param array $excludeIds
+     * @return array
+     */
+    public function findForFilter(array $excludeIds)
+    {
+        $qb = $this->createQueryBuilderWithExcludeIds($excludeIds);
+
+        return $qb
+            ->select('entity.id, entity.name')
+            ->getQuery()
+            ->getArrayResult()
+        ;
     }
 }
