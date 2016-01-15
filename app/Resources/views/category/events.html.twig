@@ -15,7 +15,7 @@
         <div class="carousel-inner" role="listbox">
             {% for event in pagination.items %}
                 <div class="item{% if loop.first %} active{% endif %}">
-                    <div class="row well" style="margin-bottom: 0;">
+                    <div class="row well well-no-margin">
                         <div class="col-lg-10 col-lg-offset-1">
                             <h4><a href="{{ path("LectureFiltered", { "event": event.id }) }}">{{ event.date | date }}</a></h4>
                             {% for lecture in event.lectures %}

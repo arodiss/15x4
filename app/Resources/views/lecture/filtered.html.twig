@@ -3,42 +3,28 @@
 {% block page_title %}15x4 — Выбранные лекции{% endblock %}
 
 {% block listHeader %}
-    <h1>Выбранные лекции</h1>
-    {#todo possibility to add filters#}
+    <h1>
+        Выбранные лекции
+            <span
+                id="toggle-filters"
+                class="pull-right text-muted"
+                data-title="Скрыть фильтры"
+                data-toggle="collapse"
+                data-target="#lecture-list-filters"
+                data-expanded="1"
+            >
+                <i class="fa fa-arrow-circle-up"></i>
+            </span>
+    </h1>
 
-    <div class="row">
-        {% if field %}
-            <div class="col-lg-3 well well-sm">
-                Область: {{ field }}
-                <span class="pull-right">
-                    <span id="remove-field" class="glyphicon glyphicon-remove cursor-pointer"></span>
-                </span>
-            </div>
-        {% endif %}
-        {% if tag %}
-            <div class="col-lg-3 well well-sm">
-                Тег: {{ tag }}
-                <span class="pull-right">
-                    <span id="remove-tag" class="glyphicon glyphicon-remove cursor-pointer"></span>
-                </span>
-            </div>
-        {% endif %}
-        {% if lecturer %}
-            <div class="col-lg-3 well well-sm filter-lecturer" data-title="{{ lecturer.bio }}">
-                Лектор: {{ lecturer }}
-                <span class="pull-right">
-                    <span id="remove-lecturer" class="glyphicon glyphicon-remove cursor-pointer"></span>
-                </span>
-            </div>
-        {% endif %}
-        {% if event %}
-            <div class="col-lg-3 well well-sm">
-                Встреча: {{ event.date | date }}, {{ event.city }}
-                <span class="pull-right">
-                    <span id="remove-event" class="glyphicon glyphicon-remove cursor-pointer"></span>
-                </span>
-            </div>
-        {% endif %}
+    <hr/>
+
+    <div class="row collapse in" id="lecture-list-filters">
+        {% include 'lecture/filters.html.twig' %}
+
+        <div class="col-lg-12">
+            <hr/>
+        </div>
     </div>
 {% endblock %}
 
@@ -47,20 +33,130 @@
 
     <script type="text/javascript">
         $(function () {
-            $("#remove-field").click(function () {
-                window.location.search = window.location.search.replace(new RegExp("[&;]?field=[^&;]+"), "");
-            });
-            $("#remove-tag").click(function () {
-                window.location.search = window.location.search.replace(new RegExp("[&;]?tag=[^&;]+"), "");
-            });
-            $("#remove-lecturer").click(function () {
-                window.location.search = window.location.search.replace(new RegExp("[&;]?lecturer=[^&;]+"), "");
-            });
-            $("#remove-event").click(function () {
-                window.location.search = window.location.search.replace(new RegExp("[&;]?event=[^&;]+"), "");
-            });
+            Array.prototype.removeValue = function (value) {
+                if (this.indexOf(value) !== -1) {
+                    this.splice(this.indexOf(value), 1);
+                }
+            };
 
-            $(".filter-lecturer").tooltip();
+            function getDecodedUri() {
+                var decoded = {},
+                    queryString = window.location.search;
+
+                queryString = queryString.substring(queryString.indexOf('?')+1).split('&');
+
+                for (var i = queryString.length; i > 0;) {
+                    var pair = queryString[--i].split('='),
+                        key = decodeURIComponent(pair[0]),
+                        value = decodeURIComponent(pair[1])
+                    ;
+                    if (value.indexOf(',') !== -1) {
+                        var valueArray = new Array();
+                        valueArray = value.split(',');
+
+                        value = valueArray;
+                    } else {
+                        value = [ value ];
+                    }
+
+                    if (key) {
+                        decoded[key] = value;
+                    }
+                }
+
+                return decoded;
+            }
+
+            function getEncodedUri(params)
+            {
+                var encoded = '?';
+
+                for (key in params) {
+                    encoded += key + '=' + params[key].join(',') + '&';
+                }
+
+                return encoded;
+            }
+
+            function addUrlElement(key, value) {
+                var decodedUri = getDecodedUri();
+
+                if (typeof(decodedUri[key]) === 'undefined') {
+                    decodedUri[key] = [];
+                }
+
+                if (decodedUri[key].indexOf(value) === -1) {
+                    decodedUri[key].push(value);
+                }
+
+                window.location.search = getEncodedUri(decodedUri);
+            }
+
+            function removeUrlElement(key, value) {
+                var decodedUri = getDecodedUri(),
+                    value = String(value);
+
+                if (typeof(decodedUri[key]) === 'undefined') {
+                    return;
+                }
+
+                if (decodedUri[key].indexOf(value) !== -1) {
+                    decodedUri[key].removeValue(value);
+                    if (decodedUri[key].length === 0) {
+                        delete decodedUri[key];
+                    }
+                }
+
+                window.location.search = getEncodedUri(decodedUri);
+            }
+
+            var filters = [
+                { singular: 'field',    plural: 'fields'     },
+                { singular: 'tag',      plural: 'tags'       },
+                { singular: 'lecturer', plural: 'lecturers'  },
+                { singular: 'event',    plural: 'events'     }
+            ];
+
+            for (var i in filters) {
+                if (false === filters[i].hasOwnProperty('singular')) {
+                    continue;
+                }
+
+                //we need to encapsulate filterConfig, so use an anonymous function
+                (function () {
+                    var filterConfig = filters[i];
+
+                    $('.remove-' + filterConfig.singular).click(function () {
+                        removeUrlElement(filterConfig.plural, $(this).data('id'));
+                    });
+                    $('#select-' + filterConfig.singular).selectize({
+                        placeholder: 'Выбрать ...',
+                        'onItemAdd': function (id) {
+                            addUrlElement(filterConfig.plural, id);
+                        }
+                    });
+                })()
+            }
+
+            $('#toggle-filters')
+                .tooltip()
+                .click(function () {
+                    if ($(this).data('expanded') == 1) {
+                        $(this)
+                            .data('expanded', 0)
+                            .attr('data-original-title', 'Показать фильтры')
+                    } else {
+                        $(this)
+                            .data('expanded', 1)
+                            .attr('data-original-title', 'Скрыть фильтры')
+                    }
+                    $(this)
+                        .find('i')
+                        .toggleClass('fa-arrow-circle-up')
+                        .toggleClass('fa-arrow-circle-down')
+                    ;
+                })
+            ;
         });
     </script>
 {% endblock %}

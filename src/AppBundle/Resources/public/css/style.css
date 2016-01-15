@@ -154,6 +154,10 @@ body > .container:last-of-type {
     color: orangered;
 }
 
+.well.well-no-margin {
+    margin-bottom: 0!important;
+}
+
 .carousel-indicators li {
     width: 14px;
     height: 14px;

@@ -1,0 +1,76 @@
+<div class="col-lg-3">
+    <label for='select-field'>
+        Область:
+    </label>
+    <select id="select-field" multiple>
+        {% for field in availableFields %}
+            <option value="{{ field.id }}">{{ field.name }}</option>
+        {% endfor %}
+    </select>
+    {% for field in selectedFields %}
+        <div class="well well-sm well-no-margin">
+            {{ field }}
+            <span class="pull-right">
+                        <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
+                    </span>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="col-lg-3">
+    <label for='select-tag'>
+        Теги:
+    </label>
+    <select id="select-tag" multiple>
+        {% for tag in availableTags %}
+            <option value="{{ tag.id }}">{{ tag.name }}</option>
+        {% endfor %}
+    </select>
+    {% for tag in selectedTags %}
+        <div class="well well-sm well-no-margin">
+            {{ tag }}
+            <span class="pull-right">
+                        <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
+                    </span>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="col-lg-3">
+    <label for='select-lecturer'>
+        Лектор:
+    </label>
+    <select id="select-lecturer" multiple>
+        {% for lecturer in availableLecturers %}
+            <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+        {% endfor %}
+    </select>
+    {% for lecturer in selectedLecturers %}
+        <div class="well well-sm well-no-margin filter-lecturer ">
+            <span>{{ lecturer }}</span>
+                    <span class="pull-right">
+                        <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ lecturer.id }}"></span>
+                    </span>
+            <p class="small">{{ lecturer.bio }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="col-lg-3">
+    <label for='select-event'>
+        Встреча:
+    </label>
+    <select id="select-event" multiple>
+        {% for event in availableEvents %}
+            <option value="{{ event.id }}">{{ event.city_name }}, {{ event.date | date }}</option>
+        {% endfor %}
+    </select>
+    {% for event in selectedEvents %}
+        <div class="well well-sm well-no-margin filter-lecturer">
+            {{ event.date | date }}, {{ event.city }}
+            <span class="pull-right">
+                        <span class="remove-event glyphicon glyphicon-remove cursor-pointer" data-id="{{ event.id }}"></span>
+                    </span>
+        </div>
+    {% endfor %}
+</div>

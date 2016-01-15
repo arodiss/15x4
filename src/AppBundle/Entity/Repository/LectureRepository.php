@@ -3,40 +3,42 @@
 namespace AppBundle\Entity\Repository;
 
 use AppBundle\Entity;
-use Doctrine\ORM\EntityRepository;
 
-class LectureRepository extends EntityRepository
+class LectureRepository extends AbstractRepository
 {
     /**
-     * @param Entity\Field $field
-     * @param Entity\Tag $tag
-     * @param Entity\Event $event
-     * @param Entity\Lecturer $lecturer
+     * @param array $fields
+     * @param array $tags
+     * @param array $events
+     * @param array $lecturers
      * @return \Doctrine\ORM\Query
      */
-    public function findByFilters(
-        Entity\Field $field = null,
-        Entity\Tag $tag = null,
-        Entity\Event $event = null,
-        Entity\Lecturer $lecturer = null
-    ) {
+    public function findByFilters(array $fields = [], array $tags = [], array $events = [], array $lecturers = [])
+    {
         $qb = $this
             ->createQueryBuilder('lecture')
             ->innerJoin('lecture.event', 'event')
             ->orderBy('event.date', 'DESC')
         ;
 
-        if ($tag) {
-            $qb->andWhere(':tag MEMBER OF lecture.tags')->setParameter('tag', $tag->getId());
+        $idGetter = function ($entity) {
+            return $entity->getId();
+        };
+
+        if ($tags) {
+            $qb
+                ->innerJoin('lecture.tags', 'tag')
+                ->andWhere($qb->expr()->in('tag.id', array_map($idGetter, $tags)))
+            ;
         }
-        if ($field) {
-            $qb->andWhere($qb->expr()->eq('lecture.field', $field->getId()));
+        if ($fields) {
+            $qb->andWhere($qb->expr()->in('lecture.field', array_map($idGetter, $fields)));
         }
-        if ($event) {
-            $qb->andWhere($qb->expr()->eq('lecture.event', $event->getId()));
+        if ($events) {
+            $qb->andWhere($qb->expr()->in('lecture.event', array_map($idGetter, $events)));
         }
-        if ($lecturer) {
-            $qb->andWhere($qb->expr()->eq('lecture.lecturer', $lecturer->getId()));
+        if ($lecturers) {
+            $qb->andWhere($qb->expr()->in('lecture.lecturer', array_map($idGetter, $lecturers)));
         }
 
         return $qb->getQuery();

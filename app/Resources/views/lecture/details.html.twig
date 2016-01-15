@@ -6,9 +6,9 @@
     <h3><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h3>
 
     <p class="small">
-        <a href="{{ path("LectureFiltered", { "event": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
+        <a href="{{ path("LectureFiltered", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
         <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
-        <a href="{{ path("LectureFiltered", { "lecturer": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
+        <a href="{{ path("LectureFiltered", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
     </p>
 
     <p class="small">{{ lecture.teaser }}</p>
@@ -17,7 +17,7 @@
         Область: <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
         Теги:
         {% for tag in lecture.getTags()  %}
-            <a href="{{ path("LectureFiltered", { "tag": tag.id }) }}">{{ tag }}</a>&nbsp;
+            <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
         {% endfor %}
     </p>
 

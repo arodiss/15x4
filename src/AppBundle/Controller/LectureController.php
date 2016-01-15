@@ -48,11 +48,17 @@ class LectureController extends AbstractController
      */
     public function listFilteredAction(Request $request)
     {
-        $tag = $request->get('tag') ? $this->getTagRepository()->find($request->get('tag')) : null;
-        $event = $request->get('event') ? $this->getEventRepository()->find($request->get('event')) : null;
-        $field = $request->get('field') ? $this->getFieldRepository()->find($request->get('field')) : null;
-        $lecturer = $request->get('lecturer') ? $this->getLecturerRepository()->find($request->get('lecturer')) : null;
-        if (!$tag && !$event &&!$field && !$lecturer) {
+        $tagIds = explode(',', $request->get('tags', ''));
+        $eventIds = explode(',', $request->get('events', ''));
+        $fieldIds = explode(',', $request->get('fields', ''));
+        $lecturerIds = explode(',', $request->get('lecturers', ''));
+
+        $tags = $this->getTagRepository()->findByIds($tagIds);
+        $events = $this->getEventRepository()->findByIds($eventIds);
+        $fields = $this->getFieldRepository()->findByIds($fieldIds);
+        $lecturers = $this->getLecturerRepository()->findByIds($lecturerIds);
+
+        if (!$tags && !$events &&!$fields && !$lecturers) {
             return $this->redirectToRoute('LectureAll');
         }
 
@@ -60,14 +66,18 @@ class LectureController extends AbstractController
             'lecture/filtered.html.twig',
             [
                 'pagination' => $this->getPager()->paginate(
-                    $this->getLectureRepository()->findByFilters($field, $tag, $event, $lecturer),
+                    $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers),
                     $request->get('page', 1),
                     self::ITEMS_PER_PAGE
                 ),
-                'tag' => $tag,
-                'event' => $event,
-                'field' => $field,
-                'lecturer' => $lecturer,
+                'selectedTags' => $tags,
+                'availableTags' => $this->getTagRepository()->findForFilter($tagIds),
+                'selectedEvents' => $events,
+                'availableEvents' => $this->getEventRepository()->findForFilter($eventIds),
+                'selectedFields' => $fields,
+                'availableFields' => $this->getFieldRepository()->findForFilter($fieldIds),
+                'selectedLecturers' => $lecturers,
+                'availableLecturers' => $this->getLecturerRepository()->findForFilter($lecturerIds),
             ]
         );
     }
@@ -80,7 +90,7 @@ class LectureController extends AbstractController
     {
         return $this->render('lecture/by-field.html.twig', [
             'pagination' => $this->getPager()->paginate(
-                $this->getLectureRepository()->findByFilters($field),
+                $this->getLectureRepository()->findByFilters([ $field ]),
                 $request->get('page', 1),
                 self::ITEMS_PER_PAGE
             ),
