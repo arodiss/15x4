@@ -38,7 +38,7 @@ class LectureController extends AbstractController
             'pagination' => $this->getPager()->paginate(
                 $this->getLectureRepository()->findByFilters(),
                 $request->get('page', 1),
-                self::ITEMS_PER_PAGE
+                10
             )
         ]);
     }
@@ -68,7 +68,7 @@ class LectureController extends AbstractController
                 'pagination' => $this->getPager()->paginate(
                     $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers),
                     $request->get('page', 1),
-                    self::ITEMS_PER_PAGE
+                    10
                 ),
                 'selectedTags' => $tags,
                 'availableTags' => $this->getTagRepository()->findForFilter($tagIds),
@@ -92,7 +92,7 @@ class LectureController extends AbstractController
             'pagination' => $this->getPager()->paginate(
                 $this->getLectureRepository()->findByFilters([ $field ]),
                 $request->get('page', 1),
-                self::ITEMS_PER_PAGE
+                10
             ),
             'tags' => $this->getFieldRepository()->findWithTags($field)[0]['tags'],
             'field' => $field,

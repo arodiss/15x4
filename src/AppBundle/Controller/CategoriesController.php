@@ -29,7 +29,7 @@ class CategoriesController extends AbstractController
             'pagination' => $this->getPager()->paginate(
                 $this->getTagRepository()->findForList(),
                 $request->get('page', 1),
-                self::ITEMS_PER_PAGE
+                40
             )
         ]);
     }
@@ -55,7 +55,7 @@ class CategoriesController extends AbstractController
             'pagination' => $this->getPager()->paginate(
                 $this->getEventRepository()->findForList($city),
                 $request->get('page', 1),
-                self::ITEMS_PER_PAGE
+                10
             ),
             'city' => $city,
         ]);
@@ -71,7 +71,7 @@ class CategoriesController extends AbstractController
             'pagination' => $this->getPager()->paginate(
                 $this->getLecturerRepository()->findForList(),
                 $request->get('page', 1),
-                self::ITEMS_PER_PAGE
+                20
             ),
         ]);
     }

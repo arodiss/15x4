@@ -14,7 +14,8 @@ class LecturerRepository extends AbstractRepository
             ->innerJoin('lecturer.lectures', 'lecture')
             ->groupBy('lecturer')
             ->select('lecturer.id, lecturer.name, lecturer.bio, COUNT(lecture.id) AS lectures_count')
-            ->orderBy('lectures_count', 'DESC')
+            ->addOrderBy('lectures_count', 'DESC')
+            ->addOrderBy('lecturer.name', 'ASC')
             ->getQuery()
         ;
     }
