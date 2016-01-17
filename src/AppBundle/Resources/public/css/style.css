@@ -44,7 +44,7 @@ a:hover .glyphicon {
     border-left: 4px solid orangered;
 }
 
-.nav > li > a:not(.dropdown-toggle):before {
+.nav > li > a:not(.dropdown-toggle):not(.tab-toggle):before {
     content: "";
     position: absolute;
     width: 88%;
@@ -59,7 +59,7 @@ a:hover .glyphicon {
     transition: all 0.3s ease-in-out 0s;
 }
 
-.nav > li > a:not(.dropdown-toggle):hover:before {
+.nav > li > a:not(.dropdown-toggle):not(.tab-toggle):hover:before {
     visibility: visible;
     transform: scaleX(1);
 }
