@@ -1,31 +1,52 @@
 {% extends "admin/layout.html.twig" %}
 
 {% block admin_content %}
-    <div class="col-lg-9">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                {% block admin_panel_header %}{% endblock %}
-            </div>
-            <div class="panel-body">
-                {% block admin_list_content %}
-                    <p>
-                        На этой страничке нет ничего интересного - воспользуйтесь навигацией, чтобы попасть куда-то ещё
-                    </p>
-                {% endblock %}
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#add" aria-controls="add" role="tab" data-toggle="tab" class="tab-toggle">
+                Добавить ещё
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#list" aria-controls="list" role="tab" data-toggle="tab" class="tab-toggle">
+                Просмотреть список
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="add" role="tabpanel" class="row tab-pane active">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Добавить ещё
+                    </div>
+                    <div class="panel-body">
+                        {% if form is defined %}
+                            {{ form(form) }}
+                        {% else %}
+                            <p>На этой странице нечего создавать</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Добавить ещё
-            </div>
-            <div class="panel-body">
-                {% if form is defined %}
-                    {{ form(form) }}
-                {% else %}
-                    На этой странице нечего создавать
-                {% endif %}
+
+        <div id="list" class="row tab-pane">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {% block admin_panel_header %}{% endblock %}
+                    </div>
+                    <div class="panel-body">
+                        {% block admin_list_content %}
+                            <p>
+                                На этой страничке нет ничего интересного - воспользуйтесь навигацией, чтобы попасть куда-то ещё
+                            </p>
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
