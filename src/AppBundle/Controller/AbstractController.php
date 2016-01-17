@@ -7,8 +7,6 @@ use AppBundle\Entity\Repository;
 
 class AbstractController extends Controller
 {
-    const ITEMS_PER_PAGE = 10;
-
     /** @return Repository\LectureRepository */
     protected function getLectureRepository()
     {
