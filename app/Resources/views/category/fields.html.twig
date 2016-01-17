@@ -9,21 +9,20 @@
         {% for field in fields %}
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="field-{{ field.id }}-heading">
-                    <h3 class="panel-title">
+                    <h4 class="panel-title">
+                        <a
+                                role="button"
+                                data-toggle="collapse"
+                                data-target="#field-{{ field.id }}-body"
+                                aria-expanded="false"
+                                >
+                            <i class="fa fa-lg fa-arrow-circle-down expand-field" data-field-id="{{ field.id }}"></i>
+                        </a>
+
                         <a href="{{ path("LectureByField", { "id": field.id }) }}">
                             {{ field.name }} ({{ field.lecture_count }})
                         </a>
-
-                        <a
-                            class="pull-right"
-                            role="button"
-                            data-toggle="collapse"
-                            data-target="#field-{{ field.id }}-body"
-                            aria-expanded="false"
-                        >
-                            <i class="fa fa-lg fa-arrow-circle-down expand-field" data-field-id="{{ field.id }}"></i>
-                        </a>
-                    </h3>
+                    </h4>
                 </div>
                 <div class="panel-collapse collapse" id="field-{{ field.id }}-body" role="tabpanel">
                     <div class="panel-body">
