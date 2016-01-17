@@ -11,7 +11,7 @@
         <a href="{{ path("LectureFiltered", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
     </p>
 
-    <p class="small">{{ lecture.teaser }}</p>
+    <p>{{ lecture.teaser }}</p>
 
     <p class="small">
         Область: <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
