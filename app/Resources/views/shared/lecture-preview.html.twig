@@ -5,19 +5,23 @@
     <div class="col-lg-6">
         <h4 style="text-decoration: underline;"><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h4>
 
-        <p class="small">
-            <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+        <p>
+            Дисциплина: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+        </p>
+
+        <p>
+            Теги:
             {% for tag in lecture.getTags()  %}
                 <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
             {% endfor %}
         </p>
 
-        <p class="small">{{ lecture.teaser }}</p>
+        <p>{{ lecture.teaser }}</p>
 
         <p class="small">
             <a href="{{ path("LectureFiltered", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
-            <a href="{{ path("LectureFiltered", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
+            <em><a href="{{ path("LectureFiltered", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
         </p>
     </div>
 </div>
