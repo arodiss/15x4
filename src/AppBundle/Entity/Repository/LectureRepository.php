@@ -54,4 +54,20 @@ class LectureRepository extends AbstractRepository
 
         return $this->find($ids[array_rand($ids)]);
     }
+
+    /**
+     * @param int $number
+     * @return Entity\Lecture[]
+     */
+    public function findRecent($number)
+    {
+        return  $this
+            ->createQueryBuilder('lecture')
+            ->setMaxResults($number)
+            ->innerJoin('lecture.event', 'event')
+            ->orderBy('event.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
