@@ -1,7 +1,7 @@
 <ul class="list-group row">
     {% for tag in tags %}
         <li class="list-group-item col-lg-2">
-            <a href="{{ path("LectureFiltered", { tag: tag.id, field: field.id }) }}">
+            <a href="{{ path("LectureFiltered", { tags: tag.id, fields: field.id }) }}">
                 #{{ tag.name }} ({{ tag.lecture_count }})
             </a>
         </li>
