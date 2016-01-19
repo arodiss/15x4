@@ -3,16 +3,19 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
-class LandingController extends Controller
+class LandingController extends AbstractController
 {
     /**
      * @Extra\Route("/", name="Landing")
      */
     public function indexAction()
     {
-        return $this->render('landing/landing.html.twig');
+        return $this->render(
+            'landing/landing.html.twig',
+            [
+                'lectures' => $this->getLectureRepository()->findRecent(6),
+            ]
+        );
     }
 }

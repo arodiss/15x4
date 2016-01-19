@@ -1,0 +1,9 @@
+<div class="plate">
+    <a href="{{ path('LectureDetails', { 'id': lecture.id }) }}">
+        <p class="text-justify plate-details">{{ lecture.teaser }}</p>
+        <div class="plate-content">
+            <p class="text-left plate-author">{{ lecture.lecturer }}</p>
+            <p class="text-center plate-main">{{ lecture.title }}</p>
+        </div>
+    </a>
+</div>
