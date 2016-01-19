@@ -207,6 +207,10 @@ body > .container:last-of-type {
 }
 
 @media(min-width:1200px)  {
+    .plate:hover .plate-details {
+        opacity: 0.8;
+    }
+
     .plate-main {
         font-size: 28px;
         font-weight: bold;
@@ -220,10 +224,6 @@ body > .container:last-of-type {
 }
 
 @media(max-width:1200px) and (min-width:700px)  {
-    .plate:hover .plate-details {
-        opacity: 0.8;
-    }
-
     .plate-main {
         font-size: 22px;
         font-weight: bold;
