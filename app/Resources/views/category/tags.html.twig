@@ -3,12 +3,21 @@
 {% block page_title %}15x4 — Теги{% endblock %}
 
 {% block content %}
-    <h1 class="page-header">Количество тегов: {{ pagination.items|length }}</h1>
+    <h2 class="page-header">Количество тегов: {{ pagination.items|length }}</h2>
 
-    {% for tag in pagination.items %}
-        <h3><a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag.name }} ({{ tag.lectures_count }})</a></h3>
-        <hr/>
-    {% endfor %}
+    <table class="table table-responsive">
+        <tbody>
+        {% for tag in pagination.items %}
+            {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
+
+            <td style="width: 25%;">
+                <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag.name }} ({{ tag.lectures_count }})</a>
+            </td>
+
+            {% if loop.index is divisible by(4) %}</tr>{% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
 
     {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}
