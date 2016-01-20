@@ -27,14 +27,18 @@
         {% block navigation %}{% include "navigation.html.twig" %}{% endblock %}
         {% block alerts %}{% include "alerts.html.twig" %}{% endblock %}
         {% block header %}{% include "header.html.twig" %}{% endblock %}
+        {% if ignoreContainer is not defined %}
         <div class="container">
+        {% endif %}
             {% block content %}{% endblock %}
             <div class="scroll-top-wrapper ">
                 <span class="scroll-top-inner">
                     <i class="fa fa-3x fa-angle-up"></i>
                 </span>
             </div>
+        {% if ignoreContainer is not defined %}
         </div>
+        {% endif %}
         {% block footer %}{% include "footer.html.twig" %}{% endblock %}
 
         {% block javascripts %}
