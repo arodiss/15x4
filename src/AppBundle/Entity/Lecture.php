@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Lecture
 {
     const EMBEDDABLE_URL_PREFIX = 'https://youtube.com/embed/';
+    const FULL_URL_PREFIX = 'https://youtube.com/watch/?v=';
 
     /**
      * @ORM\Id
@@ -196,6 +197,16 @@ class Lecture
     public function setDiscussionVideoUrl($discussionVideoUrl)
     {
         $this->discussionVideoUrl = $this->getEmbeddableUrl($discussionVideoUrl);
+    }
+
+    /** @return string */
+    public function getDiscussionVideoFullUrl()
+    {
+        return str_replace(
+            self::EMBEDDABLE_URL_PREFIX,
+            self::FULL_URL_PREFIX,
+            $this->discussionVideoUrl
+        );
     }
 
     /**
