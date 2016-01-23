@@ -3,38 +3,11 @@
 {% block page_title %}15x4 — {{ lecture }}{% endblock %}
 
 {% block content %}
-    <h3><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h3>
-
-    <p class="small">
-        <a href="{{ path("LectureFiltered", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
-        <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
-        <a href="{{ path("LectureFiltered", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
-    </p>
-
-    <p>{{ lecture.teaser }}</p>
-
-    <p class="small">
-        Область: <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
-        Теги:
-        {% for tag in lecture.getTags()  %}
-            <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
-        {% endfor %}
-    </p>
-
-    <div class="row">
-        <div class="col-lg-6">
-            <h3>Видеозапись выступления</h3>
-            <iframe width="560" height="315" src="{{ lecture.videoUrl }}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="col-lg-6">
-            <h3>Видеозапись обсуждения</h3>
-            <iframe width="560" height="315" src="{{ lecture.discussionVideoUrl }}" frameborder="0" allowfullscreen></iframe>
-        </div>
+    <div style="margin-top: 10px;">
+        {% include 'shared/lecture-preview.html.twig' %}
     </div>
 
     {#<hr/>#}
 
     {#Тут будет блок комментариев#}
-
-    <hr/>
 {% endblock %}

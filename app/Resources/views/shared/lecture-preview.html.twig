@@ -3,7 +3,7 @@
         <iframe width="560" height="315" src="{{ lecture.videoUrl }}" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-lg-6">
-        <h4 style="text-decoration: underline;"><a href="{{ path("LectureDetails", { "id": lecture.id }) }}">{{ lecture }}</a></h4>
+        <h4>{{ lecture }}</h4>
 
         <p>
             Дисциплина: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
@@ -17,6 +17,14 @@
         </p>
 
         <p>{{ lecture.teaser }}</p>
+
+        <hr/>
+
+        <p>
+            <a href="{{ lecture.discussionVideoFullUrl }}">
+                Смотреть обсуждение
+            </a>
+        </p>
 
         <p class="small">
             <a href="{{ path("LectureFiltered", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
