@@ -12,9 +12,10 @@
             </div>
             <div class="col-lg-6">
                 <h3 class="text-capitalize">{{ field }}</h3>
-                <hr/>
-                {% if tags | length > 0  %}
-                    {% include "shared/tag-list.html.twig" with { 'tags': tags, 'field': field } %}
+                {% if tags|length > 0  %}
+                    {% include "shared/tag-list.html.twig" with { 'tags': tags, 'field': field, 'columnsCount': 4 } %}
+                {% else %}
+                    <hr/>
                 {% endif %}
             </div>
         </div>

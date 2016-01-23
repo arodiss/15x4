@@ -1,9 +1,21 @@
-<ul class="list-group row">
+<table class="table table-responsive">
     {% for tag in tags %}
-        <li class="list-group-item col-lg-2">
+        {% if loop.index0 is divisible by(columnsCount) %}<tr>{% endif %}
+
+        <td>
             <a href="{{ path("LectureFiltered", { tags: tag.id, fields: field.id }) }}">
                 #{{ tag.name }} ({{ tag.lecture_count }})
             </a>
-        </li>
+        </td>
+
+        {% if loop.index is divisible by(columnsCount) %}</tr>{% endif %}
     {% endfor %}
-</ul>
+
+    {#fix last row#}
+    {% if tags|length is not divisible by(columnsCount) %}
+        {% for i in range(1, columnsCount - tags|length % columnsCount) %}
+            <td></td>
+        {% endfor %}
+        </tr>
+    {% endif %}
+</table>
