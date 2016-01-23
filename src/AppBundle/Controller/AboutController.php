@@ -12,6 +12,11 @@ class AboutController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('about/about.html.twig');
+        return $this->render(
+            'about/about.html.twig',
+            [
+                'ignoreContainer' => true,
+            ]
+        );
     }
 }

@@ -1,5 +1,4 @@
 footer {
-    margin-top: 20px;
     border-top: 2px solid orangered;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -43,6 +42,7 @@ a:hover .glyphicon {
     border-radius: 0!important;
     margin-top: 60px;
     border-left: 4px solid orangered;
+    background-color: transparent;
 }
 
 .nav > li > a:not(.dropdown-toggle):not(.tab-toggle):before {
@@ -261,4 +261,21 @@ body > .container:last-of-type {
     padding: 12px;
     display: flex;
     align-items: center;
+}
+
+.about-block {
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    background-image: url('http://www.denversciencefair.com/Photo2015/res/bg.png');
+    background-color: #f8f8f8;
+    text-indent: 30px;
+    font-weight: bold;
+    line-height: 180%;
+}
+
+.about-block.alt {
+    background-color: #2f2e30;
+    color: white;
 }
