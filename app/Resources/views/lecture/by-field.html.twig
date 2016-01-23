@@ -4,14 +4,16 @@
 
 {% block header %}
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 10px;">
             <div class="col-lg-6">
                 <img
                     src="/bundles/app/images/fields/{{ field.getImageName() ? : field.getDefaultImageName() }}"
                 />
             </div>
             <div class="col-lg-6">
-                <h3 class="text-capitalize">{{ field }}</h3>
+                <div class="well well-sm well-no-margin">
+                    {{ field.getDescription() }}
+                </div>
                 {% if tags|length > 0  %}
                     {% include "shared/tag-list.html.twig" with { 'tags': tags, 'field': field, 'columnsCount': 4 } %}
                 {% else %}
@@ -23,8 +25,4 @@
     </div>
 {% endblock %}
 
-{% block listHeader %}
-    <blockquote>
-        {{ field.getDescription() }}
-    </blockquote>
-{% endblock %}
+{% block listHeader %}{% endblock %}
