@@ -17,7 +17,7 @@
                 <div class="item{% if loop.first %} active{% endif %}">
                     <div class="row well well-no-margin">
                         <div class="col-lg-10 col-lg-offset-1" style="font-size: 18px;">
-                            <h4 style="font-size: 24px;"><a href="{{ path("LectureFiltered", { "event": event.id }) }}">{{ event.date | date }}</a></h4>
+                            <h4 style="font-size: 24px;"><a href="{{ path("LectureFiltered", { "events": event.id }) }}">{{ event.date | date }}</a></h4>
                             {% for lecture in event.lectures %}
                                 <p>
                                     <span class="glyphicon glyphicon-ok"></span>
