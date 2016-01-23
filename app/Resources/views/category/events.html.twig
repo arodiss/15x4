@@ -24,7 +24,7 @@
                                     <a href="{{ path("LectureDetails", { 'id': lecture.id }) }}">{{ lecture.title }}</a>
                                     -
                                     <i>
-                                        <a href="{{ path("LectureFiltered", { 'lecturer': lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
+                                        <a href="{{ path("LectureFiltered", { 'lecturers': lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a>
                                     </i>
                                 </p>
                             {% endfor %}
