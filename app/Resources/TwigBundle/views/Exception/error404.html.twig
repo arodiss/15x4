@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}15x4 — Произошла ошибка{% endblock %}
+{% block header %}{% endblock %}
+{% block navigation %}{% endblock %}
+
+{% block content %}
+    <div style="min-height: 80vh;">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-lg-12">
+                <div class="well well-sm" style="border-left: 2px solid red; padding-left: 18px;">
+                    <h2>Страница не найдена</h2>
+                    <p>Что бы вы не искали, здесь этого точно нет. Может, на <a href="{{ path("Landing") }}">главной странице</a> вам повезёт больше?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 45px;">
+            <div class="col-lg-4 col-lg-offset-4">
+                <img
+                    style="width: 375px;"
+                    src="/bundles/app/images/404.jpg"
+                />
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

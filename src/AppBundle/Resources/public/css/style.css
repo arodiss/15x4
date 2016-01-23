@@ -121,10 +121,6 @@ h3:not(.anchor) {
     border-width: 0;
 }
 
-body > .container:last-of-type {
-    min-height: 53vh;
-}
-
 .flash {
     position: absolute;
     top: 2%;
