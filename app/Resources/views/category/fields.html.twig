@@ -7,29 +7,31 @@
 
     <div class="panel-group" role="tablist">
         {% for field in fields %}
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="field-{{ field.id }}-heading">
-                    <h4 class="panel-title">
-                        <a
-                                role="button"
-                                data-toggle="collapse"
-                                data-target="#field-{{ field.id }}-body"
-                                aria-expanded="false"
-                                >
-                            <i class="fa fa-lg fa-arrow-circle-down expand-field" data-field-id="{{ field.id }}"></i>
-                        </a>
+            {% if field.lecture_count > 0 %}
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="field-{{ field.id }}-heading">
+                        <h4 class="panel-title">
+                            <a
+                                    role="button"
+                                    data-toggle="collapse"
+                                    data-target="#field-{{ field.id }}-body"
+                                    aria-expanded="false"
+                                    >
+                                <i class="fa fa-lg fa-arrow-circle-down expand-field" data-field-id="{{ field.id }}"></i>
+                            </a>
 
-                        <a href="{{ path("LectureByField", { "id": field.id }) }}">
-                            {{ field.name }} ({{ field.lecture_count }})
-                        </a>
-                    </h4>
-                </div>
-                <div class="panel-collapse collapse" id="field-{{ field.id }}-body" role="tabpanel">
-                    <div class="panel-body">
-                        {% include "shared/tag-list.html.twig" with { 'tags': field.tags, 'field': field } %}
+                            <a href="{{ path("LectureByField", { "id": field.id }) }}">
+                                {{ field.name }} ({{ field.lecture_count }})
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse" id="field-{{ field.id }}-body" role="tabpanel">
+                        <div class="panel-body">
+                            {% include "shared/tag-list.html.twig" with { 'tags': field.tags, 'field': field, 'columnsCount' : 8 } %}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

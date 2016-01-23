@@ -22,7 +22,7 @@ class FieldRepository extends AbstractRepository
         }
 
         $fields = $qb
-            ->innerJoin('field.lectures', 'lecture')
+            ->leftJoin('field.lectures', 'lecture')
             ->groupBy('field')
             ->select('field.id', 'field.name', 'COUNT(lecture.id) AS lecture_count')
             ->orderBy('lecture_count', 'DESC')
