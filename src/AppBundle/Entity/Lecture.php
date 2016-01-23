@@ -36,7 +36,7 @@ class Lecture
     protected $videoUrl;
 
     /**
-     * @ORM\Column(name="discussion_video_url", type="string", length=31, nullable=false, unique=true)
+     * @ORM\Column(name="discussion_video_url", type="string", length=31, nullable=true)
      */
     protected $discussionVideoUrl;
 
@@ -207,6 +207,12 @@ class Lecture
             self::FULL_URL_PREFIX,
             $this->discussionVideoUrl
         );
+    }
+
+    /** @return bool */
+    public function hasDiscussionVideo()
+    {
+        return (bool)$this->discussionVideoUrl;
     }
 
     /**
