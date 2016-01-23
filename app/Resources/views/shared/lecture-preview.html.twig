@@ -20,11 +20,13 @@
 
         <hr/>
 
+        {% if lecture.hasDiscussionVideo() %}
         <p>
             <a href="{{ lecture.discussionVideoFullUrl }}">
                 Смотреть обсуждение
             </a>
         </p>
+        {% endif %}
 
         <p class="small">
             <a href="{{ path("LectureFiltered", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
