@@ -4,11 +4,8 @@ footer {
     padding-bottom: 10px;
     background: #333;
     color: #fff;
-    line-height: 70%;
-}
-
-footer p {
     line-height: 100%;
+    font-size: 13px;
 }
 
 header {
@@ -48,8 +45,8 @@ a:hover .glyphicon {
 .nav > li > a:not(.dropdown-toggle):not(.tab-toggle):before {
     content: "";
     position: absolute;
-    width: 88%;
-    margin-left: 6%;
+    width: 86%;
+    margin-left: 8%;
     height: 2px;
     top: 38px;
     bottom: 0;
