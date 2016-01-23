@@ -19,3 +19,9 @@
         </tr>
     {% endif %}
 </table>
+
+{% if tags|length == 0 %}
+    <p class="text-muted">
+        (нет тегов)
+    </p>
+{% endif %}
