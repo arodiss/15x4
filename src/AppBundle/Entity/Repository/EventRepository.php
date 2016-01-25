@@ -15,6 +15,7 @@ class EventRepository extends AbstractRepository
         $qb = $this->createQueryBuilder('event');
 
         return $qb
+            ->innerJoin('event.lectures', 'lecture')
             ->andWhere($qb->expr()->eq('event.city', $city->getId()))
             ->orderBy('event.date', 'DESC')
             ->getQuery()
