@@ -31,12 +31,12 @@ class Lecture
     protected $teaser;
 
     /**
-     * @ORM\Column(name="video_url", type="string", length=31, nullable=false, unique=true)
+     * @ORM\Column(name="video_url", type="string", length=127, nullable=false, unique=true)
      */
     protected $videoUrl;
 
     /**
-     * @ORM\Column(name="discussion_video_url", type="string", length=31, nullable=true)
+     * @ORM\Column(name="discussion_video_url", type="string", length=127, nullable=true)
      */
     protected $discussionVideoUrl;
 
