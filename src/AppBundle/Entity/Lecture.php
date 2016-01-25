@@ -12,6 +12,7 @@ class Lecture
 {
     const EMBEDDABLE_URL_PREFIX = 'https://youtube.com/embed/';
     const FULL_URL_PREFIX = 'https://youtube.com/watch/?v=';
+    const YOU = 'https://youtube.com/watch/?v=';
 
     /**
      * @ORM\Id
