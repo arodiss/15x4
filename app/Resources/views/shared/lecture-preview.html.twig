@@ -9,12 +9,14 @@
             Дисциплина: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
         </p>
 
+        {% if lecture.tags|length > 0  %}
         <p>
             Теги:
-            {% for tag in lecture.getTags()  %}
+            {% for tag in lecture.tags  %}
                 <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
             {% endfor %}
         </p>
+        {% endif %}
 
         <p>{{ lecture.teaser }}</p>
 

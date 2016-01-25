@@ -40,6 +40,11 @@ class LectureType extends AbstractType
                     'choice_label' => 'name',
                     'required' => false,
                     'attr' => ['class' => 'selectizable'],
+                    'query_builder'=> function (Entity\Repository\LecturerRepository $repo) {
+                        return $repo
+                            ->createQueryBuilder('lecturer')
+                            ->orderBy('lecturer.name', 'ASC');
+                    }
                 ]
             )
             ->add(
@@ -70,6 +75,11 @@ class LectureType extends AbstractType
                     'multiple' => true,
                     'required' => false,
                     'attr' => ['class' => 'selectizable'],
+                    'query_builder'=> function (Entity\Repository\TagRepository $repo) {
+                        return $repo
+                            ->createQueryBuilder('tag')
+                            ->orderBy('tag.name', 'ASC');
+                    }
                 ]
             )
             ->add('save', SubmitType::class)
