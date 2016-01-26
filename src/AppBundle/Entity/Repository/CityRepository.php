@@ -12,6 +12,7 @@ class CityRepository extends AbstractRepository
         return $this
             ->createQueryBuilder('city')
             ->innerJoin('city.events', 'event')
+            ->innerJoin('event.lectures', 'lecture')
             ->groupBy('city')
             ->select('city.id, city.name, COUNT(event.id) AS events_count')
             ->orderBy('events_count', 'DESC')
