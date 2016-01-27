@@ -43,8 +43,8 @@ class FieldRepository extends AbstractRepository
                     'tag.name',
                     'COUNT(lecture.id) AS lecture_count',
                 ])
-                ->orderBy('lecture_count', 'DESC')
-                ->orderBy('tag.name', 'ASC')
+                ->addOrderBy('lecture_count', 'DESC')
+                ->addOrderBy('tag.name', 'ASC')
                 ->getQuery()
                 ->getArrayResult()
             ;
