@@ -263,9 +263,10 @@ h3:not(.anchor) {
     min-height: 100vh;
     background-image: url('http://www.denversciencefair.com/Photo2015/res/bg.png');
     background-color: #f8f8f8;
-    text-indent: 30px;
     line-height: 180%;
     font-size: 135%;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .about-block a {
