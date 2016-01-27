@@ -14,10 +14,16 @@ class CityRepository extends AbstractRepository
             ->innerJoin('city.events', 'event')
             ->innerJoin('event.lectures', 'lecture')
             ->groupBy('city')
-            ->select('city.id, city.name, COUNT(event.id) AS events_count')
+            ->select('city.id, city.name, COUNT(DISTINCT(event.id)) AS events_count')
             ->orderBy('events_count', 'DESC')
             ->getQuery()
             ->getArrayResult()
         ;
+    }
+
+    /** @return \Doctrine\ORM\QueryBuilder */
+    public function getAdminQb()
+    {
+        return $this->createQueryBuilder('e');
     }
 }

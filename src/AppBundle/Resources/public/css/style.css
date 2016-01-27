@@ -264,11 +264,29 @@ h3:not(.anchor) {
     background-image: url('http://www.denversciencefair.com/Photo2015/res/bg.png');
     background-color: #f8f8f8;
     text-indent: 30px;
-    font-weight: bold;
     line-height: 180%;
+    font-size: 135%;
+}
+
+.about-block a {
+    text-decoration: underline;
+    color: black;
+}
+
+.about-block a:hover {
+    color: orangered;
 }
 
 .about-block.alt {
     background-color: #2f2e30;
     color: white;
+}
+
+.about-block.alt a {
+    text-decoration: underline;
+    color: white;
+}
+
+.about-block.alt a:hover {
+    color: orangered;
 }

@@ -70,4 +70,10 @@ class LectureRepository extends AbstractRepository
             ->getResult()
         ;
     }
+
+    /** @return \Doctrine\ORM\QueryBuilder */
+    public function getAdminQb()
+    {
+        return $this->createQueryBuilder('l')->innerJoin('l.event', 'e')->orderBy('e.date', 'DESC');
+    }
 }
