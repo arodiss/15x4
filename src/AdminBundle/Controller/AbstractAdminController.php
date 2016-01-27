@@ -36,7 +36,7 @@ abstract class AbstractAdminController extends Controller
             $this->getAdminConfig()['list_template'],
             [
                 'pagination' => $this->getPager()->paginate(
-                    $this->get($this->getAdminConfig()['repository_service'])->createQueryBuilder('qb'),
+                    $this->get($this->getAdminConfig()['repository_service'])->getAdminQb(),
                     $request->get('page', 1),
                     self::ITEMS_PER_PAGE
                 ),
