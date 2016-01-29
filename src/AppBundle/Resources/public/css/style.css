@@ -183,7 +183,6 @@ h3:not(.anchor) {
 
 .plate {
     border-radius: 6px;
-    background-image: url('http://yt3.ggpht.com/-GWeSn_4IORk/VfWzKFf7IQI/AAAAAAAAAKo/Hp9KljgO5S0/w2120-fcrop64=1,00005a57ffffa5a8-nd/15x4_youtube_banner.png');
     background-size: cover;
     cursor: pointer;
     height: 240px;
@@ -194,51 +193,25 @@ h3:not(.anchor) {
     text-decoration: none;
 }
 
-.plate-content {
-    padding: 10px;
-
-}
-
 @media(min-width:1200px)  {
     .plate:hover .plate-details {
         opacity: 0.8;
     }
 
     .plate-main {
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .plate-author {
-        font-size: 18px;
-        font-style: italic;
-        min-height: 110px;
+        font-size: 20px;
     }
 }
 
 @media(max-width:1200px) and (min-width:700px)  {
     .plate-main {
-        font-size: 22px;
-        font-weight: bold;
-    }
-
-    .plate-author {
-        font-size: 16px;
-        font-style: italic;
-        min-height: 90px;
+        font-size: 18px;
     }
 }
 
 @media(max-width: 700px)  {
     .plate-main {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .plate-author {
-        font-size: 13px;
-        font-style: italic;
-        min-height: 60px;
+        font-size: 16px;
     }
 }
 
@@ -246,14 +219,11 @@ h3:not(.anchor) {
     opacity: 0;
     border-radius: 6px;
     transition: opacity .25s ease;
-    position: absolute;
     width: 364px;
     height: 240px;
     background: #000000;
     color: white;
     padding: 12px;
-    display: flex;
-    align-items: center;
 }
 
 .about-block {

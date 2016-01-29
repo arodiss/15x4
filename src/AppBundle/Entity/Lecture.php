@@ -12,7 +12,8 @@ class Lecture
 {
     const EMBEDDABLE_URL_PREFIX = 'https://youtube.com/embed/';
     const FULL_URL_PREFIX = 'https://youtube.com/watch/?v=';
-    const YOU = 'https://youtube.com/watch/?v=';
+    const THUMBNAIL_URL_PREFIX = 'http://img.youtube.com/vi/';
+    const THUMBNAIL_URL_SUFFIX = '/0.jpg';
 
     /**
      * @ORM\Id
@@ -216,6 +217,12 @@ class Lecture
         return (bool)$this->discussionVideoUrl;
     }
 
+    /** @return string */
+    public function getVideoThumbnailUrl()
+    {
+        return self::THUMBNAIL_URL_PREFIX . $this->getVideoId() . self::THUMBNAIL_URL_SUFFIX;
+    }
+
     /**
      * @param string $watchUrl
      * @return string
@@ -230,5 +237,15 @@ class Lecture
         parse_str($query, $queryParsed);
 
         return self::EMBEDDABLE_URL_PREFIX . $queryParsed['v'];
+    }
+
+    /** @return string */
+    private function getVideoId()
+    {
+        return str_replace(
+            self::EMBEDDABLE_URL_PREFIX,
+            "",
+            $this->getVideoUrl()
+        );
     }
 }

@@ -1,9 +1,15 @@
-<div class="plate">
+<div class="plate" style="background-image: url('{{ lecture.videoThumbnailUrl }}');">
     <a href="{{ path('LectureDetails', { 'id': lecture.id }) }}">
-        <p class="text-justify plate-details">{{ lecture.teaser }}</p>
-        <div class="plate-content">
-            <p class="text-left plate-author">{{ lecture.lecturer }}</p>
-            <p class="text-center plate-main">{{ lecture.title }}</p>
+        <div class="plate-details">
+            <p class="plate-main">
+                {{ lecture.title }}
+            </p>
+            <p class="plate-main">
+                <i class="small">{{ lecture.lecturer }}</i>
+            </p>
+            <p class="text-justify">
+                {{ lecture.teaser }}
+            </p>
         </div>
     </a>
 </div>
