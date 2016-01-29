@@ -14,7 +14,7 @@ class LandingController extends AbstractController
         return $this->render(
             'landing/landing.html.twig',
             [
-                'lectures' => $this->getLectureRepository()->findRecent(6),
+                'lectures' => $this->getLectureRepository()->findRecent(12),
             ]
         );
     }
