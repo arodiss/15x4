@@ -1,15 +1,16 @@
 <div class="plate" style="background-image: url('{{ lecture.videoThumbnailUrl }}');">
     <a href="{{ path('LectureDetails', { 'id': lecture.id }) }}">
-        <div class="plate-details">
-            <p class="plate-main">
-                {{ lecture.title }}
-            </p>
-            <p class="plate-main">
-                <i class="small">{{ lecture.lecturer }}</i>
-            </p>
-            <p class="text-justify">
-                {{ lecture.teaser }}
-            </p>
+        <div class="plate-overlay">
+            <div class="plate-details text-justify">
+                <p>
+                    {{ lecture.teaser }}
+                </p>
+                <i class="pull-right">{{ lecture.lecturer }}</i>
+            </div>
+        </div>
+
+        <div class="plate-main">
+            <span style="width: 100%;" class="text-center">{{ lecture.title }}</span>
         </div>
     </a>
 </div>
