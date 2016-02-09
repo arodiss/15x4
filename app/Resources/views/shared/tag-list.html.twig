@@ -2,7 +2,7 @@
     {% if loop.index0 is divisible by(columnsCount) %}<div class="row" style="margin-top: 8px; margin-bottom: 5px;{% if loop.index0 != 0 %} border-top: 1px solid lightgray;{% endif %}">{% endif %}
 
     <div class="col-lg-{{ 12 / columnsCount }}">
-        <a href="{{ path("LectureFiltered", { tags: tag.id, fields: field.id }) }}">
+        <a href="{{ path("LectureList", { tags: tag.id, fields: field.id }) }}">
             #{{ tag.name }} ({{ tag.lecture_count }})
         </a>
     </div>

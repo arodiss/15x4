@@ -11,7 +11,7 @@
             {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
 
             <td style="width: 25%;">
-                <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag.name }} ({{ tag.lectures_count }})</a>
+                <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag.name }} ({{ tag.lectures_count }})</a>
             </td>
 
             {% if loop.index is divisible by(4) %}</tr>{% endif %}
