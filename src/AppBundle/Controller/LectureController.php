@@ -31,6 +31,7 @@ class LectureController extends AbstractController
 
     /**
      * @Extra\Route("/lectures/", name="LectureList")
+     * @Extra\Cache(expires="tomorrow", public=true)
      */
     public function listAllAction(Request $request)
     {

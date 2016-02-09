@@ -16,6 +16,7 @@ if ($debug) {
 $kernel = new AppKernel($env, $debug);
 if (!$debug) {
     $kernel->loadClassCache();
+    $kernel = new AppCache($kernel);
 }
 
 $request = Request::createFromGlobals();
