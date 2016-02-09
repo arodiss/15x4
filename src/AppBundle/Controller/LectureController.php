@@ -30,23 +30,9 @@ class LectureController extends AbstractController
     }
 
     /**
-     * @Extra\Route("/lecture/all/", name="LectureAll")
+     * @Extra\Route("/lectures/", name="LectureList")
      */
     public function listAllAction(Request $request)
-    {
-        return $this->render('lecture/all.html.twig', [
-            'pagination' => $this->getPager()->paginate(
-                $this->getLectureRepository()->findByFilters(),
-                $request->get('page', 1),
-                10
-            )
-        ]);
-    }
-
-    /**
-     * @Extra\Route("/lecture/filtered/", name="LectureFiltered")
-     */
-    public function listFilteredAction(Request $request)
     {
         $tagIds = explode(',', $request->get('tags', ''));
         $eventIds = explode(',', $request->get('events', ''));
@@ -58,10 +44,6 @@ class LectureController extends AbstractController
         $fields = $this->getFieldRepository()->findByIds($fieldIds);
         $lecturers = $this->getLecturerRepository()->findByIds($lecturerIds);
 
-        if (!$tags && !$events &&!$fields && !$lecturers) {
-            return $this->redirectToRoute('LectureAll');
-        }
-
         return $this->render(
             'lecture/filtered.html.twig',
             [
@@ -70,6 +52,7 @@ class LectureController extends AbstractController
                     $request->get('page', 1),
                     10
                 ),
+                'isFiltered' => $tags || $events || $fields || $lecturers,
                 'selectedTags' => $tags,
                 'availableTags' => $this->getTagRepository()->findForFilter($tagIds),
                 'selectedEvents' => $events,

@@ -13,7 +13,7 @@
         <p>
             Теги:
             {% for tag in lecture.tags  %}
-                <a href="{{ path("LectureFiltered", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
+                <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
             {% endfor %}
         </p>
         {% endif %}
@@ -31,9 +31,9 @@
         {% endif %}
 
         <p class="small">
-            <a href="{{ path("LectureFiltered", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
+            <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
-            <em><a href="{{ path("LectureFiltered", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
+            <em><a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
         </p>
     </div>
 </div>

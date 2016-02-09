@@ -1,10 +1,21 @@
 {% extends 'shared/lecture-list.html.twig' %}
 
-{% block page_title %}15x4 — Выбранные лекции{% endblock %}
+{% block page_title %}
+    15x4 —
+    {% if isFiltered %}
+        Выбранные лекции
+    {% else %}
+        Все лекции
+    {% endif %}
+{% endblock %}
 
 {% block listHeader %}
     <h1>
-        Выбранные лекции
+        {% if isFiltered %}
+            Выбранные лекции
+        {% else %}
+            Все лекции
+        {% endif %}
             <span
                 id="toggle-filters"
                 class="pull-right text-muted"
