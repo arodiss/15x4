@@ -166,21 +166,6 @@ h3:not(.anchor) {
     background-color: orangered;
 }
 
-@media(max-width:1000px)  {
-    .navbar-aside {
-        display: none !important;
-    }
-    .navbar-aside-alt {
-        display: block !important;
-    }
-}
-
-@media(min-width:1000px)  {
-    .navbar-aside-alt {
-        display: none !important;
-    }
-}
-
 .plate {
     border-radius: 6px;
     background-size: cover;
