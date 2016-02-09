@@ -11,6 +11,7 @@ class CategoriesController extends AbstractController
     /**
      * @Extra\Route("/fields/", name="Fields")
      * @Extra\ParamConverter()
+     * @Extra\Cache(expires="tomorrow", public=true)
      */
     public function fieldsAction()
     {

@@ -8,6 +8,7 @@ class LandingController extends AbstractController
 {
     /**
      * @Extra\Route("/", name="Landing")
+     * @Extra\Cache(expires="tomorrow", public=true)
      */
     public function indexAction()
     {
