@@ -5,66 +5,38 @@
     <h2 class="text-center" style="width: 100%;">Будущие встречи</h2>
 
     <div class="row">
-        <div class="col-lg-6">
-            <div class="well">
-                <h4>Харьков - 17.03.2016</h4>
+        {% for city in cities %}
+            <div class="col-lg-6">
+                <div class="well">
+                    {% if city.announcement and city.announcement.date >= date('today midnight') %}
+                        <h4>{{ city }} - {{ city.announcement.date | date }}</h4>
 
-                <p>
-                    Место: ул. Карла Маркса 1, "Фабрика"
-                </p>
+                        {% if city.announcement.where %}
+                            <p>
+                                Место: {{ city.announcement.where }}
+                            </p>
+                        {% endif %}
 
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут про антиоксиданты - <i>Екатерина Лебедь</i>
-                </p>
+                        {% if city.announcement.when %}
+                            <p>
+                                Время: {{ city.announcement.when }}
+                            </p>
+                        {% endif %}
 
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут про фотографию - <i>Дмитрий Холод</i>
-                </p>
+                        {% for lecture in city.announcement.lectures %}
+                            <p>
+                                <span class="glyphicon glyphicon-ok"></span>
+                                {{ lecture.title }} - <i>{{ lecture.lecturer }}</i>
+                            </p>
+                        {% endfor %}
+                    {% else %}
+                        <h4>{{ city }}</h4>
 
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут про антибиотики - <i>Ирина Яцюк</i>
-                </p>
-
-                <p>
-                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    <i>Тема четвёртой лекции будет анонсирована позже</i>
-                </p>
-
+                        <p><i>Будет анонсировано позже</i></p>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="well">
-                <h4>Киев - 10.02.2016</h4>
-
-                <p>
-                    Место: Киев, ул. Льва Толстого, 11/61 "Дом Книги" (ст. метро Льва Толстого)
-                </p>
-
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут о термоядерной энергетике - <i>Артем Ставенко</i>
-                </p>
-
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут про неочевидные изобретения - <i>Евгений Майковец</i>
-                </p>
-
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут о шизофрении - <i>Дмитрий Филоненко</i>
-                </p>
-
-                <p>
-                    <span class="glyphicon glyphicon-ok"></span>
-                    15 минут о биологии гомосексуализма - <i>Александр Коляда</i>
-                </p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <h2 class="text-center" style="width: 100%;">Недавние лекции</h2>
