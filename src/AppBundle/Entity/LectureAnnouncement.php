@@ -24,7 +24,7 @@ class LectureAnnouncement
     protected $title;
 
     /**
-     * @ORM\Column(name="teaser", type="text", nullable=false)
+     * @ORM\Column(name="teaser", type="text", nullable=true)
      */
     protected $teaser;
 

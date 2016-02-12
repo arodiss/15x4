@@ -79,6 +79,12 @@
                     .addClass('decorated')
                 ;
 
+                $(lectureNode).find('.lecture-title').each(function () {
+                    if (false == $(this).val()) {
+                        $(this).val('15 минут');
+                    }
+                });
+
                 $(lectureNode).find('.remove').click(function () {
                     $(lectureNode).remove();
                 });
