@@ -22,9 +22,19 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             {{ city.city }} - анонс следующей встречи
+                            {% if city.hasAnnouncement %}
+                                <div class="pull-right">
+                                    <a style='cursor: pointer;' href='{{ path('EventFromAnnouncement', { 'id': city.city.id }) }}'>
+                                        <i class="glyphicon glyphicon-ok-sign"></i>
+                                        Создать встречу из этого анонса
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
+
                         <div class="panel-body">
-                            {% if not city.city.announcement %}
+
+                            {% if not city.hasAnnouncement %}
                                 <div class="row">
                                     <div class="col-lg-4 col-lg-offset-4 alert alert-danger">
                                         <span class="glyphicon glyphicon-exclamation-sign"></span>
@@ -44,9 +54,13 @@
 
                             {% form_theme city.form 'bootstrap_3_horizontal_layout.html.twig' %}
                             {{ form(city.form, { 'attr': { 'id': 'form-' ~ city.city.id } }) }}
-                            <div class="btn btn-primary pull-right" id="add-{{ city.city.id }}">
-                                <i id="add-{{ city.city.id }}" class="glyphicon glyphicon-plus-sign"></i>
-                                Добавить лекцию
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="btn btn-primary pull-right" id="add-{{ city.city.id }}">
+                                        <i id="add-{{ city.city.id }}" class="glyphicon glyphicon-plus-sign"></i>
+                                        Добавить лекцию
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -72,21 +86,17 @@
 
             $.each(lectures, function (key, lectureNode) {
                 $(lectureNode)
-                    .css('border', '1px dashed gray')
-                    .css('padding-top', '7px')
-                    .css('background-color', '#eee')
                     .prepend('<span class="glyphicon glyphicon-remove pull-right remove"></span>')
                     .addClass('decorated')
                 ;
+                $(lectureNode).find('.remove').click(function () {
+                    $(lectureNode).remove();
+                });
 
                 $(lectureNode).find('.lecture-title').each(function () {
                     if (false == $(this).val()) {
                         $(this).val('15 минут');
                     }
-                });
-
-                $(lectureNode).find('.remove').click(function () {
-                    $(lectureNode).remove();
                 });
             });
         }
