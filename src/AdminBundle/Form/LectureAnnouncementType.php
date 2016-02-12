@@ -17,7 +17,15 @@ class LectureAnnouncementType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'Название'])
-            ->add('teaser', TextareaType::class, ['label' => 'Тизер'])
+            ->add(
+                'teaser',
+                TextareaType::class,
+                [
+                    'label' => 'Тизер',
+                    'required' => false,
+                    'attr' => ['placeholder' => '(не обязательно)'],
+                ]
+            )
             ->add(
                 'field',
                 EntityType::class,
