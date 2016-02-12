@@ -24,11 +24,6 @@ class LectureAnnouncement
     protected $title;
 
     /**
-     * @ORM\Column(name="teaser", type="text", nullable=false)
-     */
-    protected $teaser;
-
-    /**
      * @var Lecturer
      * @ORM\ManyToOne(
      *  targetEntity="Lecturer",
@@ -81,18 +76,6 @@ class LectureAnnouncement
     public function setTitle($title)
     {
         $this->title = $title;
-    }
-
-    /** @return string */
-    public function getTeaser()
-    {
-        return $this->teaser;
-    }
-
-    /** @param string $teaser */
-    public function setTeaser($teaser)
-    {
-        $this->teaser = $teaser;
     }
 
     /** @return Lecturer */
