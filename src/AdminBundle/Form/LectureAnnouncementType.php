@@ -16,7 +16,7 @@ class LectureAnnouncementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, ['label' => 'Название'])
+            ->add('title', TextType::class, ['label' => 'Название', 'attr' => ['class' => 'lecture-title']])
             ->add(
                 'teaser',
                 TextareaType::class,
