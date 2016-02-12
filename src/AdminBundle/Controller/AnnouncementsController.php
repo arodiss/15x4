@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AdminBundle\Form\EventFromAnnouncementType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AdminBundle\Form\AnnouncementType;
@@ -22,6 +23,7 @@ class AnnouncementsController extends Controller
             /** @var Entity\City $cityRaw */
             $cities[] = [
                 'city' => $cityRaw,
+                'hasAnnouncement' => (bool)$cityRaw->getAnnouncement(),
                 'form' => $this->createForm(
                     AnnouncementType::class,
                     $this->getCityAnnouncement($cityRaw)
@@ -55,6 +57,33 @@ class AnnouncementsController extends Controller
         }
 
         return ['cities' => $cities];
+    }
+
+    /**
+     * @Extra\Route("/announcements/{id}/implement", name="EventFromAnnouncement")
+     * @Extra\Template("admin/implement-announcement.html.twig")
+     * @Extra\ParamConverter
+     */
+    public function eventFromAnnouncementAction(Request $request, Entity\City $city)
+    {
+        $event = Entity\Event::fromAnnouncement($city->getAnnouncement());
+        $this->get("doctrine.orm.entity_manager")->persist($event);
+        $form = $this->createForm(EventFromAnnouncementType::class, $event);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $this->get("doctrine.orm.entity_manager")->persist($form->getData());
+                $this->get("doctrine.orm.entity_manager")->remove($city->getAnnouncement());
+                $this->get("doctrine.orm.entity_manager")->flush();
+                $this->addFlash('success', 'Встреча создана');
+            } else {
+                $this->addFlash('error', 'Не удалось создать встречу');
+            }
+
+            return $this->redirectToRoute('AdminAnnouncements');
+        }
+
+        return ['form' => $form->createView()];
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +20,7 @@ class Event
 
     /**
      * @var \AppBundle\Entity\Lecture[]
-     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Lecture", mappedBy="event")
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Lecture", mappedBy="event", cascade={"persist"})
      */
     protected $lectures;
 
@@ -72,5 +73,36 @@ class Event
     public function getLectures()
     {
         return $this->lectures;
+    }
+
+    /** @param $lectures */
+    public function setLectures($lectures)
+    {
+        $this->lectures = $lectures;
+    }
+
+    /**
+     * @param Announcement $announcement
+     * @return self
+     */
+    public static function fromAnnouncement(Announcement $announcement)
+    {
+        $self = new self;
+        $self->setCity($announcement->getCity());
+        $self->setDate($announcement->getDate());
+        $lectures = new ArrayCollection();
+        foreach ($announcement->getLectures() as $lectureAnnouncement) {
+            $lecture = new Lecture();
+            $lecture->setTitle($lectureAnnouncement->getTitle());
+            $lecture->setTeaser($lectureAnnouncement->getTeaser());
+            $lecture->setLecturer($lectureAnnouncement->getLecturer());
+            $lecture->setField($lectureAnnouncement->getField());
+            $lecture->setEvent($self);
+
+            $lectures->add($lecture);
+        }
+        $self->lectures = $lectures;
+
+        return $self;
     }
 }
