@@ -24,6 +24,12 @@ class City
     protected $events;
 
     /**
+     * @var \AppBundle\Entity\Announcement
+     * @ORM\OneToOne(targetEntity="\AppBundle\Entity\Announcement", mappedBy="city")
+     */
+    protected $announcement;
+
+    /**
      * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
      */
     protected $name;
@@ -50,5 +56,11 @@ class City
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /** @return Announcement */
+    public function getAnnouncement()
+    {
+        return $this->announcement;
     }
 }

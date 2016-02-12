@@ -1,0 +1,105 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block admin_content %}
+    
+    <ul class="nav nav-tabs" role="tablist">
+        {% for city in cities %}
+            <li role="presentation"{% if loop.first %} class="active"{% endif %}>
+                <a href="#city-{{ city.city.id }}" aria-controls="city-{{ city.city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
+                    {% if not city.city.announcement or city.city.announcement.date < date() %}
+                        <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                    {% endif %}
+                    {{ city.city }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="tab-content">
+        {% for city in cities %}
+            <div id="city-{{ city.city.id }}" role="tabpanel" class="row tab-pane{% if loop.first %} active{% endif %}">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {{ city.city }} - анонс следующей встречи
+                        </div>
+                        <div class="panel-body">
+                            {% if not city.city.announcement %}
+                                <div class="row">
+                                    <div class="col-lg-4 col-lg-offset-4 alert alert-danger">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                        Для этого города нет анонса
+                                    </div>
+                                </div>
+                            {% else %}
+                                {% if city.city.announcement.date < date() %}
+                                    <div class="row">
+                                        <div class="col-lg-4 col-lg-offset-4 alert alert-danger">
+                                            <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                            Анонс этого города просрочен
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                            {% form_theme city.form 'bootstrap_3_horizontal_layout.html.twig' %}
+                            {{ form(city.form, { 'attr': { 'id': 'form-' ~ city.city.id } }) }}
+                            <div class="btn btn-primary pull-right" id="add-{{ city.city.id }}">
+                                <i id="add-{{ city.city.id }}" class="glyphicon glyphicon-plus-sign"></i>
+                                Добавить лекцию
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        function selectize() {
+            $('.selectizable').selectize({
+                placeholder: 'Выбрать ...'
+            });
+            $('.selectizable').removeClass('selectizable');
+        }
+
+        function decorateLectures($parentNode) {
+            var lectures = $parentNode.find('> .form-group').not('.decorated');
+
+            $.each(lectures, function (key, lectureNode) {
+                $(lectureNode)
+                    .css('border', '1px dashed gray')
+                    .css('padding-top', '7px')
+                    .css('background-color', '#eee')
+                    .prepend('<span class="glyphicon glyphicon-remove pull-right remove"></span>')
+                    .addClass('decorated')
+                ;
+
+                $(lectureNode).find('.remove').click(function () {
+                    $(lectureNode).remove();
+                });
+            });
+        }
+
+        $('.lectures').each(function () {
+            decorateLectures($(this));
+        });
+        selectize();
+
+        {% for city in cities %}
+            $('#add-{{ city.city.id }}').click(function () {
+                var lecturesNode = $('#form-{{ city.city.id }}').find('.lectures'),
+                    template = lecturesNode.data('prototype');
+
+                lecturesNode.append(template.replace(/__name__/g, Math.round(Math.random() * 1000000) + ''));
+
+                decorateLectures(lecturesNode);
+                selectize();
+            });
+        {% endfor %}
+    </script>
+{% endblock %}
