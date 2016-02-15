@@ -64,7 +64,10 @@ class LectureRepository extends AbstractRepository
     {
         $qb = $this->createQueryBuilder('lecture');
         if ($excludes) {
-            $qb->andWhere($qb->expr()->notIn('lecture', $excludes));
+            $idGetter = function ($entity) {
+                return $entity->getId();
+            };
+            $qb->andWhere($qb->expr()->notIn('lecture', array_map($idGetter, $excludes)));
         }
 
         return $qb
