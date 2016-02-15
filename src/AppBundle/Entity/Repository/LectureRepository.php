@@ -63,10 +63,12 @@ class LectureRepository extends AbstractRepository
     public function findRecent($number, array $excludes = [])
     {
         $qb = $this->createQueryBuilder('lecture');
+        if ($excludes) {
+            $qb->andWhere($qb->expr()->notIn('lecture', $excludes));
+        }
 
         return $qb
             ->setMaxResults($number)
-            ->andWhere($qb->expr()->notIn('lecture', $excludes))
             ->innerJoin('lecture.event', 'event')
             ->orderBy('event.date', 'DESC')
             ->getQuery()
