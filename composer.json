@@ -18,6 +18,8 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "ext-mbstring": "*",
+
         "symfony/symfony": "3.0.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",

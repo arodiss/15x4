@@ -15,7 +15,12 @@
                     {{ field.getDescription() }}
                 </div>
                 {% if tags|length > 0  %}
-                    {% include "shared/tag-list.html.twig" with { 'tags': tags, 'field': field, 'columnsCount': 3 } %}
+                    {% include "shared/tag-list.html.twig" with { 'tags': tags | head(18), 'field': field, 'columnsCount': 3 } %}
+                    {% if tags|length > 18  %}
+                        (... ещё {{ tags|length - 18 }})
+                        <br/>
+                        <a href='{{ path('Tags') }}'>Все теги</a>
+                    {% endif %}
                 {% else %}
                     <hr/>
                 {% endif %}
