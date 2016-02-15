@@ -1,6 +1,1 @@
-services:
-    xircl.twig.extension.string_utils:
-        class: AppBundle\Twig\StringUtilsExtension
-        tags:
-            - { name: twig.extension }
-
+services: ~

@@ -1,0 +1,11 @@
+services:
+    twig.extension.string_utils:
+        class: AppBundle\Twig\StringUtilsExtension
+        tags:
+            - { name: twig.extension }
+
+
+    twig.extension.unix_pipes:
+        class: AppBundle\Twig\UnixPipesExtension
+        tags:
+            - { name: twig.extension }
