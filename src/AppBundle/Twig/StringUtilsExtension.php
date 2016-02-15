@@ -25,7 +25,7 @@ class StringUtilsExtension extends \Twig_Extension
      */
     public static function cut($string, $length = 40)
     {
-        return (strlen($string) > $length)
+        return (mb_strlen($string) > $length)
             ? mb_substr($string, 0, $length - 4) . " ..."
             : $string
         ;
