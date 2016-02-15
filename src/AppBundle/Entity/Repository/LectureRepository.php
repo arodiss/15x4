@@ -57,15 +57,34 @@ class LectureRepository extends AbstractRepository
 
     /**
      * @param int $number
+     * @param array $excludes
      * @return Entity\Lecture[]
      */
-    public function findRecent($number)
+    public function findRecent($number, array $excludes = [])
+    {
+        $qb = $this->createQueryBuilder('lecture');
+
+        return $qb
+            ->setMaxResults($number)
+            ->andWhere($qb->expr()->notIn('lecture', $excludes))
+            ->innerJoin('lecture.event', 'event')
+            ->orderBy('event.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @param int $number
+     * @return Entity\Lecture[]
+     */
+    public function findFeatured($number)
     {
         return  $this
             ->createQueryBuilder('lecture')
+            ->andWhere('lecture.isFeatured = 1')
             ->setMaxResults($number)
-            ->innerJoin('lecture.event', 'event')
-            ->orderBy('event.date', 'DESC')
+            ->orderBy('lecture.randomRating', 'DESC')
             ->getQuery()
             ->getResult()
         ;

@@ -81,6 +81,16 @@ class Lecture
      */
     protected $tags;
 
+    /**
+     * @ORM\Column(name="random_rating", type="integer", nullable=false)
+     */
+    protected $randomRating = 500;
+
+    /**
+     * @ORM\Column(name="is_featured", type="boolean", nullable=false)
+     */
+    protected $isFeatured = false;
+
     /** {@inheritdoc} */
     public function __toString()
     {
@@ -221,6 +231,30 @@ class Lecture
     public function getVideoThumbnailUrl()
     {
         return self::THUMBNAIL_URL_PREFIX . $this->getVideoId() . self::THUMBNAIL_URL_SUFFIX;
+    }
+
+    /** @return int */
+    public function getRandomRating()
+    {
+        return $this->randomRating;
+    }
+
+    /** @param int $randomRating */
+    public function setRandomRating($randomRating)
+    {
+        $this->randomRating = $randomRating;
+    }
+
+    /** @return bool */
+    public function getIsFeatured()
+    {
+        return $this->isFeatured;
+    }
+
+    /** @param bool $isFeatured */
+    public function setIsFeatured($isFeatured)
+    {
+        $this->isFeatured = $isFeatured;
     }
 
     /**
