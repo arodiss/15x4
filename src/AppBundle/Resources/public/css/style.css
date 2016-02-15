@@ -219,6 +219,7 @@ h3:not(.anchor) {
     transition: opacity .25s ease;
     width: 364px;
     height: 240px;
+    overflow: hidden;
     background: #000000;
     color: white;
     padding: 12px;
