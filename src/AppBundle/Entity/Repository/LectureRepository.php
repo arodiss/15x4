@@ -57,18 +57,11 @@ class LectureRepository extends AbstractRepository
 
     /**
      * @param int $number
-     * @param array $excludes
      * @return Entity\Lecture[]
      */
-    public function findRecent($number, array $excludes = [])
+    public function findRecent($number)
     {
         $qb = $this->createQueryBuilder('lecture');
-        if ($excludes) {
-            $idGetter = function ($entity) {
-                return $entity->getId();
-            };
-            $qb->andWhere($qb->expr()->notIn('lecture', array_map($idGetter, $excludes)));
-        }
 
         return $qb
             ->setMaxResults($number)

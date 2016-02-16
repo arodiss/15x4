@@ -167,10 +167,10 @@ h3:not(.anchor) {
 }
 
 .plate {
-    border-radius: 6px;
+    border-radius: 4px;
     background-size: cover;
     cursor: pointer;
-    height: 240px;
+    height: 152px;
 }
 
 .plate a {
@@ -184,19 +184,19 @@ h3:not(.anchor) {
     }
 
     .plate-main {
-        font-size: 26px;
+        font-size: 22px;
     }
 }
 
 @media(max-width:1200px) and (min-width:700px)  {
     .plate-main {
-        font-size: 22px;
+        font-size: 18px;
     }
 }
 
 @media(max-width: 700px)  {
     .plate-main {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
@@ -215,16 +215,17 @@ h3:not(.anchor) {
 .plate-details {
     position: absolute;
     opacity: 0;
-    border-radius: 6px;
+    border-radius: 4px;
     transition: opacity .25s ease;
-    width: 364px;
-    height: 240px;
+    width: 269px;
+    height: 152px;
     overflow: hidden;
     background: #000000;
     color: white;
-    padding: 12px;
+    padding: 6px;
     z-index: 2;
     font-weight: bold;
+    font-size: 12px;
 }
 
 .about-block {
