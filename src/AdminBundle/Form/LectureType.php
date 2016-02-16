@@ -68,7 +68,7 @@ class LectureType extends AbstractType
             ->add(
                 'is_featured',
                 CheckboxType::class,
-                ['label' => 'Рекомендованная лекция']
+                ['label' => 'Рекомендованная лекция', 'required' => false]
             );
 
             if ($options['is_standalone']) {
