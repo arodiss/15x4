@@ -41,10 +41,10 @@
 
     <h2 class="text-center" style="width: 100%;">Недавние лекции</h2>
 
-    <table class="table table-responsive" style="background-color: cornsilk;">
+    <table class="table table-responsive noborders" style="background-color: cornsilk;">
         <tr>
             {% for lecture in featured_lectures %}
-                <td style="width: 25%;">
+                <td style="width: 25%; border-style: none;">
                     {% include('shared/lecture-plate.html.twig') %}
                 </td>
             {% endfor %}
@@ -55,7 +55,7 @@
         {% for lecture in lectures %}
             {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
 
-            <td style="width: 25%;">
+            <td style="width: 25%; border-style: none;">
                 {% include('shared/lecture-plate.html.twig') %}
             </td>
 
