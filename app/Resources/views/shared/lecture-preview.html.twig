@@ -3,7 +3,10 @@
         <iframe width="560" height="315" src="{{ lecture.videoUrl }}" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-lg-6">
-        <h4>{{ lecture }}</h4>
+        <h4>
+            {{ lecture }}
+            <em>- <a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
+        </h4>
 
         <p>
             Дисциплина: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
@@ -32,8 +35,7 @@
 
         <p class="small">
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
-            <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a> -
-            <em><a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
+            <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a>
         </p>
     </div>
 </div>
