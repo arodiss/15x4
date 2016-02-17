@@ -12,8 +12,8 @@ class Lecture
 {
     const EMBEDDABLE_URL_PREFIX = 'https://youtube.com/embed/';
     const FULL_URL_PREFIX = 'https://youtube.com/watch/?v=';
-    const THUMBNAIL_URL_PREFIX = 'http://img.youtube.com/vi/';
-    const THUMBNAIL_URL_SUFFIX = '/0.jpg';
+    const THUMBNAIL_URL_PREFIX = 'http://i.ytimg.com/vi_webp/';
+    const THUMBNAIL_URL_SUFFIX = '/mqdefault.webp';
 
     /**
      * @ORM\Id

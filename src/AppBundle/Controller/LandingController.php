@@ -12,14 +12,12 @@ class LandingController extends AbstractController
      */
     public function indexAction()
     {
-        $featured = $this->getLectureRepository()->findFeatured(3);
-
         return $this->render(
             'landing/landing.html.twig',
             [
                 'cities' => $this->getCityRepository()->findAll(),
-                'featured_lectures' => $featured,
-                'lectures' => $this->getLectureRepository()->findRecent(9, $featured),
+                'featured_lectures' => $this->getLectureRepository()->findFeatured(4),
+                'lectures' => $this->getLectureRepository()->findRecent(12),
             ]
         );
     }

@@ -44,7 +44,7 @@
     <table class="table table-responsive" style="background-color: cornsilk;">
         <tr>
             {% for lecture in featured_lectures %}
-                <td style="width: 33%;">
+                <td style="width: 25%;">
                     {% include('shared/lecture-plate.html.twig') %}
                 </td>
             {% endfor %}
@@ -53,13 +53,13 @@
 
     <table class="table table-responsive">
         {% for lecture in lectures %}
-            {% if loop.index0 is divisible by(3) %}<tr>{% endif %}
+            {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
 
-            <td style="width: 33%;">
+            <td style="width: 25%;">
                 {% include('shared/lecture-plate.html.twig') %}
             </td>
 
-            {% if loop.index is divisible by(3) %}</tr>{% endif %}
+            {% if loop.index is divisible by(4) %}</tr>{% endif %}
         {% endfor %}
     </table>
 
