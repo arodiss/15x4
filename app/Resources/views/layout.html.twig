@@ -28,7 +28,7 @@
         {% block alerts %}{% include "alerts.html.twig" %}{% endblock %}
         {% block header %}{% include "header.html.twig" %}{% endblock %}
         {% if ignoreContainer is not defined %}
-        <div class="container">
+        <div class="container" id="main-container">
         {% endif %}
             {% block content %}{% endblock %}
             <div class="scroll-top-wrapper ">

@@ -285,3 +285,59 @@ h3:not(.anchor) {
     transition: opacity 0.5s;
 }
 /*end tag cloud styles*/
+
+/*main container height responsiveness*/
+@media(min-height:1400px)  {
+    #main-container {
+        min-height: 1120px;
+    }
+}
+
+@media(max-height:1300px) and (min-height:1100px) {
+    #main-container {
+        min-height: 1020px;
+    }
+}
+
+@media(max-height:1400px) and (min-height:1200px) {
+    #main-container {
+        min-height: 920px;
+    }
+}
+
+@media(max-height:1300px) and (min-height:1100px) {
+    #main-container {
+        min-height: 820px;
+    }
+}
+
+@media(max-height:1200px) and (min-height:1000px) {
+    #main-container {
+        min-height: 720px;
+    }
+}
+
+@media(max-height:1100px) and (min-height:900px) {
+    #main-container {
+        min-height: 620px;
+    }
+}
+
+@media(max-height:1000px) and (min-height:800px) {
+    #main-container {
+        min-height: 520px;
+    }
+}
+
+@media(max-height:900px) and (min-height:700px) {
+    #main-container {
+        min-height: 420px;
+    }
+}
+
+@media(max-height:800px) and (min-height:600px) {
+    #main-container {
+        min-height: 320px;
+    }
+}
+/*end main container height responsiveness*/
