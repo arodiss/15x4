@@ -19,10 +19,11 @@
 
 {% block javascripts %}
     <script type="text/javascript">
-        var colors = ['deeppink', 'salmon', 'crimson', 'indianred', 'firebrick', 'tomato', 'darkorange', 'darkkhaki',
-            'gold', 'rosybrown', 'goldenrod', 'chocolate', 'sienna', 'brown', 'maroon', 'darkolivegreen', 'limegreen',
-            'olivedrab', 'springgreen', 'seagreen', 'forestgreen', 'mediumaquamarine', 'lightseagreen', 'teal',
-            'cadetblue', 'steelblue', 'navy', 'lightsteelblue', 'blueviolet', 'darkslateblue', 'darkslategray'
+        var colors = [
+            'darkred','firebrick','maroon','brown','darkred','firebrick','maroon','brown',
+            'black','black',
+            'darkorange','orangered',
+            'goldenrod'
         ];
 
         $('#cloud-container').jQCloud(
@@ -33,7 +34,10 @@
                         weight: 1,
                         link: '{{ path('LectureList', { 'tags': tag.id }) }}',
                         afterWordRender: function () {
-                            $(this).find('a').css('color', colors[Math.floor(Math.random() * colors.length)]);
+                            $(this).find('a')
+                                .css('color', colors[Math.floor(Math.random() * colors.length)])
+                                .css('font-size', (130 + Math.floor(Math.random() * 100)) + '%')
+                            ;
                         }
                     }
                     {% if not loop.last %},{% endif %}

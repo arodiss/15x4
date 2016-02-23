@@ -274,9 +274,10 @@ h3:not(.anchor) {
 
 /*tag cloud styles*/
 #cloud-container span a {
-    font-size: 200%;
-    font-style: italic;
+    font-size: 160%;
     transition: color 0.5s;
+    color: black;
+    font-family: 'Lobster', cursive;
 }
 
 #cloud-container span a:hover {
