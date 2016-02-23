@@ -1,3 +1,4 @@
+/*wrapper styles*/
 footer {
     border-top: 2px solid orangered;
     padding-top: 20px;
@@ -69,7 +70,9 @@ a:hover .glyphicon {
 .nav .dropdown-menu .fa-stack .fa-stack-2x {
     top: 1px;
 }
+/*end wrapper styles*/
 
+/*scroll to top styles*/
 .scroll-top-wrapper {
     position: fixed;
     opacity: 0;
@@ -99,7 +102,9 @@ a:hover .glyphicon {
 .scroll-top-wrapper i.fa {
     line-height: inherit;
 }
+/*end scroll to top styles*/
 
+/*generic styles*/
 h3:not(.anchor) {
     border-left: 2px solid orangered;
     padding-left: 10px;
@@ -112,10 +117,6 @@ h3:not(.anchor) {
 
 .panel-collapse .panel-body .row {
     margin-bottom: 0;
-}
-
-.list-group-item {
-    border-width: 0;
 }
 
 .flash {
@@ -151,7 +152,9 @@ h3:not(.anchor) {
 .well.well-no-margin {
     margin-bottom: 0!important;
 }
+/*end generic styles*/
 
+/*carousel styles*/
 .carousel-indicators li {
     width: 14px;
     height: 14px;
@@ -165,7 +168,9 @@ h3:not(.anchor) {
     border-radius: 7px;
     background-color: orangered;
 }
+/*end carousel styles*/
 
+/*plates styles*/
 .plate {
     border-radius: 4px;
     background-size: cover;
@@ -227,7 +232,9 @@ h3:not(.anchor) {
     font-weight: bold;
     font-size: 12px;
 }
+/*end plates styles*/
 
+/*about page styles*/
 .about-block {
     padding-left: 40px;
     padding-right: 30px;
@@ -263,3 +270,18 @@ h3:not(.anchor) {
 .about-block.alt a:hover {
     color: orangered;
 }
+/*end about page styles*/
+
+/*tag cloud styles*/
+#cloud-container span a {
+    font-size: 200%;
+    font-style: italic;
+    transition: color 0.5s;
+}
+
+#cloud-container span a:hover {
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+/*end tag cloud styles*/

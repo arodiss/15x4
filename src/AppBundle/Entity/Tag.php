@@ -27,6 +27,11 @@ class Tag
      */
     protected $lectures;
 
+    /**
+     * @ORM\Column(name="random_rating", type="integer", nullable=false)
+     */
+    protected $randomRating = 500;
+
     /** {@inheritdoc} */
     public function __toString()
     {
@@ -49,5 +54,17 @@ class Tag
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /** @return int */
+    public function getRandomRating()
+    {
+        return $this->randomRating;
+    }
+
+    /** @param int $randomRating */
+    public function setRandomRating($randomRating)
+    {
+        $this->randomRating = $randomRating;
     }
 }
