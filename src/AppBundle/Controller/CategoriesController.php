@@ -24,14 +24,10 @@ class CategoriesController extends AbstractController
      * @Extra\Route("/tags/", name="Tags")
      * @Extra\ParamConverter()
      */
-    public function tagsAction(Request $request)
+    public function tagsAction()
     {
         return $this->render('category/tags.html.twig', [
-            'pagination' => $this->getPager()->paginate(
-                $this->getTagRepository()->findForList(),
-                $request->get('page', 1),
-                40
-            )
+            'tags' => $this->getTagRepository()->findForCloud(),
         ]);
     }
 

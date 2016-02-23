@@ -3,21 +3,43 @@
 {% block page_title %}15x4 — Теги{% endblock %}
 
 {% block content %}
-    <h2 class="page-header">Количество тегов: {{ pagination.items|length }}</h2>
+    <div class="panel panel-default" style="margin-top: 10px;">
+        <div class="panel-heading">
+            Всего тегов: {{ tags|length }}
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="cloud-container" style="height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
-    <table class="table table-responsive">
-        <tbody>
-        {% for tag in pagination.items %}
-            {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
+{% block javascripts %}
+    <script type="text/javascript">
+        var colors = ['deeppink', 'salmon', 'crimson', 'indianred', 'firebrick', 'tomato', 'darkorange', 'darkkhaki',
+            'gold', 'rosybrown', 'goldenrod', 'chocolate', 'sienna', 'brown', 'maroon', 'darkolivegreen', 'limegreen',
+            'olivedrab', 'springgreen', 'seagreen', 'forestgreen', 'mediumaquamarine', 'lightseagreen', 'teal',
+            'cadetblue', 'steelblue', 'navy', 'lightsteelblue', 'blueviolet', 'darkslateblue', 'darkslategray'
+        ];
 
-            <td style="width: 25%;">
-                <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag.name }} ({{ tag.lectures_count }})</a>
-            </td>
-
-            {% if loop.index is divisible by(4) %}</tr>{% endif %}
-        {% endfor %}
-        </tbody>
-    </table>
-
-    {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
+        $('#cloud-container').jQCloud(
+            [
+                {% for tag in tags %}
+                    {
+                        text: '{{ tag.name }}',
+                        weight: 1,
+                        link: '{{ path('LectureList', { 'tags': tag.id }) }}',
+                        afterWordRender: function () {
+                            $(this).find('a').css('color', colors[Math.floor(Math.random() * colors.length)]);
+                        }
+                    }
+                    {% if not loop.last %},{% endif %}
+                {% endfor %}
+            ],
+            { delayedMode: true }
+        );
+    </script>
 {% endblock %}
