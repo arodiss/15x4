@@ -1,43 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
-    <h2 class="text-center" style="width: 100%;">Будущие встречи</h2>
-
-    <div class="row">
-        {% for city in cities %}
-            <div class="col-lg-6">
-                <div class="well">
-                    {% if city.announcement and city.announcement.date >= date('today midnight') %}
-                        <h4>{{ city }} - {{ city.announcement.date | date }}</h4>
-
-                        {% if city.announcement.where %}
-                            <p>
-                                Место: {{ city.announcement.where }}
-                            </p>
-                        {% endif %}
-
-                        {% if city.announcement.when %}
-                            <p>
-                                Время: {{ city.announcement.when }}
-                            </p>
-                        {% endif %}
-
-                        {% for lecture in city.announcement.lectures %}
-                            <p>
-                                <span class="glyphicon glyphicon-ok"></span>
-                                {{ lecture.title }} - <i>{{ lecture.lecturer }}</i>
-                            </p>
-                        {% endfor %}
-                    {% else %}
-                        <h4>{{ city }}</h4>
-
-                        <p><i>Будет анонсировано позже</i></p>
-                    {% endif %}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    {% include 'upcoming-events.html.twig' %}
 
     <h2 class="text-center" style="width: 100%;">Недавние лекции</h2>
 
@@ -45,7 +9,7 @@
         <tr>
             {% for lecture in featured_lectures %}
                 <td style="width: 25%; border-style: none;">
-                    {% include('shared/lecture-plate.html.twig') %}
+                    {% include 'shared/lecture-plate.html.twig' %}
                 </td>
             {% endfor %}
         </tr>
@@ -56,7 +20,7 @@
             {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
 
             <td style="width: 25%; border-style: none;">
-                {% include('shared/lecture-plate.html.twig') %}
+                {% include 'shared/lecture-plate.html.twig' %}
             </td>
 
             {% if loop.index is divisible by(4) %}</tr>{% endif %}
