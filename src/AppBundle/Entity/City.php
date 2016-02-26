@@ -63,4 +63,18 @@ class City
     {
         return $this->announcement;
     }
+
+    /** @return bool */
+    public function hasValidAnnouncement()
+    {
+        return $this->getAnnouncement()
+            && $this->getAnnouncement()->getDate() > (new \DateTime)->modify('today midnight');
+    }
+
+    /** @return bool */
+    public function hasOutdatedAnnouncement()
+    {
+        return $this->getAnnouncement()
+            && $this->getAnnouncement()->getDate() < (new \DateTime)->modify('today midnight');
+    }
 }

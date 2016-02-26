@@ -15,7 +15,7 @@
         <div id="city-{{ city.id  }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
             <div class="well">
                 <div class="row">
-                    {% if city.announcement and city.announcement.date >= date('today midnight') %}
+                    {% if city.hasValidAnnouncement() %}
                         <div class="col-lg-6">
                             <h4>
                                 Время: {{ city.announcement.date | date }}{% if city.announcement.when %}, {{ city.announcement.when }}{% endif %}
