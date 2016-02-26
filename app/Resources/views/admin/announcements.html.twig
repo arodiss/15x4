@@ -6,7 +6,7 @@
         {% for city in cities %}
             <li role="presentation"{% if loop.first %} class="active"{% endif %}>
                 <a href="#city-{{ city.city.id }}" aria-controls="city-{{ city.city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
-                    {% if not city.city.announcement or city.city.announcement.date < date() %}
+                    {% if not city.city.hasValidAnnouncement() %}
                         <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
                     {% endif %}
                     {{ city.city }}
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                             {% else %}
-                                {% if city.city.announcement.date < date() %}
+                                {% if city.city.hasOutdatedAnnouncement() %}
                                     <div class="row">
                                         <div class="col-lg-4 col-lg-offset-4 alert alert-danger">
                                             <span class="glyphicon glyphicon-exclamation-sign"></span>
