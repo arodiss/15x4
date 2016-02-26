@@ -68,7 +68,7 @@ class City
     public function hasValidAnnouncement()
     {
         return $this->getAnnouncement()
-            && $this->getAnnouncement()->getDate() > (new \DateTime)->modify('today midnight');
+            && $this->getAnnouncement()->getDate() >= (new \DateTime)->modify('today midnight');
     }
 
     /** @return bool */
