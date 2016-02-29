@@ -34,7 +34,14 @@ class AnnouncementType extends AbstractType
                 'label' => 'Где',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => '(не обязательно)',
+                    'placeholder' => '(не обязательно, город указывать не нужно)',
+                ]
+            ])
+            ->add('whereMap', TextareaType::class, [
+                'label' => 'Маркер для карты',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '(если не ввести, исопльзуется значение из предыдущего поля)',
                 ]
             ])
             ->add('when', TextareaType::class, [

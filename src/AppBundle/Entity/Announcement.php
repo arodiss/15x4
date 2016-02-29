@@ -46,6 +46,11 @@ class Announcement
     protected $where;
 
     /**
+     * @ORM\Column(name="place_map", type="text", nullable=true)
+     */
+    protected $whereMap;
+
+    /**
      * @ORM\Column(name="time", type="text", nullable=true)
      */
     protected $when;
@@ -106,6 +111,18 @@ class Announcement
     public function setWhere($where)
     {
         $this->where = $where;
+    }
+
+    /** @return string */
+    public function getWhereMap()
+    {
+        return $this->whereMap ?: $this->getWhere();
+    }
+
+    /** @param string $whereMap */
+    public function setWhereMap($whereMap)
+    {
+        $this->whereMap = $whereMap;
     }
 
     /** @param LectureAnnouncement $lecture */
