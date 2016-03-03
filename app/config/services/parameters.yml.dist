@@ -1,0 +1,15 @@
+parameters:
+    secret: 1234567890123456
+    database_password: root
+    database_user: root
+    database_name: 15x4
+    database_host: 127.0.0.1
+    database_port: ~
+
+    admin_password: admin
+    google_analytics_id: 1111
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_password: ~
+    mailer_user: ~

@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Request;
 
-$env = getenv('SF_ENVIRONMENT');
+$env = getenv('SF_ENVIRONMENT') ?: 'dev';
 $debug = $env !== 'prod';
 
 /** @var Composer\Autoload\ClassLoader */
