@@ -44,4 +44,19 @@ class EventRepository extends AbstractRepository
     {
         return $this->createQueryBuilder('e')->orderBy('e.date', 'DESC');
     }
+
+    /**
+     * @param int $number
+     * @return array
+     */
+    public function findRecent($number)
+    {
+        return $this
+            ->createQueryBuilder('event')
+            ->setMaxResults($number)
+            ->orderBy('event.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
