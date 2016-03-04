@@ -13,5 +13,6 @@ To build project itself, do
 bin/console doctrine:database:create
 bin/console doctrine:schema:update --force
 bin/console 15x4:load-fields
+bin/console assetic:dump
 ```
-To run application as a site, you need to use webserver. You may use whatever you like, but simplest would be PHP built-in server - you can run it with `bin/console server:run` (you may also specify port with `--port XXX`) If you use built-in server, rewrite rules don't work and you have to call site with URL like `http://127.0.0.1:8081/app.php`
+To run application as a site, you need to use webserver. You may use whatever you like, but recommended one is Apache2
