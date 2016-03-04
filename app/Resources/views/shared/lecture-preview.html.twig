@@ -4,7 +4,9 @@
     </div>
     <div class="col-lg-6">
         <h4>
-            {{ lecture }}
+            <a href="{{ path('LectureDetails', { 'id': lecture.id }) }}">
+                {{ lecture }}
+            </a>
             <em>- <a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
         </h4>
 
