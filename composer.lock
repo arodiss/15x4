@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef1ab1eb8ec47b8480e296a303b69fe7",
-    "content-hash": "674a5930aeb1b5cb4ab3c557ec3a1d9d",
+    "hash": "f2bb48d9653fb663f2a751405ef046d4",
     "packages": [
+        {
+            "name": "alaouy/youtube",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alaouy/Youtube.git",
+                "reference": "4ed6ad253e5f3e8ccaeddbe0319971ca8153e044"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alaouy/Youtube/zipball/4ed6ad253e5f3e8ccaeddbe0319971ca8153e044",
+                "reference": "4ed6ad253e5f3e8ccaeddbe0319971ca8153e044",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Alaouy\\Youtube\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mustapha Alaouy",
+                    "email": "alaouym@gmail.com"
+                }
+            ],
+            "description": "Laravel PHP Facade/Wrapper for the Youtube Data API v3",
+            "keywords": [
+                "alaouy",
+                "api",
+                "laravel",
+                "video",
+                "youtube"
+            ],
+            "time": "2015-09-13 12:25:56"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.7",
@@ -1967,7 +2012,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=5.5.9",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }

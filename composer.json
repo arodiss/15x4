@@ -19,6 +19,7 @@
     "require": {
         "php": ">=5.5.9",
         "ext-mbstring": "*",
+        "ext-curl": "*",
 
         "symfony/symfony": "3.0.*",
         "doctrine/orm": "^2.5",
@@ -28,7 +29,8 @@
         "symfony/monolog-bundle": "^2.8",
         "sensio/distribution-bundle": "^5.0",
         "knplabs/knp-paginator-bundle": "~2.5",
-        "sensio/framework-extra-bundle": "^3.0.2"
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "alaouy/youtube": "1.2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0"

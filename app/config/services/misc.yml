@@ -1,1 +1,5 @@
-services: ~
+services:
+    youtube:
+        class: Alaouy\Youtube\Youtube
+        arguments:
+            - %youtube_api_key%
