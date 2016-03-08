@@ -12,6 +12,7 @@ footer {
 header {
     background-color: #A53000;
     background-image: url('/bundles/app/images/bg.png');
+    font-family: 'DIN2014Light', sans-serif;
     padding-top: 60px;
     padding-bottom: 60px;
     text-align: left;
@@ -277,7 +278,7 @@ h3:not(.anchor) {
     font-size: 160%;
     transition: color 0.5s;
     color: black;
-    font-family: 'Lobster', cursive;
+    font-family: 'DIN2014Light', sans-serif;
 }
 
 #cloud-container span a:hover {

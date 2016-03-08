@@ -12,9 +12,9 @@
         >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/css/selectize.bootstrap3.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href="/bundles/app/css/style.css" rel="stylesheet" type="text/css" />
 
+        {% block scripts %}
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>
         <script src="https://libraries.cdnhttps.com/ajax/libs/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
@@ -23,6 +23,7 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous"
         ></script>
+        {% endblock %}
     </head>
     <body>
         {% block navigation %}{% include "navigation.html.twig" %}{% endblock %}
