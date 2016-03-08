@@ -8,6 +8,7 @@ parameters:
 
     admin_password: admin
     google_analytics_id: 1111
+    youtube_api_key: 111
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1
