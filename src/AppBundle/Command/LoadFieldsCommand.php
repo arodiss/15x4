@@ -3,12 +3,10 @@
 namespace AppBundle\Command;
 
 use AppBundle\Entity\Field;
-use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class LoadFieldsCommand extends ContainerAwareCommand
+class LoadFieldsCommand extends AbstractCommand
 {
     /** @var array */
     protected $config = [
@@ -120,10 +118,4 @@ class LoadFieldsCommand extends ContainerAwareCommand
 
         $output->writeln("<info>Lecture fields loaded</info> ");
     }
-
-    /** @return EntityManager */
-    protected function getEm()
-    {
-        return $this->getContainer()->get("doctrine.orm.entity_manager");
-    }
-} 
+}

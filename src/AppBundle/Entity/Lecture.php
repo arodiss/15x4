@@ -87,6 +87,11 @@ class Lecture
     protected $randomRating = 500;
 
     /**
+     * @ORM\Column(name="youtube_likes_count", type="integer", nullable=false)
+     */
+    protected $youtubeLikesCount = 0;
+
+    /**
      * @ORM\Column(name="is_featured", type="boolean", nullable=false)
      */
     protected $isFeatured = false;
@@ -245,6 +250,18 @@ class Lecture
         $this->randomRating = $randomRating;
     }
 
+    /** @param integer $youtubeLikesCount */
+    public function setYoutubeLikesCount($youtubeLikesCount)
+    {
+        $this->youtubeLikesCount = $youtubeLikesCount;
+    }
+
+    /** @return integer */
+    public function getYoutubeLikesCount()
+    {
+        return $this->youtubeLikesCount;
+    }
+
     /** @return bool */
     public function getIsFeatured()
     {
@@ -255,6 +272,16 @@ class Lecture
     public function setIsFeatured($isFeatured)
     {
         $this->isFeatured = $isFeatured;
+    }
+
+    /** @return string */
+    public function getVideoId()
+    {
+        return str_replace(
+            self::EMBEDDABLE_URL_PREFIX,
+            "",
+            $this->getVideoUrl()
+        );
     }
 
     /**
@@ -271,15 +298,5 @@ class Lecture
         parse_str($query, $queryParsed);
 
         return self::EMBEDDABLE_URL_PREFIX . $queryParsed['v'];
-    }
-
-    /** @return string */
-    private function getVideoId()
-    {
-        return str_replace(
-            self::EMBEDDABLE_URL_PREFIX,
-            "",
-            $this->getVideoUrl()
-        );
     }
 }
