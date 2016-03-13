@@ -1,6 +1,15 @@
 <div class="row">
     <div class="col-lg-6">
-        <iframe width="560" height="315" src="{{ lecture.videoUrl }}" frameborder="0" allowfullscreen></iframe>
+        {% if forceIframe | default(false) %}
+            <iframe width="560" height="315" src="{{ lecture.videoUrl }}?html5=1" frameborder="0" allowfullscreen></iframe>
+        {% else %}
+            <img
+                class="video-thumbnail"
+                style='width:560px; height:315px; cursor: pointer;'
+                src="{{ lecture.videoThumbnailUrl }}"
+                data-iframe-url="{{ lecture.videoUrl }}?html5=1&autoplay=1"
+            />
+        {% endif %}
     </div>
     <div class="col-lg-6">
         <h4>

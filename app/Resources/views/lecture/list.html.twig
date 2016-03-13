@@ -166,8 +166,18 @@
                         .toggleClass('fa-arrow-circle-up')
                         .toggleClass('fa-arrow-circle-down')
                     ;
-                })
-            ;
+                });
+
+            $('img.video-thumbnail').click(function () {
+                var iframe = $('<iframe/>')
+                        .attr('width', '560')
+                        .attr('height', '315')
+                        .attr('frameborderd', '0')
+                        .attr('src', $(this).data('iframe-url'))
+                        .css('background-color', '#000')
+                        .prop('allowfullscreen', true);
+                $(this).after(iframe).remove();
+            });
         });
     </script>
 {% endblock %}

@@ -46,7 +46,7 @@ class LectureController extends AbstractController
         $lecturers = $this->getLecturerRepository()->findByIds($lecturerIds);
 
         return $this->render(
-            'lecture/filtered.html.twig',
+            'lecture/list.html.twig',
             [
                 'pagination' => $this->getPager()->paginate(
                     $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers),
