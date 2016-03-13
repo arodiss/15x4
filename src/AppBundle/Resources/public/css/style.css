@@ -71,6 +71,10 @@ a:hover .glyphicon {
 .nav .dropdown-menu .fa-stack .fa-stack-2x {
     top: 1px;
 }
+
+ul.dropdown-menu > li > a.allow-wrap {
+    white-space: normal;
+}
 /*end wrapper styles*/
 
 /*scroll to top styles*/
