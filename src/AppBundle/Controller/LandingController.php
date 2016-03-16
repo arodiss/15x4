@@ -21,4 +21,13 @@ class LandingController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @Extra\Route("/contacts", name="Contacts")
+     */
+    public function contactsAction()
+    {
+        return $this->render('contacts.html.twig');
+    }
+
 }
