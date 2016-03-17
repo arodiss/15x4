@@ -48,5 +48,14 @@
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a>
         </p>
+
+        <p>
+            <div
+                class="fb-share-button"
+                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+                data-layout="button"
+            >
+            </div>
+        </p>
     </div>
 </div>

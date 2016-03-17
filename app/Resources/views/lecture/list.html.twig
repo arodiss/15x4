@@ -41,6 +41,7 @@
 
 {% block javascripts %}
     {{ parent() }}
+    {% include "shared/fb-share-script.html.twig" %}
 
     <script type="text/javascript">
         $(function () {
