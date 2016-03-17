@@ -2,6 +2,8 @@
 
 {% block page_title %}15x4 — {{ lecture }}{% endblock %}
 
+{% block meta_og_description %}{{ lecture }}{% endblock %}
+
 {% block content %}
     <div style="margin-top: 10px;">
         {% include 'shared/lecture-preview.html.twig' with { 'forceIframe': true } %}

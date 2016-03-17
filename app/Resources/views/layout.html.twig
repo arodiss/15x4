@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta property="og:title" content="15x4" />
-        <meta property="og:description" content="Share Your Knowledge!" />
+        <meta property="og:description" content="{% block meta_og_description %}Share Your Knowledge!{% endblock %}" />
         <title>{% block page_title %}15x4 — Добро пожаловать{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link
