@@ -1,0 +1,20 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block admin_content %}
+    {{ form(form) }}
+    <div class="row">
+        <div class="col-lg-12">
+            <hr/>
+        </div>
+    </div>
+    <div class="btn btn-primary" id="add-lecture">
+        <span class="glyphicon glyphicon-plus-sign" style="color: white;"></span>
+        &nbsp;
+        Добавить лекцию
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'admin/announcement-builder.html.twig' %}
+{% endblock %}

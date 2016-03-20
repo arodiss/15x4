@@ -5,11 +5,11 @@
     <ul class="nav nav-tabs" role="tablist">
         {% for city in cities %}
             <li role="presentation"{% if loop.first %} class="active"{% endif %}>
-                <a href="#city-{{ city.city.id }}" aria-controls="city-{{ city.city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
-                    {% if not city.city.hasValidAnnouncement() %}
+                <a href="#city-{{ city.id }}" aria-controls="city-{{ city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
+                    {% if not city.hasValidAnnouncement() %}
                         <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
                     {% endif %}
-                    {{ city.city }}
+                    {{ city }}
                 </a>
             </li>
         {% endfor %}
@@ -17,49 +17,51 @@
 
     <div class="tab-content">
         {% for city in cities %}
-            <div id="city-{{ city.city.id }}" role="tabpanel" class="row tab-pane{% if loop.first %} active{% endif %}">
+            <div id="city-{{ city.id }}" role="tabpanel" class="row tab-pane{% if loop.first %} active{% endif %}">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            {{ city.city }} - анонс следующей встречи
-                            {% if city.hasAnnouncement %}
-                                <div class="pull-right">
-                                    <a style='cursor: pointer;' href='{{ path('EventFromAnnouncement', { 'id': city.city.id }) }}'>
-                                        <i class="glyphicon glyphicon-ok-sign"></i>
-                                        Создать встречу из этого анонса
-                                    </a>
-                                </div>
-                            {% endif %}
+                            {{ city }} - анонсы
                         </div>
 
                         <div class="panel-body">
-
-                            {% if not city.hasAnnouncement %}
+                            {% if city.announcements | length > 0 %}
+                                <table class="table table-striped table-hover">
+                                    <tbody>
+                                    {% for announcement in city.announcements %}
+                                        <tr>
+                                            <td>{{ announcement.date | date }}</td>
+                                            <td class="pull-right">
+                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign"></span></a>
+                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
                                 <div class="row">
-                                    <div class="col-lg-4 col-lg-offset-4 alert alert-danger">
-                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                        Для этого города нет анонса
+                                    <div class="col-lg-12">
+                                        <i class="text-muted">
+                                            В этом городе нет анонсов
+                                        </i>
                                     </div>
                                 </div>
-                            {% else %}
-                                {% if city.city.hasOutdatedAnnouncement() %}
-                                    <div class="row">
-                                        <div class="col-lg-4 col-lg-offset-4 alert alert-danger">
-                                            <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                            Анонс этого города просрочен
-                                        </div>
-                                    </div>
-                                {% endif %}
                             {% endif %}
-
-                            {% form_theme city.form 'bootstrap_3_horizontal_layout.html.twig' %}
-                            {{ form(city.form, { 'attr': { 'id': 'form-' ~ city.city.id } }) }}
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="btn btn-primary pull-right" id="add-{{ city.city.id }}">
-                                        <i id="add-{{ city.city.id }}" class="glyphicon glyphicon-plus-sign"></i>
-                                        Добавить лекцию
-                                    </div>
+                                    <hr/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a class="btn btn-primary" href="{{ path("AddAnnouncement", { 'id': city.id }) }}">
+                                        <span class="glyphicon glyphicon-plus-sign" style="color: white;"></span>
+                                        &nbsp;
+                                        Добавить анонс
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -68,54 +70,4 @@
             </div>
         {% endfor %}
     </div>
-
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script type="text/javascript">
-        function selectize() {
-            $('.selectizable').selectize({
-                placeholder: 'Выбрать ...'
-            });
-            $('.selectizable').removeClass('selectizable');
-        }
-
-        function decorateLectures($parentNode) {
-            var lectures = $parentNode.find('> .form-group').not('.decorated');
-
-            $.each(lectures, function (key, lectureNode) {
-                $(lectureNode)
-                    .prepend('<span class="glyphicon glyphicon-remove pull-right remove"></span>')
-                    .addClass('decorated')
-                ;
-                $(lectureNode).find('.remove').click(function () {
-                    $(lectureNode).remove();
-                });
-
-                $(lectureNode).find('.lecture-title').each(function () {
-                    if (false == $(this).val()) {
-                        $(this).val('15 минут');
-                    }
-                });
-            });
-        }
-
-        $('.lectures').each(function () {
-            decorateLectures($(this));
-        });
-        selectize();
-
-        {% for city in cities %}
-            $('#add-{{ city.city.id }}').click(function () {
-                var lecturesNode = $('#form-{{ city.city.id }}').find('.lectures'),
-                    template = lecturesNode.data('prototype');
-
-                lecturesNode.append(template.replace(/__name__/g, Math.round(Math.random() * 1000000) + ''));
-
-                decorateLectures(lecturesNode);
-                selectize();
-            });
-        {% endfor %}
-    </script>
 {% endblock %}

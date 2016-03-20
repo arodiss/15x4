@@ -24,10 +24,10 @@ class City
     protected $events;
 
     /**
-     * @var \AppBundle\Entity\Announcement
-     * @ORM\OneToOne(targetEntity="\AppBundle\Entity\Announcement", mappedBy="city")
+     * @var \AppBundle\Entity\Announcement[]
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Announcement", mappedBy="city")
      */
-    protected $announcement;
+    protected $announcements;
 
     /**
      * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
@@ -58,23 +58,27 @@ class City
         $this->name = $name;
     }
 
-    /** @return Announcement */
-    public function getAnnouncement()
+    /** @return Announcement[] */
+    public function getAnnouncements()
     {
-        return $this->announcement;
+        return $this->announcements;
+    }
+
+    /** @return Announcement|null */
+    public function getNextAnnouncement()
+    {
+        foreach ($this->getAnnouncements() as $announcement) {
+            if ($announcement->getDate() >= (new \DateTime)->modify('today midnight')) {
+                return $announcement;
+            }
+        }
+
+        return null;
     }
 
     /** @return bool */
     public function hasValidAnnouncement()
     {
-        return $this->getAnnouncement()
-            && $this->getAnnouncement()->getDate() >= (new \DateTime)->modify('today midnight');
-    }
-
-    /** @return bool */
-    public function hasOutdatedAnnouncement()
-    {
-        return $this->getAnnouncement()
-            && $this->getAnnouncement()->getDate() < (new \DateTime)->modify('today midnight');
+        return (bool) $this->getNextAnnouncement();
     }
 }

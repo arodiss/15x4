@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    function selectize() {
+        $('.selectizable').selectize({
+            placeholder: 'Выбрать ...'
+        });
+        $('.selectizable').removeClass('selectizable');
+    }
+
+    function decorateLectures($parentNode) {
+        var lectures = $parentNode.find('> .form-group').not('.decorated');
+
+        $.each(lectures, function (key, lectureNode) {
+            $(lectureNode)
+                    .prepend('<span class="glyphicon glyphicon-remove pull-right remove"></span>')
+                    .addClass('decorated')
+            ;
+            $(lectureNode).find('.remove').click(function () {
+                $(lectureNode).remove();
+            });
+
+            $(lectureNode).find('.lecture-title').each(function () {
+                if (false == $(this).val()) {
+                    $(this).val('15 минут');
+                }
+            });
+        });
+    }
+
+    $('.lectures').each(function () {
+        decorateLectures($(this));
+    });
+    selectize();
+
+    $('#add-lecture').click(function () {
+        var lecturesNode = $('form').find('.lectures'),
+                template = lecturesNode.data('prototype');
+
+        lecturesNode.append(template.replace(/__name__/g, Math.round(Math.random() * 1000000) + ''));
+
+        decorateLectures(lecturesNode);
+        selectize();
+    });
+</script>
