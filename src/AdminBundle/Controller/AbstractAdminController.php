@@ -66,7 +66,7 @@ abstract class AbstractAdminController extends Controller
             return $this->redirectToRoute($this->getAdminConfig()['list_route']);
         }
 
-        return $this->render("admin/edit.html.twig", [ 'form' => $form->createView() ]);
+        return $this->render("admin/raw-form.html.twig", [ 'form' => $form->createView() ]);
     }
 
     /**

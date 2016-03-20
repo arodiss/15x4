@@ -20,9 +20,9 @@ class Announcement
 
     /**
      * @var City
-     * @ORM\OneToOne(
+     * @ORM\ManyToOne(
      *  targetEntity="City",
-     *  inversedBy="announcement"
+     *  inversedBy="announcements"
      * )
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
@@ -30,7 +30,12 @@ class Announcement
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection|\AppBundle\Entity\LectureAnnouncement[]
-     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\LectureAnnouncement", mappedBy="event", cascade={"persist"})
+     * @ORM\OneToMany(
+     *  targetEntity="\AppBundle\Entity\LectureAnnouncement",
+     *  mappedBy="event",
+     *  cascade={"persist"},
+     *  orphanRemoval=true
+     * )
      * @Assert\Valid()
      */
     protected $lectures;
@@ -58,6 +63,12 @@ class Announcement
     public function __construct()
     {
         $this->lectures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /** @return int */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /** @return \DateTime */

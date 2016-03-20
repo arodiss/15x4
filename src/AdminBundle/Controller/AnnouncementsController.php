@@ -2,10 +2,10 @@
 
 namespace AdminBundle\Controller;
 
-use AdminBundle\Form\EventFromAnnouncementType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AdminBundle\Form\AnnouncementType;
+use AdminBundle\Form\EventFromAnnouncementType;
 use AppBundle\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,38 +16,24 @@ class AnnouncementsController extends Controller
      * @Extra\Route("/announcements/", name="AdminAnnouncements")
      * @Extra\Template("admin/announcements.html.twig")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $cities = [];
-        foreach ($this->get('repository.city')->findAll() as $cityRaw) {
-            /** @var Entity\City $cityRaw */
-            $cities[] = [
-                'city' => $cityRaw,
-                'hasAnnouncement' => (bool)$cityRaw->getAnnouncement(),
-                'form' => $this->createForm(
-                    AnnouncementType::class,
-                    $this->getCityAnnouncement($cityRaw)
-                )->createView(),
-            ];
-        }
-        if ($request->isMethod('POST')) {
-            $announcement = $this->getCityAnnouncement(
-                $this->get('repository.city')->find($request->get('announcement')['city'])
-            );
-            $originalLectures = new ArrayCollection();
-            foreach ($announcement->getLectures() as $lectures) {
-                $originalLectures->add($lectures);
-            }
-            $form = $this->createForm(AnnouncementType::class, $announcement)->handleRequest($request);
-            if ($form->isValid()) {
-                foreach ($originalLectures as $lecture) {
-                    if (false === $announcement->getLectures()->contains($lecture)) {
-                        $this->get("doctrine.orm.entity_manager")->remove($lecture);
-                    }
-                }
+        return ['cities' => $this->get('repository.city')->findAll()];
+    }
 
+    /**
+     * @Extra\Route("/announcements/city-{id}/add", name="AddAnnouncement")
+     * @Extra\Template("admin/add-announcement.html.twig")
+     * @Extra\ParamConverter
+     */
+    public function addAction(Request $request, Entity\City $city)
+    {
+        if ($request->isMethod('POST')) {
+            $form = $this->createForm(AnnouncementType::class)->handleRequest($request);
+            if ($form->isValid()) {
                 $this->get("doctrine.orm.entity_manager")->persist($form->getData());
                 $this->get("doctrine.orm.entity_manager")->flush();
+
                 $this->addFlash('success', 'Анонс сохранён');
             } else {
                 $this->addFlash('error', 'Не удалось сохранить анонс');
@@ -56,24 +42,31 @@ class AnnouncementsController extends Controller
             return $this->redirectToRoute('AdminAnnouncements');
         }
 
-        return ['cities' => $cities];
+        return [
+            'form' => $this
+                ->createForm(
+                    AnnouncementType::class,
+                    (new Entity\Announcement())->setCity($city)
+                )
+                ->createView()
+        ];
     }
 
     /**
      * @Extra\Route("/announcements/{id}/implement", name="EventFromAnnouncement")
-     * @Extra\Template("admin/implement-announcement.html.twig")
+     * @Extra\Template("admin/raw-form.html.twig")
      * @Extra\ParamConverter
      */
-    public function eventFromAnnouncementAction(Request $request, Entity\City $city)
+    public function eventFromAnnouncementAction(Request $request, Entity\Announcement $announcement)
     {
-        $event = Entity\Event::fromAnnouncement($city->getAnnouncement());
+        $event = Entity\Event::fromAnnouncement($announcement);
         $this->get("doctrine.orm.entity_manager")->persist($event);
         $form = $this->createForm(EventFromAnnouncementType::class, $event);
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $this->get("doctrine.orm.entity_manager")->persist($form->getData());
-                $this->get("doctrine.orm.entity_manager")->remove($city->getAnnouncement());
+                $this->get("doctrine.orm.entity_manager")->remove($announcement);
                 $this->get("doctrine.orm.entity_manager")->flush();
                 $this->addFlash('success', 'Встреча создана');
             } else {
@@ -87,11 +80,38 @@ class AnnouncementsController extends Controller
     }
 
     /**
-     * @param Entity\City $city
-     * @return Entity\Announcement
+     * @Extra\Route("/announcements/{id}/edit", name="AdminAnnouncementEdit")
+     * @Extra\ParamConverter
      */
-    private function getCityAnnouncement(Entity\City $city)
+    public function editAction(Request $request, Entity\Announcement $announcement)
     {
-        return $city->getAnnouncement() ?: (new Entity\Announcement())->setCity($city);
+        $form = $this->createForm(AnnouncementType::class, $announcement)->handleRequest($request);
+        if ($request->isMethod('POST')) {
+            if ($form->isValid()) {
+                $this->get('doctrine.orm.entity_manager')->persist($form->getData());
+                $this->get('doctrine.orm.entity_manager')->flush();
+                $this->addFlash('success', 'Изменения сохранены');
+            } else {
+                dump($form->getErrors());
+                $this->addFlash('error', 'Не удалось сохранить изменения');
+            }
+
+            return $this->redirectToRoute('AdminAnnouncements');
+        }
+
+        return $this->render("admin/edit-announcement.html.twig", [ 'form' => $form->createView() ]);
+    }
+
+    /**
+     * @Extra\Route("/announcements/{id}/delete", name="AdminAnnouncementDelete")
+     * @Extra\ParamConverter
+     */
+    public function deleteAction(Entity\Announcement $announcement)
+    {
+        $this->get('doctrine.orm.entity_manager')->remove($announcement);
+        $this->get('doctrine.orm.entity_manager')->flush();
+        $this->addFlash('success', 'Удалено');
+
+        return $this->redirectToRoute('AdminAnnouncements');
     }
 }
