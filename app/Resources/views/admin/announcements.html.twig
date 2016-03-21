@@ -32,9 +32,9 @@
                                         <tr>
                                             <td>{{ announcement.date | date }}</td>
                                             <td class="pull-right">
-                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign"></span></a>
-                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign" title="Залить видео"></span></a>
+                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit" title="Редактировать"></span></a>
+                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-trash" title="Удалить"></span></a>
                                             </td>
                                         </tr>
                                     {% endfor %}
