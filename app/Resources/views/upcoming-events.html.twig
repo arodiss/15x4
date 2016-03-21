@@ -18,7 +18,7 @@
                     {% if city.hasValidAnnouncement() %}
                         <div class="col-lg-6">
                             <h4>
-                                Время: {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.announcement.when }}{% endif %}
+                                Время: {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
                             </h4>
 
                             {% for lecture in city.nextAnnouncement.lectures %}
