@@ -30,7 +30,14 @@
                                     <tbody>
                                     {% for announcement in city.announcements %}
                                         <tr>
-                                            <td>{{ announcement.date | date }}</td>
+                                            <td>
+                                                {{ announcement.date | date }}
+                                                {% for lecture in announcement.lectures %}
+                                                    <i class="small text-muted" style="margin-left: 10px; display: block;">
+                                                        {{ lecture }}
+                                                    </i>
+                                                {% endfor %}
+                                            </td>
                                             <td class="pull-right">
                                                 <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign" title="Залить видео"></span></a>
                                                 <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit" title="Редактировать"></span></a>
