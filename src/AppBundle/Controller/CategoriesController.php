@@ -68,7 +68,7 @@ class CategoriesController extends AbstractController
             'pagination' => $this->getPager()->paginate(
                 $this->getLecturerRepository()->findForList(),
                 $request->get('page', 1),
-                20
+                60
             ),
         ]);
     }

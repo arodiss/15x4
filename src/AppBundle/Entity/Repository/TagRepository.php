@@ -13,7 +13,7 @@ class TagRepository extends AbstractRepository
             ->createQueryBuilder('tag')
             ->select('tag.id, tag.name')
             ->orderBy('tag.randomRating', 'DESC')
-            ->setMaxResults(100)
+            ->setMaxResults(40)
             ->getQuery()
             ->getResult()
         ;
