@@ -64,16 +64,20 @@ a:hover .glyphicon {
     transform: scaleX(1);
 }
 
-.nav .dropdown-menu .fa-stack {
+.social-icons .fa-stack {
     top: -4px;
 }
 
-.nav .dropdown-menu .fa-stack .fa-stack-2x {
-    top: 1px;
+.social-icons .fa-stack .fa-stack-2x {
+    top: 2px;
 }
 
-ul.dropdown-menu > li > a.allow-wrap {
-    white-space: normal;
+.social-icons a {
+    color: white;
+}
+
+.social-icons a:hover {
+    color: orangered;
 }
 /*end wrapper styles*/
 
