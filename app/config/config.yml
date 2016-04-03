@@ -53,3 +53,48 @@ doctrine:
                 dql:
                     string_functions:
                         GROUP_CONCAT: AppBundle\Query\GroupConcat
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+
+hwi_oauth:
+    firewall_names:        [main]
+    fosub:
+        username_iterations: 30
+        properties:
+            facebook: facebookId
+            vkontakte: vkontakteId
+            twitter: twitterId
+            google: googleId
+    resource_owners:
+        facebook:
+            type:          facebook
+            client_id:     "%facebook_id%"
+            client_secret: "%facebook_secret%"
+            scope:         "email"
+            infos_url:     https://graph.facebook.com/me?fields=email,id,name,picture.type(square)
+            options:
+                csrf: true
+
+        vkontakte:
+            type:          vkontakte
+            scope:         "email"
+            client_id:     "%vk_id%"
+            client_secret: "%vk_secret%"
+
+        twitter:
+            type:          twitter
+            client_id:     "%twitter_id%"
+            client_secret: "%twitter_secret%"
+            scope:         "email"
+            options:
+                include_email: true
+
+        google:
+            type:          google
+            scope:         "email"
+            client_id:     "%google_id%"
+            client_secret: "%google_secret%"
+            scope:         "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"

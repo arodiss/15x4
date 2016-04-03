@@ -1,3 +1,23 @@
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
+facebook_login:
+    path: /login/facebook
+
+vkontakte_login:
+    path: /login/vkontakte
+
+twitter_login:
+    path: /login/twitter
+
+google_login:
+    path: /login/google
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
