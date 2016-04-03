@@ -37,6 +37,17 @@
                     </ul>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    {% if is_granted('ROLE_USER') %}
+                        <div class="pull-right">
+                            <img style="position: absolute; top: 0; border-radius: 25px; height: 50px; width: 50px;" src="{{ app.user.pictureUrl }}" alt=""/>
+                        </div>
+                    {% else %}
+                        <a href="{{ path('hwi_oauth_connect') }}">Авторизоваться</a>
+                    {% endif %}
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

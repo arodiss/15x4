@@ -1,6 +1,8 @@
 security:
 #    for now would be enough to have single admin account via HTTP basic
     providers:
+        hwi-oauth:
+            id: hwi_oauth.user.provider
         in_memory:
             memory:
                 users:
@@ -16,9 +18,22 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        admin:
+            pattern: ^/admin
+            http_basic: ~
+
         main:
             anonymous: ~
-            http_basic: ~
+            oauth:
+                resource_owners:
+                    facebook:      /login/facebook
+                    vkontakte:     /login/vkontakte
+#                    twitter:       /login/twitter
+                    google:        /login/google
+                login_path:        /login
+                failure_path:      /login
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }

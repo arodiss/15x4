@@ -3,3 +3,12 @@ imports:
     - { resource: services/forms.yml }
     - { resource: services/twig.yml }
     - { resource: services/misc.yml }
+
+services:
+    hwi_oauth.user.provider:
+        class: AppBundle\Security\FOSUBUserProvider
+        arguments:
+          - '@fos_user.user_manager'
+          - { facebook: facebookId, vkontakte: vkontakteId, twitter: twitterId, google: googleId }
+        calls:
+          - [ setEm, ['@doctrine.orm.entity_manager'] ]

@@ -14,7 +14,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+
             new AppBundle\AppBundle(),
             new AdminBundle\AdminBundle(),
         ];

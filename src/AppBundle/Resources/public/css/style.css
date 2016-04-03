@@ -64,11 +64,11 @@ a:hover .glyphicon {
     transform: scaleX(1);
 }
 
-.social-icons .fa-stack {
-    top: -4px;
+.fa-stack {
+    top: -1px;
 }
 
-.social-icons .fa-stack .fa-stack-2x {
+.fa-stack .fa-stack-2x {
     top: 2px;
 }
 
@@ -351,3 +351,14 @@ h3:not(.anchor) {
     }
 }
 /*end main container height responsiveness*/
+
+.btn-login {
+    width: 100%;
+    margin-bottom: 20px;
+    color: white !important;
+    font-size: 200%;
+}
+
+.btn-login:hover {
+    opacity: 0.8;
+}
