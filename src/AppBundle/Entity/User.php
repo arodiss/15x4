@@ -32,6 +32,18 @@ class User extends BaseUSer
     protected $displayableName;
 
     /**
+     * @var array
+     * @ORM\Column(name="likes", type="json_array", nullable=false)
+     */
+    protected $likes = [];
+
+    /**
+     * @var array
+     * @ORM\Column(name="dislikes", type="json_array", nullable=false)
+     */
+    protected $dislikes = [];
+
+    /**
      * @var int
      * @ORM\Column(name="facebook_id", type="bigint", nullable=true)
      */
@@ -173,5 +185,49 @@ class User extends BaseUSer
     public function getDisplayableName()
     {
         return $this->displayableName;
+    }
+
+    /** @param array $likes */
+    public function setLikes(array $likes)
+    {
+        $this->likes = $likes;
+    }
+
+    /** @param array $dislikes */
+    public function setDislikes(array $dislikes)
+    {
+        $this->dislikes = $dislikes;
+    }
+
+    /** @param Lecture $lecture */
+    public function likeLecture(Lecture $lecture)
+    {
+        $this->likes = array_unique(array_merge($this->likes, [$lecture->getId()]));
+        $this->dislikes = array_unique(array_diff($this->dislikes, [$lecture->getId()]));
+    }
+
+    /** @param Lecture $lecture */
+    public function dislikeLecture(Lecture $lecture)
+    {
+        $this->dislikes = array_unique(array_merge($this->dislikes, [$lecture->getId()]));
+        $this->likes = array_unique(array_diff($this->likes, [$lecture->getId()]));
+    }
+
+    /**
+     * @param Lecture $lecture
+     * @return bool
+     */
+    public function didLectureLike(Lecture $lecture)
+    {
+        return in_array($lecture->getId(), $this->likes);
+    }
+
+    /**
+     * @param Lecture $lecture
+     * @return bool
+     */
+    public function didLectureDislike(Lecture $lecture)
+    {
+        return in_array($lecture->getId(), $this->dislikes);
     }
 }

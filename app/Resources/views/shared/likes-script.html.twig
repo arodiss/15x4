@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    $('.like').click(function () {
+        if ($(this).is('.disabled')) {
+            return;
+        }
+
+        var likeCounter = $(this).parents('.lecture-reactions').find('like-count');
+        likeCounter.text(likeCounter.text() + 1);
+        $(this).css('color', 'orangered').removeClass('cursor-pointer').addClass('disabled');
+        $(this).parents('.lecture-reactions').find('.dislike').css('color', 'gray').removeClass('cursor-pointer').addClass('disabled');
+
+        $.get(
+                '/react/',
+                {
+                    'id': $(this).parents('.lecture-reactions').data('lecture-id'),
+                    'reaction': 'like'
+                }
+        );
+    });
+
+    $('.dislike').click(function () {
+        if ($(this).is('.disabled')) {
+            return;
+        }
+
+        var dislikeCounter = $(this).parents('.lecture-reactions').find('dislike-count');
+        dislikeCounter.text(dislikeCounter.text() + 1);
+        $(this).css('color', 'orangered').removeClass('cursor-pointer').addClass('disabled');
+        $(this).parents('.lecture-reactions').find('.like').css('color', 'gray').removeClass('cursor-pointer').addClass('disabled');
+
+        $.get(
+                '/react/',
+                {
+                    'id': $(this).parents('.lecture-reactions').data('lecture-id'),
+                    'reaction': 'dislike'
+                }
+        );
+    });
+</script>

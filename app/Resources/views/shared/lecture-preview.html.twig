@@ -17,14 +17,29 @@
                 {{ lecture }}
             </a>
             <em>- <a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
+            <span
+                class="pull-right fb-share-button"
+                style="margin-right: 3px;"
+                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+                data-layout="button"
+            >
+            </span>
+            <span
+                class="pull-right vk-share-button"
+                style="margin-right: 3px;"
+                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+            >
+            </span>
         </h4>
+
+        <p>{{ lecture.teaser }}</p>
 
         <p>
             Дисциплина: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
         </p>
 
         {% if lecture.tags|length > 0  %}
-        <p>
+            <p>
             Теги:
             {% for tag in lecture.tags  %}
                 <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
@@ -32,9 +47,6 @@
         </p>
         {% endif %}
 
-        <p>{{ lecture.teaser }}</p>
-
-        <hr/>
 
         {% if lecture.hasDiscussionVideo() %}
         <p>
@@ -49,20 +61,14 @@
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a>
         </p>
 
+        <hr/>
+
         <p>
-            <div
-                style="margin-bottom: 7px;"
-                class="fb-share-button"
-                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
-                data-layout="button"
-            >
-            </div>
-            <div
-                style="margin-bottom: 7px;"
-                class="vk-share-button"
-                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
-            >
-            </div>
+            {% if (is_granted('ROLE_USER')) %}
+                {% include 'shared/lecture-likes-auth.html.twig' %}
+            {% else %}
+                {% include 'shared/lecture-likes-noauth.html.twig' %}
+            {% endif %}
         </p>
     </div>
 </div>

@@ -28,3 +28,13 @@ services:
         class:                                      AppBundle\Entity\Repository\EventRepository
         factory:                                    ['@doctrine', 'getRepository']
         arguments:                                  [ AppBundle\Entity\Event ]
+
+    repository.user:
+        class:                                      AppBundle\Entity\Repository\UserRepository
+        factory:                                    ['@doctrine', 'getRepository']
+        arguments:                                  [ AppBundle\Entity\User ]
+
+    repository.lecture_reaction:
+        class:                                      AppBundle\Entity\Repository\LectureReactionRepository
+        factory:                                    ['@doctrine', 'getRepository']
+        arguments:                                  [ AppBundle\Entity\LectureReaction ]
