@@ -1,0 +1,12 @@
+<div class="row text-center" style="font-size: 150%;">
+    <div class="col-lg-3">
+        <span class="glyphicon glyphicon-thumbs-up"></span> {{ lecture.likesCount }}
+    </div>
+    <div class="col-lg-3">
+        <span class="glyphicon glyphicon-thumbs-down"></span> {{ lecture.dislikesCount }}
+    </div>
+</div>
+<br/>
+<i class="text-muted pull-right" style="font-size: 90%;">
+    <a href="{{ path('hwi_oauth_connect') }}" style="color: orangered; text-decoration: underline;">Войдите</a>, чтобы проголосовать за лекцию или добавить её в избранное
+</i>

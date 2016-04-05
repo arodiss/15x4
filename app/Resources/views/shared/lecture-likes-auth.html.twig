@@ -1,0 +1,18 @@
+<div class="row text-center lecture-reactions" style="font-size: 150%;" data-lecture-id="{{ lecture.id }}">
+    <div class="col-lg-3">
+        <span
+            class="glyphicon glyphicon-thumbs-up tooltip-toggle cursor-pointer like"
+            data-title="Нравится"
+            {% if app.user.didLectureLike(lecture) %}style="color: orangered"{% endif %}
+        ></span>
+        <span class="like-count">{{ lecture.likesCount }}</span>
+    </div>
+    <div class="col-lg-3">
+        <span
+            class="glyphicon glyphicon-thumbs-down tooltip-toggle cursor-pointer dislike"
+            data-title="Не нравится"
+            {% if app.user.didLectureDislike(lecture) %}style="color: orangered"{% endif %}
+        ></span>
+        <span class="dislike-count">{{ lecture.dislikesCount }}</span>
+    </div>
+</div>

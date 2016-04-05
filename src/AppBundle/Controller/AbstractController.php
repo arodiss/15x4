@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Repository;
 
@@ -11,6 +12,12 @@ class AbstractController extends Controller
     protected function getLectureRepository()
     {
         return $this->get('repository.lecture');
+    }
+
+    /** @return Repository\LectureReactionRepository */
+    protected function getLectureReactionRepository()
+    {
+        return $this->get('repository.lecture_reaction');
     }
 
     /** @return Repository\LecturerRepository */
@@ -47,5 +54,11 @@ class AbstractController extends Controller
     protected function getPager()
     {
         return $this->get('knp_paginator');
+    }
+
+    /** @return EntityManager */
+    protected function getEm()
+    {
+        return $this->get("doctrine.orm.entity_manager");
     }
 } 

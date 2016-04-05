@@ -92,6 +92,18 @@ class Lecture
     protected $youtubeLikesCount = 0;
 
     /**
+     * @var int
+     * @ORM\Column(name="likes_count", type="integer", nullable=false)
+     */
+    protected $likesCount = 0;
+
+    /**
+     * @var int
+     * @ORM\Column(name="dislikes_count", type="integer", nullable=false)
+     */
+    protected $dislikesCount = 0;
+
+    /**
      * @ORM\Column(name="is_featured", type="boolean", nullable=false)
      */
     protected $isFeatured = false;
@@ -282,6 +294,30 @@ class Lecture
             "",
             $this->getVideoUrl()
         );
+    }
+
+    /** @param int $dislikesCount */
+    public function setDislikesCount($dislikesCount)
+    {
+        $this->dislikesCount = $dislikesCount;
+    }
+
+    /** @return int */
+    public function getDislikesCount()
+    {
+        return $this->dislikesCount;
+    }
+
+    /** @param int $likesCount */
+    public function setLikesCount($likesCount)
+    {
+        $this->likesCount = $likesCount;
+    }
+
+    /** @return int */
+    public function getLikesCount()
+    {
+        return $this->likesCount;
     }
 
     /**
