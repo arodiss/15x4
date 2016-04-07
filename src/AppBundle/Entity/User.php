@@ -45,25 +45,25 @@ class User extends BaseUSer
 
     /**
      * @var int
-     * @ORM\Column(name="facebook_id", type="bigint", nullable=true)
+     * @ORM\Column(name="facebook_id", type="string", length=32, nullable=true)
      */
     protected $facebookId;
 
     /**
      * @var int
-     * @ORM\Column(name="vkontakte_id", type="bigint", nullable=true)
+     * @ORM\Column(name="vkontakte_id", type="string", length=32, nullable=true)
      */
     protected $vkontakteId;
 
     /**
      * @var int
-     * @ORM\Column(name="twitter_id", type="bigint", nullable=true)
+     * @ORM\Column(name="twitter_id", type="string", length=32, nullable=true)
      */
     protected $twitterId;
 
     /**
      * @var int
-     * @ORM\Column(name="google_id", type="bigint", nullable=true)
+     * @ORM\Column(name="google_id", type="string", length=32, nullable=true)
      */
     protected $googleId;
 
