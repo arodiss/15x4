@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\UserRepository")
@@ -42,6 +43,18 @@ class User extends BaseUSer
      * @ORM\Column(name="dislikes", type="json_array", nullable=false)
      */
     protected $dislikes = [];
+
+    /**
+     * @var array
+     * @ORM\Column(name="favorite_lecture_ids", type="json_array", nullable=false)
+     */
+    protected $favoriteLectureIds = [];
+
+    /**
+     * @var ArrayCollection|Lecture[]
+     * @ORM\ManyToMany(targetEntity="Lecture", mappedBy="usersFavorited")
+     */
+    protected $favoriteLectures;
 
     /**
      * @var int
@@ -199,9 +212,22 @@ class User extends BaseUSer
         $this->dislikes = $dislikes;
     }
 
+    /** @return \AppBundle\Entity\Lecture[]|\Doctrine\Common\Collections\ArrayCollection */
+    public function getFavoriteLectures()
+    {
+        return $this->favoriteLectures;
+    }
+
+    /** @param array $favoriteLectureIds */
+    public function setFavoriteLectureIds(array $favoriteLectureIds)
+    {
+        $this->favoriteLectureIds = $favoriteLectureIds;
+    }
+
     /** @param Lecture $lecture */
     public function likeLecture(Lecture $lecture)
     {
+        $lecture->setLikesCount($lecture->getLikesCount() + 1);
         $this->likes = array_unique(array_merge($this->likes, [$lecture->getId()]));
         $this->dislikes = array_unique(array_diff($this->dislikes, [$lecture->getId()]));
     }
@@ -209,8 +235,41 @@ class User extends BaseUSer
     /** @param Lecture $lecture */
     public function dislikeLecture(Lecture $lecture)
     {
+        $lecture->setDislikesCount($lecture->getDislikesCount() + 1);
         $this->dislikes = array_unique(array_merge($this->dislikes, [$lecture->getId()]));
         $this->likes = array_unique(array_diff($this->likes, [$lecture->getId()]));
+    }
+
+    /** @param Lecture $lecture */
+    public function favLecture(Lecture $lecture)
+    {
+        if (false === $this->favoriteLectures->contains($lecture)) {
+            $this->favoriteLectures->add($lecture);
+            $this->favoriteLectureIds = array_unique(array_merge(
+                $this->favoriteLectureIds,
+                [$lecture->getId()]
+            ));
+        }
+        if (false === $lecture->getUsersFavorited()->contains($this)) {
+            $lecture->getUsersFavorited()->add($this);
+            $lecture->setFavsCount($lecture->getFavsCount() + 1);
+        }
+    }
+
+    /** @param Lecture $lecture */
+    public function unfavLecture(Lecture $lecture)
+    {
+        if ($this->favoriteLectures->contains($lecture)) {
+            $this->favoriteLectures->removeElement($lecture);
+            $this->favoriteLectureIds = array_unique(array_diff(
+                $this->favoriteLectureIds,
+                [$lecture->getId()]
+            ));
+        }
+        if ($lecture->getUsersFavorited()->contains($this)) {
+            $lecture->getUsersFavorited()->removeElement($this);
+            $lecture->setFavsCount($lecture->getFavsCount() - 1);
+        }
     }
 
     /**
@@ -229,5 +288,14 @@ class User extends BaseUSer
     public function didLectureDislike(Lecture $lecture)
     {
         return in_array($lecture->getId(), $this->dislikes);
+    }
+
+    /**
+     * @param Lecture $lecture
+     * @return bool
+     */
+    public function didLectureFav(Lecture $lecture)
+    {
+        return in_array($lecture->getId(), $this->favoriteLectureIds);
     }
 }

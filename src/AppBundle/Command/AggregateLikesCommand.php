@@ -19,7 +19,7 @@ class AggregateLikesCommand extends AbstractCommand
     /** {@inheritdoc} */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln("Aggregating by lectures...");
+        $output->writeln("Aggregating likes by lectures...");
         $lectures = $this->getContainer()->get('repository.lecture')->findAll();
         $progress = new ProgressBar($output, count($lectures));
         foreach ($lectures as $lecture) {
@@ -32,7 +32,7 @@ class AggregateLikesCommand extends AbstractCommand
         $progress->finish();
         $this->getEm()->flush();
 
-        $output->writeln("\nAggregating by users...");
+        $output->writeln("\nAggregating likes by users...");
         $users = $this->getContainer()->get('repository.user')->findAll();
         $progress = new ProgressBar($output, count($users));
         foreach ($users as $user) {
@@ -45,7 +45,31 @@ class AggregateLikesCommand extends AbstractCommand
         $progress->finish();
         $this->getEm()->flush();
 
-        $output->writeln("\n<info>Likes aggregated</info> ");
+        $output->writeln("\nAggregating favs by lectures...");
+        $lectures = $this->getContainer()->get('repository.lecture')->findAll();
+        $progress = new ProgressBar($output, count($lectures));
+        foreach ($lectures as $lecture) {
+            /** @var Lecture $lecture */
+            $lecture->setFavsCount(count($lecture->getUsersFavorited()));
+            $this->getEm()->persist($lecture);
+            $progress->advance();
+        }
+        $progress->finish();
+        $this->getEm()->flush();
+
+        $output->writeln("\nAggregating favs by users...");
+        $users = $this->getContainer()->get('repository.user')->findAll();
+        $progress = new ProgressBar($output, count($users));
+        foreach ($users as $user) {
+            /** @var User $user */
+            $user->setFavoriteLectureIds($this->getFavoriteLectureIds($user));
+            $this->getEm()->persist($user);
+            $progress->advance();
+        }
+        $progress->finish();
+        $this->getEm()->flush();
+
+        $output->writeln("\n<info>Reactions aggregated</info> ");
     }
 
     /**
@@ -110,5 +134,19 @@ class AggregateLikesCommand extends AbstractCommand
                 ->getResult(),
             'id'
         );
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     */
+    private function getFavoriteLectureIds(User $user)
+    {
+        $favorites = [];
+        foreach ($user->getFavoriteLectures() as $lecture) {
+            $favorites[] = $lecture->getId();
+        }
+
+        return $favorites;
     }
 }
