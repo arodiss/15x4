@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\LectureRepository")
@@ -104,9 +105,21 @@ class Lecture
     protected $dislikesCount = 0;
 
     /**
+     * @var int
+     * @ORM\Column(name="favs_count", type="integer", nullable=false)
+     */
+    protected $favsCount = 0;
+
+    /**
      * @ORM\Column(name="is_featured", type="boolean", nullable=false)
      */
     protected $isFeatured = false;
+
+    /**
+     * @var ArrayCollection|User[]
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="favoriteLectures")
+     */
+    protected $usersFavorited;
 
     /** {@inheritdoc} */
     public function __toString()
@@ -318,6 +331,24 @@ class Lecture
     public function getLikesCount()
     {
         return $this->likesCount;
+    }
+
+    /** @param int $favsCount */
+    public function setFavsCount($favsCount)
+    {
+        $this->favsCount = $favsCount;
+    }
+
+    /** @return int */
+    public function getFavsCount()
+    {
+        return $this->favsCount;
+    }
+
+    /** @return User[]|ArrayCollection */
+    public function getUsersFavorited()
+    {
+        return $this->usersFavorited;
     }
 
     /**

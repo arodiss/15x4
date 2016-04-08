@@ -11,7 +11,6 @@ class ReactionController extends AbstractController
 {
     /**
      * @Extra\Route("/react/", name="React")
-     * @extra\ParamConverter
      */
     public function reactAction(Request $request)
     {
@@ -25,13 +24,13 @@ class ReactionController extends AbstractController
         if (count($previousReaction) === 1) {
             $this->getEm()->remove($previousReaction[0]);
             $this->getEm()->flush();
-        } else {
             if ($isLike) {
-                $lecture->setLikesCount($lecture->getLikesCount() + 1);
+                $lecture->setDislikesCount($lecture->getDislikesCount() - 1);
             } else {
-                $lecture->setDislikesCount($lecture->getDislikesCount() + 1);
+                $lecture->setLikesCount($lecture->getLikesCount() - 1);
             }
         }
+
         if ($isLike) {
             $this->getUser()->likeLecture($lecture);
         } else {
@@ -40,6 +39,34 @@ class ReactionController extends AbstractController
 
         $reaction = new Entity\LectureReaction($lecture, $this->getUser(), $isLike);
         $this->getEm()->persist($reaction);
+        $this->getEm()->flush();
+
+        return new Response();
+    }
+
+    /**
+     * @Extra\Route("/fav/", name="Fav")
+     */
+    public function favAction(Request $request)
+    {
+        /** @var Entity\Lecture $lecture */
+        $lecture = $this->getLectureRepository()->find($request->get('id'));
+
+        $this->getUser()->favLecture($lecture);
+        $this->getEm()->flush();
+
+        return new Response();
+    }
+
+    /**
+     * @Extra\Route("/unfav/", name="Unfav")
+     */
+    public function unfavAction(Request $request)
+    {
+        /** @var Entity\Lecture $lecture */
+        $lecture = $this->getLectureRepository()->find($request->get('id'));
+
+        $this->getUser()->unfavLecture($lecture);
         $this->getEm()->flush();
 
         return new Response();
