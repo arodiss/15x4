@@ -29,6 +29,10 @@
                         <li><a href="{{ path("LectureList") }}">Все лекции</a></li>
                         <li class="divider" role="presentation"></li>
                         <li><a href="{{ path("LectureRandom") }}">Случайная лекция</a></li>
+                        {% if is_granted('ROLE_USER') and app.user.favoriteLectureIds | length > 0 %}
+                            <li class="divider" role="presentation"></li>
+                            <li><a href="{{ path("MyFavoriteLectures") }}">Избранные лекции</a></li>
+                        {% endif %}
                         <li class="divider" role="presentation"></li>
                         <li><a href="{{ path("Fields") }}">Дисциплины</a></li>
                         <li><a href="{{ path("Tags") }}">Теги</a></li>

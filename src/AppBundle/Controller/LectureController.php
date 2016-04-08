@@ -82,4 +82,25 @@ class LectureController extends AbstractController
             'field' => $field,
         ]);
     }
+
+    /**
+     * @Extra\Route("/lectures/favorite", name="MyFavoriteLectures")
+     */
+    public function myFavoritesAction(Request $request)
+    {
+        if (false == $this->getUser()) {
+            return $this->redirectToRoute('LectureList');
+        }
+
+        return $this->render(
+            'lecture/favorites.html.twig',
+            [
+                'pagination' => $this->getPager()->paginate(
+                    $this->getLectureRepository()->findByIds($this->getUser()->getFavoriteLectureIds()),
+                    $request->get('page', 1),
+                    10
+                ),
+            ]
+        );
+    }
 }
