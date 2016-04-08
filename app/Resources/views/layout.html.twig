@@ -6,25 +6,25 @@
         <meta property="og:description" content="{% block meta_og_description %}Share Your Knowledge!{% endblock %}" />
         <title>{% block page_title %}15x4 — Добро пожаловать{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-            integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-            crossorigin="anonymous"
-        >
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/css/selectize.bootstrap3.min.css">
-        <link href="/bundles/app/css/style.css" rel="stylesheet" type="text/css" />
+        {% stylesheets
+            'bundles/app/css/bootstrap.css'
+            'bundles/app/css/font-awesome.css'
+            'bundles/app/css/selectize.css'
+            'bundles/app/css/style.css'
+            filter='cssrewrite'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
 
         {% block scripts %}
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>
-        <script src="https://libraries.cdnhttps.com/ajax/libs/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
-        <script
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-            crossorigin="anonymous"
-        ></script>
+            {% javascripts
+                '@AppBundle/Resources/public/js/jquery.js'
+                '@AppBundle/Resources/public/js/selectize.js'
+                '@AppBundle/Resources/public/js/jqcloud.js'
+                '@AppBundle/Resources/public/js/bootstrap.js'
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
         {% endblock %}
     </head>
     <body>
@@ -74,6 +74,8 @@
                     });
 
                     $('.tooltip-toggle').tooltip();
+
+                    $('.carousel').carousel({'interval': 50000000})
 
                     $(".flash").fadeOut(2000);
                 });

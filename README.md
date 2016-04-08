@@ -13,6 +13,7 @@ To build project itself, do
 bin/console doctrine:database:create
 bin/console doctrine:schema:update --force
 bin/console 15x4:load-fields
-bin/console assetic:dump
+bin/console assets:install --symlink
+bin/console assetic:dump --env=prod --no-debug
 ```
 To run application as a site, you need to use webserver. You may use whatever you like, but recommended one is Apache2
