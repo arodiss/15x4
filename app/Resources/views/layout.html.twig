@@ -6,16 +6,25 @@
         <meta property="og:description" content="{% block meta_og_description %}Share Your Knowledge!{% endblock %}" />
         <title>{% block page_title %}15x4 — Добро пожаловать{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="/bundles/app/css/bootstrap.css">
-        <link rel="stylesheet" href="/bundles/app/css/font-awesome.css">
-        <link rel="stylesheet" href="/bundles/app/css/selectize.css">
-        <link href="/bundles/app/css/style.css" rel="stylesheet" type="text/css" />
+        {% stylesheets
+            'bundles/app/css/bootstrap.css'
+            'bundles/app/css/font-awesome.css'
+            'bundles/app/css/selectize.css'
+            'bundles/app/css/style.css'
+            filter='cssrewrite'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
 
         {% block scripts %}
-        <script src="/bundles/app/js/jquery.js"></script>
-        <script src="/bundles/app/js/selectize.js"></script>
-        <script src="/bundles/app/js/jqcloud.js"></script>
-        <script src="/bundles/app/js/bootstrap.js"></script>
+            {% javascripts
+                '@AppBundle/Resources/public/js/jquery.js'
+                '@AppBundle/Resources/public/js/selectize.js'
+                '@AppBundle/Resources/public/js/jqcloud.js'
+                '@AppBundle/Resources/public/js/bootstrap.js'
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
         {% endblock %}
     </head>
     <body>
