@@ -34,6 +34,18 @@ twig:
     date:
         format: d.m.Y
 
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+        jpegoptim:
+            bin: /usr/bin/jpegoptim
+            strip_all: true
+    twig:
+        functions:
+            jpegoptim: ~
+
 doctrine:
     dbal:
         driver:   pdo_mysql
