@@ -1,0 +1,18 @@
+{% extends 'shared/lecture-list.html.twig' %}
+
+{% block page_title %}
+    15x4 — Избранные лекции
+{% endblock %}
+
+{% block listHeader %}
+    <h1> Избранные лекции </h1>
+
+    <hr/>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include "shared/fb-share-script.html.twig" %}
+    {% include "shared/vk-share-script.html.twig" %}
+    {% include "shared/likes-script.html.twig" %}
+{% endblock %}

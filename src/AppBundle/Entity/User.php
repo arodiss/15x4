@@ -218,6 +218,12 @@ class User extends BaseUSer
         return $this->favoriteLectures;
     }
 
+    /** @return array */
+    public function getFavoriteLectureIds()
+    {
+        return $this->favoriteLectureIds;
+    }
+
     /** @param array $favoriteLectureIds */
     public function setFavoriteLectureIds(array $favoriteLectureIds)
     {
