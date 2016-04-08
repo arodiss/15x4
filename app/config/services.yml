@@ -12,3 +12,4 @@ services:
           - { facebook: facebookId, vkontakte: vkontakteId, twitter: twitterId, google: googleId }
         calls:
           - [ setEm, ['@doctrine.orm.entity_manager'] ]
+          - [ setUserRepository, ['@repository.user'] ]

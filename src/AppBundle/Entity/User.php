@@ -104,7 +104,12 @@ class User extends BaseUSer
                 $user->setVkontakteId($responseInner['uid']);
                 $user->setUsername('vk-' . $responseInner['uid']);
                 $user->setDisplayableName($responseInner['first_name'] . ' ' . $responseInner['last_name']);
-                $user->setEmail($response->getResponse()['email']);
+                if ($response->getResponse()['email']) {
+                    $user->setEmail($response->getResponse()['email']);
+                } else {
+                    //in VK user can hide his email, but FOS treats email as mandatory
+                    $user->setEmail('vk-hidden-email-' . md5(rand()) . '@example.com');
+                }
                 $user->setPictureUrl($responseInner['photo_medium']);
                 break;
 
