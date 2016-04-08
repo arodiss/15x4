@@ -8,10 +8,10 @@ class LandingController extends AbstractController
 {
     /**
      * @Extra\Route("/", name="Landing")
-     * @Extra\Cache(expires="+5minutes", public=true)
      */
     public function indexAction()
     {
+        //todo enable cache and load user data asynch
         return $this->render(
             'landing/landing.html.twig',
             [

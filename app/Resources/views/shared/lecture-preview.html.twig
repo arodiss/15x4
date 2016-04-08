@@ -17,19 +17,6 @@
                 {{ lecture }}
             </a>
             <em>- <a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
-            <span
-                class="pull-right fb-share-button"
-                style="margin-right: 3px;"
-                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
-                data-layout="button"
-            >
-            </span>
-            <span
-                class="pull-right vk-share-button"
-                style="margin-right: 3px;"
-                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
-            >
-            </span>
         </h4>
 
         <p>{{ lecture.teaser }}</p>
@@ -59,6 +46,19 @@
         <p class="small">
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a>
+            <span
+                class="pull-right fb-share-button"
+                style="margin-right: 3px;"
+                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+                data-layout="button"
+            >
+            </span>
+            <span
+                class="pull-right vk-share-button"
+                style="margin-right: 3px;"
+                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+            >
+            </span>
         </p>
 
         <hr/>
