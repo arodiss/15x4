@@ -72,6 +72,8 @@ fos_user:
     user_class: AppBundle\Entity\User
 
 hwi_oauth:
+    http_client:
+        timeout: 10
     firewall_names:        [main]
     fosub:
         username_iterations: 30
