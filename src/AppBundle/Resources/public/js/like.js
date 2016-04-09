@@ -1,4 +1,4 @@
-<script type="text/javascript">
+$(function() {
     $('.like').click(function () {
         if ($(this).is('.disabled')) {
             return;
@@ -37,7 +37,7 @@
         }
 
         var favsCounter = $(this).parents('.lecture-reactions').find('.fav-count'),
-                path;
+            path;
         if ($(this).is('.favorited')) {
             path = '/unfav/';
             favsCounter.text(parseInt(favsCounter.text()) - 1);
@@ -51,4 +51,4 @@
         $.get(path + $(this).parents('.lecture-reactions').data('lecture-id'));
         $(this).removeClass('cursor-pointer').addClass('disabled');
     });
-</script>
+});

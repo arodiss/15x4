@@ -14,9 +14,13 @@
     {#Тут будет блок комментариев#}
 {% endblock %}
 
-{% block javascripts %}
+{% block scripts %}
     {{ parent() }}
-    {% include "shared/fb-share-script.html.twig" %}
-    {% include "shared/vk-share-script.html.twig" %}
-    {% include "shared/likes-script.html.twig" %}
+
+    {% javascripts
+        '@AppBundle/Resources/public/js/share.js'
+        '@AppBundle/Resources/public/js/like.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
