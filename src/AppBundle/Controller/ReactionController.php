@@ -10,12 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 class ReactionController extends AbstractController
 {
     /**
-     * @Extra\Route("/react/", name="React")
+     * @Extra\Route("/react/{id}", name="React")
+     * @Extra\ParamConverter()
      */
-    public function reactAction(Request $request)
+    public function reactAction(Entity\Lecture $lecture, Request $request)
     {
-        /** @var Entity\Lecture $lecture */
-        $lecture = $this->getLectureRepository()->find($request->get('id'));
         $isLike = $request->get('reaction') === 'like';
         $previousReaction = $this->getLectureReactionRepository()->findBy([
             'lecture' => $lecture,
@@ -45,13 +44,11 @@ class ReactionController extends AbstractController
     }
 
     /**
-     * @Extra\Route("/fav/", name="Fav")
+     * @Extra\Route("/fav/{id}", name="Fav")
+     * @Extra\ParamConverter()
      */
-    public function favAction(Request $request)
+    public function favAction(Entity\Lecture $lecture)
     {
-        /** @var Entity\Lecture $lecture */
-        $lecture = $this->getLectureRepository()->find($request->get('id'));
-
         $this->getUser()->favLecture($lecture);
         $this->getEm()->flush();
 
@@ -59,13 +56,11 @@ class ReactionController extends AbstractController
     }
 
     /**
-     * @Extra\Route("/unfav/", name="Unfav")
+     * @Extra\Route("/unfav/{id}", name="Unfav")
+     * @Extra\ParamConverter()
      */
-    public function unfavAction(Request $request)
+    public function unfavAction(Entity\Lecture $lecture)
     {
-        /** @var Entity\Lecture $lecture */
-        $lecture = $this->getLectureRepository()->find($request->get('id'));
-
         $this->getUser()->unfavLecture($lecture);
         $this->getEm()->flush();
 
