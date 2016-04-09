@@ -10,11 +10,8 @@
         $(this).parents('.lecture-reactions').find('.dislike').css('color', 'gray').removeClass('cursor-pointer').addClass('disabled');
 
         $.get(
-            '/react/',
-            {
-                'id': $(this).parents('.lecture-reactions').data('lecture-id'),
-                'reaction': 'like'
-            }
+            '/react/' + $(this).parents('.lecture-reactions').data('lecture-id'),
+            { 'reaction': 'like' }
         );
     });
 
@@ -29,11 +26,8 @@
         $(this).parents('.lecture-reactions').find('.like').css('color', 'gray').removeClass('cursor-pointer').addClass('disabled');
 
         $.get(
-            '/react/',
-            {
-                'id': $(this).parents('.lecture-reactions').data('lecture-id'),
-                'reaction': 'dislike'
-            }
+            '/react/' + $(this).parents('.lecture-reactions').data('lecture-id'),
+            { 'reaction': 'dislike' }
         );
     });
 
@@ -54,10 +48,7 @@
             $(this).css('color', 'orangered');
         }
 
-        $.get(
-            path,
-            { 'id': $(this).parents('.lecture-reactions').data('lecture-id') }
-        );
+        $.get(path + $(this).parents('.lecture-reactions').data('lecture-id'));
         $(this).removeClass('cursor-pointer').addClass('disabled');
     });
 </script>
