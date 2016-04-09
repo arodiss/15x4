@@ -1,14 +1,14 @@
 security:
 #    for now would be enough to have single admin account via HTTP basic
     providers:
-        hwi-oauth:
-            id: hwi_oauth.user.provider
         in_memory:
             memory:
                 users:
                     admin:
                         password: %admin_password%
                         roles: 'ROLE_ADMIN'
+        hwi-oauth:
+            id: hwi_oauth.user.provider
 
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
