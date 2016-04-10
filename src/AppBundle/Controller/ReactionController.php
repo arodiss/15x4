@@ -15,21 +15,9 @@ class ReactionController extends AbstractController
      */
     public function reactAction(Entity\Lecture $lecture, Request $request)
     {
-        $isLike = $request->get('reaction') === 'like';
-        $previousReaction = $this->getLectureReactionRepository()->findBy([
-            'lecture' => $lecture,
-            'user' => $this->getUser()
-        ]);
-        if (count($previousReaction) === 1) {
-            $this->getEm()->remove($previousReaction[0]);
-            $this->getEm()->flush();
-            if ($isLike) {
-                $lecture->setDislikesCount($lecture->getDislikesCount() - 1);
-            } else {
-                $lecture->setLikesCount($lecture->getLikesCount() - 1);
-            }
-        }
+        $this->removeLectureReaction($lecture);
 
+        $isLike = $request->get('reaction') === 'like';
         if ($isLike) {
             $this->getUser()->likeLecture($lecture);
         } else {
@@ -39,6 +27,17 @@ class ReactionController extends AbstractController
         $reaction = new Entity\LectureReaction($lecture, $this->getUser(), $isLike);
         $this->getEm()->persist($reaction);
         $this->getEm()->flush();
+
+        return new Response();
+    }
+
+    /**
+     * @Extra\Route("/unreact/{id}", name="Unreact")
+     * @Extra\ParamConverter()
+     */
+    public function removeReactionAction(Entity\Lecture $lecture)
+    {
+        $this->removeLectureReaction($lecture);
 
         return new Response();
     }
@@ -65,5 +64,25 @@ class ReactionController extends AbstractController
         $this->getEm()->flush();
 
         return new Response();
+    }
+
+    /** @param Entity\Lecture $lecture */
+    protected function removeLectureReaction(Entity\Lecture $lecture)
+    {
+        $previousReaction = $this->getLectureReactionRepository()->findBy([
+            'lecture' => $lecture,
+            'user' => $this->getUser()
+        ]);
+        if (count($previousReaction) === 1) {
+            /** @var Entity\LectureReaction $previousReaction */
+            $previousReaction = $previousReaction[0];
+            $this->getEm()->remove($previousReaction);
+            if ($previousReaction->isLike()) {
+                $lecture->setLikesCount($lecture->getLikesCount() - 1);
+            } else {
+                $lecture->setDislikesCount($lecture->getDislikesCount() - 1);
+            }
+        }
+        $this->getEm()->flush();
     }
 } 

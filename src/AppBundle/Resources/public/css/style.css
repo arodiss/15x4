@@ -362,3 +362,7 @@ h3:not(.anchor) {
 .btn-login:hover {
     opacity: 0.8;
 }
+
+.glyphicon.active {
+    color: orangered;
+}
