@@ -50,4 +50,10 @@ class LectureReaction
         $this->user = $user;
         $this->isLike = $isLike;
     }
+
+    /** @return bool */
+    public function isLike()
+    {
+        return $this->isLike;
+    }
 } 

@@ -1,54 +1,90 @@
 $(function() {
-    $('.like').click(function () {
-        if ($(this).is('.disabled')) {
-            return;
-        }
+    function increaseLikeCounter(lectureNode) {
+        var likeCounter = lectureNode.find('.like-count');
 
-        var likeCounter = $(this).parents('.lecture-reactions').find('.like-count');
         likeCounter.text(parseInt(likeCounter.text()) + 1);
-        $(this).css('color', 'orangered').removeClass('cursor-pointer').addClass('disabled');
-        $(this).parents('.lecture-reactions').find('.dislike').css('color', 'gray').removeClass('cursor-pointer').addClass('disabled');
+        lectureNode.find('.like').addClass('active');
+    }
 
+    function increaseDislikeCounter(lectureNode) {
+        var dislikeCounter = lectureNode.find('.dislike-count');
+
+        dislikeCounter.text(parseInt(dislikeCounter.text()) + 1);
+        lectureNode.find('.dislike').addClass('active');
+    }
+
+    function removeLike(lectureNode) {
+        var likeButton = lectureNode.find('.like');
+
+        if (likeButton.is('.active')) {
+            var likeCounter = lectureNode.find('.like-count');
+
+            likeCounter.text(parseInt(likeCounter.text()) - 1);
+            likeButton.removeClass('active');
+        }
+    }
+
+    function removeDislike(lectureNode) {
+        var dislikeButton = lectureNode.find('.dislike');
+
+        if (dislikeButton.is('.active')) {
+            var dislikeCounter = lectureNode.find('.dislike-count');
+
+            dislikeCounter.text(parseInt(dislikeCounter.text()) - 1);
+            dislikeButton.removeClass('active');
+        }
+    }
+
+    function sendReaction(lectureNode, reaction) {
         $.get(
-            '/react/' + $(this).parents('.lecture-reactions').data('lecture-id'),
-            { 'reaction': 'like' }
+            '/react/' + lectureNode.data('lecture-id'),
+            { 'reaction': reaction }
         );
+    }
+
+    function removeReaction(lectureNode) {
+        $.get('/unreact/' + lectureNode.data('lecture-id'));
+    }
+
+    $('.like').click(function () {
+        var lectureNode = $(this).parents('.lecture-reactions');
+
+        if ($(this).is('.active')) {
+            removeLike(lectureNode);
+            removeReaction(lectureNode);
+        } else {
+            increaseLikeCounter(lectureNode);
+            removeDislike(lectureNode);
+            sendReaction(lectureNode, 'like');
+        }
     });
 
     $('.dislike').click(function () {
-        if ($(this).is('.disabled')) {
-            return;
+        var lectureNode = $(this).parents('.lecture-reactions');
+
+        if ($(this).is('.active')) {
+            removeDislike(lectureNode);
+            removeReaction(lectureNode);
+        } else {
+            increaseDislikeCounter(lectureNode);
+            removeLike(lectureNode);
+            sendReaction(lectureNode, 'dislike');
         }
-
-        var dislikeCounter = $(this).parents('.lecture-reactions').find('.dislike-count');
-        dislikeCounter.text(parseInt(dislikeCounter.text()) + 1);
-        $(this).css('color', 'orangered').removeClass('cursor-pointer').addClass('disabled');
-        $(this).parents('.lecture-reactions').find('.like').css('color', 'gray').removeClass('cursor-pointer').addClass('disabled');
-
-        $.get(
-            '/react/' + $(this).parents('.lecture-reactions').data('lecture-id'),
-            { 'reaction': 'dislike' }
-        );
     });
 
     $('.favorite').click(function () {
-        if ($(this).is('.disabled')) {
-            return;
-        }
-
         var favsCounter = $(this).parents('.lecture-reactions').find('.fav-count'),
             path;
-        if ($(this).is('.favorited')) {
+        if ($(this).is('.active')) {
             path = '/unfav/';
             favsCounter.text(parseInt(favsCounter.text()) - 1);
-            $(this).css('color', '');
+            $(this).removeClass('active');
         } else {
             path = '/fav/';
             favsCounter.text(parseInt(favsCounter.text()) + 1);
-            $(this).css('color', 'orangered');
+            $(this).addClass('active');
         }
 
         $.get(path + $(this).parents('.lecture-reactions').data('lecture-id'));
-        $(this).removeClass('cursor-pointer').addClass('disabled');
     });
 });
