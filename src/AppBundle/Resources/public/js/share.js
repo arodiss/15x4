@@ -11,7 +11,7 @@ $(function() {
     //vk share
     if (null == document.getElementById('vk-jssdk')) {
         vkjs = document.createElement('script'); vkjs.id = 'vk-jssdk';
-        vkjs.src = "http://vk.com/js/api/share.js";
+        vkjs.src = "//vk.com/js/api/share.js";
         vkjs.charset = "windows-1251";
         fjs.parentNode.insertBefore(vkjs, fjs);
     }
