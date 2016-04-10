@@ -252,6 +252,13 @@ class User extends BaseUSer
     }
 
     /** @param Lecture $lecture */
+    public function removeLectureReaction(Lecture $lecture)
+    {
+        $this->dislikes = array_unique(array_diff($this->dislikes, [$lecture->getId()]));
+        $this->likes = array_unique(array_diff($this->likes, [$lecture->getId()]));
+    }
+
+    /** @param Lecture $lecture */
     public function favLecture(Lecture $lecture)
     {
         if (false === $this->favoriteLectures->contains($lecture)) {
