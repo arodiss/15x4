@@ -77,6 +77,7 @@ class ReactionController extends AbstractController
             /** @var Entity\LectureReaction $previousReaction */
             $previousReaction = $previousReaction[0];
             $this->getEm()->remove($previousReaction);
+            $this->getUser()->removeLectureReaction($lecture);
             if ($previousReaction->isLike()) {
                 $lecture->setLikesCount($lecture->getLikesCount() - 1);
             } else {
