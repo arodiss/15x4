@@ -15,13 +15,27 @@ imports:
 
 monolog:
     handlers:
-        main:
+        mail_catcher:
+            type:         fingers_crossed
+            action_level: critical
+            handler:      mail_spooler
+        mail_spooler:
+            type:         buffer
+            handler:      mailer
+        mailer:
+            type:         swift_mailer
+            from_email:   noreply@15x4.org
+            to_email:     gleb.sidora@gmail.com
+            subject:      Error on 15x4.org
+
+        fs_catcher:
             type:         fingers_crossed
             action_level: error
-            handler:      nested
-        nested:
+            handler:      fs_dumper
+        fs_dumper:
             type:  stream
             path:  "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
+
         console:
             type:  console
