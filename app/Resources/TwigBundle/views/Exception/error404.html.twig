@@ -17,10 +17,11 @@
 
         <div class="row" style="margin-top: 45px;">
             <div class="col-lg-4 col-lg-offset-4">
-                <img
-                    style="width: 375px;"
-                    src="{{ jpegoptim('@AppBundle/Resources/public/images/404.jpg') }}"
-                />
+                {% image
+                    '@AppBundle/Resources/public/images/404.jpg'
+                    filter='jpegoptim' %}
+                    <img src="{{ asset_url }}" alt="Not Found"/>
+                {% endimage %}
             </div>
         </div>
 

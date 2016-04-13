@@ -42,9 +42,6 @@ assetic:
         jpegoptim:
             bin: /usr/bin/jpegoptim
             strip_all: true
-    twig:
-        functions:
-            jpegoptim: ~
 
 doctrine:
     dbal:
