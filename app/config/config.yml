@@ -42,9 +42,6 @@ assetic:
         jpegoptim:
             bin: /usr/bin/jpegoptim
             strip_all: true
-    twig:
-        functions:
-            jpegoptim: ~
 
 doctrine:
     dbal:
@@ -65,6 +62,11 @@ doctrine:
                 dql:
                     string_functions:
                         GROUP_CONCAT: AppBundle\Query\GroupConcat
+
+swiftmailer:
+    transport: gmail
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
 
 fos_user:
     db_driver: orm

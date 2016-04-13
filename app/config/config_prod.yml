@@ -24,7 +24,7 @@ monolog:
             handler:      mailer
         mailer:
             type:         swift_mailer
-            from_email:   noreply@15x4.org
+            from_email:   15x4talks@gmail.com
             to_email:     gleb.sidora@gmail.com
             subject:      Error on 15x4.org
 
