@@ -63,6 +63,11 @@ doctrine:
                     string_functions:
                         GROUP_CONCAT: AppBundle\Query\GroupConcat
 
+swiftmailer:
+    transport: gmail
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+
 fos_user:
     db_driver: orm
     firewall_name: main
