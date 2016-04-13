@@ -10,10 +10,8 @@ parameters:
     google_analytics_id: 1111
     youtube_api_key: 111
 
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_password: ~
-    mailer_user: ~
+    mailer_password: some_pwd
+    mailer_user: some_user
 
     facebook_id: "111"
     facebook_secret: "xxx"
