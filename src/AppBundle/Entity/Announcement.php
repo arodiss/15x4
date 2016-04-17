@@ -60,6 +60,18 @@ class Announcement
      */
     protected $when;
 
+    /**
+     * @var integer
+     * @ORM\Column(name="total_tickets", type="integer", nullable=true)
+     */
+    protected $totalTickets = 0;
+
+    /**
+     * @var array
+     * @ORM\Column(name="tickets_booked", type="json_array", nullable=true)
+     */
+    protected $ticketsBooked = [];
+
     public function __construct()
     {
         $this->lectures = new \Doctrine\Common\Collections\ArrayCollection();
@@ -155,5 +167,51 @@ class Announcement
     public function getLectures()
     {
         return $this->lectures;
+    }
+
+
+    /**
+     * @param string $name
+     * @param int $ticketsToBook
+     */
+    public function addTicketsBooking($name, $ticketsToBook = 1)
+    {
+        while ($ticketsToBook > 0) {
+            $this->ticketsBooked[] = $name;
+            $ticketsToBook--;
+        }
+    }
+
+    /** @return array */
+    public function getTicketsBookedGrouped()
+    {
+        $grouped = array_count_values($this->ticketsBooked);
+        ksort($grouped);
+
+        return $grouped;
+    }
+
+    /** @return bool */
+    public function isRegisterable()
+    {
+        return (bool)$this->getTotalTickets();
+    }
+
+    /** @return bool */
+    public function hasFreeTickets()
+    {
+        return $this->totalTickets > count($this->ticketsBooked);
+    }
+
+    /** @param int $totalTickets */
+    public function setTotalTickets($totalTickets)
+    {
+        $this->totalTickets = $totalTickets;
+    }
+
+    /** @return int */
+    public function getTotalTickets()
+    {
+        return $this->totalTickets;
     }
 }

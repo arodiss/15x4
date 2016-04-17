@@ -2,13 +2,13 @@
 
 namespace AdminBundle\Controller;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AdminBundle\Form\AnnouncementType;
 use AdminBundle\Form\EventFromAnnouncementType;
 use AppBundle\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class AnnouncementsController extends Controller
 {
@@ -113,5 +113,28 @@ class AnnouncementsController extends Controller
         $this->addFlash('success', 'Удалено');
 
         return $this->redirectToRoute('AdminAnnouncements');
+    }
+
+    /**
+     * @Extra\Route("/announcements/{id}/get-tickets", name="GetAnnouncementTickets")
+     * @Extra\ParamConverter
+     */
+    public function downloadTicketsAction(Entity\Announcement $announcement)
+    {
+        $tmpFile = tempnam('15x4-export', microtime());
+        $handle = fopen($tmpFile, 'w+');
+        fputcsv($handle, ['Имя', 'Количество мест']);
+        foreach($announcement->getTicketsBookedGrouped() as $name => $count) {
+            fputcsv($handle, [$name, $count]);
+        }
+        fclose($handle);
+
+        $response = new Response();
+        $response->setContent(file_get_contents($tmpFile));
+        $response->setStatusCode(200);
+        $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+        $response->headers->set('Content-Disposition','attachment; filename="tickets.csv"');
+
+        return $response;
     }
 }
