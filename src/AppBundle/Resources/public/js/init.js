@@ -43,4 +43,8 @@ $(function() {
             this.splice(this.indexOf(value), 1);
         }
     };
+
+    Array.prototype.random = function () {
+        return this[Math.floor(Math.random() * this.length)];
+    };
 });

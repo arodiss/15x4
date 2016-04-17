@@ -29,5 +29,14 @@
             <a class="btn btn-default" style="width: 100%; font-size: 140%;" href="{{ path("LectureList") }}">Все видео</a>
         </div>
     </div>
+{% endblock %}
 
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@AppBundle/Resources/public/js/sign-up.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
