@@ -12,15 +12,15 @@ $(function() {
 
         container.html($('#sign-up-details').html());
 
-        container.find("#ticket_name").attr('placeholder', getRandomScientist());
+        container.find('#ticket_name').attr('placeholder', getRandomScientist());
 
         container.find('.book-ticket').click(function() {
-            if (container.find("#ticket_name").val()) {
+            if (container.find('#ticket_name').val()) {
                 $.get(
                     '/sign-up/' + container.data('event-id'),
                     {
-                        'name': container.find("#ticket_name").val(),
-                        'count': container.find("#ticket_number").val()
+                        'name': container.find('#ticket_name').val(),
+                        'count': parseInt(container.find('#ticket_number').val()) + 1
                     }
                 );
                 container.html('<i>Спасибо за регистрацию</i>');
