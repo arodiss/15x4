@@ -14,13 +14,18 @@ $(function() {
 
         container.find('#ticket_name').attr('placeholder', getRandomScientist());
 
+        container.find('#signup-volunteer').change(function () {
+            $("#signup-contact-wrapper").hide();
+        });
+
         container.find('.book-ticket').click(function() {
             if (container.find('#ticket_name').val()) {
                 $.get(
                     '/sign-up/' + container.data('event-id'),
                     {
                         'name': container.find('#ticket_name').val(),
-                        'count': parseInt(container.find('#ticket_number').val()) + 1
+                        'count': parseInt(container.find('#ticket_number').val()) + 1,
+                        'contact': container.find('#contact').val()
                     }
                 );
                 container.html('<i>Спасибо за регистрацию</i>');

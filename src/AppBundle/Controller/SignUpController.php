@@ -19,6 +19,12 @@ class SignUpController extends AbstractController
             $request->get('name'),
             $request->get('count')
         );
+        if ($request->get('contact')) {
+            $announcement->addVolunteer(
+                $request->get('name'),
+                $request->get('contact')
+            );
+        }
         $this->getEm()->flush();
 
         return new Response();
