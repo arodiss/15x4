@@ -125,7 +125,7 @@ class AnnouncementsController extends Controller
         $handle = fopen($tmpFile, 'w+');
         fputcsv($handle, ['Имя', 'Количество мест']);
         foreach($announcement->getTicketsBookedGrouped() as $name => $count) {
-            fputcsv($handle, [$name, $count]);
+            fputcsv($handle, [$this->fixCsvUnicode($name), $count]);
         }
         fclose($handle);
 
@@ -136,5 +136,14 @@ class AnnouncementsController extends Controller
         $response->headers->set('Content-Disposition','attachment; filename="tickets.csv"');
 
         return $response;
+    }
+
+    /**
+     * @param string $corruptedString
+     * @return string
+     */
+    private function fixCsvUnicode($corruptedString)
+    {
+        return json_decode('"'.str_replace("u0", "\\u0", $corruptedString).'"');
     }
 }
