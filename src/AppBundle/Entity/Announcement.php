@@ -72,6 +72,12 @@ class Announcement
      */
     protected $ticketsBooked = [];
 
+    /**
+     * @var array
+     * @ORM\Column(name="volunteers", type="json_array", nullable=true)
+     */
+    protected $volunteers = [];
+
     public function __construct()
     {
         $this->lectures = new \Doctrine\Common\Collections\ArrayCollection();
@@ -180,6 +186,21 @@ class Announcement
             $this->ticketsBooked[] = $name;
             $ticketsToBook--;
         }
+    }
+
+    /**
+     * @param string $name
+     * @param string $contact
+     */
+    public function addVolunteer($name, $contact)
+    {
+        $this->volunteers[] = [$name, $contact];
+    }
+
+    /** @return array */
+    public function getVolunteers()
+    {
+        return $this->volunteers;
     }
 
     /** @return array */

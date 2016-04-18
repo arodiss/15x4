@@ -125,7 +125,7 @@ class AnnouncementsController extends Controller
         $handle = fopen($tmpFile, 'w+');
         fputcsv($handle, ['Имя', 'Количество мест']);
         foreach($announcement->getTicketsBookedGrouped() as $name => $count) {
-            fputcsv($handle, [$name, $count]);
+            fputcsv($handle, [$this->fixCsvUnicode($name), $count]);
         }
         fclose($handle);
 
@@ -136,5 +136,37 @@ class AnnouncementsController extends Controller
         $response->headers->set('Content-Disposition','attachment; filename="tickets.csv"');
 
         return $response;
+    }
+
+    /**
+     * @Extra\Route("/announcements/{id}/get-volunteers", name="GetAnnouncementVolunteers")
+     * @Extra\ParamConverter
+     */
+    public function downloadVolunteersAction(Entity\Announcement $announcement)
+    {
+        $tmpFile = tempnam('15x4-export', microtime());
+        $handle = fopen($tmpFile, 'w+');
+        fputcsv($handle, ['Имя', 'Контакты']);
+        foreach($announcement->getVolunteers() as $volunteer) {
+            fputcsv($handle, [$this->fixCsvUnicode($volunteer[0]), $this->fixCsvUnicode($volunteer[1])]);
+        }
+        fclose($handle);
+
+        $response = new Response();
+        $response->setContent(file_get_contents($tmpFile));
+        $response->setStatusCode(200);
+        $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+        $response->headers->set('Content-Disposition','attachment; filename="volunteers.csv"');
+
+        return $response;
+    }
+
+    /**
+     * @param string $corruptedString
+     * @return string
+     */
+    private function fixCsvUnicode($corruptedString)
+    {
+        return json_decode('"'.str_replace("u0", "\\u0", $corruptedString).'"');
     }
 }
