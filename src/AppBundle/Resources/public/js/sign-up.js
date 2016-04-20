@@ -1,10 +1,10 @@
 $(function() {
     function getRandomScientist() {
-        return ['Бертран Рассел', 'Норберт Виннер', 'Даниэль Каннеман', 'Альберт Эйнштейн',
+        return ['Бертран Рассел', 'Норберт Винер', 'Даниэль Каннеман', 'Альберт Эйнштейн',
             'Ричард Докинз', 'Людвиг Витгенштейн', 'Курт Гёдель', 'Никола Тесла', 'Стивен Хокинг',
             'Бенуа Мандельброт', 'Вернер Гейзенберг', 'Нильс Бор', 'Ричард Фейнман', 'Илья Пригожин',
             'Доктор Стрейнджлав', 'Ноам Хомский', 'Джон Нэш', 'Давид Гильберт', 'Чарльз Дарвин', 'Георг Кантор',
-            'Александр Флеминг', 'Карл Поппер'].random();
+            'Александр Флеминг', 'Карл Поппер', 'Марвин Мински', 'Алан Тьюринг'].random();
     }
 
     $('.sign-up').click(function() {
@@ -15,7 +15,7 @@ $(function() {
         container.find('#ticket_name').attr('placeholder', getRandomScientist());
 
         container.find('#signup-volunteer').change(function () {
-            $("#signup-contact-wrapper").hide();
+            $("#signup-contact-wrapper").toggleClass('hide');
         });
 
         container.find('.book-ticket').click(function() {
