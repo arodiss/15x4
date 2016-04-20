@@ -187,6 +187,10 @@ h3:not(.anchor) {
     height: 152px;
 }
 
+.plate.row3 {
+    height: 203px;
+}
+
 .plate a {
     color: white;
     text-decoration: none;
@@ -240,6 +244,11 @@ h3:not(.anchor) {
     z-index: 2;
     font-weight: bold;
     font-size: 12px;
+}
+
+.row3 .plate-details {
+    width: 364px;
+    height: 203px;
 }
 /*end plates styles*/
 

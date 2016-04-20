@@ -8,11 +8,15 @@
     <table class="table table-responsive noborders">
         <tr style="background-color: cornsilk;">
             {% for lecture in featured_lectures %}
-                <td style="width: 25%; border-style: none;">
-                    {% include 'shared/lecture-plate.html.twig' %}
+                <td style="width: 33%; border-style: none;">
+                    {% include 'shared/lecture-plate.html.twig' with { lectures_per_row: 3 } %}
                 </td>
             {% endfor %}
         </tr>
+    </table>
+
+    <table class="table table-responsive noborders">
+        <tr style="background-color: cornsilk;">
         {% for event in recentEvents %}
             <tr>
                 {% for lecture in event.lectures | head(4) %}
