@@ -32,7 +32,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/assetic-bundle": "2.8.*",
         "alaouy/youtube": "1.2.*",
-
+        "friendsofsymfony/comment-bundle": "2.0.*@dev",
         "hwi/oauth-bundle": "0.5.*@dev",
         "friendsofsymfony/user-bundle": "2.0.*@dev"
     },

@@ -1,0 +1,47 @@
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% set first = first|default(false) %}
+
+{% set url_parameters = {'id': id } %}
+{% if parent is not null %}
+    {% set url_parameters = url_parameters|merge({'parentId': parent.id}) %}
+{% endif %}
+
+{% block fos_comment_comment_form_holder %}
+    <div class="fos_comment_comment_form_holder">
+        {% block fos_comment_form_title %}
+            {% if first %}
+                <h4>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline_first{% endtrans %}</h4>
+            {% elseif parent is not null %}
+                <h4>{% trans with {"%name%": parent.authorName } from 'FOSCommentBundle' %}fos_comment_comment_reply_reply_to{% endtrans %}</h4>
+            {% else %}
+                <h4>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline{% endtrans %}</h4>
+            {% endif %}
+        {% endblock %}
+
+        {% block fos_comment_comment_new_form %}
+            <form class="fos_comment_comment_new_form" action="{{ url('fos_comment_post_thread_comments', url_parameters) }}" data-parent="{{ parent.id|default() }}" method="POST">
+
+                {% block fos_comment_form_fields %}
+                    <div class="fos_comment_form_errors">
+                        {{ form_errors(form) }}
+                        {{ form_errors(form.body) }}
+                    </div>
+                    {{ form_widget(form.body) }}
+
+                    {{ form_rest(form) }}
+                {% endblock %}
+
+                <div class="fos_comment_submit">
+                    {% block fos_comment_form_submit %}
+                        {% if parent is not null %}
+                            <input class="btn btn-default fos_comment_comment_reply_cancel" type="button" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_reply_cancel{% endtrans %}" />
+                        {% endif %}
+                        <input class="btn btn-default" type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" />
+                    {% endblock %}
+                </div>
+
+            </form>
+        {% endblock fos_comment_comment_new_form %}
+
+    </div>
+{% endblock fos_comment_comment_form_holder %}
