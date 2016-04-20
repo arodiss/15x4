@@ -1,12 +1,28 @@
 <div class="row text-center" style="font-size: 150%;">
     <div class="col-lg-3">
-        <span class="glyphicon glyphicon-thumbs-up"></span> {{ lecture.likesCount }}
+        <span
+            class="glyphicon glyphicon-thumbs-up tooltip-toggle"
+            data-title="Нравится"
+        ></span> {{ lecture.likesCount }}
     </div>
     <div class="col-lg-3">
-        <span class="glyphicon glyphicon-thumbs-down"></span> {{ lecture.dislikesCount }}
+        <span
+            class="glyphicon glyphicon-thumbs-down tooltip-toggle"
+            data-title="Не нравится"
+        ></span> {{ lecture.dislikesCount }}
     </div>
     <div class="col-lg-3">
-        <span class="glyphicon glyphicon-star"></span> {{ lecture.favsCount }}
+        <span
+            class="glyphicon glyphicon-star tooltip-toggle"
+            data-title="Избранное"
+        ></span> {{ lecture.favsCount }}
+    </div>
+    <div class="col-lg-3">
+        <span
+            class="glyphicon glyphicon-comment tooltip-toggle"
+            data-title="Комментарии"
+        ></span>
+        <span>{{ lecture.commentsCount }}</span>
     </div>
 </div>
 <br/>

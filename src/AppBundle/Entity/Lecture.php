@@ -106,6 +106,12 @@ class Lecture
 
     /**
      * @var int
+     * @ORM\Column(name="comments_count", type="integer", nullable=false)
+     */
+    protected $commentsCount = 0;
+
+    /**
+     * @var int
      * @ORM\Column(name="favs_count", type="integer", nullable=false)
      */
     protected $favsCount = 0;
@@ -349,6 +355,18 @@ class Lecture
     public function getUsersFavorited()
     {
         return $this->usersFavorited;
+    }
+
+    /** @param int $commentsCount */
+    public function setCommentsCount($commentsCount)
+    {
+        $this->commentsCount = $commentsCount;
+    }
+
+    /** @return int */
+    public function getCommentsCount()
+    {
+        return $this->commentsCount;
     }
 
     /**

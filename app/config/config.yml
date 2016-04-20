@@ -4,7 +4,7 @@ imports:
     - { resource: services.yml }
 
 framework:
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["ru"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -35,6 +35,7 @@ twig:
         format: d.m.Y
 
 assetic:
+    bundles: [ "FOSCommentBundle", "AppBundle", "AdminBundle" ]
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
@@ -113,3 +114,31 @@ hwi_oauth:
             scope:         "email"
             client_id:     "%google_id%"
             client_secret: "%google_secret%"
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: AppBundle\Entity\Comment
+            thread: AppBundle\Entity\CommentThread
+    acl: true
+    service:
+        acl:
+            thread:  fos_comment.acl.thread.roles
+            comment: fos_comment.acl.comment.roles
+            vote:    fos_comment.acl.vote.roles
+        manager:
+            thread:  fos_comment.manager.thread.acl
+            comment: fos_comment.manager.comment.acl
+            vote:    fos_comment.manager.vote.acl
+    acl_roles:
+        comment:
+            create: ROLE_USER
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+        thread:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN

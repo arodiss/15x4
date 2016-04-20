@@ -4,6 +4,7 @@ namespace AppBundle\Command;
 
 use AppBundle\Entity\Lecture;
 use AppBundle\Entity\User;
+use AppBundle\Entity\CommentThread;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,7 +20,19 @@ class AggregateLikesCommand extends AbstractCommand
     /** {@inheritdoc} */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln("Aggregating likes by lectures...");
+        $output->writeln("Aggregating comments...");
+        $lectures = $this->getContainer()->get('repository.lecture')->findAll();
+        $progress = new ProgressBar($output, count($lectures));
+        foreach ($lectures as $lecture) {
+            /** @var Lecture $lecture */
+            $lecture->setCommentsCount($this->getCommentsCount($lecture));
+            $this->getEm()->persist($lecture);
+            $progress->advance();
+        }
+        $progress->finish();
+        $this->getEm()->flush();
+
+        $output->writeln("\nAggregating likes by lectures...");
         $lectures = $this->getContainer()->get('repository.lecture')->findAll();
         $progress = new ProgressBar($output, count($lectures));
         foreach ($lectures as $lecture) {
@@ -94,6 +107,18 @@ class AggregateLikesCommand extends AbstractCommand
             'lecture' => $lecture,
             'isLike' => false
         ]));
+    }
+
+    /**
+     * @param Lecture $lecture
+     * @return int
+     */
+    private function getCommentsCount(Lecture $lecture)
+    {
+        /** @var CommentThread|null $thread */
+        $thread = $this->getContainer()->get('repository.comment_thread')->find($lecture->getId());
+
+        return $thread ? $thread->getNumComments() : 0;
     }
 
     /**

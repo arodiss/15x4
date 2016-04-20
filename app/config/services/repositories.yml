@@ -38,3 +38,8 @@ services:
         class:                                      AppBundle\Entity\Repository\LectureReactionRepository
         factory:                                    ['@doctrine', 'getRepository']
         arguments:                                  [ AppBundle\Entity\LectureReaction ]
+
+    repository.comment_thread:
+        class:                                      AppBundle\Entity\Repository\CommentThreadRepository
+        factory:                                    ['@doctrine', 'getRepository']
+        arguments:                                  [ AppBundle\Entity\CommentThread ]

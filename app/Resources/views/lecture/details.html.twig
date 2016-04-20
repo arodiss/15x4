@@ -9,9 +9,10 @@
         {% include 'shared/lecture-preview.html.twig' with { 'forceIframe': true } %}
     </div>
 
-    {#<hr/>#}
+    <hr/>
 
-    {#Тут будет блок комментариев#}
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with { 'id': lecture.id } %}
+
 {% endblock %}
 
 {% block scripts %}
@@ -23,4 +24,12 @@
     %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+
+    {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
 {% endblock %}
