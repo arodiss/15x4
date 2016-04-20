@@ -1,16 +1,23 @@
-<header class="sb-page-header">
+<header>
     <div class="container">
         <div class="row">
-            <div class="col-lg-11">
-                <h1>15x4 — Share Your Knowledge!</h1>
-                <p>
-                    15х4 — это сообщество молодых ученых и фанатов науки.
-                </p>
-                <p>
-                    Мы хотим, чтобы люди выступали и делились знаниями.
-                </p>
+            <div class="col-lg-1">
+                <a href="{{ path("Landing") }}">
+                    {% image '@AppBundle/Resources/public/images/logo.png' %}
+                        <img src="{{ asset_url }}" alt="Logo" style="width: 70px;"/>
+                    {% endimage %}
+                </a>
             </div>
-            <div class="col-lg-1 social-icons" style="font-size: 20px;">
+            <div class="col-lg-10" style="font-size: 75%;">
+                <b>15x4 — Share Your Knowledge!</b>
+                <div class="small text-muted">
+                    15х4 — это сообщество молодых ученых и фанатов науки.
+                </div>
+                <div class="small text-muted">
+                    Мы хотим, чтобы люди выступали и делились знаниями.
+                </div>
+            </div>
+            <div class="col-lg-1 social-icons" style="font-size: 16px;">
                 <a href="https://vk.com/15x4talks" target="_blank">
                     <span class="fa-stack pull-right">
                         <i class="fa fa-vk fa-stack-1x"></i>

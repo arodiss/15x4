@@ -7,39 +7,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ path("Landing") }}"><strong>15x4</strong></a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="{{ path("LectureList") }}">Все лекции</a></li>
+                <li><a href="{{ path("LectureRandom") }}">Случайная лекция</a></li>
+                {% if is_granted('ROLE_USER') and app.user.favoriteLectureIds | length > 0 %}
+                    <li><a href="{{ path("MyFavoriteLectures") }}">Избранные лекции</a></li>
+                {% endif %}
                 <li><a href="{{ path("About") }}">О проекте</a></li>
-                <li class="dropdown">
-                    <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        Смотреть лекции
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path("LectureList") }}">Все лекции</a></li>
-                        <li class="divider" role="presentation"></li>
-                        <li><a href="{{ path("LectureRandom") }}">Случайная лекция</a></li>
-                        {% if is_granted('ROLE_USER') and app.user.favoriteLectureIds | length > 0 %}
-                            <li class="divider" role="presentation"></li>
-                            <li><a href="{{ path("MyFavoriteLectures") }}">Избранные лекции</a></li>
-                        {% endif %}
-                        <li class="divider" role="presentation"></li>
-                        <li><a href="{{ path("Fields") }}">Дисциплины</a></li>
-                        <li><a href="{{ path("Tags") }}">Теги</a></li>
-                        <li><a href="{{ path("Cities") }}">Города</a></li>
-                        <li><a href="{{ path("Lecturers") }}">Лекторы</a></li>
-                    </ul>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
