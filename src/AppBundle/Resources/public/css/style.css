@@ -1,4 +1,8 @@
 /*wrapper styles*/
+html {
+    font-family: 'DIN2014Light', sans-serif;
+}
+
 footer {
     border-top: 2px solid orangered;
     padding-top: 20px;
@@ -10,14 +14,9 @@ footer {
 }
 
 header {
-    background-color: #A53000;
-    background-image: url('/bundles/app/images/bg.png');
-    font-family: 'DIN2014Light', sans-serif;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 2px;
     text-align: left;
     font-size: 24px;
-    color: white;
 }
 
 footer a {
@@ -44,24 +43,14 @@ a:hover .glyphicon {
     background-color: transparent;
 }
 
-.nav > li > a:not(.dropdown-toggle):not(.tab-toggle):before {
-    content: "";
-    position: absolute;
-    width: 86%;
-    margin-left: 8%;
-    height: 2px;
-    top: 38px;
-    bottom: 0;
-    left: 0;
-    background-color: orangered;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-}
-
-.nav > li > a:not(.dropdown-toggle):not(.tab-toggle):hover:before {
-    visibility: visible;
-    transform: scaleX(1);
+.navbar {
+    margin: 14px;
+    background: white;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
 }
 
 .fa-stack {
@@ -73,11 +62,11 @@ a:hover .glyphicon {
 }
 
 .social-icons a {
-    color: white;
+    color: black;
 }
 
 .social-icons a:hover {
-    color: orangered;
+    color: gray;
 }
 /*end wrapper styles*/
 
@@ -295,7 +284,6 @@ h3:not(.anchor) {
     font-size: 160%;
     transition: color 0.5s;
     color: black;
-    font-family: 'DIN2014Light', sans-serif;
 }
 
 #cloud-container span a:hover {

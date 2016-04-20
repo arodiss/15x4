@@ -2,7 +2,7 @@
 
 {% block page_title %}15x4 — {{ field }}{% endblock %}
 
-{% block header %}
+{% block content %}
     <div class="container">
         <div class="row" style="margin-top: 10px;">
             <div class="col-lg-6">
@@ -28,6 +28,8 @@
         </div>
         <hr/>
     </div>
+
+    {{ parent() }}
 {% endblock %}
 
 {% block listHeader %}{% endblock %}
