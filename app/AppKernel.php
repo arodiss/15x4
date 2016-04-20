@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Arodiss\XlsBundle\ArodissXlsBundle(),
 
             new AppBundle\AppBundle(),
             new AdminBundle\AdminBundle(),

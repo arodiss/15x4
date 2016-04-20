@@ -208,8 +208,15 @@ class Announcement
     {
         $grouped = array_count_values($this->ticketsBooked);
         ksort($grouped);
+        $mapped = [];
+        foreach($grouped as $name => $ticketsNumber) {
+            $mapped[] = [
+                json_decode('"'.str_replace("u0", "\\u0", $name).'"'),
+                $ticketsNumber
+            ];
+        }
 
-        return $grouped;
+        return $mapped;
     }
 
     /** @return bool */

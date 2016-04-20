@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0056eb17b29f7b25ace202d7223b8802",
-    "content-hash": "9b1a06e3c2be81eac258cbd3c0dee82f",
+    "hash": "63a4e5aac687439e42f5d5ad819c36d3",
+    "content-hash": "e7077f88c4cd20680d1d0bb000bc596e",
     "packages": [
         {
             "name": "alaouy/youtube",
@@ -52,6 +52,53 @@
                 "youtube"
             ],
             "time": "2015-09-13 12:25:56"
+        },
+        {
+            "name": "arodiss/xls-bundle",
+            "version": "v0.5.6",
+            "target-dir": "Arodiss/XlsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arodiss/XlsBundle.git",
+                "reference": "d5c43ba9bda0871efb0b8c7f90ae2b156cd46c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arodiss/XlsBundle/zipball/d5c43ba9bda0871efb0b8c7f90ae2b156cd46c6f",
+                "reference": "d5c43ba9bda0871efb0b8c7f90ae2b156cd46c6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "phpoffice/phpexcel": "1.8.*",
+                "symfony/framework-bundle": "~2.3|~3.0",
+                "symfony/process": "~2.5|~3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Arodiss\\XlsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sidora Gleb",
+                    "email": "aarodiss@gmail.com"
+                }
+            ],
+            "description": "Excel files manipulation for Symfony2",
+            "homepage": "https://github.com/arodiss/xls-bundle",
+            "keywords": [
+                "excel",
+                "export",
+                "import",
+                "xls"
+            ],
+            "time": "2016-02-25 16:53:51"
         },
         {
             "name": "doctrine/annotations",
@@ -1907,6 +1954,63 @@
                 "set"
             ],
             "time": "2014-03-11 13:46:42"
+        },
+        {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://blog.rootslabs.net"
+                },
+                {
+                    "name": "Erik Tilt"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "http://phpexcel.codeplex.com",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2015-05-01 07:00:55"
         },
         {
             "name": "phpoption/phpoption",

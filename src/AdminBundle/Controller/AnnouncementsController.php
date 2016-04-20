@@ -121,19 +121,18 @@ class AnnouncementsController extends Controller
      */
     public function downloadTicketsAction(Entity\Announcement $announcement)
     {
-        $tmpFile = tempnam('15x4-export', microtime());
-        $handle = fopen($tmpFile, 'w+');
-        fputcsv($handle, ['Имя', 'Количество мест']);
-        foreach($announcement->getTicketsBookedGrouped() as $name => $count) {
-            fputcsv($handle, [$this->fixCsvUnicode($name), $count]);
-        }
-        fclose($handle);
+        $file = $this
+            ->get("arodiss.xls.builder")
+            ->buildXlsFromArray(array_merge(
+                [['Имя', 'Количество мест']],
+                $announcement->getTicketsBookedGrouped()
+            ))
+        ;
 
         $response = new Response();
-        $response->setContent(file_get_contents($tmpFile));
-        $response->setStatusCode(200);
-        $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
-        $response->headers->set('Content-Disposition','attachment; filename="tickets.csv"');
+        $response->headers->set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        $response->headers->set("Content-Disposition", "attachment;filename=tickets.xlsx");
+        $response->setContent(file_get_contents($file));
 
         return $response;
     }
@@ -144,29 +143,19 @@ class AnnouncementsController extends Controller
      */
     public function downloadVolunteersAction(Entity\Announcement $announcement)
     {
-        $tmpFile = tempnam('15x4-export', microtime());
-        $handle = fopen($tmpFile, 'w+');
-        fputcsv($handle, ['Имя', 'Контакты']);
-        foreach($announcement->getVolunteers() as $volunteer) {
-            fputcsv($handle, [$this->fixCsvUnicode($volunteer[0]), $this->fixCsvUnicode($volunteer[1])]);
-        }
-        fclose($handle);
+        $file = $this
+            ->get("arodiss.xls.builder")
+            ->buildXlsFromArray(array_merge(
+                [['Имя', 'Контакты']],
+                $announcement->getVolunteers()
+            ))
+        ;
 
         $response = new Response();
-        $response->setContent(file_get_contents($tmpFile));
-        $response->setStatusCode(200);
-        $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
-        $response->headers->set('Content-Disposition','attachment; filename="volunteers.csv"');
+        $response->headers->set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        $response->headers->set("Content-Disposition", "attachment;filename=volunteers.xlsx");
+        $response->setContent(file_get_contents($file));
 
         return $response;
-    }
-
-    /**
-     * @param string $corruptedString
-     * @return string
-     */
-    private function fixCsvUnicode($corruptedString)
-    {
-        return json_decode('"'.str_replace("u0", "\\u0", $corruptedString).'"');
     }
 }
