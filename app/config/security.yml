@@ -1,13 +1,15 @@
 security:
-#    for now would be enough to have single admin account via HTTP basic
     providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, hwi_oauth]
         in_memory:
             memory:
                 users:
                     admin:
                         password: %admin_password%
                         roles: 'ROLE_ADMIN'
-        hwi-oauth:
+        hwi_oauth:
             id: hwi_oauth.user.provider
 
     encoders:
