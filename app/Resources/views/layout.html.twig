@@ -17,6 +17,10 @@
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
         {% endblock %}
+
+        {% block script_din %}
+            <script src='https://rentafont.com/web_fonts/js/eHUyODkyZ2lmcjIxNGl3eXY2MzFlbGVobzIwNTlu?f=DIN2014Light' type='text/javascript'></script>
+        {% endblock %}
     </head>
     <body>
         {% block header %}{% include "header.html.twig" %}{% endblock %}
@@ -37,7 +41,6 @@
         {% block footer %}{% include "footer.html.twig" %}{% endblock %}
 
         {% block scripts %}
-            <script src='https://rentafont.com/web_fonts/js/eHUyODkyZ2lmcjIxNGl3eXY2MzFlbGVobzIwNTlu?f=DIN2014Light' type='text/javascript'></script>
             {% javascripts
                 '@AppBundle/Resources/public/js/jquery.js'
                 '@AppBundle/Resources/public/js/selectize.js'
