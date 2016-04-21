@@ -88,11 +88,6 @@ class Lecture
     protected $randomRating = 500;
 
     /**
-     * @ORM\Column(name="youtube_likes_count", type="integer", nullable=false)
-     */
-    protected $youtubeLikesCount = 0;
-
-    /**
      * @var int
      * @ORM\Column(name="likes_count", type="integer", nullable=false)
      */
@@ -279,18 +274,6 @@ class Lecture
     public function setRandomRating($randomRating)
     {
         $this->randomRating = $randomRating;
-    }
-
-    /** @param integer $youtubeLikesCount */
-    public function setYoutubeLikesCount($youtubeLikesCount)
-    {
-        $this->youtubeLikesCount = $youtubeLikesCount;
-    }
-
-    /** @return integer */
-    public function getYoutubeLikesCount()
-    {
-        return $this->youtubeLikesCount;
     }
 
     /** @return bool */
