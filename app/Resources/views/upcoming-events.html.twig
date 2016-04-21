@@ -28,17 +28,19 @@
                                 </p>
                             {% endfor %}
 
-                            {% if city.nextAnnouncement.registerable %}
-                                <p class="form-inline" data-event-id="{{ city.nextAnnouncement.id }}">
-                                    <i>
+                            <p class="form-inline" data-event-id="{{ city.nextAnnouncement.id }}">
+                                <i>
+                                    {% if city.nextAnnouncement.registerable %}
                                         {% if city.nextAnnouncement.hasFreeTickets() %}
                                             <a class="sign-up" href="#">Зарегистрируйтесь</a>, пока ещё есть места
                                         {% else %}
                                             К сожалению, свободных мест для регистрации нет. Вы можете приходить, но мы не обещаем вам сидячее место
                                         {% endif %}
-                                    </i>
-                                </p>
-                            {% endif %}
+                                    {% else %}
+                                        Регистрация не трубется
+                                    {% endif %}
+                                </i>
+                            </p>
                         </div>
 
                         <div class="col-lg-6">
