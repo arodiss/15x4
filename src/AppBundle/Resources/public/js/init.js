@@ -47,4 +47,18 @@ $(function() {
     Array.prototype.random = function () {
         return this[Math.floor(Math.random() * this.length)];
     };
+
+    Array.prototype.toggleValue = function (value) {
+        if (this.indexOf(value) === -1) {
+            this.push(value);
+        } else {
+            this.removeValue(value);
+        }
+    }
+
+    Array.prototype.intersects = function (otherArray) {
+        return this.filter(function(valueFromThis) {
+            return otherArray.indexOf(valueFromThis) != -1;
+        }).length > 0;
+    }
 });
