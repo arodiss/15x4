@@ -1,58 +1,174 @@
+{#todo generate content dynamically#}
+{#todo optimize imgs, use assetic#}
+{#todo Chernivtsi contacts#}
+
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}
     15x4 — связаться с нами
 {% endblock %}
 
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@AppBundle/Resources/public/js/shuffle.js'
+        '@AppBundle/Resources/public/js/contacts.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+
+    {% stylesheets
+        '@AppBundle/Resources/public/css/contacts.css'
+        filter='cssrewrite'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
 {% block content %}
     <h2>Связаться с нами</h2>
     <p class="text-muted"><i>15x4 — волонтёрский проект. Учасвтвуя в нём, вы можете сделать мир лучше</i></p>
 
-    <h3>По вопросам открытия лектория в своём городе или сотрудничества</h3>
-    <p class="text-muted"><i>15x4 не предоставляет платной рекламы</i></p>
-    <p>
-        Александр Гапак
-        <a href="https://www.facebook.com/aleksandr.gapak">fb</a>
-        <a href="mailto:wolfinnigth@gmail.com">emal</a>
-        <a href="https://vk.com/alex_gapak">vk</a>
-    </p>
+    <div class="row">
+        <div class="col-lg-12">
+            <b>Что вас интересует?</b>
+            <br/>
+            <div id="goal" class="btn-group" role="group">
+                <button data-title="Мы не требуем регалий и других формальных критериев" data-goal="lecturer" type="button" class="btn btn-default tooltip-toggle">Стать лектором</button>
+                <button data-title="Давайте делать мир лучше вместе!" data-goal="volunteer" type="button" class="btn btn-default tooltip-toggle">Статья волонтёром</button>
+                <button data-title="Мы поможем вам всеми своими ресурсами" data-goal="branch" type="button" class="btn btn-default tooltip-toggle">Открыть 15х4 в своём городе</button>
+                <button data-title="Жалобы, пожелания, предложения" data-goal="site" type="button" class="btn btn-default tooltip-toggle">Этот сайт</button>
+                <button data-title="Например, сотрудничество" data-goal="other" type="button" class="btn btn-default tooltip-toggle">Другое</button>
+            </div>
+        </div>
 
-    <h3>Стать лектором или волонтёром уже существующего лектория</h3>
-    <p>
-        Киев, стать лектором. Таня Ли
-        <a href="mailto:15x4Kyiv@gmail.com">emal</a>
-        <a href="https://vk.com/brunsweek">vk</a>
-    </p>
-    <p>
-        Киев, стать волонтёром. Александра Малевич
-        <a href="https://www.facebook.com/ehnara">fb</a>
-        <a href="mailto:15x4Kyiv@gmail.com">emal</a>
-        <a href="https://vk.com/ehnara">vk</a>
-    </p>
+        <div class="col-lg-12">
+            <b>Ваш город</b>
+            <br/>
+            <div id="city" class="btn-group" role="group">
+                <button data-city=1 type="button" class="btn btn-default">Москва</button>
+                <button data-city=2 type="button" class="btn btn-default">Киев</button>
+                <button data-city=3 type="button" class="btn btn-default">Харьков</button>
+                <button data-city=4 type="button" class="btn btn-default">Львов</button>
+                <button data-city=5 type="button" class="btn btn-default">Черновцы</button>
+            </div>
+        </div>
+    </div>
 
-    <p>
-        Харьков, стать лектором. Ульяна Громова
-        <a href="mailto:Malyarchyk.17@gmail.com">emal</a>
-        <a href="https://vk.com/hell_low">vk</a>
-    </p>
+    <hr/>
 
-    <p>
-        Харьков, стать волонтёром. Александр Гапак
-        <a href="https://www.facebook.com/aleksandr.gapak">fb</a>
-        <a href="mailto:wolfinnigth@gmail.com">emal</a>
-        <a href="https://vk.com/alex_gapak">vk</a>
-    </p>
+    <div id="grid" class="row">
 
-    <p>
-        Львов, стать лектором или волонтёром. Дмитрий Кондратюк
-        <a href="https://vk.com/feelofeel">vk</a>
-    </p>
+        <div class="col-lg-3 contact" data-goals='{"other":[], "branch":[], "volunteer": [3]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/contacts/gapak.jpg')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Алексанр Гапак</div>
+                    <a href="https://www.facebook.com/aleksandr.gapak">fb</a>
+                    <a href="mailto:wolfinnigth@gmail.com">emal</a>
+                    <a href="https://vk.com/alex_gapak">vk</a>
+                </div>
+            </div>
+        </div>
 
-    <h3>По вопросам, связанным с работой этого сайта</h3>
-    <p>
-        Сидора Глеб
-        <a href="https://www.facebook.com/profile.php?id=100001049885258">fb</a>
-        <a href="mailto:gleb.sidora@gmail.com">email</a>
-        <a href="https://vk.com/arodiss">vk</a>
-    </p>
+        <div class="col-lg-3 contact" data-goals='{"site":[]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('https://pp.vk.me/c416118/v416118107/9e0/gV4EYFn-iEA.jpg')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Сидора Глеб</div>
+                    <a href="/bundles/app/images/contacts/arodiss.jpg">fb</a>
+                    <a href="mailto:gleb.sidora@gmail.com">email</a>
+                    <a href="https://vk.com/arodiss">vk</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 contact" data-goals='{"lecturer":[2]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/logo.png')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Таня Погорецкая</div>
+                    <a href="mailto:15x4Kyiv@gmail.com">emal</a>
+                    <a href="https://vk.com/brunsweek">vk</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 contact" data-goals='{"volunteer":[2]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/contacts/ehnara.jpg')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Александра Малевич</div>
+                    <a href="https://www.facebook.com/ehnara">fb</a>
+                    <a href="mailto:15x4Kyiv@gmail.com">emal</a>
+                    <a href="https://vk.com/ehnara">vk</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 contact" data-goals='{"lecturer":[3]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/contacts/gromova.jpg')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Ульяна Громова</div>
+                    <a href="mailto:Malyarchyk.17@gmail.com">emal</a>
+                    <a href="https://vk.com/hell_low">vk</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 contact" data-goals='{"lecturer":[4], "volunteer": [4]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/contacts/feelofreel.jpg')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Дмитрий Кондратюк</div>
+                    <a href="https://vk.com/feelofeel">vk</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 contact" data-goals='{"lecturer":[1], "volunteer": [1]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/contacts/riel.png')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Валерия Грачёва</div>
+                    +79252607408
+                    <a href="https://www.facebook.com/realgrachova">fb</a>
+                    <a href="mailto:eon@houston.ru">emal</a>
+                    <a href="https://vk.com/real_night">vk</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 contact" data-goals='{"lecturer":[5], "volunteer": [5]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img" style="background-image:url('/bundles/app/images/logo.png')"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Елена Гомон</div>
+                    <a href="https://vk.com/id32493096">vk</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

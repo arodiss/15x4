@@ -1,0 +1,18 @@
+.contact > .row {
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    margin: 3px;
+    padding: 2px;
+    text-align: center;
+}
+
+.contact .img {
+    width: 96px;
+    height: 96px;
+    border-radius: 6px;
+    background-size: cover;
+}
+
+.contact-name {
+    font-weight: bold;
+}
