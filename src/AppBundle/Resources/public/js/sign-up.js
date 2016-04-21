@@ -28,7 +28,7 @@ $(function() {
                         'contact': container.find('#contact').val()
                     }
                 );
-                container.html('<i>Спасибо за регистрацию</i>');
+                container.html('<b><u>Спасибо за регистрацию</u></b>');
             }
         });
 
