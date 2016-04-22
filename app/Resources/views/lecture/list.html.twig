@@ -11,21 +11,33 @@
 
 {% block listHeader %}
     <h1>
-        {% if isFiltered %}
-            Выбранные лекции
-        {% else %}
-            Все лекции
-        {% endif %}
-            <span
+        <div class="row">
+            <div class="col-lg-11">
+                {% if isFiltered %}
+                    Выбранные лекции
+                {% else %}
+                    Все лекции
+                {% endif %}
+
+                <span style="font-size: 70%;">
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Fields") }}">Дисциплины</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Tags") }}">Теги</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Cities") }}">Города</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Lecturers") }}">Лекторы</a></small>
+                </span>
+            </div>
+
+            <div
                 id="toggle-filters"
-                class="pull-right text-muted"
+                class="text-muted col-lg-1"
                 data-title="Скрыть фильтры"
                 data-toggle="collapse"
                 data-target="#lecture-list-filters"
                 data-expanded="1"
             >
                 <i class="fa fa-arrow-circle-up"></i>
-            </span>
+            </div>
+        </div>
     </h1>
 
     <hr/>
