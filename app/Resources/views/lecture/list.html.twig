@@ -12,7 +12,7 @@
 {% block listHeader %}
     <h1>
         <div class="row">
-            <div class="col-lg-11">
+            <div class="col-sm-11">
                 {% if isFiltered %}
                     Выбранные лекции
                 {% else %}
@@ -29,7 +29,7 @@
 
             <div
                 id="toggle-filters"
-                class="text-muted col-lg-1"
+                class="text-muted col-sm-1"
                 data-title="Скрыть фильтры"
                 data-toggle="collapse"
                 data-target="#lecture-list-filters"
@@ -42,12 +42,11 @@
 
     <hr/>
 
-    <div class="row collapse in" id="lecture-list-filters">
-        {% include 'lecture/filters.html.twig' %}
-
-        <div class="col-lg-12">
-            <hr/>
+    <div class="collapse in" id="lecture-list-filters">
+        <div class="row">
+            {% include 'lecture/filters.html.twig' %}
         </div>
+        <hr/>
     </div>
 {% endblock %}
 
