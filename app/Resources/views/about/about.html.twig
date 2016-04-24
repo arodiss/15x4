@@ -1,5 +1,16 @@
 {% extends 'layout.html.twig' %}
 
+{% block styles %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/about.css'
+        filter='cssrewrite'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
 {% block content %}
 
     <div class="container">

@@ -44,3 +44,14 @@
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/landing.css'
+        filter='cssrewrite'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
