@@ -4,11 +4,11 @@
 }
 
 footer {
-    border-top: 2px solid orangered;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    background: #333;
-    color: #fff;
+    border-top: 3px solid black;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    background: white;
+    color: black;
     line-height: 100%;
     font-size: 13px;
 }
@@ -20,7 +20,7 @@ header {
 }
 
 footer a {
-    color: #fff;
+    color: black;
     text-decoration: underline;
 }
 
@@ -77,7 +77,7 @@ a:hover .glyphicon {
     visibility: hidden;
     overflow: hidden;
     text-align: center;
-    z-index: 999;
+    z-index: 1050;
     background-color: #666;
     color: #eee;
     width: 60px;
@@ -292,62 +292,6 @@ h3:not(.anchor) {
     transition: opacity 0.5s;
 }
 /*end tag cloud styles*/
-
-/*main container height responsiveness*/
-@media(min-height:1400px)  {
-    #main-container {
-        min-height: 1120px;
-    }
-}
-
-@media(max-height:1300px) and (min-height:1100px) {
-    #main-container {
-        min-height: 1020px;
-    }
-}
-
-@media(max-height:1400px) and (min-height:1200px) {
-    #main-container {
-        min-height: 920px;
-    }
-}
-
-@media(max-height:1300px) and (min-height:1100px) {
-    #main-container {
-        min-height: 820px;
-    }
-}
-
-@media(max-height:1200px) and (min-height:1000px) {
-    #main-container {
-        min-height: 720px;
-    }
-}
-
-@media(max-height:1100px) and (min-height:900px) {
-    #main-container {
-        min-height: 620px;
-    }
-}
-
-@media(max-height:1000px) and (min-height:800px) {
-    #main-container {
-        min-height: 520px;
-    }
-}
-
-@media(max-height:900px) and (min-height:700px) {
-    #main-container {
-        min-height: 420px;
-    }
-}
-
-@media(max-height:800px) and (min-height:600px) {
-    #main-container {
-        min-height: 320px;
-    }
-}
-/*end main container height responsiveness*/
 
 .btn-login {
     width: 100%;
