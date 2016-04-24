@@ -1,4 +1,4 @@
-<div class="col-lg-3">
+<div class="col-sm-3">
     <label for='select-field'>
         Область:
     </label>
@@ -11,13 +11,13 @@
         <div class="well well-sm well-no-margin">
             {{ field }}
             <span class="pull-right">
-                        <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
-                    </span>
+                <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
+            </span>
         </div>
     {% endfor %}
 </div>
 
-<div class="col-lg-3">
+<div class="col-sm-3">
     <label for='select-tag'>
         Теги:
     </label>
@@ -30,13 +30,13 @@
         <div class="well well-sm well-no-margin">
             {{ tag }}
             <span class="pull-right">
-                        <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
-                    </span>
+                <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
+            </span>
         </div>
     {% endfor %}
 </div>
 
-<div class="col-lg-3">
+<div class="col-sm-3">
     <label for='select-lecturer'>
         Лектор:
     </label>
@@ -48,15 +48,15 @@
     {% for lecturer in selectedLecturers %}
         <div class="well well-sm well-no-margin filter-lecturer ">
             <span>{{ lecturer }}</span>
-                    <span class="pull-right">
-                        <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ lecturer.id }}"></span>
-                    </span>
+            <span class="pull-right">
+                <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ lecturer.id }}"></span>
+            </span>
             <p class="small">{{ lecturer.bio }}</p>
         </div>
     {% endfor %}
 </div>
 
-<div class="col-lg-3">
+<div class="col-sm-3">
     <label for='select-event'>
         Встреча:
     </label>
@@ -69,8 +69,8 @@
         <div class="well well-sm well-no-margin filter-lecturer">
             {{ event.date | date }}, {{ event.city }}
             <span class="pull-right">
-                        <span class="remove-event glyphicon glyphicon-remove cursor-pointer" data-id="{{ event.id }}"></span>
-                    </span>
+                <span class="remove-event glyphicon glyphicon-remove cursor-pointer" data-id="{{ event.id }}"></span>
+            </span>
         </div>
     {% endfor %}
 </div>
