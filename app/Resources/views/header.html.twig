@@ -8,7 +8,7 @@
                     {% endimage %}
                 </a>
             </div>
-            <div class="col-lg-10" style="font-size: 75%;">
+            <div class="col-lg-{% if is_granted('ROLE_USER') %}9{% else %}10{% endif %}" style="font-size: 75%;">
                 <b>15x4 — Share Your Knowledge!</b>
                 <div class="small text-muted">
                     15х4 — это сообщество молодых ученых и фанатов науки.
@@ -17,7 +17,7 @@
                     Мы хотим, чтобы люди выступали и делились знаниями.
                 </div>
             </div>
-            <div class="col-lg-1 social-icons" style="font-size: 16px;">
+            <div class="col-lg-1 social-icons" style="font-size: 70.3%;">
                 <a href="https://vk.com/15x4talks" target="_blank">
                     <span class="fa-stack pull-right">
                         <i class="fa fa-vk fa-stack-1x"></i>
@@ -43,6 +43,11 @@
                     </span>
                 </a>
             </div>
+            {% if is_granted('ROLE_USER') %}
+                <div class="col-lg-1">
+                    <img id="avatar" class="hide" style="border-radius: 35px; height: 70px; width: 70px;" src="" alt="Avatar"/>
+                </div>
+            {% endif %}
         </div>
     </div>
 </header>

@@ -11,7 +11,7 @@ class LandingController extends AbstractController
      */
     public function indexAction()
     {
-        //todo enable cache and load user data asynch
+        //todo enable cache and load registration data asynch
         return $this->render(
             'landing/landing.html.twig',
             [
