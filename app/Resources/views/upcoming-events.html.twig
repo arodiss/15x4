@@ -28,18 +28,7 @@
                                 </p>
                             {% endfor %}
 
-                            <p class="form-inline" data-event-id="{{ city.nextAnnouncement.id }}">
-                                <i>
-                                    {% if city.nextAnnouncement.registerable %}
-                                        {% if city.nextAnnouncement.hasFreeTickets() %}
-                                            <a class="sign-up" href="#">Зарегистрируйтесь</a>, пока ещё есть места
-                                        {% else %}
-                                            К сожалению, свободных мест для регистрации нет. Вы можете приходить, но мы не обещаем вам сидячее место
-                                        {% endif %}
-                                    {% else %}
-                                        Регистрация не трубется
-                                    {% endif %}
-                                </i>
+                            <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
                             </p>
                         </div>
 
