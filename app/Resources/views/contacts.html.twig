@@ -1,5 +1,4 @@
 {#todo generate content dynamically#}
-{#todo optimize imgs, use assetic#}
 
 {% extends 'layout.html.twig' %}
 
@@ -66,7 +65,12 @@
         <div class="col-lg-3 contact" data-goals='{"other":[], "branch":[], "volunteer": [3]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/gapak.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/gapak.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="A. Gapak"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Алексанр Гапак</div>
@@ -81,12 +85,17 @@
         <div class="col-lg-3 contact" data-goals='{"site":[]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('https://pp.vk.me/c416118/v416118107/9e0/gV4EYFn-iEA.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/arodiss.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="G. Sidora"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Сидора Глеб</div>
                     <p class="small text-muted">Разработка сайта, Киев</p>
-                    <a href="/bundles/app/images/contacts/arodiss.jpg">fb</a>
+                    <a href="https://www.facebook.com/profile.php?id=100001049885258">fb</a>
                     <a href="mailto:gleb.sidora@gmail.com">email</a>
                     <a href="https://vk.com/arodiss">vk</a>
                 </div>
@@ -96,7 +105,11 @@
         <div class="col-lg-3 contact" data-goals='{"lecturer":[2]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/logo.png')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/logo.png'
+                    %}
+                        <img src="{{ asset_url }}" alt="T. Pogoretskaya"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Таня Погорецкая</div>
@@ -110,7 +123,12 @@
         <div class="col-lg-3 contact" data-goals='{"volunteer":[2]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/ehnara.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/ehnara.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="A. Malevich"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Александра Малевич</div>
@@ -125,7 +143,12 @@
         <div class="col-lg-3 contact" data-goals='{"lecturer":[3]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/gromova.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/gromova.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="U. Gromova"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Ульяна Громова</div>
@@ -139,7 +162,12 @@
         <div class="col-lg-3 contact" data-goals='{"lecturer":[4], "volunteer": [4]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/feelofreel.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/feelofreel.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="D. Kondratiuk"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Дмитрий Кондратюк</div>
@@ -152,7 +180,12 @@
         <div class="col-lg-3 contact" data-goals='{"lecturer":[1], "volunteer": [1]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/riel.png')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/real.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="V. Grachova"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Валерия Грачёва</div>
@@ -167,7 +200,12 @@
         <div class="col-lg-3 contact" data-goals='{"lecturer":[5], "volunteer": [5]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/volandymyr.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/volandymyr.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="Vladimir"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Владимир</div>
@@ -182,7 +220,12 @@
         <div class="col-lg-3 contact" data-goals='{"volunteer": [5]}'>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="img" style="background-image:url('/bundles/app/images/contacts/gaechka.jpg')"></div>
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/gaechka.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="E. Homon"/>
+                    {% endimage %}
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Елена Гомон</div>

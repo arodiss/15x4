@@ -6,11 +6,10 @@
     text-align: center;
 }
 
-.contact .img {
+.contact img {
     width: 135px;
     height: 135px;
     border-radius: 6px;
-    background-size: cover;
 }
 
 .contact-name {
