@@ -16,34 +16,35 @@
             <div class="well">
                 <div class="row">
                     {% if city.hasValidAnnouncement() %}
-                        <div class="col-lg-6">
-                            <h4>
-                                Время: {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
-                            </h4>
-
-                            {% for lecture in city.nextAnnouncement.lectures %}
-                                <p>
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                    {{ lecture.title }} - <i>{{ lecture.lecturer }}</i>
-                                </p>
-                            {% endfor %}
-
-                            <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
-                            </p>
+                        <div class="col-lg-4">
+                            <iframe
+                                style="width: 100%; height: 100%;"
+                                src="https://maps.google.com/maps?q={{ (city.name ~ ', ' ~ city.nextAnnouncement.whereMap) | url_encode }}&z=14&output=embed"
+                            >
+                            </iframe>
                         </div>
 
-                        <div class="col-lg-6">
-                            {% if city.nextAnnouncement.where %}
-                                <h4>
-                                    Место: {{ city.nextAnnouncement.where }}
-                                </h4>
+                        <div class="col-lg-8">
+                            <b>
+                                {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
+                            </b>
 
-                                <iframe
-                                    style="width: 100%; height: 100%;"
-                                    src="https://maps.google.com/maps?q={{ (city.name ~ ', ' ~ city.nextAnnouncement.whereMap) | url_encode }}&z=14&output=embed"
-                                    >
-                                </iframe>
-                            {% endif %}
+                            <p> {{ city.nextAnnouncement.where }} </p>
+
+                            <ul style="padding-left: 30px;">
+                                {% for lecture in city.nextAnnouncement.lectures %}
+                                    <li>
+                                        {{ lecture.title }} - <i>{{ lecture.lecturer }}</i>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
+                                </p>
+                            </div>
                         </div>
 
                         <div id="sign-up-details" class="hide form-inline">
