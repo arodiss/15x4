@@ -8,7 +8,6 @@ parameters:
 
     admin_password: admin
     google_analytics_id: 1111
-    youtube_api_key: 111
 
     mailer_password: some_pwd
     mailer_user: some_user
