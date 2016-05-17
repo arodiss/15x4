@@ -94,6 +94,18 @@ class LoadFieldsCommand extends AbstractCommand
             'description' => 'Экономика должна быть экономной — Леонид Брежнев',
             'image' => 'economics.jpg',
         ],
+
+        [
+            'name' => 'Медицина',
+            'description' => 'Прежде магию путали с медициной; ныне медицину путают с магией — Томас Сас',
+            'image' => 'medical.jpg',
+        ],
+
+        [
+            'name' => 'Общество',
+            'description' => 'Общество — это коромысло весов, которое не может приподнимать одних, не понижая других — Жак Ваньер',
+            'image' => 'society.jpg',
+        ],
     ];
 
     /** {@inheritdoc} */
