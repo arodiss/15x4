@@ -53,8 +53,11 @@ class EventRepository extends AbstractRepository
     {
         return $this
             ->createQueryBuilder('event')
+            ->leftJoin('event.lectures', 'lecture')
+            ->groupBy('event')
+            ->having('COUNT(lecture) > 0')
             ->setMaxResults($number)
-            ->orderBy('event.date', 'DESC')
+            ->orderBy('event.created', 'DESC')
             ->getQuery()
             ->getResult()
         ;

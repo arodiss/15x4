@@ -6,7 +6,7 @@
     <h2 class="text-center" style="width: 100%;">Недавние лекции</h2>
 
     <table class="table table-responsive noborders">
-        <tr style="background-color: cornsilk;">
+        <tr>
             {% for lecture in featured_lectures %}
                 <td style="width: 33%; border-style: none;">
                     {% include 'shared/lecture-plate.html.twig' with { lectures_per_row: 3 } %}
@@ -16,7 +16,6 @@
     </table>
 
     <table class="table table-responsive noborders">
-        <tr style="background-color: cornsilk;">
         {% for event in recentEvents %}
             <tr>
                 {% for lecture in event.lectures | head(4) %}
