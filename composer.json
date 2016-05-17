@@ -34,7 +34,8 @@
         "arodiss/xls-bundle": "0.5.*",
         "friendsofsymfony/comment-bundle": "2.0.*@dev",
         "hwi/oauth-bundle": "0.5.*@dev",
-        "friendsofsymfony/user-bundle": "2.0.*@dev"
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "gedmo/doctrine-extensions": "3.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0"
