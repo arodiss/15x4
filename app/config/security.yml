@@ -30,7 +30,7 @@ security:
                 resource_owners:
                     facebook:      /login/facebook
                     vkontakte:     /login/vkontakte
-#                    twitter:       /login/twitter
+                    twitter:       /login/twitter
                     google:        /login/google
                 login_path:        /login
                 failure_path:      /login
