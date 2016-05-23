@@ -29,7 +29,7 @@ class LoadFieldsCommand extends AbstractCommand
         ],
 
         [
-            'name' => 'Наука',
+            'name' => 'Методология науки',
             'description' => 'Наука всегда не права. Она не в состоянии решить ни одного вопроса, не поставив при этом с десяток новых - Бернард Шоу',
             'image' => 'science.jpg',
         ],
