@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Table(name="city")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CityRepository")
+ * @UniqueEntity("name")
  */
 class City
 {
