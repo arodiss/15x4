@@ -114,6 +114,11 @@ class User extends BaseUSer
                 break;
 
             case 'twitter':
+                $user->setTwitterId($response->getResponse()['id']);
+                $user->setUsername('twitter-' . $response->getResponse()['id']);
+                $user->setDisplayableName($response->getResponse()['name']);
+                $user->setEmail('twitter-email-' . md5(rand()) . '@example.com');
+                $user->setPictureUrl($response->getResponse()['profile_image_url']);
                 break;
 
             case 'google':
