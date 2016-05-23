@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Table(name="tag")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\TagRepository")
+ * @UniqueEntity("name")
  */
 class Tag
 {
@@ -19,6 +21,7 @@ class Tag
 
     /**
      * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
+
      */
     protected $name;
 
