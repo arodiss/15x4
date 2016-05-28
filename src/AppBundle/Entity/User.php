@@ -95,7 +95,11 @@ class User extends BaseUSer
                 $user->setFacebookId($response->getResponse()['id']);
                 $user->setUsername('fb-' . $response->getResponse()['id']);
                 $user->setDisplayableName($response->getResponse()['name']);
-                $user->setEmail($response->getResponse()['email']);
+                if (isset($response->getResponse()['email']) && $response->getResponse()['email']) {
+                    $user->setEmail($response->getResponse()['email']);
+                } else {
+                    $user->setEmail('fb-no-email-' . md5(rand()) . '@example.com');
+                }
                 $user->setPictureUrl($response->getResponse()['picture']['data']['url']);
                 break;
 
