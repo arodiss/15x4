@@ -1,7 +1,7 @@
 15x4
 ====
 
-15x4 is community running free popular science lectures in Kyiv and Kharkiv (Ukraine). More at 15x4.org
+15x4 is community running free popular science lectures in Ukraine, Russia and Moldova. More at [15x4.org](15x4.org)
 
 ### How to run locally
 

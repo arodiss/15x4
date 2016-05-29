@@ -29,6 +29,7 @@ framework:
 twig:
     globals:
         google_analytics_id: %google_analytics_id%
+        default_locale: %kernel.default_locale%
     debug:            "%kernel.debug%"
     strict_variables: true
     date:
@@ -142,3 +143,12 @@ fos_comment:
             view: IS_AUTHENTICATED_ANONYMOUSLY
             edit: ROLE_ADMIN
             delete: ROLE_ADMIN
+
+jms_translation:
+    configs:
+        app:
+            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+            output_dir: %kernel.root_dir%/Resources/translations
+            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
+            excluded_dirs: [cache, data, logs]

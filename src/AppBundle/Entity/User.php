@@ -22,6 +22,12 @@ class User extends BaseUSer
 
     /**
      * @var string
+     * @ORM\Column(name="language", type="string", nullable=true)
+     */
+    protected $language;
+
+    /**
+     * @var string
      * @ORM\Column(name="picture_url", type="string", nullable=true)
      */
     protected $pictureUrl;
@@ -80,6 +86,18 @@ class User extends BaseUSer
      */
     protected $googleId;
 
+    /** @return string */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /** @param string $language */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+    
     /**
      * @param UserResponseInterface $response
      * @return User

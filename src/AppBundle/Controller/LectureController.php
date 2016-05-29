@@ -34,7 +34,6 @@ class LectureController extends AbstractController
      */
     public function listAllAction(Request $request)
     {
-        //todo enable caching and make getting counts asynchronus
         $tagIds = explode(',', $request->get('tags', ''));
         $eventIds = explode(',', $request->get('events', ''));
         $fieldIds = explode(',', $request->get('fields', ''));

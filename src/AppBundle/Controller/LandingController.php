@@ -11,7 +11,6 @@ class LandingController extends AbstractController
      */
     public function indexAction()
     {
-        //todo enable cache and load registration data asynch
         return $this->render(
             'landing/landing.html.twig',
             [
@@ -29,5 +28,4 @@ class LandingController extends AbstractController
     {
         return $this->render('contacts.html.twig');
     }
-
 }

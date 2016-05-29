@@ -1,1 +1,9 @@
-services: ~
+services:
+    15x4.locale_listener:
+        class: AppBundle\Subscriber\LocaleSubscriber
+        arguments:
+          - '@security.token_storage'
+          - '@security.authorization_checker'
+          - '%kernel.default_locale%'
+        tags:
+            - { name: kernel.event_subscriber }
