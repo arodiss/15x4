@@ -32,3 +32,8 @@ admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
     prefix:   admin
+
+translation_user_interface:
+    resource: "@JMSTranslationBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/translations
