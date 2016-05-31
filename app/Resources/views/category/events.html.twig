@@ -3,7 +3,7 @@
 {% block page_title %}15x4 — Встречи в {{ city }}{% endblock %}
 
 {% block content %}
-    <h1 class="page-header">Все встречи в городе {{ city }}</h1>
+    <h1 class="page-header">{{ 'Все встречи в городе' | trans }} {{ city }}</h1>
 
     <div class="carousel slide" id="events-carousel" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -36,11 +36,11 @@
 
             <a class="left carousel-control" href="#events-carousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Предыдущая встреча</span>
+                <span class="sr-only">{{ 'Предыдущая встреча' | trans }}</span>
             </a>
             <a class="right carousel-control" href="#events-carousel" role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Следующая встреча</span>
+                <span class="sr-only">{{ 'Следующая встреча' | trans }}</span>
             </a>
 
         </div>

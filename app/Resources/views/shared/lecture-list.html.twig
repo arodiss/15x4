@@ -7,7 +7,7 @@
         <hr/>
     {% endfor %}
     {% if pagination.items|length == 0 %}
-        <p>Извините, здесь нечего показывать</p>
+        <p>{{ 'Извините, здесь нечего показывать' | trans }}</p>
     {% endif %}
     {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}

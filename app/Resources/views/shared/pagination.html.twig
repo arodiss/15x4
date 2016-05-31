@@ -3,7 +3,7 @@
         <div class="pull-right">
             <ul class="pagination">
                 {% if pagination.current != 1 %}
-                    <li><a href="?page={{ pagination.current-1 }}">Предыдущая</a></li>
+                    <li><a href="?page={{ pagination.current-1 }}">{{ 'Предыдущая' | trans }}</a></li>
                     <li><a href="?page=1">1</a></li>
                 {% endif %}
                 {% if pagination.current >= 4 %}
@@ -21,7 +21,7 @@
                 {% endif %}
                 {% if pagination.current != pagination.last %}
                     <li><a href="?page={{ pagination.last }}">{{ pagination.last }}</a></li>
-                    <li><a href="?page={{ pagination.current + 1 }}">Следующая</a></li>
+                    <li><a href="?page={{ pagination.current + 1 }}">{{ 'Следующая' | trans }}</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -29,7 +29,7 @@
 
     <div class="row">
         <p class="small text-muted pull-right">
-            Показаны элементы с {{ pagination.firstItemNumber }} по {{ pagination.lastItemNumber }}, из {{ pagination.totalCount }}
+            {{ 'Показаны элементы с %s по %s, из %s' | trans | format(pagination.firstItemNumber, pagination.lastItemNumber, pagination.totalCount) }}
         </p>
     </div>
 {% endif %}

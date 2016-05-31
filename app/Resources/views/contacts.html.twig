@@ -29,31 +29,31 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Связаться с нами</h2>
-    <p class="text-muted"><i>15x4 — волонтёрский проект. Учасвтвуя в нём, вы можете сделать мир лучше</i></p>
+    <h2>{{ 'Связаться с нами' | trans }}</h2>
+    <p class="text-muted"><i>{{ '15x4 — волонтёрский проект. Учасвтвуя в нём, вы можете сделать мир лучше' | trans }}</i></p>
 
     <div class="row">
         <div class="col-lg-12">
-            <b>Что вас интересует?</b>
+            <b>{{ 'Что вас интересует?' | trans }}</b>
             <br/>
             <div id="goal" class="btn-group" role="group">
-                <button data-title="Мы не требуем регалий и других формальных критериев" data-goal="lecturer" type="button" class="btn btn-default tooltip-toggle">Стать лектором</button>
-                <button data-title="Давайте делать мир лучше вместе!" data-goal="volunteer" type="button" class="btn btn-default tooltip-toggle">Стать волонтёром</button>
-                <button data-title="Мы поможем вам всеми своими ресурсами" data-goal="branch" type="button" class="btn btn-default tooltip-toggle">Открыть 15х4 в своём городе</button>
-                <button data-title="Жалобы, пожелания, предложения" data-goal="site" type="button" class="btn btn-default tooltip-toggle">Этот сайт</button>
-                <button data-title="Например, сотрудничество" data-goal="other" type="button" class="btn btn-default tooltip-toggle">Другое</button>
+                <button data-title="{{ 'Мы не требуем регалий и других формальных критериев' | trans }}" data-goal="lecturer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать лектором' | trans }}</button>
+                <button data-title="{{ 'Давайте делать мир лучше вместе!' | trans }}" data-goal="volunteer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать волонтёром' | trans }}</button>
+                <button data-title="{{ 'Мы поможем вам всеми своими ресурсами' | trans }}" data-goal="branch" type="button" class="btn btn-default tooltip-toggle">{{ 'Открыть 15х4 в своём городе' | trans }}</button>
+                <button data-title="{{ 'Жалобы, пожелания, предложения' | trans }}" data-goal="site" type="button" class="btn btn-default tooltip-toggle">{{ 'Этот сайт' | trans }}</button>
+                <button data-title="{{ 'Например, сотрудничество' | trans }}" data-goal="other" type="button" class="btn btn-default tooltip-toggle">{{ 'Другое' | trans }}</button>
             </div>
         </div>
 
         <div class="col-lg-12">
-            <b>Ваш город</b>
+            <b>{{ 'Ваш город' | trans }}</b>
             <br/>
             <div id="city" class="btn-group" role="group">
-                <button data-city=1 type="button" class="btn btn-default">Москва</button>
-                <button data-city=2 type="button" class="btn btn-default">Киев</button>
-                <button data-city=3 type="button" class="btn btn-default">Харьков</button>
-                <button data-city=4 type="button" class="btn btn-default">Львов</button>
-                <button data-city=5 type="button" class="btn btn-default">Черновцы</button>
+                <button data-city=1 type="button" class="btn btn-default">{{ 'Москва' | trans }}</button>
+                <button data-city=2 type="button" class="btn btn-default">{{ 'Киев' | trans }}</button>
+                <button data-city=3 type="button" class="btn btn-default">{{ 'Харьков' | trans }}</button>
+                <button data-city=4 type="button" class="btn btn-default">{{ 'Львов' | trans }}</button>
+                <button data-city=5 type="button" class="btn btn-default">{{ 'Черновцы' | trans }}</button>
             </div>
         </div>
     </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Алексанр Гапак</div>
-                    <p class="small text-muted">Основатель и глобальный координатор, Харьков</p>
+                    <p class="small text-muted">{{ 'Основатель и глобальный координатор, Харьков' | trans }}</p>
                     <a href="https://www.facebook.com/aleksandr.gapak">fb</a>
                     <a href="mailto:wolfinnigth@gmail.com">email</a>
                     <a href="https://vk.com/alex_gapak">vk</a>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Сидора Глеб</div>
-                    <p class="small text-muted">Разработка сайта, Киев</p>
+                    <p class="small text-muted">{{ 'Разработка сайта, Киев' | trans }}</p>
                     <a href="https://www.facebook.com/profile.php?id=100001049885258">fb</a>
                     <a href="mailto:gleb.sidora@gmail.com">email</a>
                     <a href="https://vk.com/arodiss">vk</a>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Таня Погорецкая</div>
-                    <p class="small text-muted">Работа с волонтёрами, Киев</p>
+                    <p class="small text-muted">{{ 'Работа с волонтёрами, Киев' | trans }}</p>
                     <a href="mailto:15x4Kyiv@gmail.com">email</a>
                     <a href="https://vk.com/brunsweek">vk</a>
                 </div>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Александра Малевич</div>
-                    <p class="small text-muted">Координатор киевского отделения</p>
+                    <p class="small text-muted">{{ 'Координатор киевского отделения' | trans }}</p>
                     <a href="https://www.facebook.com/ehnara">fb</a>
                     <a href="mailto:15x4Kyiv@gmail.com">email</a>
                     <a href="https://vk.com/ehnara">vk</a>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Ульяна Громова</div>
-                    <p class="small text-muted">Работа с волонтёрами, Харьков</p>
+                    <p class="small text-muted">{{ 'Работа с волонтёрами, Харьков' | trans }}</p>
                     <a href="mailto:Malyarchyk.17@gmail.com">email</a>
                     <a href="https://vk.com/hell_low">vk</a>
                 </div>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Дмитрий Кондратюк</div>
-                    <p class="small text-muted">Координатор львовского отделения</p>
+                    <p class="small text-muted">{{ 'Координатор львовского отделения' | trans }}</p>
                     <a href="https://www.facebook.com/eeloffeel">fb</a>
                     <a href="mailto:kondrdm@gmail.com ">email</a>
                     <a href="https://vk.com/feelofeel">vk</a>
@@ -191,7 +191,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Валерия Грачёва</div>
-                    <p class="small text-muted">Координатор московского отделения</p>
+                    <p class="small text-muted">{{ 'Координатор московского отделения' | trans }}</p>
                     <a href="https://www.facebook.com/realgrachova">fb</a>
                     <a href="mailto:eon@houston.ru">email</a>
                     <a href="https://vk.com/real_night">vk</a>
@@ -211,7 +211,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Владимир</div>
-                    <p class="small text-muted">Координатор черновецкого отделения</p>
+                    <p class="small text-muted">{{ 'Координатор черновецкого отделения' | trans }}</p>
                     <a href="https://www.facebook.com/Volandymyr">fb</a>
                     <a href="https://vk.com/vpraym">vk</a>
                     <a href="mailto:howardgolt@gmail.com">email</a>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Елена Гомон</div>
-                    <p class="small text-muted">Работа с волонтёрами, Черновцы</p>
+                    <p class="small text-muted">{{ 'Работа с волонтёрами, Черновцы' | trans }}</p>
                     <a href="https://www.facebook.com/elena.gomon.54">fb</a>
                     <a href="https://vk.com/id32493096">vk</a>
                     <a href="mailto:ellengomon@gmail.com">email</a>

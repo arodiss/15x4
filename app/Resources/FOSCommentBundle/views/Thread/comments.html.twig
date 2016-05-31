@@ -9,7 +9,7 @@
     {% if fos_comment_can_edit_thread(thread) %}
         <div class="fos_comment_thread_commentable">
             <button data-url="{{ url('fos_comment_edit_thread_commentable', {'id': thread.id, 'value': not thread.commentable}) }}" class="fos_comment_thread_commentable_action">
-                {{ (thread.commentable ? 'fos_comment_thread_close' : 'fos_comment_thread_open') | trans({}, 'FOSCommentBundle') }}
+                {{ (thread.commentable ? 'Свернуть ветку' : 'Развернуть ветку') | trans }}
             </button>
         </div>
     {% endif %}

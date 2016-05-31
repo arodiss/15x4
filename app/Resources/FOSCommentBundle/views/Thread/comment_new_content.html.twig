@@ -10,11 +10,11 @@
     <div class="fos_comment_comment_form_holder">
         {% block fos_comment_form_title %}
             {% if first %}
-                <h4>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline_first{% endtrans %}</h4>
+                <h4>{{ "Оставьте первый комментарий" | trans }}</h4>
             {% elseif parent is not null %}
-                <h4>{% trans with {"%name%": parent.authorName } from 'FOSCommentBundle' %}fos_comment_comment_reply_reply_to{% endtrans %}</h4>
+                <h4>{{ "Ответить" | trans }}</h4>
             {% else %}
-                <h4>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline{% endtrans %}</h4>
+                <h4>{{ "Оставить комментарий" | trans }}</h4>
             {% endif %}
         {% endblock %}
 
@@ -34,9 +34,9 @@
                 <div class="fos_comment_submit">
                     {% block fos_comment_form_submit %}
                         {% if parent is not null %}
-                            <input class="btn btn-default fos_comment_comment_reply_cancel" type="button" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_reply_cancel{% endtrans %}" />
+                            <input class="btn btn-default fos_comment_comment_reply_cancel" type="button" value="{{ "Отменить" | trans }}" />
                         {% endif %}
-                        <input class="btn btn-default" type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" />
+                        <input class="btn btn-default" type="submit" value="{{ "Отправить" | trans }}" />
                     {% endblock %}
                 </div>
 

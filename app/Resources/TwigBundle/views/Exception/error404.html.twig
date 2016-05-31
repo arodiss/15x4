@@ -9,8 +9,8 @@
         <div class="row" style="margin-top: 10px;">
             <div class="col-lg-12">
                 <div class="well well-sm" style="border-left: 2px solid red; padding-left: 18px;">
-                    <h2>Страница не найдена</h2>
-                    <p>Что бы вы ни искали, здесь этого точно нет. Может, на <a href="{{ path("Landing") }}">главной странице</a> вам повезёт больше?</p>
+                    <h2>{{ 'Страница не найдена' | trans }}</h2>
+                    <p>{{ 'Что бы вы ни искали, здесь этого точно нет. Может, на %s главной странице %s вам повезёт больше?' | trans | format('<a href="' ~ path("Landing") ~ '">', '</a>') | raw }}</p>
                 </div>
             </div>
         </div>

@@ -8,8 +8,8 @@
     <div class="row" style="margin-top: 10px;">
         <div class="col-lg-12">
             <div class="well well-sm" style="border-left: 2px solid red; padding-left: 18px;">
-                <h2>Произошла ошибка</h2>
-                <p>Наши лучшие инженеры уже пытаются всё починить. Тем временем вы можете <a href="{{ path("LectureRandom") }}">посмотреть случайную лекцию</a></p>
+                <h2>{{ 'Произошла ошибка' | trans }}</h2>
+                <p>{{ 'Наши лучшие инженеры уже пытаются всё починить. Тем временем вы можете %s посмотреть случайную лекцию' | trans | format('<a href="' ~ path("LectureRandom") ~ '">') | raw }}</a></p>
             </div>
         </div>
     </div>

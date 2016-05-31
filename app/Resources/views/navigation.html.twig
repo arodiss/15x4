@@ -11,13 +11,13 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ path("LectureList") }}">Все лекции</a></li>
-                <li><a href="{{ path("LectureRandom") }}">Случайная лекция</a></li>
+                <li><a href="{{ path("LectureList") }}">{{ 'Все лекции' | trans }}</a></li>
+                <li><a href="{{ path("LectureRandom") }}">{{ 'Случайная лекция' | trans }}</a></li>
                 {% if is_granted('ROLE_USER') and app.user.favoriteLectureIds | length > 0 %}
-                    <li><a href="{{ path("MyFavoriteLectures") }}">Избранное</a></li>
+                    <li><a href="{{ path("MyFavoriteLectures") }}">{{ 'Избранное' | trans }}</a></li>
                 {% endif %}
-                <li><a href="{{ path("About") }}">О проекте</a></li>
-                <li><a href="{{ path("Contacts") }}">Контакты</a></li>
+                <li><a href="{{ path("About") }}">{{ 'О проекте' | trans }}</a></li>
+                <li><a href="{{ path("Contacts") }}">{{ 'Контакты' | trans }}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -32,7 +32,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a id="login-button" class="hide" href="{{ path('hwi_oauth_connect') }}">Авторизоваться</a>
+                    <a id="login-button" class="hide" href="{{ path('hwi_oauth_connect') }}">{{ 'Авторизоваться' | trans }}</a>
                 </li>
             </ul>
         </div>
