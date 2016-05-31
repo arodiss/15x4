@@ -3,9 +3,9 @@
 {% block page_title %}
     15x4 —
     {% if isFiltered %}
-        Выбранные лекции
+       {{ 'Выбранные лекции' | trans }}
     {% else %}
-        Все лекции
+        {{ 'Все лекции' | trans }}
     {% endif %}
 {% endblock %}
 
@@ -14,16 +14,16 @@
         <div class="row">
             <div class="col-sm-11">
                 {% if isFiltered %}
-                    Выбранные лекции
+                    {{ 'Выбранные лекции' | trans }}
                 {% else %}
-                    Все лекции
+                    {{ 'Все лекции' | trans }}
                 {% endif %}
 
                 <span style="font-size: 70%;">
-                    <small class="text-muted"><a style="color: gray;" href="{{ path("Fields") }}">Дисциплины</a></small>
-                    <small class="text-muted"><a style="color: gray;" href="{{ path("Tags") }}">Теги</a></small>
-                    <small class="text-muted"><a style="color: gray;" href="{{ path("Cities") }}">Города</a></small>
-                    <small class="text-muted"><a style="color: gray;" href="{{ path("Lecturers") }}">Лекторы</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Fields") }}">{{ 'Дисциплины' | trans }}</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Tags") }}">{{ 'Теги' | trans }}</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Cities") }}">{{ 'Города' | trans }}</a></small>
+                    <small class="text-muted"><a style="color: gray;" href="{{ path("Lecturers") }}">{{ 'Лекторы' | trans }}</a></small>
                 </span>
             </div>
 

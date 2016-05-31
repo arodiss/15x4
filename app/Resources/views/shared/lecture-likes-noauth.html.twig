@@ -27,5 +27,5 @@
 </div>
 <br/>
 <i class="text-muted pull-right" style="font-size: 90%;">
-    <a href="{{ path('hwi_oauth_connect') }}" style="color: orangered; text-decoration: underline;">Войдите</a>, чтобы проголосовать за лекцию или добавить её в избранное
+    <a href="{{ path('hwi_oauth_connect') }}" style="color: orangered; text-decoration: underline;">{{ 'Войдите %s, чтобы проголосовать за лекцию или добавить её в избранное' | trans | format('</a>') | raw }}
 </i>

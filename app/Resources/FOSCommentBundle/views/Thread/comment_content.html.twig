@@ -37,7 +37,7 @@
                                 data-name="{{ comment.authorName }}"
                                 data-parent-id="{{ comment.id }}"
                             >
-                                {% trans from 'FOSCommentBundle' %}fos_comment_comment_show_reply{% endtrans %}
+                                {{ "Ответить" | trans }}
                             </small>
                         {% endblock fos_comment_comment_reply %}
                     </div>

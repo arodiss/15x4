@@ -22,12 +22,12 @@
         <p>{{ lecture.teaser }}</p>
 
         <p>
-            Дисциплина: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+            {{ 'Дисциплина' | trans }}: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
         </p>
 
         {% if lecture.tags|length > 0  %}
             <p>
-            Теги:
+            {{ 'Теги' | trans }}:
             {% for tag in lecture.tags  %}
                 <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
             {% endfor %}
@@ -38,7 +38,7 @@
         {% if lecture.hasDiscussionVideo() %}
         <p>
             <a href="{{ lecture.discussionVideoFullUrl }}">
-                Смотреть обсуждение
+                {{ 'Смотреть обсуждение' | trans }}
             </a>
         </p>
         {% endif %}

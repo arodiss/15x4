@@ -1,4 +1,4 @@
-<h2 class="text-center" style="width: 100%;">Будущие встречи</h2>
+<h2 class="text-center" style="width: 100%;">{{ 'Будущие встречи' | trans }}</h2>
 
 <ul class="nav nav-tabs" role="tablist">
     {% for city in cities %}
@@ -48,37 +48,37 @@
                         </div>
 
                         <div id="sign-up-details" class="hide form-inline">
-                            <b>Меня зовут</b>
+                            <b>{{ 'Меня зовут' | trans }}</b>
                             <input
                                 type="text"
                                 class="form-control"
                                 id="ticket_name"
                                 {% if is_granted('ROLE_USER') %} value="{{ app.user.getDisplayableName() }}"{% endif %}
                             />
-                            <b>, и со мной будет</b>
+                            <b>, {{ 'и со мной будет' | trans }}</b>
                             <input type="number" class="form-control" id="ticket_number" value="0">
-                            <b>друзей. Я</b>
+                            <b>{{ 'друзей' | trans }}. {{ 'Я' | trans }}</b>
                             <select id="signup-volunteer">
-                                <option selected>хочу</option>
-                                <option>не хочу</option>
+                                <option selected>{{ 'хочу' | trans }}</option>
+                                <option>{{ 'не хочу' | trans }}</option>
                             </select>
-                            <b>поучавствовать в проекте</b>
+                            <b>{{ 'поучавствовать в проекте' | trans }}</b>
                             <span id="signup-contact-wrapper">
-                                <b>, вот мои контакты:</b>
+                                <b>, {{ 'вот мои контакты' | trans }}:</b>
                                 <input
                                     type="text"
                                     class="form-control"
                                     id="contact"
-                                    placeholder="опишите, как связаться"
+                                    placeholder="{{ 'опишите, как связаться' | trans }}"
                                 />
                             </span>
                             <br/>
-                            <div class="btn btn-default book-ticket">Запишите меня!</div>
+                            <div class="btn btn-default book-ticket">{{ 'Запишите меня!' | trans }}</div>
                         </div>
                     {% else %}
                         <div class="col-lg-12">
                             <p>
-                                <i>Будет анонсировано позже</i>
+                                <i>{{ 'Будет анонсировано позже' | trans }}</i>
                             </p>
                         </div>
                     {% endif %}
