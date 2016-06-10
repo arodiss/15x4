@@ -444,16 +444,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "e9c2ccf573b59b7cea566390f34254fed3c20ed9"
+                "reference": "fd51907c6c76acaa8a5234822a4f901c1500afc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/e9c2ccf573b59b7cea566390f34254fed3c20ed9",
-                "reference": "e9c2ccf573b59b7cea566390f34254fed3c20ed9",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/fd51907c6c76acaa8a5234822a4f901c1500afc1",
+                "reference": "fd51907c6c76acaa8a5234822a4f901c1500afc1",
                 "shasum": ""
             },
             "require": {
@@ -470,13 +470,14 @@
                 "phpunit/phpunit": "~4",
                 "satooshi/php-coveralls": "~0.6.1",
                 "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/property-info": "~2.8|~3.0",
                 "symfony/validator": "~2.2|~3.0",
                 "symfony/yaml": "~2.2|~3.0",
                 "twig/twig": "~1.10"
             },
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
-                "symfony/web-profiler-bundle": "to use the data collector"
+                "symfony/web-profiler-bundle": "To use the data collector."
             },
             "type": "symfony-bundle",
             "extra": {
@@ -519,7 +520,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2016-01-10 17:21:44"
+            "time": "2016-04-21 19:55:56"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -867,12 +868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle.git",
-                "reference": "33ceb8665eaa087ce4368ed26814ef2d69d8f806"
+                "reference": "fa71fcb7c02d4c7943f82c1e6ff17a3a9f9a4a5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCommentBundle/zipball/33ceb8665eaa087ce4368ed26814ef2d69d8f806",
-                "reference": "33ceb8665eaa087ce4368ed26814ef2d69d8f806",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCommentBundle/zipball/fa71fcb7c02d4c7943f82c1e6ff17a3a9f9a4a5f",
+                "reference": "fa71fcb7c02d4c7943f82c1e6ff17a3a9f9a4a5f",
                 "shasum": ""
             },
             "require": {
@@ -942,7 +943,7 @@
                 "forum",
                 "threads"
             ],
-            "time": "2016-03-16 13:01:26"
+            "time": "2016-05-31 12:27:33"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1105,12 +1106,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "93712940f8fab73a73b8edc4292b141110dbd667"
+                "reference": "5c977bce394b833ffe1d21ebc3e1520b538b661c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/93712940f8fab73a73b8edc4292b141110dbd667",
-                "reference": "93712940f8fab73a73b8edc4292b141110dbd667",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/5c977bce394b833ffe1d21ebc3e1520b538b661c",
+                "reference": "5c977bce394b833ffe1d21ebc3e1520b538b661c",
                 "shasum": ""
             },
             "require": {
@@ -1175,7 +1176,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2016-05-24 19:32:08"
+            "time": "2016-06-10 06:26:48"
         },
         {
             "name": "hwi/oauth-bundle",
@@ -1183,12 +1184,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hwi/HWIOAuthBundle.git",
-                "reference": "3b7f7bffd546d40ee40054ac2d1264492cbe6286"
+                "reference": "79ca655427847581def1a6254ae4058606c6894c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/3b7f7bffd546d40ee40054ac2d1264492cbe6286",
-                "reference": "3b7f7bffd546d40ee40054ac2d1264492cbe6286",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/79ca655427847581def1a6254ae4058606c6894c",
+                "reference": "79ca655427847581def1a6254ae4058606c6894c",
                 "shasum": ""
             },
             "require": {
@@ -1315,7 +1316,7 @@
                 "yandex",
                 "youtube"
             ],
-            "time": "2016-04-07 12:17:53"
+            "time": "2016-05-29 23:18:01"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -3141,16 +3142,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.0.6",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "a821ed51b87f5ceda834140e5f0c06e9547a86d4"
+                "reference": "272ab3327c3d311aaa9f634730162ea00e9d9e93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/a821ed51b87f5ceda834140e5f0c06e9547a86d4",
-                "reference": "a821ed51b87f5ceda834140e5f0c06e9547a86d4",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/272ab3327c3d311aaa9f634730162ea00e9d9e93",
+                "reference": "272ab3327c3d311aaa9f634730162ea00e9d9e93",
                 "shasum": ""
             },
             "require": {
@@ -3267,20 +3268,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-05-09 22:13:31"
+            "time": "2016-06-06 16:52:46"
         },
         {
             "name": "twig/twig",
-            "version": "v1.24.0",
+            "version": "v1.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
+                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
-                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
                 "shasum": ""
             },
             "require": {
@@ -3328,7 +3329,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-25 21:22:18"
+            "time": "2016-05-30 09:11:59"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
