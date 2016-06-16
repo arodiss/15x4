@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-05-31T11:05:02Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-06-16T10:28:32Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -549,9 +549,9 @@
         <target state="new">опишите, как связаться</target>
         <jms:reference-file line="72">./app/Resources/views/upcoming-events.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="475e91d9d2f59acf85468ea4fd72e93a534a0942" resname="поучавствовать в проекте">
-        <source>поучавствовать в проекте</source>
-        <target state="new">поучавствовать в проекте</target>
+      <trans-unit id="ba1d09628a0811f95e6a937b63363bd1ecf0a0fa" resname="поучаствовать в проекте">
+        <source>поучаствовать в проекте</source>
+        <target state="new">поучаствовать в проекте</target>
         <jms:reference-file line="65">./app/Resources/views/upcoming-events.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5e7d77b45691ffa00cc648bd774f39bcef2759e8" resname="хочу">
