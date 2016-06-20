@@ -2,25 +2,25 @@
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-thumbs-up tooltip-toggle"
-            data-title="Нравится"
+            data-title="{{ 'Нравится' | trans }}"
         ></span> {{ lecture.likesCount }}
     </div>
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-thumbs-down tooltip-toggle"
-            data-title="Не нравится"
+            data-title="{{ 'Не нравится' | trans }}"
         ></span> {{ lecture.dislikesCount }}
     </div>
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-star tooltip-toggle"
-            data-title="Избранное"
+            data-title="{{ 'Избранное' | trans }}"
         ></span> {{ lecture.favsCount }}
     </div>
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-comment tooltip-toggle"
-            data-title="Комментарии"
+            data-title="{{ 'Комментарии' | trans }}"
         ></span>
         <span>{{ lecture.commentsCount }}</span>
     </div>

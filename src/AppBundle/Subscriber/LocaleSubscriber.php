@@ -38,7 +38,7 @@ class LocaleSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            KernelEvents::REQUEST => [['setLocale', 7]]
+            KernelEvents::REQUEST => [['setLocale', 11]]
         ];
     }
 
