@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Алексанр Гапак</div>
-                    <p class="small text-muted">{{ 'Основатель и глобальный координатор, Харьков' | trans }}</p>
+                    <p class="small text-muted">{{ 'Основатель и глобальный координатор' | trans }}, {{ 'Харьков' | trans }}</p>
                     <a href="https://www.facebook.com/aleksandr.gapak">fb</a>
                     <a href="mailto:wolfinnigth@gmail.com">email</a>
                     <a href="https://vk.com/alex_gapak">vk</a>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Сидора Глеб</div>
-                    <p class="small text-muted">{{ 'Разработка сайта, Киев' | trans }}</p>
+                    <p class="small text-muted">{{ 'Разработка сайта' | trans }}, {{ 'Киев' | trans }}</p>
                     <a href="https://www.facebook.com/profile.php?id=100001049885258">fb</a>
                     <a href="mailto:gleb.sidora@gmail.com">email</a>
                     <a href="https://vk.com/arodiss">vk</a>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Таня Погорецкая</div>
-                    <p class="small text-muted">{{ 'Работа с волонтёрами, Киев' | trans }}</p>
+                    <p class="small text-muted">{{ 'Работа с лекторами' | trans }}, {{ 'Киев' | trans }}</p>
                     <a href="mailto:15x4Kyiv@gmail.com">email</a>
                     <a href="https://vk.com/brunsweek">vk</a>
                 </div>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Александра Малевич</div>
-                    <p class="small text-muted">{{ 'Координатор киевского отделения' | trans }}</p>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Киев' | trans }}</p>
                     <a href="https://www.facebook.com/ehnara">fb</a>
                     <a href="mailto:15x4Kyiv@gmail.com">email</a>
                     <a href="https://vk.com/ehnara">vk</a>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Ульяна Громова</div>
-                    <p class="small text-muted">{{ 'Работа с волонтёрами, Харьков' | trans }}</p>
+                    <p class="small text-muted">{{ 'Работа с лекторами' | trans }}, {{ 'Харьков' | trans }}</p>
                     <a href="mailto:Malyarchyk.17@gmail.com">email</a>
                     <a href="https://vk.com/hell_low">vk</a>
                 </div>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Дмитрий Кондратюк</div>
-                    <p class="small text-muted">{{ 'Координатор львовского отделения' | trans }}</p>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Львов' | trans }}</p>
                     <a href="https://www.facebook.com/eeloffeel">fb</a>
                     <a href="mailto:kondrdm@gmail.com ">email</a>
                     <a href="https://vk.com/feelofeel">vk</a>
@@ -191,7 +191,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Валерия Грачёва</div>
-                    <p class="small text-muted">{{ 'Координатор московского отделения' | trans }}</p>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Москва' | trans }}</p>
                     <a href="https://www.facebook.com/realgrachova">fb</a>
                     <a href="mailto:eon@houston.ru">email</a>
                     <a href="https://vk.com/real_night">vk</a>
@@ -203,18 +203,38 @@
             <div class="row">
                 <div class="col-lg-6">
                     {% image
-                        '@AppBundle/Resources/public/images/contacts/volandymyr.jpg'
+                        '@AppBundle/Resources/public/images/contacts/stanislav.jpg'
                         filter='jpegoptim'
                     %}
-                        <img src="{{ asset_url }}" alt="Vladimir"/>
+                        <img src="{{ asset_url }}" alt="S. Romanyuk"/>
                     {% endimage %}
                 </div>
                 <div class="col-lg-6">
-                    <div class="contact-name">Владимир</div>
-                    <p class="small text-muted">{{ 'Координатор черновецкого отделения' | trans }}</p>
-                    <a href="https://www.facebook.com/Volandymyr">fb</a>
-                    <a href="https://vk.com/vpraym">vk</a>
-                    <a href="mailto:howardgolt@gmail.com">email</a>
+                    <div class="contact-name">Станислав Романюк</div>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Черновцы' | trans }}</p>
+                    <a href="https://www.facebook.com/romsttt">fb</a>
+                    <a href="https://vk.com/rm_nk">vk</a>
+                    <a href="mailto:masterofstature@gmail.com">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"lecturer":[5]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                    '@AppBundle/Resources/public/images/contacts/tor.jpg'
+                    filter='jpegoptim'
+                    %}
+                    <img src="{{ asset_url }}" alt="M. Torkish"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Марьяна Торкиш</div>
+                    <p class="small text-muted">{{ 'Работа с лекторами' | trans }}, {{ 'Черновцы' | trans }}</p>
+                    <a href="https://m.facebook.com/m.torkish">fb</a>
+                    <a href="http://vk.com/bgtor ">vk</a>
+                    <a href="mailto:morkishka@gmail.com ">email</a>
                 </div>
             </div>
         </div>
@@ -231,7 +251,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-name">Елена Гомон</div>
-                    <p class="small text-muted">{{ 'Работа с волонтёрами, Черновцы' | trans }}</p>
+                    <p class="small text-muted">{{ 'Работа с волонтёрами' | trans }}, {{ 'Черновцы' | trans }}</p>
                     <a href="https://www.facebook.com/elena.gomon.54">fb</a>
                     <a href="https://vk.com/id32493096">vk</a>
                     <a href="mailto:ellengomon@gmail.com">email</a>
