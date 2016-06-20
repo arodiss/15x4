@@ -4,6 +4,10 @@
 
 {% block meta_og_description %}{{ lecture }}{% endblock %}
 
+{% block extra_head %}
+    <link rel="canonical" href="{{ url('LectureDetails', { 'id': lecture.id }) }}" />
+{% endblock %}
+
 {% block content %}
     <div style="margin-top: 10px;">
         {% include 'shared/lecture-preview.html.twig' with { 'forceIframe': true } %}

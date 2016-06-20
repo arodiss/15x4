@@ -9,7 +9,16 @@ use Symfony\Component\HttpFoundation\Request;
 class LectureController extends AbstractController
 {
     /**
-     * @Extra\Route("/lecture/discussion/{id}/", name="LectureDetails")
+     * @Extra\Route("/lecture/discussion/{id}/", name="LectureDetailsLong")
+     */
+    public function detailsOldAction(Request $request)
+    {
+        return $this->redirectToRoute('LectureDetails', ['id' => $request->get('id')]);
+    }
+
+    /**
+     * @Extra\Route("/L/{id}/", name="LectureDetails")
+     * @Extra\Route("/l/{id}/", name="LectureDetailsAlt")
      * @Extra\ParamConverter()
      */
     public function detailsAction(Entity\Lecture $lecture)
