@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-06-20T11:05:17Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-06-20T11:32:20Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="46aba5c9a490fafd7b3cc8df536f747749840182" resname="15x4 — волонтёрский проект. Учасвтвуя в нём, вы можете сделать мир лучше">
-        <source>15x4 — волонтёрский проект. Учасвтвуя в нём, вы можете сделать мир лучше</source>
-        <target state="new">15x4 — волонтёрский проект. Учасвтвуя в нём, вы можете сделать мир лучше</target>
+      <trans-unit id="d5dc3cae2e722b9213c0ddd61d1833622abb6e17" resname="15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше">
+        <source>15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше</source>
+        <target state="new">15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше</target>
         <jms:reference-file line="33">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="cb0c9802baf4354a4db410568f7c08ef9d889972" resname="15х4 — это сообщество молодых ученых и фанатов науки.">
