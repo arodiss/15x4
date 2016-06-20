@@ -45,7 +45,7 @@
 
         <p class="small">
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
-            <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city }}</a>
+            <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city | trans }}</a>
             <span
                 class="pull-right fb-share-button"
                 style="margin-right: 3px;"

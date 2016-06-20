@@ -4,7 +4,7 @@
     {% for city in cities %}
         <li role="presentation"{% if loop.first %} class="active"{% endif %}>
             <a href="#city-{{ city.id  }}" aria-controls="add" role="tab" data-toggle="tab" class="tab-toggle">
-                {{ city }}
+                {{ city | trans }}
             </a>
         </li>
     {% endfor %}

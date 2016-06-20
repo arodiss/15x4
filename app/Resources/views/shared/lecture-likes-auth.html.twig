@@ -2,28 +2,28 @@
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-thumbs-up tooltip-toggle cursor-pointer like{% if app.user.didLectureLike(lecture) %} active{% endif %}"
-            data-title="Нравится"
+            data-title="{{ 'Нравится' | trans }}"
         ></span>
         <span class="like-count">{{ lecture.likesCount }}</span>
     </div>
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-thumbs-down tooltip-toggle cursor-pointer dislike{% if app.user.didLectureDislike(lecture) %} active{% endif %}"
-            data-title="Не нравится"
+            data-title="{{ 'Не нравится' | trans }}"
         ></span>
         <span class="dislike-count">{{ lecture.dislikesCount }}</span>
     </div>
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-star tooltip-toggle cursor-pointer favorite{% if app.user.didLectureFav(lecture) %} active{% endif %}"
-            data-title="Избранное"
+            data-title="{{ 'Избранное' | trans }}"
         ></span>
         <span class="fav-count">{{ lecture.favsCount }}</span>
     </div>
     <div class="col-xs-3">
         <span
             class="glyphicon glyphicon-comment tooltip-toggle"
-            data-title="Комментарии"
+            data-title="{{ 'Комментарии' | trans }}"
         ></span>
         <span>{{ lecture.commentsCount }}</span>
     </div>

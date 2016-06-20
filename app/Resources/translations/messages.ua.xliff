@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-06-20T12:24:52Z" source-language="en" target-language="ua" datatype="plaintext" original="not.available">
+  <file date="2016-06-20T22:35:55Z" source-language="en" target-language="ua" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -8,7 +8,7 @@
     <body>
       <trans-unit id="d5dc3cae2e722b9213c0ddd61d1833622abb6e17" resname="15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше">
         <source>15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше</source>
-        <target state="new">15x4 — волонтерський проект. Беручи участь в ньому, ви можете зробити світ кращим.</target>
+        <target>15x4 — волонтерський проект. Беручи участь в ньому, ви можете зробити світ кращим.</target>
         <jms:reference-file line="33">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="cb0c9802baf4354a4db410568f7c08ef9d889972" resname="15х4 — это сообщество молодых ученых и фанатов науки.">
@@ -49,48 +49,53 @@
       </trans-unit>
       <trans-unit id="188f84b34e89bb0745e7796e5f6bbff87362e22e" resname="Войдите %s, чтобы проголосовать за лекцию или добавить её в избранное">
         <source>Войдите %s, чтобы проголосовать за лекцию или добавить её в избранное</source>
-        <target>Ввійдіть %s, щоби проголосувати за лекцію або щоб додати її у вибране</target>
+        <target>Увійдіть %s, щоби проголосувати за лекцію або щоб додати її у вибране</target>
         <jms:reference-file line="30">./app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="155a94ba9a909d052160928aefe62e4e092e0376" resname="Войти на сайт">
         <source>Войти на сайт</source>
-        <target>Ввійти на сайт</target>
+        <target>Увійти на сайт</target>
         <jms:reference-file line="9">./app/Resources/HWIOAuthBundle/views/Connect/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4e7b06a19a5bfe965705a12436c8b30e3d75bfd1" resname="Войти через">
         <source>Войти через</source>
-        <target>Ввійти через</target>
+        <target>Увійти за допомогою</target>
         <jms:reference-file line="22">./app/Resources/HWIOAuthBundle/views/Connect/login.html.twig</jms:reference-file>
         <jms:reference-file line="34">./app/Resources/HWIOAuthBundle/views/Connect/login.html.twig</jms:reference-file>
         <jms:reference-file line="46">./app/Resources/HWIOAuthBundle/views/Connect/login.html.twig</jms:reference-file>
         <jms:reference-file line="58">./app/Resources/HWIOAuthBundle/views/Connect/login.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="f04ce65f5d928b7408d6c42bebbca735ef634c9b" resname="Все видео">
+        <source>Все видео</source>
+        <target>Усі відео</target>
+        <jms:reference-file line="32">./app/Resources/views/landing/landing.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="5f738325b43a7950bae3af8c35e22c4103c6cf70" resname="Все встречи в городе">
         <source>Все встречи в городе</source>
-        <target>Все зустрічі в місті</target>
+        <target>Усі зустрічі в місті</target>
         <jms:reference-file line="6">./app/Resources/views/category/events.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d257130b0ab6796f1f6121c44de4441430d16344" resname="Все дисциплины">
         <source>Все дисциплины</source>
-        <target>Всі дисципліни</target>
+        <target>Усі дисципліни</target>
         <jms:reference-file line="6">./app/Resources/views/category/fields.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a1d89343d1d6d20b22c77c0a49aaa2055fe8173d" resname="Все лекции">
         <source>Все лекции</source>
-        <target>Всі лекції</target>
+        <target>Усі лекції</target>
         <jms:reference-file line="8">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
         <jms:reference-file line="19">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
         <jms:reference-file line="14">./app/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="23a8c4e07858fc5c045d7bee8c9d9129aac0f313" resname="Все наши мероприятия бесплатны">
         <source>Все наши мероприятия бесплатны</source>
-        <target>Всі наші заходи безкоштовні</target>
+        <target>Усі наші заходи безкоштовні</target>
         <jms:reference-file line="32">./app/Resources/views/about/about.html.twig</jms:reference-file>
         <jms:reference-file line="95">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4c3689f4bd550c89d06293f0d2c55752db87da44" resname="Все теги">
         <source>Все теги</source>
-        <target>Всі теги</target>
+        <target>Усі теги</target>
         <jms:reference-file line="22">./app/Resources/views/lecture/by-field.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b101989cf32b5fa6c752a73a63b521889c1ae9e6" resname="Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений">
@@ -159,6 +164,8 @@
         <source>Избранное</source>
         <target>Вибране</target>
         <jms:reference-file line="17">./app/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="17">./app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="19">./app/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="628f4b65590ab3de7ae444b37bd99c8132eb56e7" resname="Избранные лекции">
         <source>Избранные лекции</source>
@@ -171,9 +178,9 @@
         <target>Вибачте, тут нема чого показувати</target>
         <jms:reference-file line="10">./app/Resources/views/shared/lecture-list.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="b67e7815ee0b3132af90996029accb60cb9303b7" resname="Исходный код сайта доступен на ">
-        <source>Исходный код сайта доступен на </source>
-        <target>Вихідний код сайту доступний на</target>
+      <trans-unit id="171b217529b8230e3a50046567cf22a422c9bd8a" resname="Исходный код сайта доступен на">
+        <source>Исходный код сайта доступен на</source>
+        <target>Вихідний код цього сайту доступний на</target>
         <jms:reference-file line="7">./app/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="be1e0c88ed64912717cb385256f787c5290773dc" resname="Как нас найти?">
@@ -207,6 +214,12 @@
         <source>Количество захваченных городов</source>
         <target>Кількість захоплених міст</target>
         <jms:reference-file line="6">./app/Resources/views/category/cities.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5f090363c3a63d253271a2819be18855553a4736" resname="Комментарии">
+        <source>Комментарии</source>
+        <target>Комментарі</target>
+        <jms:reference-file line="23">./app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="26">./app/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dba0fcb2cbbb5f687489134fc3b3eed1245b266f" resname="Контакты">
         <source>Контакты</source>
@@ -257,7 +270,7 @@
       </trans-unit>
       <trans-unit id="f2bfd309c810867f53418b364a1854acc610a902" resname="Мы поможем вам всеми своими ресурсами">
         <source>Мы поможем вам всеми своими ресурсами</source>
-        <target>Ми допоможемо вам всіма своїми ресурсами</target>
+        <target>Ми допоможемо вам усіма своїми ресурсами</target>
         <jms:reference-file line="42">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b14ce1a3140127a9596ae62367bc309822f9daf8" resname="Мы проводим несколько репетиций перед лекцией, помогаем с улучшением презентации и текста. Некоторым лекторам на этом этапе предлагаем поменять тему или взять еще время на подготовку. Все вопросы решаются обычно простым голосованием. ">
@@ -316,10 +329,22 @@
         <target>Наші кращі інженери вже намагаються все полагодити. Тим часом ви можете %s переглянути випадкову лекцію</target>
         <jms:reference-file line="12">./app/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="886000e9549b0b15d264d64322d72bfe217cee76" resname="Не нравится">
+        <source>Не нравится</source>
+        <target>Не подобається</target>
+        <jms:reference-file line="11">./app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="12">./app/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="1c3423d26271a3926de03299bea4892d15330df5" resname="Недавние лекции">
         <source>Недавние лекции</source>
         <target>Нещодавні лекції</target>
         <jms:reference-file line="6">./app/Resources/views/landing/landing.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6a91eaec3d1a1908d0812faff2cb0eb8f275f2b7" resname="Нравится">
+        <source>Нравится</source>
+        <target>Подобається</target>
+        <jms:reference-file line="5">./app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="5">./app/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="21f8563b6545abc3bde25ec1014cb7d8e6e5d943" resname="О проекте">
         <source>О проекте</source>
@@ -390,14 +415,14 @@
       <trans-unit id="2dc7f348091ba1c48305859b89a2bc773e7a2ed7" resname="Работа с волонтёрами">
         <source>Работа с волонтёрами</source>
         <target>Робота з волонтерами</target>
-        <jms:reference-file line="254">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="234">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="92ac091eb064fd425072213d846230c2df844a1b" resname="Работа с лекторами">
         <source>Работа с лекторами</source>
         <target>Робота з лекторами</target>
         <jms:reference-file line="116">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="155">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="234">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="254">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5857a9b480410c6f4acb197df95e467f0d4a8bbc" resname="Разработка сайта">
         <source>Разработка сайта</source>
@@ -506,7 +531,7 @@
       </trans-unit>
       <trans-unit id="8e7c6cca09b5e1b782b5919698181ae2b2f1ae84" resname="Я">
         <source>Я</source>
-        <target state="new">Я</target>
+        <target>Я</target>
         <jms:reference-file line="60">./app/Resources/views/upcoming-events.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="394d04295a299772012f5b58f7a6c1d799b7a846" resname="вот мои контакты">
@@ -551,7 +576,7 @@
       </trans-unit>
       <trans-unit id="5e7d77b45691ffa00cc648bd774f39bcef2759e8" resname="хочу">
         <source>хочу</source>
-        <target>Хочу</target>
+        <target>хочу</target>
         <jms:reference-file line="62">./app/Resources/views/upcoming-events.html.twig</jms:reference-file>
       </trans-unit>
     </body>
