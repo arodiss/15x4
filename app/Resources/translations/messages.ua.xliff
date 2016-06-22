@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-06-20T22:35:55Z" source-language="en" target-language="ua" datatype="plaintext" original="not.available">
+  <file date="2016-06-22T15:01:44Z" source-language="en" target-language="ua" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -548,6 +548,15 @@
         <source>ещё</source>
         <target>Ще</target>
         <jms:reference-file line="20">./app/Resources/views/lecture/by-field.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a59e2c2429fe7a881f566ff87bafa6c5e37337d3" resname="и">
+        <source>и</source>
+        <target>та</target>
+        <jms:reference-file line="109">./app/Resources/views/about/about.html.twig</jms:reference-file>
+        <jms:reference-file line="112">./app/Resources/views/about/about.html.twig</jms:reference-file>
+        <jms:reference-file line="115">./app/Resources/views/about/about.html.twig</jms:reference-file>
+        <jms:reference-file line="118">./app/Resources/views/about/about.html.twig</jms:reference-file>
+        <jms:reference-file line="121">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a97aee4f2825ba040fa15fe045c14af79d9bcd18" resname="и со мной будет">
         <source>и со мной будет</source>
