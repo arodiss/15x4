@@ -54,6 +54,7 @@
                 <button data-city=3 type="button" class="btn btn-default">{{ 'Харьков' | trans }}</button>
                 <button data-city=4 type="button" class="btn btn-default">{{ 'Львов' | trans }}</button>
                 <button data-city=5 type="button" class="btn btn-default">{{ 'Черновцы' | trans }}</button>
+                <button data-city=6 type="button" class="btn btn-default">{{ 'Кишинёв' | trans }}</button>
             </div>
         </div>
     </div>
@@ -73,7 +74,7 @@
                     {% endimage %}
                 </div>
                 <div class="col-lg-6">
-                    <div class="contact-name">Алексанр Гапак</div>
+                    <div class="contact-name">Александр Гапак</div>
                     <p class="small text-muted">{{ 'Основатель и глобальный координатор' | trans }}, {{ 'Харьков' | trans }}</p>
                     <a href="https://www.facebook.com/aleksandr.gapak">fb</a>
                     <a href="mailto:wolfinnigth@gmail.com">email</a>
@@ -233,8 +234,67 @@
                     <div class="contact-name">Марьяна Торкиш</div>
                     <p class="small text-muted">{{ 'Работа с волонтёрами' | trans }}, {{ 'Черновцы' | trans }}</p>
                     <a href="https://m.facebook.com/m.torkish">fb</a>
-                    <a href="http://vk.com/bgtor ">vk</a>
+                    <a href="http://vk.com/bgtor">vk</a>
                     <a href="mailto:morkishka@gmail.com ">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"lecturer":[6]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                    '@AppBundle/Resources/public/images/contacts/trach.jpg'
+                    filter='jpegoptim'
+                    %}
+                    <img src="{{ asset_url }}" alt="A. Trach"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Артём Трач</div>
+                    <p class="small text-muted">{{ 'Стать лектором' | trans }}, {{ 'Кишинёв' | trans }}</p>
+                    <a href="https://facebook.com/oliver.trach">fb</a>
+                    <a href="https://vk.com/artoliver">vk</a>
+                    <a href="mailto:artoliver@yandex.ru">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"volunteer":[6]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                    '@AppBundle/Resources/public/images/contacts/batarchukova.jpg'
+                    filter='jpegoptim'
+                    %}
+                    <img src="{{ asset_url }}" alt="L. Batarchukova"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Лина Батарчукова</div>
+                    <p class="small text-muted">{{ 'Стать волонтёром' | trans }}, {{ 'Кишинёв' | trans }}</p>
+                    <a href="https://facebook.com/lina.kirin">fb</a>
+                    <a href="https://vk.com/kirin.lina">vk</a>
+                    <a href="mailto:polina.kirin@gmail.com">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"volunteer":[6], "lecturer":[6]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                    '@AppBundle/Resources/public/images/logo.png'
+                    %}
+                    <img src="{{ asset_url }}" alt="A. Kovach"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Артур Ковач</div>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Кишинёв' | trans }}</p>
+                    <a href="https://www.facebook.com/profile.php?id=100010702322735">fb</a>
+                    <a href="https://vk.com/arturkovach">vk</a>
+                    <a href="mailto:sh-432@mail.ru">email</a>
                 </div>
             </div>
         </div>
