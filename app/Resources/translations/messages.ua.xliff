@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-06-22T15:01:44Z" source-language="en" target-language="ua" datatype="plaintext" original="not.available">
+  <file date="2016-06-22T15:22:14Z" source-language="en" target-language="ua" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -205,10 +205,18 @@
         <source>Киев</source>
         <target>Київ</target>
         <jms:reference-file line="53">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="97">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="116">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="135">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="98">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="117">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="136">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="115">./app/Resources/views/about/about.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="697fca7ef58fadae786bc1454075be3eab4b3ce3" resname="Кишинёв">
+        <source>Кишинёв</source>
+        <target>Кишинів</target>
+        <jms:reference-file line="57">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="255">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="275">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="294">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e157d5002c971d6f021a9ea7b599cb2fcc781161" resname="Количество захваченных городов">
         <source>Количество захваченных городов</source>
@@ -229,10 +237,11 @@
       <trans-unit id="ca3d663713492b446eaa70caafb65b96da6f1b15" resname="Координатор отделения">
         <source>Координатор отделения</source>
         <target>Координатор відділення</target>
-        <jms:reference-file line="135">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="174">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="194">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="214">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="136">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="175">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="195">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="215">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="294">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7d46136deb9a670bc3effe9cdd8e81d1abbf74f" resname="Лекторы">
         <source>Лекторы</source>
@@ -243,7 +252,7 @@
         <source>Львов</source>
         <target>Львів</target>
         <jms:reference-file line="55">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="174">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="175">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="118">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f950bd61a2316bace233b50097b2df7d074db2cc" resname="Меня зовут">
@@ -255,7 +264,7 @@
         <source>Москва</source>
         <target>Москва</target>
         <jms:reference-file line="52">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="194">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="195">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="109">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="64e6f4d73daed9237f4ef4e20f72acf58f3863fa" resname="Мы не смотрим на регалии или ученые степени.">
@@ -354,7 +363,7 @@
       <trans-unit id="1467726d96a487f365619976c7d2329f66614c46" resname="Основатель и глобальный координатор">
         <source>Основатель и глобальный координатор</source>
         <target>Засновник і глобальний координатор</target>
-        <jms:reference-file line="77">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="78">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c67778fa11159cb7e4377e22af10075f3802ed6f" resname="Оставить комментарий">
         <source>Оставить комментарий</source>
@@ -415,19 +424,19 @@
       <trans-unit id="2dc7f348091ba1c48305859b89a2bc773e7a2ed7" resname="Работа с волонтёрами">
         <source>Работа с волонтёрами</source>
         <target>Робота з волонтерами</target>
-        <jms:reference-file line="234">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="235">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="92ac091eb064fd425072213d846230c2df844a1b" resname="Работа с лекторами">
         <source>Работа с лекторами</source>
         <target>Робота з лекторами</target>
-        <jms:reference-file line="116">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="155">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="254">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="117">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="156">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="314">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5857a9b480410c6f4acb197df95e467f0d4a8bbc" resname="Разработка сайта">
         <source>Разработка сайта</source>
         <target>Розробка сайту</target>
-        <jms:reference-file line="97">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="98">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="76c27ae8b1bfa95c72e7dea96a6ec0bc9e10aad1" resname="Связаться с нами">
         <source>Связаться с нами</source>
@@ -468,11 +477,13 @@
         <source>Стать волонтёром</source>
         <target>Стати волонтером</target>
         <jms:reference-file line="41">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="275">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d98fc9313dbf76b46abc308fc35e1f59728fd168" resname="Стать лектором">
         <source>Стать лектором</source>
         <target>Стати лектором</target>
         <jms:reference-file line="40">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="255">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b8a9604777e161b0c27261df04620ab1276bd429" resname="Страница не найдена">
         <source>Страница не найдена</source>
@@ -495,17 +506,17 @@
         <source>Харьков</source>
         <target>Харків</target>
         <jms:reference-file line="54">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="77">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="155">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="78">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="156">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="112">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="81897658086030f64d5d2e229f5f82a1326360ae" resname="Черновцы">
         <source>Черновцы</source>
         <target>Чернівці</target>
         <jms:reference-file line="56">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="214">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="234">./app/Resources/views/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="254">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="215">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="235">./app/Resources/views/contacts.html.twig</jms:reference-file>
+        <jms:reference-file line="314">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="121">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0efb7557abb695b2c806bd715e6d48629c7dbda9" resname="Что бы вы ни искали, здесь этого точно нет. Может, на %s главной странице %s вам повезёт больше?">
