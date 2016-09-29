@@ -45,6 +45,11 @@ class Event
      * @ORM\Column(name="date", type="date", nullable=false)
      */
     protected $date;
+    
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
 
     /** @return int */
     public function getId()
