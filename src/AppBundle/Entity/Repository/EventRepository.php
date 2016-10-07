@@ -57,7 +57,7 @@ class EventRepository extends AbstractRepository
             ->groupBy('event')
             ->having('COUNT(lecture) > 0')
             ->setMaxResults($number)
-            ->orderBy('event.created', 'DESC')
+            ->orderBy('event.date', 'DESC')
             ->getQuery()
             ->getResult()
         ;
