@@ -35,6 +35,7 @@ class ApiController extends AbstractController
                     'city' => $city->getName(),
                     'time' => $announcement->getWhen(),
                     'address' => $announcement->getWhere(),
+                    'date' => $announcement->getDate()->format('Y:m:d H:i:s'),
                     'mapAddress' => $announcement->getWhereMap(),
                     'lectures' => $lectures,
                 ];
