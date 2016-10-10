@@ -92,7 +92,6 @@ class AnnouncementsController extends Controller
                 $this->get('doctrine.orm.entity_manager')->flush();
                 $this->addFlash('success', 'Изменения сохранены');
             } else {
-                dump($form->getErrors());
                 $this->addFlash('error', 'Не удалось сохранить изменения');
             }
 
