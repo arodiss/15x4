@@ -98,7 +98,7 @@
       </trans-unit>
       <trans-unit id="b101989cf32b5fa6c752a73a63b521889c1ae9e6" resname="Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений">
         <source>Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений</source>
-        <target>You are aloud to share and/or modify all videos available on this website without any restrictions.</target>
+        <target>You are allowed to share and/or modify all videos available on this website without any restrictions.</target>
         <jms:reference-file line="15">./app/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0519b9a48e2d7f5d9e48e002c0b125449535ec02" resname="Выбранные лекции">
