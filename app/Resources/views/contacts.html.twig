@@ -55,6 +55,7 @@
                 <button data-city=4 type="button" class="btn btn-default">{{ 'Львов' | trans }}</button>
                 <button data-city=5 type="button" class="btn btn-default">{{ 'Черновцы' | trans }}</button>
                 <button data-city=6 type="button" class="btn btn-default">{{ 'Кишинёв' | trans }}</button>
+                <button data-city=7 type="button" class="btn btn-default">{{ 'Одесса' | trans }}</button>
             </div>
         </div>
     </div>
@@ -318,5 +319,25 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-3 contact" data-goals='{"volunteer":[7], "lecturer": [7]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/karlos.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="A. Karlov"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Александр Карлов</div>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Одесса' | trans }}</p>
+                    <a href="https://www.facebook.com/aleksandr.karlov">fb</a>
+                    <a href="https://vk.com/alex_karlov34">vk</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
