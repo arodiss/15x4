@@ -56,6 +56,7 @@
                 <button data-city=5 type="button" class="btn btn-default">{{ 'Черновцы' | trans }}</button>
                 <button data-city=6 type="button" class="btn btn-default">{{ 'Кишинёв' | trans }}</button>
                 <button data-city=7 type="button" class="btn btn-default">{{ 'Одесса' | trans }}</button>
+                <button data-city=8 type="button" class="btn btn-default">{{ 'Санкт-Петербург' | trans }}</button>
             </div>
         </div>
     </div>
@@ -336,6 +337,26 @@
                     <a href="https://www.facebook.com/aleksandr.karlov">fb</a>
                     <a href="https://vk.com/alex_karlov34">vk</a>
                     <a href="mailto:alex.karlov34@gmail.com">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"volunteer":[8], "lecturer": [8]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/lizailonen.jpg'
+                        filter='jpegoptim'
+                    %}
+                        <img src="{{ asset_url }}" alt="E. Babitskaya"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Елизавета Бабицкая</div>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Санкт-Петербург' | trans }}</p>
+                    <a href="https://facebook.com/elizaveta.babitskaya">fb</a>
+                    <a href="https://vk.com/lizailonen">vk</a>
+                    <a href="mailto:elizaveta41271@rambler.ru">email</a>
                 </div>
             </div>
         </div>
