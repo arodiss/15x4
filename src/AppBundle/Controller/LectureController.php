@@ -59,7 +59,7 @@ class LectureController extends AbstractController
                 'pagination' => $this->getPager()->paginate(
                     $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers),
                     $request->get('page', 1),
-                    10
+                    40
                 ),
                 'isFiltered' => $tags || $events || $fields || $lecturers,
                 'selectedTags' => $tags,
