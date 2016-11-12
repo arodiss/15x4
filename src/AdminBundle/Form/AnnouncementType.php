@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -47,6 +48,20 @@ class AnnouncementType extends AbstractType
             ])
             ->add('when', TextareaType::class, [
                 'label' => 'Время',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '(не обязательно)',
+                ]
+            ])
+            ->add('vkLink', TextType::class, [
+                'label' => 'Ссылка на группу VK',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '(не обязательно)',
+                ]
+            ])
+            ->add('fbLink', TextType::class, [
+                'label' => 'Ссылка на группу FB',
                 'required' => false,
                 'attr' => [
                     'placeholder' => '(не обязательно)',
