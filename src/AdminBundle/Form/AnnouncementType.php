@@ -30,7 +30,7 @@ class AnnouncementType extends AbstractType
                     ]
                 ]
             )
-            ->add('date', DateType::class, ['label' => 'Дата', 'years' => range(2016, date('Y')) ])
+            ->add('date', DateType::class, ['label' => 'Дата', 'years' => range(2016, date('Y') + 1) ])
             ->add('where', TextareaType::class, [
                 'label' => 'Где',
                 'required' => false,
