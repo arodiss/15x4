@@ -362,9 +362,11 @@ class Lecture
             return $watchUrl;
         }
 
-        $query = parse_url(($watchUrl), PHP_URL_QUERY);
+        $query = parse_url($watchUrl, PHP_URL_QUERY);
         parse_str($query, $queryParsed);
-
-        return self::EMBEDDABLE_URL_PREFIX . $queryParsed['v'];
+        if (isset($queryParsed['v'])) {
+            return self::EMBEDDABLE_URL_PREFIX . $queryParsed['v'];
+        }
+        return self::EMBEDDABLE_URL_PREFIX . parse_url($watchUrl, PHP_URL_PATH);
     }
 }
