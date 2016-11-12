@@ -37,6 +37,8 @@ class ApiController extends AbstractController
                     'address' => $announcement->getWhere(),
                     'date' => $announcement->getDate()->format('Y:m:d H:i:s'),
                     'mapAddress' => $announcement->getWhereMap(),
+                    'fbLink' => $announcement->getFbLink(),
+                    'vkLink' => $announcement->getVkLink(),
                     'lectures' => $lectures,
                 ];
             }

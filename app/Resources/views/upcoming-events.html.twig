@@ -29,6 +29,22 @@
                             <b>
                                 {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
                             </b>
+                            {% if city.nextAnnouncement.vkLink %}
+                                <a href="{{ city.nextAnnouncement.vkLink }}" target="_blank">
+                                    <span class="fa-stack pull-right">
+                                        <i class="fa fa-vk fa-stack-1x"></i>
+                                        <i class="fa fa-square-o fa-stack-2x"></i>
+                                    </span>
+                                </a>
+                            {% endif %}
+                            {% if city.nextAnnouncement.fbLink %}
+                                <a href="{{ city.nextAnnouncement.fbLink }}" target="_blank">
+                                    <span class="fa-stack pull-right">
+                                        <i class="fa fa-facebook fa-stack-1x"></i>
+                                        <i class="fa fa-square-o fa-stack-2x"></i>
+                                    </span>
+                                </a>
+                            {% endif %}
 
                             <p> {{ city.nextAnnouncement.where }} </p>
 
@@ -40,42 +56,42 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-lg-10 col-lg-offset-1">
-                                <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
-                                </p>
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
+                            </p>
                         </div>
+                    </div>
 
-                        <div id="sign-up-details" class="hide form-inline">
-                            <b>{{ 'Меня зовут' | trans }}</b>
+                    <div id="sign-up-details" class="hide form-inline">
+                        <b>{{ 'Меня зовут' | trans }}</b>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="ticket_name"
+                            {% if is_granted('ROLE_USER') %} value="{{ app.user.getDisplayableName() }}"{% endif %}
+                        />
+                        <b>, {{ 'и со мной будет' | trans }}</b>
+                        <input type="number" class="form-control" id="ticket_number" value="0">
+                        <b>{{ 'друзей' | trans }}. {{ 'Я' | trans }}</b>
+                        <select id="signup-volunteer">
+                            <option>{{ 'хочу' | trans }}</option>
+                            <option selected>{{ 'не хочу' | trans }}</option>
+                        </select>
+                        <b>{{ 'поучаствовать в проекте' | trans }}</b>
+                        <span id="signup-contact-wrapper" class='hide'>
+                            <b>, {{ 'вот мои контакты' | trans }}:</b>
                             <input
                                 type="text"
                                 class="form-control"
-                                id="ticket_name"
-                                {% if is_granted('ROLE_USER') %} value="{{ app.user.getDisplayableName() }}"{% endif %}
+                                id="contact"
+                                placeholder="{{ 'опишите, как связаться' | trans }}"
                             />
-                            <b>, {{ 'и со мной будет' | trans }}</b>
-                            <input type="number" class="form-control" id="ticket_number" value="0">
-                            <b>{{ 'друзей' | trans }}. {{ 'Я' | trans }}</b>
-                            <select id="signup-volunteer">
-                                <option>{{ 'хочу' | trans }}</option>
-                                <option selected>{{ 'не хочу' | trans }}</option>
-                            </select>
-                            <b>{{ 'поучаствовать в проекте' | trans }}</b>
-                            <span id="signup-contact-wrapper" class='hide'>
-                                <b>, {{ 'вот мои контакты' | trans }}:</b>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="contact"
-                                    placeholder="{{ 'опишите, как связаться' | trans }}"
-                                />
-                            </span>
-                            <br/>
-                            <div class="btn btn-default book-ticket">{{ 'Запишите меня!' | trans }}</div>
-                        </div>
+                        </span>
+                        <br/>
+                        <div class="btn btn-default book-ticket">{{ 'Запишите меня!' | trans }}</div>
                     {% else %}
                         <div class="col-lg-12">
                             <p>

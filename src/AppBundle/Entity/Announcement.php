@@ -56,6 +56,16 @@ class Announcement
     protected $whereMap;
 
     /**
+     * @ORM\Column(name="vk_link", type="text", nullable=true)
+     */
+    protected $vkLink;
+
+    /**
+     * @ORM\Column(name="fb_link", type="text", nullable=true)
+     */
+    protected $fbLink;
+
+    /**
      * @ORM\Column(name="time", type="text", nullable=true)
      */
     protected $when;
@@ -241,5 +251,37 @@ class Announcement
     public function getTotalTickets()
     {
         return $this->totalTickets;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVkLink()
+    {
+        return $this->vkLink;
+    }
+
+    /**
+     * @param string $vkLink
+     */
+    public function setVkLink($vkLink)
+    {
+        $this->vkLink = $vkLink;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFbLink()
+    {
+        return $this->fbLink;
+    }
+
+    /**
+     * @param string $fbLink
+     */
+    public function setFbLink($fbLink)
+    {
+        $this->fbLink = $fbLink;
     }
 }
