@@ -36,7 +36,7 @@ class LoadFieldsCommand extends AbstractCommand
 
         [
             'name' => 'Химия',
-            'description' => 'Всё, что в есть химии научного, это физика, а остальное — кухня. Лев Ландау',
+            'description' => 'Всё, что есть в химии научного, это физика, а остальное — кухня. Лев Ландау',
             'image' => 'chemistry.jpg',
         ],
 
