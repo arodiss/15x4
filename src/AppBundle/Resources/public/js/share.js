@@ -18,7 +18,7 @@ $(function() {
     setTimeout(
         function () {
             $(".vk-share-button").each(function () {
-                $(this).html(VK.Share.button($(this).data('href'), {type: 'button_nocount'}));
+                $(this).html(VK.Share.button($(this).data('href'), {type: 'link'}));
             });
         },
         1000

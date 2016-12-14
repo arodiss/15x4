@@ -43,19 +43,19 @@
         </p>
         {% endif %}
 
-        <p class="small">
+        <p>
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city | trans }}</a>
             <span
                 class="pull-right fb-share-button"
-                style="margin-right: 3px;"
+                style="margin-right: 6px;"
                 data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
                 data-layout="button"
             >
             </span>
             <span
                 class="pull-right vk-share-button"
-                style="margin-right: 3px;"
+                style="margin-top: 2px; margin-right: 6px;"
                 data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
             >
             </span>
