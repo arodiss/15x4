@@ -10,6 +10,7 @@
             <tr>
                 <th>Место</th>
                 <th>Дата</th>
+                <th>Количество лекций</th>
                 <th>Лекции</th>
                 <th>Действия</th>
             </tr>
@@ -19,6 +20,12 @@
                 <tr>
                     <td>{{ event.city }}</td>
                     <td>{{ event.date | date }}</td>
+                    <td>
+                        {{ event.lectures | length }}
+                        {% if event.lectures | length != 4 %}
+                            <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                        {% endif %}
+                    </td>
                     <td>
                         {% for lecture in event.lectures %}
                             <div class="text-small text-muted" style="font-size: 70%;">
