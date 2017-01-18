@@ -8,16 +8,24 @@
     <table class="table table-hover table-striped">
         <thead>
             <tr>
+                <th>Место</th>
                 <th>Дата</th>
-                <th>Город</th>
+                <th>Лекции</th>
                 <th>Действия</th>
             </tr>
         </thead>
         <tbody>
             {% for event in pagination.items %}
                 <tr>
-                    <td>{{ event.date | date }}</td>
                     <td>{{ event.city }}</td>
+                    <td>{{ event.date | date }}</td>
+                    <td>
+                        {% for lecture in event.lectures %}
+                            <div class="text-small text-muted" style="font-size: 70%;">
+                                {{ lecture }}
+                            </div>
+                        {% endfor %}
+                    </td>
                     <td>
                         <a href="{{ path("AdminEventEdit", { "id": event.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
                         <a class="delete" href="{{ path("AdminEventDelete", { "id": event.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
