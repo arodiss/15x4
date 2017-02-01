@@ -72,7 +72,7 @@ class Announcement
 
     /**
      * @var integer
-     * @ORM\Column(name="total_tickets", type="integer", nullable=true)
+     * @ORM\Column(name="total_tickets", type="integer", nullable=false)
      */
     protected $totalTickets = 0;
 

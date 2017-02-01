@@ -69,7 +69,7 @@ class AnnouncementType extends AbstractType
             ])
             ->add('totalTickets', IntegerType::class, [
                 'label' => 'Мест для регистрации',
-                'required' => true,
+                'required' => false,
             ])
             ->add('lectures', CollectionType::class, [
                 'label' => 'Лекции',
