@@ -6,6 +6,26 @@ use AppBundle\Entity;
 
 class CityRepository extends AbstractRepository
 {
+    /** @return Entity\City[][] */
+    public function findForLanding()
+    {
+        $result = [
+            'announced' => [],
+            'unannounced' => [],
+        ];
+
+        /** @var Entity\City $city */
+        foreach ($this->findAll() as $city) {
+            if ($city->hasValidAnnouncement()) {
+                $result['announced'][] = $city;
+            } else {
+                $result['unannounced'][] = $city;
+            }
+        }
+
+        return $result;
+    }
+
     /** @return array */
     public function findForList()
     {

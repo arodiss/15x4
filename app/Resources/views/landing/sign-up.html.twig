@@ -1,0 +1,28 @@
+<div id="sign-up-details" class="hide form-inline">
+    <b>{{ 'Меня зовут' | trans }}</b>
+    <input
+            type="text"
+            class="form-control"
+            id="ticket_name"
+            {% if is_granted('ROLE_USER') %} value="{{ app.user.getDisplayableName() }}"{% endif %}
+    />
+    <b>, {{ 'и со мной будет' | trans }}</b>
+    <input type="number" class="form-control" id="ticket_number" value="0">
+    <b>{{ 'друзей' | trans }}. {{ 'Я' | trans }}</b>
+    <select id="signup-volunteer">
+        <option>{{ 'хочу' | trans }}</option>
+        <option selected>{{ 'не хочу' | trans }}</option>
+    </select>
+    <b>{{ 'поучаствовать в проекте' | trans }}</b>
+    <span id="signup-contact-wrapper" class='hide'>
+        <b>, {{ 'вот мои контакты' | trans }}:</b>
+        <input
+                type="text"
+                class="form-control"
+                id="contact"
+                placeholder="{{ 'опишите, как связаться' | trans }}"
+        />
+    </span>
+    <br/>
+    <div class="btn btn-default book-ticket">{{ 'Запишите меня!' | trans }}</div>
+</div>
