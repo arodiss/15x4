@@ -9,12 +9,27 @@
         <thead>
         <tr>
             <th>Название</th>
+            <th>Встреч</th>
+            <th>Анонсов</th>
             <th>Действия</th>
         </tr>
         </thead>
         <tbody>
             {% for city in pagination.items %}
                 <tr>
+                    <td>{{ city }}</td>
+                    <td>
+                        {{ city.events | length }}
+                        {% if city.events | length == 0 %}
+                            <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ city.announcements | length }}
+                        {% if city.announcements | length > 1 %}
+                            <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                        {% endif %}
+                    </td>
                     <td>{{ city }}</td>
                     <td>
                         <a href="{{ path("AdminCityEdit", { "id": city.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
