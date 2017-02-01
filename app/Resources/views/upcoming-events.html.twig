@@ -1,106 +1,36 @@
 <h2 class="text-center" style="width: 100%; margin-top: 40px; margin-bottom: 20px;">{{ 'Будущие встречи' | trans }}</h2>
 
 <ul class="nav nav-tabs" role="tablist">
-    {% for city in cities %}
+    {% for city in cities.announced %}
         <li role="presentation"{% if loop.first %} class="active"{% endif %}>
-            <a href="#city-{{ city.id  }}" aria-controls="add" role="tab" data-toggle="tab" class="tab-toggle">
+            <a href="#city-{{ city.id  }}" role="tab" data-toggle="tab" class="tab-toggle">
                 {{ city | trans }}
             </a>
         </li>
     {% endfor %}
+    <li role="presentation">
+        <a href="#city-unannounced" role="tab" data-toggle="tab" class="tab-toggle">
+            {{ "Будет анонсировано позже" | trans }}
+        </a>
+    </li>
 </ul>
 
 <div class="tab-content">
-    {% for city in cities %}
+    {% for city in cities.announced %}
         <div id="city-{{ city.id  }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
-            <div class="well">
-                <div class="row">
-                    {% if city.hasValidAnnouncement() %}
-                        <div class="col-lg-4">
-                            <iframe
-                                frameborder="0"
-                                style="width: 100%; height: 100%;"
-                                src="https://maps.google.com/maps?q={{ (city.name ~ ', ' ~ city.nextAnnouncement.whereMap) | url_encode }}&z=14&output=embed"
-                            >
-                            </iframe>
-                        </div>
-
-                        <div class="col-lg-8">
-                            <b>
-                                {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
-                            </b>
-                            {% if city.nextAnnouncement.vkLink %}
-                                <a href="{{ city.nextAnnouncement.vkLink }}" target="_blank">
-                                    <span class="fa-stack pull-right">
-                                        <i class="fa fa-vk fa-stack-1x"></i>
-                                        <i class="fa fa-square-o fa-stack-2x"></i>
-                                    </span>
-                                </a>
-                            {% endif %}
-                            {% if city.nextAnnouncement.fbLink %}
-                                <a href="{{ city.nextAnnouncement.fbLink }}" target="_blank">
-                                    <span class="fa-stack pull-right">
-                                        <i class="fa fa-facebook fa-stack-1x"></i>
-                                        <i class="fa fa-square-o fa-stack-2x"></i>
-                                    </span>
-                                </a>
-                            {% endif %}
-
-                            <p> {{ city.nextAnnouncement.where }} </p>
-
-                            <ul style="padding-left: 30px;">
-                                {% for lecture in city.nextAnnouncement.lectures %}
-                                    <li>
-                                        {{ lecture.title }} - <i>{{ lecture.lecturer }}</i>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
-                            </p>
-                        </div>
-                    </div>
-
-                    <div id="sign-up-details" class="hide form-inline">
-                        <b>{{ 'Меня зовут' | trans }}</b>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="ticket_name"
-                            {% if is_granted('ROLE_USER') %} value="{{ app.user.getDisplayableName() }}"{% endif %}
-                        />
-                        <b>, {{ 'и со мной будет' | trans }}</b>
-                        <input type="number" class="form-control" id="ticket_number" value="0">
-                        <b>{{ 'друзей' | trans }}. {{ 'Я' | trans }}</b>
-                        <select id="signup-volunteer">
-                            <option>{{ 'хочу' | trans }}</option>
-                            <option selected>{{ 'не хочу' | trans }}</option>
-                        </select>
-                        <b>{{ 'поучаствовать в проекте' | trans }}</b>
-                        <span id="signup-contact-wrapper" class='hide'>
-                            <b>, {{ 'вот мои контакты' | trans }}:</b>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="contact"
-                                placeholder="{{ 'опишите, как связаться' | trans }}"
-                            />
-                        </span>
-                        <br/>
-                        <div class="btn btn-default book-ticket">{{ 'Запишите меня!' | trans }}</div>
-                    {% else %}
-                        <div class="col-lg-12">
-                            <p>
-                                <i>{{ 'Будет анонсировано позже' | trans }}</i>
-                            </p>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
+            {% include "landing/announcement.html.twig" %}
         </div>
     {% endfor %}
+
+    <div id="city-unannounced" role="tabpanel" class="tab-pane">
+        <div class="well">
+            <ul>
+                {% for city in cities.unannounced %}
+                    <li>
+                        {{ city }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>

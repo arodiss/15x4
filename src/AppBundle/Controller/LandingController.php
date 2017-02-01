@@ -15,7 +15,7 @@ class LandingController extends AbstractController
         return $this->render(
             'landing/landing.html.twig',
             [
-                'cities' => $this->getCityRepository()->findAll(),
+                'cities' => $this->getCityRepository()->findForLanding(),
                 'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
                 'recentEvents' => $this->getEventRepository()->findRecent(4),
             ]

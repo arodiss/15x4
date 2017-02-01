@@ -1,0 +1,53 @@
+<div class="well">
+    <div class="row">
+        <div class="col-lg-4">
+            <iframe
+                    frameborder="0"
+                    style="width: 100%; height: 100%;"
+                    src="https://maps.google.com/maps?q={{ (city.name ~ ', ' ~ city.nextAnnouncement.whereMap) | url_encode }}&z=14&output=embed"
+            >
+            </iframe>
+        </div>
+
+        <div class="col-lg-8">
+            <b>
+                {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
+            </b>
+            {% if city.nextAnnouncement.vkLink %}
+                <a href="{{ city.nextAnnouncement.vkLink }}" target="_blank">
+                                <span class="fa-stack pull-right">
+                                    <i class="fa fa-vk fa-stack-1x"></i>
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                </span>
+                </a>
+            {% endif %}
+            {% if city.nextAnnouncement.fbLink %}
+                <a href="{{ city.nextAnnouncement.fbLink }}" target="_blank">
+                                <span class="fa-stack pull-right">
+                                    <i class="fa fa-facebook fa-stack-1x"></i>
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                </span>
+                </a>
+            {% endif %}
+
+            <p> {{ city.nextAnnouncement.where }} </p>
+
+            <ul style="padding-left: 30px;">
+                {% for lecture in city.nextAnnouncement.lectures %}
+                    <li>
+                        {{ lecture.title }} - <i>{{ lecture.lecturer }}</i>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
+            </p>
+        </div>
+    </div>
+
+    {% include "landing/sign-up.html.twig" %}
+</div>
