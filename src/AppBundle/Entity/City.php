@@ -83,4 +83,10 @@ class City
     {
         return (bool) $this->getNextAnnouncement();
     }
+
+    /** @return Event[] */
+    public function getEvents()
+    {
+        return $this->events;
+    }
 }
