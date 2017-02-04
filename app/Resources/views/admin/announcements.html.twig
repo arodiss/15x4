@@ -1,13 +1,33 @@
 {% extends "admin/layout.html.twig" %}
 
 {% block admin_content %}
-    
+
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-lg-6">
+                <span style="color: red; margin-left: 10px; margin-right: 10px;" class="glyphicon glyphicon-exclamation-sign"></span>
+                <i class="text-muted">
+                    Этот знак означает, что в городе не анонсирована следующая встреча
+                </i>
+            </div>
+            <div class="col-lg-6">
+                <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="glyphicon glyphicon-warning-sign"></span>
+                <i class="text-muted">
+                    Этот знак означает, что в городе есть сильно просроченные анонсы
+                </i>
+            </div>
+        </div>
+    </div>
+
     <ul class="nav nav-tabs" role="tablist">
         {% for city in cities %}
             <li role="presentation"{% if loop.first %} class="active"{% endif %}>
                 <a href="#city-{{ city.id }}" aria-controls="city-{{ city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
                     {% if not city.hasValidAnnouncement() %}
                         <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                    {% endif %}
+                    {% if city.hasVeryOutdatedAnnouncements() %}
+                        <span style="color: darkgoldenrod;" class="glyphicon glyphicon-warning-sign"></span>
                     {% endif %}
                     {{ city }}
                 </a>
