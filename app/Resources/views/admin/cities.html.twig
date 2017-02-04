@@ -30,7 +30,6 @@
                             <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
                         {% endif %}
                     </td>
-                    <td>{{ city }}</td>
                     <td>
                         <a href="{{ path("AdminCityEdit", { "id": city.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
                         <a class="delete" href="{{ path("AdminCityDelete", { "id": city.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
