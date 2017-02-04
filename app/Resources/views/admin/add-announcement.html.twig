@@ -1,16 +1,26 @@
 {% extends "admin/layout.html.twig" %}
 
 {% block admin_content %}
-    {{ form(form) }}
+    {{ form_start(form) }}
+    {{ form_row(form.city) }}
+    {{ form_row(form.where) }}
+    {{ form_row(form.whereMap) }}
+    {{ form_row(form.date) }}
+    {{ form_row(form.when) }}
+    {{ form_row(form.fbLink) }}
+    {{ form_row(form.vkLink) }}
+    {{ form_row(form.totalTickets) }}
+    {{ form_row(form.lectures) }}
+    <div class="btn btn-primary pull-right" id="add-lecture">
+        <span class="glyphicon glyphicon-plus-sign" style="color: white;"></span>
+        Добавить лекцию
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <hr/>
         </div>
     </div>
-    <div class="btn btn-primary" id="add-lecture">
-        <span class="glyphicon glyphicon-plus-sign" style="color: white;"></span>
-        Добавить лекцию
-    </div>
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block scripts %}
