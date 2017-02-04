@@ -60,8 +60,10 @@
                                             </td>
                                             <td class="pull-right">
                                                 {% if announcement.totalTickets %}
-                                                    <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-cloud-download" title="Выгрузить волонтёров"></span></a>
                                                     <a href="{{ path("GetAnnouncementTickets", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-download" title="Выгрузить билеты"></span></a>
+                                                {% endif %}
+                                                {% if announcement.volunteers | length %}
+                                                    <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-cloud-download" title="Выгрузить волонтёров"></span></a>
                                                 {% endif %}
                                                 <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign" title="Залить видео"></span></a>
                                                 <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit" title="Редактировать"></span></a>
