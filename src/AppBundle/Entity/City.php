@@ -66,6 +66,12 @@ class City
         return $this->announcements;
     }
 
+    /** @return Event[] */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
     /** @return Announcement|null */
     public function getNextAnnouncement()
     {
@@ -84,9 +90,15 @@ class City
         return (bool) $this->getNextAnnouncement();
     }
 
-    /** @return Event[] */
-    public function getEvents()
+    /** @return bool */
+    public function hasVeryOutdatedAnnouncements()
     {
-        return $this->events;
+        foreach ($this->getAnnouncements() as$announcement) {
+            if ($announcement->getDate() <= (new \DateTime)->modify('-1 month')) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }
