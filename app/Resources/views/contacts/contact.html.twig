@@ -1,0 +1,24 @@
+<div class="col-sm-3 contact" data-goals='{{ goals_data | json_encode }}'>
+    <div class="row">
+        <div class="col-lg-6">
+            {% if picture is defined %}
+                <img src="{{ asset('bundles/app/images/contacts/' ~ picture) }}" alt="{{ name }}"/>
+            {% else %}
+                <img src="{{ asset('bundles/app/images/logo.png') }}" alt="{{ name }}"/>
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <div class="contact-name">{{ name }}</div>
+            <p class="small text-muted">{{ goals_name }}</p>
+            {% if fb is defined %}
+                <a href="https://fb.com/{{ fb }}">fb</a>
+            {% endif %}
+            {% if vk is defined %}
+                <a href="https://vk.com/{{ vk }}">vk</a>
+            {% endif %}
+            {% if email is defined %}
+                <a href="mailto:{{ email }}">email</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
