@@ -1,0 +1,247 @@
+{#todo generate content dynamically#}
+
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}
+    15x4 — связаться с нами
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@AppBundle/Resources/public/js/shuffle.js'
+        '@AppBundle/Resources/public/js/contacts.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+
+    {% stylesheets
+        '@AppBundle/Resources/public/css/contacts.css'
+        filter='cssrewrite'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <h2>{{ 'Связаться с нами' | trans }}</h2>
+    <p class="text-muted"><i>{{ '15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше' | trans }}</i></p>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <b>{{ 'Что вас интересует?' | trans }}</b>
+            <br/>
+            <div id="goal" class="btn-group" role="group">
+                <button data-title="{{ 'Мы не требуем регалий и других формальных критериев' | trans }}" data-goal="lecturer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать лектором' | trans }}</button>
+                <button data-title="{{ 'Давайте делать мир лучше вместе!' | trans }}" data-goal="volunteer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать волонтёром' | trans }}</button>
+                <button data-title="{{ 'Мы поможем вам всеми своими ресурсами' | trans }}" data-goal="branch" type="button" class="btn btn-default tooltip-toggle">{{ 'Открыть 15х4 в своём городе' | trans }}</button>
+                <button data-title="{{ 'Жалобы, пожелания, предложения' | trans }}" data-goal="site" type="button" class="btn btn-default tooltip-toggle">{{ 'Этот сайт' | trans }}</button>
+                <button data-title="{{ 'Например, сотрудничество' | trans }}" data-goal="other" type="button" class="btn btn-default tooltip-toggle">{{ 'Другое' | trans }}</button>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <b>{{ 'Ваш город' | trans }}</b>
+            <br/>
+            <div id="city" class="btn-group" role="group">
+                <button data-city=1 type="button" class="btn btn-default">{{ 'Москва' | trans }}</button>
+                <button data-city=2 type="button" class="btn btn-default">{{ 'Киев' | trans }}</button>
+                <button data-city=3 type="button" class="btn btn-default">{{ 'Харьков' | trans }}</button>
+                <button data-city=4 type="button" class="btn btn-default">{{ 'Львов' | trans }}</button>
+                <button data-city=5 type="button" class="btn btn-default">{{ 'Черновцы' | trans }}</button>
+                <button data-city=6 type="button" class="btn btn-default">{{ 'Кишинёв' | trans }}</button>
+                <button data-city=7 type="button" class="btn btn-default">{{ 'Одесса' | trans }}</button>
+                <button data-city=8 type="button" class="btn btn-default">{{ 'Санкт-Петербург' | trans }}</button>
+                <button data-city=9 type="button" class="btn btn-default">{{ 'Самара' | trans }}</button>
+                <button data-city=10 type="button" class="btn btn-default">{{ 'Мюнхен' | trans }}</button>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div id="grid" class="row">
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'gapak.jpg',
+            goals_name: ('Основатель и глобальный координатор' | trans) ~ ', ' ~ ('Харьков' | trans),
+            goals_data: { "other": [], "branch": [], "volunteer": [3] },
+            name: 'Александр Гапак',
+            fb: 'aleksandr.gapak',
+            vk: 'alex_gapak',
+            email: 'wolfinnigth@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'arodiss.jpg',
+            goals_name: ('Разработка сайта' | trans) ~ ', ' ~ ('Киев' | trans),
+            goals_data: { "site": [] },
+            name: 'Глеб Сидора',
+            fb: 'profile.php?id=100001049885258',
+            vk: 'arodiss',
+            email: 'gleb.sidora@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 't-li.jpg',
+            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Киев' | trans),
+            goals_data: { 'lecturer': [2] },
+            name: 'Таня Погорецкая',
+            vk: 'brunsweek',
+            email: '15x4Kyiv@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'ehnara.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Киев' | trans),
+            goals_data: { 'volunteer': [2] },
+            name: 'Александра Малевич',
+            fb: 'ehnara',
+            vk: 'ehnara',
+            email: '15x4Kyiv@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'gromova.jpg',
+            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Харьков' | trans),
+            goals_data: { 'lecturer': [3] },
+            name: 'Ульяна Громова',
+            vk: 'hell_low',
+            email: 'Malyarchyk.17@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'feelofreel.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Львов' | trans),
+            goals_data: { 'volunteer': [4], 'lecturer': [4] },
+            name: 'Дмитрий Кондратюк',
+            fb: 'eeloffeel',
+            vk: 'feelofeel',
+            email: 'kondrdm@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'real.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Москва' | trans),
+            goals_data: { 'volunteer': [1], 'lecturer': [1] },
+            name: 'Валерия Грачёва',
+            fb: 'realgrachova',
+            vk: 'real_night',
+            email: 'eon@houston.ru'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'stanislav.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Черновцы' | trans),
+            goals_data: { 'volunteer': [5], 'lecturer': [5] },
+            name: 'Станислав Романюк',
+            fb: 'romanyuker',
+            vk: 'rm_nk',
+            email: 'masterofstature@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'tor.jpg',
+            goals_name: ('Работа с волонтёрами' | trans) ~ ', ' ~ ('Черновцы' | trans),
+            goals_data: { 'volunteer': [5] },
+            name: 'Марьяна Торкиш',
+            vk: 'bgtor',
+            email: 'morkishka@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'trach.jpg',
+            goals_name: ('Стать лектором' | trans) ~ ', ' ~ ('Кишинёв' | trans),
+            goals_data: { 'lecturer': [6] },
+            name: 'Артём Трач',
+            fb: 'oliver.trach',
+            vk: 'artoliver',
+            email: 'artoliver@yandex.ru'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'batarchukova.jpg',
+            goals_name: ('Стать волонтёром' | trans) ~ ', ' ~ ('Кишинёв' | trans),
+            goals_data: { 'volunteer': [6] },
+            name: 'Лина Батарчукова',
+            fb: 'lina.kirin',
+            vk: 'kirin.lina',
+            email: 'polina.kirin@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Кишинёв' | trans),
+            goals_data: { 'volunteer': [6], 'lecturer': [6] },
+            name: 'Артур Ковач',
+            fb: 'profile.php?id=100010702322735',
+            vk: 'arturkovach',
+            email: 'sh-432@mail.ru'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'gaechka.jpg',
+            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Черновцы' | trans),
+            goals_data: { 'lecturer': [5] },
+            name: 'Елена Гомон',
+            fb: 'elena.gomon.54',
+            vk: 'id32493096',
+            email: 'ellengomon@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'karlos.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Одесса' | trans),
+            goals_data: { 'volunteer': [7], 'lecturer': [7] },
+            name: 'Александр Карлов',
+            fb: 'aleksandr.karlov',
+            vk: 'alex_karlov34',
+            email: 'alex.karlov34@gmail.com'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'lizailonen.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Санкт-Петербург' | trans),
+            goals_data: { 'volunteer': [8], 'lecturer': [8] },
+            name: 'Елизавета Бабицкая',
+            fb: 'elizaveta.babitskaya',
+            vk: 'lizailonen',
+            email: 'elizaveta41271@rambler.ru'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'artemova.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Самара' | trans),
+            goals_data: { 'volunteer': [9], 'lecturer': [9] },
+            name: 'Александра Артёмова',
+            fb: 'black.persey',
+            vk: 'artemova.aleksandra',
+            email: 'ao.artemova@mail.ru'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'az.jpg',
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Мюнхен' | trans),
+            goals_data: { 'volunteer': [10] },
+            name: 'Алексей Зиновьев',
+            fb: 'zinovev.aleksei',
+            vk: 'ash4ever',
+            email: 'munich@15x4.org'
+        } only %}
+
+        {% include 'contacts/contact.html.twig' with {
+            picture: 'razbakov.jpg',
+            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Мюнхен' | trans),
+            goals_data: { 'lecturer': [10] },
+            name: 'Алексей Разбаков',
+            fb: 'razbakov',
+            vk: 'razbakov',
+            email: 'razbakov@15x4.org'
+        } only %}
+
+    </div>
+{% endblock %}
