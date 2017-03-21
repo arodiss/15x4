@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-07-12T21:31:52Z" source-language="en" target-language="uk" datatype="plaintext" original="not.available">
+  <file date="2017-03-06T03:05:21Z" source-language="en" target-language="uk" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -13,7 +13,7 @@
       </trans-unit>
       <trans-unit id="a5aebc613df3550f18884a134cf17ecb2c6303b8" resname="15х4 – это сообщество молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества. ">
         <source>15х4 – это сообщество молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества. </source>
-        <target state="new">15х4 – это сообщество молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества. </target>
+        <target>15х4 – это движение молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s движения. </target>
         <jms:reference-file line="73">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d4b9b6ceaf4e3a0e32a752473f0fbd4784492b09" resname="15х4 – это формат открытых научно-популярных лекториев. Наши события – это 4 доклада по 15 минут на различные темы. ">
@@ -513,7 +513,7 @@
       </trans-unit>
       <trans-unit id="861c6d442523385eef7b103936deb19ec83653d0" resname="Это сообщество и формат событий">
         <source>Это сообщество и формат событий</source>
-        <target state="new">Это сообщество и формат событий</target>
+        <target>Это движение и формат событий</target>
         <jms:reference-file line="60">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a3c78bf7ff8063f04da0f7f16f7de8ff7a7cff53" resname="Этот сайт">

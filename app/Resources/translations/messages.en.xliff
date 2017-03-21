@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-07-12T21:31:58Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2017-03-20T15:40:02Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -13,12 +13,12 @@
       </trans-unit>
       <trans-unit id="a5aebc613df3550f18884a134cf17ecb2c6303b8" resname="15х4 – это сообщество молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества. ">
         <source>15х4 – это сообщество молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества. </source>
-        <target state="new">15х4 – это сообщество молодых ученых и популяризаторов науки. Мы хотим, чтобы люди выступали и делились знаниями. Все наши события бесплатны, организуются и проводятся волонтерами. Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества. </target>
+        <target>15х4 is a community of young scientists and fans of science. We want people to speak out and share their knowledge. All our events are free and maintained by volunteers. All lectures are recorded and uploaded to our official %sYouTube channel%s.</target>
         <jms:reference-file line="73">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d4b9b6ceaf4e3a0e32a752473f0fbd4784492b09" resname="15х4 – это формат открытых научно-популярных лекториев. Наши события – это 4 доклада по 15 минут на различные темы. ">
         <source>15х4 – это формат открытых научно-популярных лекториев. Наши события – это 4 доклада по 15 минут на различные темы. </source>
-        <target state="new">15х4 – это формат открытых научно-популярных лекториев. Наши события – это 4 доклада по 15 минут на различные темы. </target>
+        <target>15x4 is a format of public popular science events. There are four lecturers, taking the floor for 15 minutes each to speak on various topics.</target>
         <jms:reference-file line="70">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="cb0c9802baf4354a4db410568f7c08ef9d889972" resname="15х4 — это сообщество молодых ученых и фанатов науки.">
@@ -33,12 +33,12 @@
       </trans-unit>
       <trans-unit id="e68c615d6ca89ffe99f23b6f35da01b89e8658a2" resname="Будет анонсировано позже">
         <source>Будет анонсировано позже</source>
-        <target>Will be announced later</target>
+        <target>Coming soon</target>
         <jms:reference-file line="81">./app/Resources/views/upcoming-events.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3e6050f80437f1f394a2a2597c986be51136b438" resname="Будущие встречи">
         <source>Будущие встречи</source>
-        <target>Future events</target>
+        <target>Upcoming events</target>
         <jms:reference-file line="1">./app/Resources/views/upcoming-events.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ccbe71c97536bc925197ac16ca0afd5c5b5375c2" resname="Ваш город">
@@ -48,7 +48,7 @@
       </trans-unit>
       <trans-unit id="188f84b34e89bb0745e7796e5f6bbff87362e22e" resname="Войдите %s, чтобы проголосовать за лекцию или добавить её в избранное">
         <source>Войдите %s, чтобы проголосовать за лекцию или добавить её в избранное</source>
-        <target>Sign in %s to vote for lecture or to add it to favorites.</target>
+        <target>Sign in %s to vote for this lecture or to add it to favorites.</target>
         <jms:reference-file line="30">./app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="155a94ba9a909d052160928aefe62e4e092e0376" resname="Войти на сайт">
@@ -76,7 +76,7 @@
       </trans-unit>
       <trans-unit id="d257130b0ab6796f1f6121c44de4441430d16344" resname="Все дисциплины">
         <source>Все дисциплины</source>
-        <target>All topics</target>
+        <target>All disciplines</target>
         <jms:reference-file line="6">./app/Resources/views/category/fields.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a1d89343d1d6d20b22c77c0a49aaa2055fe8173d" resname="Все лекции">
@@ -88,7 +88,7 @@
       </trans-unit>
       <trans-unit id="23a8c4e07858fc5c045d7bee8c9d9129aac0f313" resname="Все наши мероприятия бесплатны">
         <source>Все наши мероприятия бесплатны</source>
-        <target>Every single event of ours is completly free</target>
+        <target>Our events are completly free</target>
         <jms:reference-file line="32">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4c3689f4bd550c89d06293f0d2c55752db87da44" resname="Все теги">
@@ -98,18 +98,18 @@
       </trans-unit>
       <trans-unit id="b101989cf32b5fa6c752a73a63b521889c1ae9e6" resname="Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений">
         <source>Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений</source>
-        <target>You are allowed to share and/or modify all videos available on this website without any restrictions.</target>
+        <target>All videos on this site are allowed to be shared and/or modified without any restrictions.</target>
         <jms:reference-file line="15">./app/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0519b9a48e2d7f5d9e48e002c0b125449535ec02" resname="Выбранные лекции">
         <source>Выбранные лекции</source>
-        <target>Selected lectures</target>
+        <target>Selected talks</target>
         <jms:reference-file line="6">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
         <jms:reference-file line="17">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="46dff034a662d958da98e4029d0d6b21606daf90" resname="Города">
         <source>Города</source>
-        <target>Cities</target>
+        <target>Locations</target>
         <jms:reference-file line="25">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b2db0ae9ee6942fb91ae48de591170c3c11ef1ab" resname="Давайте делать мир лучше вместе!">
@@ -125,12 +125,12 @@
       </trans-unit>
       <trans-unit id="e5c93c6a55eeec36fb8f2c6f713cf02caad418d8" resname="Дисциплина">
         <source>Дисциплина</source>
-        <target>Topic</target>
+        <target>Discipline</target>
         <jms:reference-file line="25">./app/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c4e8d4b74316061dea62eab22bfa284b4934ade1" resname="Дисциплины">
         <source>Дисциплины</source>
-        <target>Topics</target>
+        <target>Disciplines</target>
         <jms:reference-file line="23">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8f96cac0d466b1a936e6d97997cce8adb7266cd1" resname="Другое">
@@ -140,12 +140,12 @@
       </trans-unit>
       <trans-unit id="804ecc2b8ed929435ced3f6b9623ac4ca85dd847" resname="Если в твоем городе уже есть лекторий 15х4, найди свой город здесь и напиши координатору. ">
         <source>Если в твоем городе уже есть лекторий 15х4, найди свой город здесь и напиши координатору. </source>
-        <target state="new">Если в твоем городе уже есть лекторий 15х4, найди свой город здесь и напиши координатору. </target>
+        <target>If your city already has a branch, find it here and contact the coordinator.</target>
         <jms:reference-file line="145">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6bfbeb35dfddcaef88298d258e0a6fef6bd939aa" resname="Если ты не ученый и никогда раньше не читал лекций – тоже можно">
         <source>Если ты не ученый и никогда раньше не читал лекций – тоже можно</source>
-        <target state="new">Если ты не ученый и никогда раньше не читал лекций – тоже можно</target>
+        <target>It's not a problem if you are not a scientist or have never been a speaker before - you can do it!</target>
         <jms:reference-file line="128">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f5220e91051a8a07477a95240916e790a7d410a3" resname="Жалобы, пожелания, предложения">
@@ -167,7 +167,7 @@
       </trans-unit>
       <trans-unit id="628f4b65590ab3de7ae444b37bd99c8132eb56e7" resname="Избранные лекции">
         <source>Избранные лекции</source>
-        <target>Favorite lectures</target>
+        <target>Favorite talks</target>
         <jms:reference-file line="4">./app/Resources/views/lecture/favorites.html.twig</jms:reference-file>
         <jms:reference-file line="8">./app/Resources/views/lecture/favorites.html.twig</jms:reference-file>
       </trans-unit>
@@ -195,7 +195,7 @@
       </trans-unit>
       <trans-unit id="a3cae4a81a0394d735891544e832aa856f19c4f1" resname="Как стать лектором?">
         <source>Как стать лектором?</source>
-        <target>How to become a lecturer?</target>
+        <target>How to become a speaker?</target>
         <jms:reference-file line="39">./app/Resources/views/about/about.html.twig</jms:reference-file>
         <jms:reference-file line="127">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
@@ -210,7 +210,7 @@
       </trans-unit>
       <trans-unit id="697fca7ef58fadae786bc1454075be3eab4b3ce3" resname="Кишинёв">
         <source>Кишинёв</source>
-        <target>Chișinău</target>
+        <target>Kishinev</target>
         <jms:reference-file line="57">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="255">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="275">./app/Resources/views/contacts.html.twig</jms:reference-file>
@@ -218,7 +218,7 @@
       </trans-unit>
       <trans-unit id="e157d5002c971d6f021a9ea7b599cb2fcc781161" resname="Количество захваченных городов">
         <source>Количество захваченных городов</source>
-        <target>Number of cities involved</target>
+        <target>Number of involved cities </target>
         <jms:reference-file line="6">./app/Resources/views/category/cities.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5f090363c3a63d253271a2819be18855553a4736" resname="Комментарии">
@@ -243,22 +243,22 @@
       </trans-unit>
       <trans-unit id="4a4745b7d6ec72ba582aef9fe27c13f6ca8a94e6" resname="Куда ходить на лекции и где следить за нашими новостями">
         <source>Куда ходить на лекции и где следить за нашими новостями</source>
-        <target state="new">Куда ходить на лекции и где следить за нашими новостями</target>
+        <target>Where can you watch talks and follow our news</target>
         <jms:reference-file line="86">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6b6f4de4e620c3c1d3e1427d5b213a4538c23750" resname="Лектории 15х4 делаются силами волонтеров – лекторов, организаторов, техподдержки. Если ты умеешь снимать и монтировать видео, фотографировать, вести страницы в соцсетях, писать тексты, организовывать события, легко общаться с новыми людьми и просто хочешь нам помочь – пиши %sсюда%s.">
         <source>Лектории 15х4 делаются силами волонтеров – лекторов, организаторов, техподдержки. Если ты умеешь снимать и монтировать видео, фотографировать, вести страницы в соцсетях, писать тексты, организовывать события, легко общаться с новыми людьми и просто хочешь нам помочь – пиши %sсюда%s.</source>
-        <target state="new">Лектории 15х4 делаются силами волонтеров – лекторов, организаторов, техподдержки. Если ты умеешь снимать и монтировать видео, фотографировать, вести страницы в соцсетях, писать тексты, организовывать события, легко общаться с новыми людьми и просто хочешь нам помочь – пиши %sсюда%s.</target>
+        <target>15x4 events are facilitated by volunteers - lecturers, organizers and tech support. If you can shoot and edit videos, be a photographer, create texts, organize events, post updates on social networks, if you enjoy communicating with new people or just want to help us - please contact us %here%</target>
         <jms:reference-file line="170">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4f806ab70c8d051172c9d8a2ce6e82601ade95f3" resname="Лектории проходят в Киеве, Харькове, Львове, Черновцах, Москве и Кишиневе. Список городов постоянно растет.  Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях:">
         <source>Лектории проходят в Киеве, Харькове, Львове, Черновцах, Москве и Кишиневе. Список городов постоянно растет.  Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях:</source>
-        <target state="new">Лектории проходят в Киеве, Харькове, Львове, Черновцах, Москве и Кишиневе. Список городов постоянно растет.  Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях:</target>
+        <target>Events are held in Kyiv, Kharkiv, Lviv, Chernivtsi, Moskow, Kishinew, Munich and many other places. The list of 15x4 locations constantly expands. You can learn more about our activities in your city by visiting 15x4 pages on social networks:</target>
         <jms:reference-file line="97">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7d46136deb9a670bc3effe9cdd8e81d1abbf74f" resname="Лекторы">
         <source>Лекторы</source>
-        <target>Lecturers</target>
+        <target>Lecturer</target>
         <jms:reference-file line="26">./app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dbe019bb9719e9d8ae381bb941153d114c141931" resname="Львов">
@@ -282,7 +282,7 @@
       </trans-unit>
       <trans-unit id="30b2ddaed65042d19c56a701ac9150c8486814e9" resname="Мы активно ищем людей, чтобы открывать лектории в новых городах. Так что если в твоем городе еще нет 15х4, но очень хочется, пиши нам.">
         <source>Мы активно ищем людей, чтобы открывать лектории в новых городах. Так что если в твоем городе еще нет 15х4, но очень хочется, пиши нам.</source>
-        <target state="new">Мы активно ищем людей, чтобы открывать лектории в новых городах. Так что если в твоем городе еще нет 15х4, но очень хочется, пиши нам.</target>
+        <target>We are actively searching for people to open our branches in new cities. So if 15x4 has not come to your city yet, but you really want it to happen - contact us.</target>
         <jms:reference-file line="173">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a2c30c152fd9e0c5adbe3c49f60b1e0ae510fce1" resname="Мы не требуем регалий и других формальных критериев">
@@ -302,22 +302,22 @@
       </trans-unit>
       <trans-unit id="8eb038109cfd39e4b2d74f300859548fc0a0ecfb" resname="Мы хотим, чтобы люди выступали и делились знаниями. Поэтому наш лекторий открыт для всех –независимо от ученой степени и опыта чтения лекций. Мы стараемся выдерживать баланс между лучшими лекторами и новыми лекторами. Работать с теми, кто ранее не выступал, одна из главных миссий проекта.">
         <source>Мы хотим, чтобы люди выступали и делились знаниями. Поэтому наш лекторий открыт для всех –независимо от ученой степени и опыта чтения лекций. Мы стараемся выдерживать баланс между лучшими лекторами и новыми лекторами. Работать с теми, кто ранее не выступал, одна из главных миссий проекта.</source>
-        <target state="new">Мы хотим, чтобы люди выступали и делились знаниями. Поэтому наш лекторий открыт для всех –независимо от ученой степени и опыта чтения лекций. Мы стараемся выдерживать баланс между лучшими лекторами и новыми лекторами. Работать с теми, кто ранее не выступал, одна из главных миссий проекта.</target>
+        <target>We want people to speak out and share the knowledge. That is why anyone can become our lecturer no matter what your scientific degree and lecturing experience is. We strive to provide the optimal balance between experienced lectures and new speakers. Creating the opportunity for those who have never taken the floor before is one of the major objectives of the project.</target>
         <jms:reference-file line="139">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7755cdbde8b67535b6210ebdf00c120580e4a4cd" resname="Например, сотрудничество">
         <source>Например, сотрудничество</source>
-        <target>For example collaboration</target>
+        <target>For example, collaboration</target>
         <jms:reference-file line="44">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="084bb128abd5e8e85be4fdb857f657c0592f931f" resname="Наши лекторы">
         <source>Наши лекторы</source>
-        <target>Our Lecturers</target>
+        <target>Our speakers</target>
         <jms:reference-file line="6">./app/Resources/views/category/lecturers.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f1d5fcab98e40e23086bc71a81c85c163cb9d8da" resname="Наши лучшие инженеры уже пытаются всё починить. Тем временем вы можете %s посмотреть случайную лекцию">
         <source>Наши лучшие инженеры уже пытаются всё починить. Тем временем вы можете %s посмотреть случайную лекцию</source>
-        <target>Our best engineers are already working to fix it. Meanwhile you can %s watch a random lecture</target>
+        <target>Our best engineers are already fixing it. Meanwhile you can %s watch a random talk</target>
         <jms:reference-file line="12">./app/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="886000e9549b0b15d264d64322d72bfe217cee76" resname="Не нравится">
@@ -339,7 +339,7 @@
       </trans-unit>
       <trans-unit id="21f8563b6545abc3bde25ec1014cb7d8e6e5d943" resname="О проекте">
         <source>О проекте</source>
-        <target>About the project</target>
+        <target>About us</target>
         <jms:reference-file line="19">./app/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1467726d96a487f365619976c7d2329f66614c46" resname="Основатель и глобальный координатор">
@@ -354,7 +354,7 @@
       </trans-unit>
       <trans-unit id="764dfcce6b573ed7f50f7d3d99d330f303d95bd9" resname="Оставьте первый комментарий">
         <source>Оставьте первый комментарий</source>
-        <target>Leave the first comment ever :3</target>
+        <target>Leave the first comment</target>
         <jms:reference-file line="13">./app/Resources/FOSCommentBundle/views/Thread/comment_new_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c6f4665b45af069aeeeb1d90cad131025ecbe8f8" resname="Ответить">
@@ -365,7 +365,7 @@
       </trans-unit>
       <trans-unit id="9aa407304db43114d502683eb9648b267274f4fb" resname="Открыть 15х4 в своём городе">
         <source>Открыть 15х4 в своём городе</source>
-        <target>Open 15х4 in your own city</target>
+        <target>Branch out 15х4 in your city</target>
         <jms:reference-file line="42">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="555ad1c0c33d26b34b5ca8bb38dfba4e2092df27" resname="Отменить">
@@ -380,7 +380,7 @@
       </trans-unit>
       <trans-unit id="ea5183f1146d264bafc5c1c3e0ee65036fd8fafb" resname="Перед событиями мы собираемся на репетиции. Это нужно, чтобы доклад и презентация получились лучше/короче/интересней. Также на репетиции можно посоветоваться о том, чтобы скорректировать тему или взять больше времени на подготовку. ">
         <source>Перед событиями мы собираемся на репетиции. Это нужно, чтобы доклад и презентация получились лучше/короче/интересней. Также на репетиции можно посоветоваться о том, чтобы скорректировать тему или взять больше времени на подготовку. </source>
-        <target state="new">Перед событиями мы собираемся на репетиции. Это нужно, чтобы доклад и презентация получились лучше/короче/интересней. Также на репетиции можно посоветоваться о том, чтобы скорректировать тему или взять больше времени на подготовку. </target>
+        <target>Before the event we get together for preparation. This is important for ensuring that reports and presentations will be better, shorter and more involving. The preparation gives you an opportunity to improve your topic or to get more time for developing the report.</target>
         <jms:reference-file line="142">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="33aae627e84c7202ecb3dc7bb04e68e60d7a3131" resname="Показаны элементы с %s по %s, из %s">
@@ -390,7 +390,7 @@
       </trans-unit>
       <trans-unit id="27c4523443f68b078491fc7d20b3842d424ade4c" resname="После входа вы сможете голосовать за лекции, оставлять комментарии, сохранять лекции в избранное - и многое другое">
         <source>После входа вы сможете голосовать за лекции, оставлять комментарии, сохранять лекции в избранное - и многое другое</source>
-        <target>After signing in you will be able to vote for lectures, leave comments, save lectures to favorites or favorite and more</target>
+        <target>After signing in you will be able to vote for talks, leave comments, save talks to favorites and much more</target>
         <jms:reference-file line="10">./app/Resources/HWIOAuthBundle/views/Connect/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1bc0670ecd600265754f62720d0d9a305066dad5" resname="Предыдущая">
@@ -415,14 +415,14 @@
       </trans-unit>
       <trans-unit id="92ac091eb064fd425072213d846230c2df844a1b" resname="Работа с лекторами">
         <source>Работа с лекторами</source>
-        <target>Working with lecturers</target>
+        <target>Working with speakers</target>
         <jms:reference-file line="117">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="156">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="314">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5857a9b480410c6f4acb197df95e467f0d4a8bbc" resname="Разработка сайта">
         <source>Разработка сайта</source>
-        <target>Website design</target>
+        <target>Website development</target>
         <jms:reference-file line="98">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="76c27ae8b1bfa95c72e7dea96a6ec0bc9e10aad1" resname="Связаться с нами">
@@ -442,7 +442,7 @@
       </trans-unit>
       <trans-unit id="39793f7f232f7cb84087621ec3e82d298d0ac6fd" resname="Случайная лекция">
         <source>Случайная лекция</source>
-        <target>Random lecture</target>
+        <target>Random talk</target>
         <jms:reference-file line="15">./app/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="81d257e5fea68b136b5f3c347efb47589d923d7e" resname="Смотреть обсуждение">
@@ -458,7 +458,7 @@
       </trans-unit>
       <trans-unit id="d98fc9313dbf76b46abc308fc35e1f59728fd168" resname="Стать лектором">
         <source>Стать лектором</source>
-        <target>To become a lecturer</target>
+        <target>To become a speaker</target>
         <jms:reference-file line="40">./app/Resources/views/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="255">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
@@ -502,7 +502,7 @@
       </trans-unit>
       <trans-unit id="8632080ace8fb283ea4145ed2caf49390fa8e394" resname="Что вас интересует?">
         <source>Что вас интересует?</source>
-        <target>What interests you?</target>
+        <target>What are you interested in?</target>
         <jms:reference-file line="37">./app/Resources/views/contacts.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3e769602a2a2d06d76b8c18694b04de292bee52b" resname="Что такое 15х4?">
@@ -513,7 +513,7 @@
       </trans-unit>
       <trans-unit id="861c6d442523385eef7b103936deb19ec83653d0" resname="Это сообщество и формат событий">
         <source>Это сообщество и формат событий</source>
-        <target state="new">Это сообщество и формат событий</target>
+        <target>It's a community and event format.</target>
         <jms:reference-file line="60">./app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a3c78bf7ff8063f04da0f7f16f7de8ff7a7cff53" resname="Этот сайт">
