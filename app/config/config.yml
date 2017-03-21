@@ -74,6 +74,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
+    from_email:
+        address: "team@15x4.org"
+        sender_name: "15x4 team
 
 hwi_oauth:
     http_client:

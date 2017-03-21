@@ -43,7 +43,7 @@ class AnnouncementType extends AbstractType
                 'label' => 'Маркер для карты',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => '(если не ввести, исопльзуется значение из предыдущего поля)',
+                    'placeholder' => '(если не ввести, используется значение из предыдущего поля)',
                 ]
             ])
             ->add('when', TextareaType::class, [
