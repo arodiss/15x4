@@ -58,6 +58,7 @@
                 <button data-city=7 type="button" class="btn btn-default">{{ 'Одесса' | trans }}</button>
                 <button data-city=8 type="button" class="btn btn-default">{{ 'Санкт-Петербург' | trans }}</button>
                 <button data-city=9 type="button" class="btn btn-default">{{ 'Самара' | trans }}</button>
+                <button data-city=10 type="button" class="btn btn-default">{{ 'Мюнхен' | trans }}</button>
             </div>
         </div>
     </div>
@@ -378,6 +379,46 @@
                     <a href="https://facebook.com/black.persey">fb</a>
                     <a href="https://vk.com/artemova.aleksandra">vk</a>
                     <a href="mailto:ao.artemova@mail.ru">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"volunteer":[10]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/az.jpg'
+                        filter='jpegoptim'
+                    %}
+                    <img src="{{ asset_url }}" alt="A. Zinoviev"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Алексей Зиновьев</div>
+                    <p class="small text-muted">{{ 'Координатор отделения' | trans }}, {{ 'Мюнхен' | trans }}</p>
+                    <a href="https://www.facebook.com/zinovev.aleksei">fb</a>
+                    <a href="https://vk.com/ash4ever">vk</a>
+                    <a href="mailto:munich@15x4.org">email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 contact" data-goals='{"lecturer":[10]}'>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% image
+                        '@AppBundle/Resources/public/images/contacts/razbakov.jpg'
+                        filter='jpegoptim'
+                    %}
+                    <img src="{{ asset_url }}" alt="A. Razbakov"/>
+                    {% endimage %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-name">Алексей Разбаков</div>
+                    <p class="small text-muted">{{ 'Работа с лекторами' | trans }}, {{ 'Мюнхен' | trans }}</p>
+                    <a href="https://fb.com/razbakov">fb</a>
+                    <a href="https://vk.com/razbakov">vk</a>
+                    <a href="mailto:razbakov@15x4.org">email</a>
                 </div>
             </div>
         </div>
