@@ -20,6 +20,10 @@ if (!$debug) {
 }
 
 $request = Request::createFromGlobals();
+// Some browsers have built-in reverse proxies
+// which send conflicting "FORWARDED" and "X-FORWARDED-FOR" headers
+// Thus have to distrust one of them
+Request::setTrustedHeaderName(Request::HEADER_FORWARDED, null);
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
