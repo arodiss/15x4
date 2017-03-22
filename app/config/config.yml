@@ -152,6 +152,6 @@ jms_translation:
         app:
             dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
             output_dir: %kernel.root_dir%/Resources/translations
-            ignored_domains: [routes]
+            ignored_domains: [routes, validators]
             excluded_names: ["*TestCase.php", "*Test.php"]
             excluded_dirs: [cache, data, logs]
