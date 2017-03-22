@@ -7,3 +7,10 @@ services:
           - '%kernel.default_locale%'
         tags:
             - { name: kernel.event_subscriber }
+
+    15x4.i18n_updater:
+        class: AppBundle\Translations\Updater
+        arguments:
+          - '@jms_translation.config_factory'
+          - '@jms_translation.updater'
+          - '%kernel.cache_dir%'
