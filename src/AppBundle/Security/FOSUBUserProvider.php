@@ -33,7 +33,8 @@ class FOSUBUserProvider extends VendorUserProvider
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         try {
-            return parent::loadUserByOAuthUserResponse($response);
+            $user =  parent::loadUserByOAuthUserResponse($response);
+            $user->updateFromOauthResponse($response);
         } catch (AccountNotLinkedException $e) {
             //persist user on first login
             $user = User::fromOAuthResponse($response);
@@ -45,10 +46,10 @@ class FOSUBUserProvider extends VendorUserProvider
                 $userTmp->setPictureUrl($user->getPictureUrl());
                 $user = $userTmp;
             }
-            $this->em->persist($user);
-            $this->em->flush();
-
-            return $user;
         }
+        $this->em->persist($user);
+        $this->em->flush();
+        
+        return $user;
     }
 } 
