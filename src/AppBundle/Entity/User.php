@@ -108,47 +108,58 @@ class User extends BaseUSer
         $user = new self;
         $user->setPassword('whatever');
         $user->setEnabled(true);
+        $user->updateFromOauthResponse($response);
+
+        return $user;
+    }
+
+    /**
+     * @param UserResponseInterface $response
+     * @throws \InvalidArgumentException
+     */
+    public function updateFromOauthResponse(UserResponseInterface $response)
+    {
         switch ($response->getResourceOwner()->getName()) {
             case 'facebook':
-                $user->setFacebookId($response->getResponse()['id']);
-                $user->setUsername('fb-' . $response->getResponse()['id']);
-                $user->setDisplayableName($response->getResponse()['name']);
+                $this->setFacebookId($response->getResponse()['id']);
+                $this->setUsername('fb-' . $response->getResponse()['id']);
+                $this->setDisplayableName($response->getResponse()['name']);
                 if (isset($response->getResponse()['email']) && $response->getResponse()['email']) {
-                    $user->setEmail($response->getResponse()['email']);
+                    $this->setEmail($response->getResponse()['email']);
                 } else {
-                    $user->setEmail('fb-no-email-' . md5(rand()) . '@example.com');
+                    $this->setEmail('fb-no-email-' . md5(rand()) . '@example.com');
                 }
-                $user->setPictureUrl($response->getResponse()['picture']['data']['url']);
+                $this->setPictureUrl($response->getResponse()['picture']['data']['url']);
                 break;
 
             case 'vkontakte':
                 $responseInner = $response->getResponse()['response'][0];
-                $user->setVkontakteId($responseInner['uid']);
-                $user->setUsername('vk-' . $responseInner['uid']);
-                $user->setDisplayableName($responseInner['first_name'] . ' ' . $responseInner['last_name']);
+                $this->setVkontakteId($responseInner['uid']);
+                $this->setUsername('vk-' . $responseInner['uid']);
+                $this->setDisplayableName($responseInner['first_name'] . ' ' . $responseInner['last_name']);
                 if ($response->getResponse()['email']) {
-                    $user->setEmail($response->getResponse()['email']);
+                    $this->setEmail($response->getResponse()['email']);
                 } else {
                     //in VK user can hide his email, but FOS treats email as mandatory
-                    $user->setEmail('vk-hidden-email-' . md5(rand()) . '@example.com');
+                    $this->setEmail('vk-hidden-email-' . md5(rand()) . '@example.com');
                 }
-                $user->setPictureUrl($responseInner['photo_medium']);
+                $this->setPictureUrl($responseInner['photo_medium']);
                 break;
 
             case 'twitter':
-                $user->setTwitterId($response->getResponse()['id']);
-                $user->setUsername('twitter-' . $response->getResponse()['id']);
-                $user->setDisplayableName($response->getResponse()['name']);
-                $user->setEmail('twitter-email-' . md5(rand()) . '@example.com');
-                $user->setPictureUrl($response->getResponse()['profile_image_url']);
+                $this->setTwitterId($response->getResponse()['id']);
+                $this->setUsername('twitter-' . $response->getResponse()['id']);
+                $this->setDisplayableName($response->getResponse()['name']);
+                $this->setEmail('twitter-email-' . md5(rand()) . '@example.com');
+                $this->setPictureUrl($response->getResponse()['profile_image_url']);
                 break;
 
             case 'google':
-                $user->setGoogleId($response->getResponse()['id']);
-                $user->setUsername('google-' . $response->getResponse()['id']);
-                $user->setDisplayableName($response->getResponse()['name']);
-                $user->setEmail($response->getResponse()['email']);
-                $user->setPictureUrl($response->getResponse()['picture']);
+                $this->setGoogleId($response->getResponse()['id']);
+                $this->setUsername('google-' . $response->getResponse()['id']);
+                $this->setDisplayableName($response->getResponse()['name']);
+                $this->setEmail($response->getResponse()['email']);
+                $this->setPictureUrl($response->getResponse()['picture']);
                 break;
 
             default:
@@ -156,8 +167,6 @@ class User extends BaseUSer
                     sprintf('Resource owner `%` is not supported', $response->getResourceOwner()->getName())
                 );
         }
-
-        return $user;
     }
 
     /** @param int $facebookId */
