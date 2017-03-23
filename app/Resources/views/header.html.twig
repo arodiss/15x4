@@ -1,14 +1,14 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-md-1">
+            <div class="col-lg-1">
                 <a href="{{ path("Landing") }}">
                     {% image '@AppBundle/Resources/public/images/logo.png' %}
                         <img src="{{ asset_url }}" alt="Logo" style="width: 70px;"/>
                     {% endimage %}
                 </a>
             </div>
-            <div class="col-md-10" style="font-size: 75%;">
+            <div class="col-lg-9" style="font-size: 75%;">
                 <b>15x4 — Share Your Knowledge!</b>
                 <div class="small text-muted">
                     {{ '15х4 — это движение молодых ученых и фанатов науки.' | trans }}
@@ -17,7 +17,17 @@
                     {{ 'Мы хотим, чтобы люди выступали и делились знаниями.' | trans }}
                 </div>
             </div>
-            <div class="col-md-1 social-icons" style="font-size: 70.3%;">
+            <div class="col-lg-2 social-icons" style="font-size: 70.3%;">
+                <a
+                        href="https://www.youtube.com/channel/UCMAr-94KkdtiSqHoRJCPK1Q"
+                        target="_blank"
+                        style="font-size: 210%;"
+                >
+                    <span class="fa-stack pull-right">
+                        <i class="fa fa-youtube fa-stack-1x"></i>
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                    </span>
+                </a>
                 <a href="https://vk.com/15x4talks" target="_blank">
                     <span class="fa-stack pull-right">
                         <i class="fa fa-vk fa-stack-1x"></i>
@@ -43,7 +53,7 @@
                     </span>
                 </a>
             </div>
-            <div class="col-md-0">
+            <div class="col-lg-0">
                 <img id="avatar" class="hide" style="border-radius: 35px; height: 70px; width: 70px;" src="" alt="Avatar"/>
             </div>
         </div>
