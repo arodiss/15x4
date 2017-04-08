@@ -147,6 +147,14 @@ fos_comment:
             edit: ROLE_ADMIN
             delete: ROLE_ADMIN
 
+fos_rest:
+    view:
+        templating_formats:
+            html: false
+    format_listener:
+        rules:
+            fallback_format: json
+
 jms_translation:
     configs:
         app:
