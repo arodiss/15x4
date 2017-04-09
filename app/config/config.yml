@@ -24,7 +24,7 @@ framework:
     fragments:       ~
     http_method_override: true
     assets:
-        version: "0.1"
+        version: "0.1.1"
 
 twig:
     globals:
@@ -146,14 +146,6 @@ fos_comment:
             view: IS_AUTHENTICATED_ANONYMOUSLY
             edit: ROLE_ADMIN
             delete: ROLE_ADMIN
-
-fos_rest:
-    view:
-        templating_formats:
-            html: false
-    format_listener:
-        rules:
-            fallback_format: json
 
 jms_translation:
     configs:

@@ -2,7 +2,7 @@
     <label for='select-field'>
         {{ 'Область' | trans }}:
     </label>
-    <select id="select-field" multiple>
+    <select id="select-field" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
         {% for field in availableFields %}
             <option value="{{ field.id }}">{{ field.name }}</option>
         {% endfor %}
@@ -21,7 +21,7 @@
     <label for='select-tag'>
         {{ 'Теги' | trans }}:
     </label>
-    <select id="select-tag" multiple>
+    <select id="select-tag" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
         {% for tag in availableTags %}
             <option value="{{ tag.id }}">{{ tag.name }}</option>
         {% endfor %}
@@ -40,7 +40,7 @@
     <label for='select-lecturer'>
         {{ 'Лектор'}}:
     </label>
-    <select id="select-lecturer" multiple>
+    <select id="select-lecturer" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
         {% for lecturer in availableLecturers %}
             <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
         {% endfor %}
@@ -60,7 +60,7 @@
     <label for='select-event'>
         {{ 'Встреча' | trans }}:
     </label>
-    <select id="select-event" multiple>
+    <select id="select-event" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
         {% for event in availableEvents %}
             <option value="{{ event.id }}">{{ event.city_name }}, {{ event.date | date }}</option>
         {% endfor %}
