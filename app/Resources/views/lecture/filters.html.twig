@@ -1,6 +1,6 @@
 <div class="col-sm-3">
     <label for='select-field'>
-        Область:
+        {{ 'Область' | trans }}:
     </label>
     <select id="select-field" multiple>
         {% for field in availableFields %}
@@ -19,7 +19,7 @@
 
 <div class="col-sm-3">
     <label for='select-tag'>
-        Теги:
+        {{ 'Теги' | trans }}:
     </label>
     <select id="select-tag" multiple>
         {% for tag in availableTags %}
@@ -38,7 +38,7 @@
 
 <div class="col-sm-3">
     <label for='select-lecturer'>
-        Лектор:
+        {{ 'Лектор'}}:
     </label>
     <select id="select-lecturer" multiple>
         {% for lecturer in availableLecturers %}
@@ -58,7 +58,7 @@
 
 <div class="col-sm-3">
     <label for='select-event'>
-        Встреча:
+        {{ 'Встреча' | trans }}:
     </label>
     <select id="select-event" multiple>
         {% for event in availableEvents %}
