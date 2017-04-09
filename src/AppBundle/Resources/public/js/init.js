@@ -26,7 +26,7 @@ $(function() {
 
     $('.tooltip-toggle').tooltip();
 
-    $('.carousel').carousel({'interval': 50000000})
+    $('.carousel').carousel({'interval': 50000000});
 
     $(".flash").fadeOut(2000);
 
@@ -34,9 +34,13 @@ $(function() {
         return confirm('Вы точно хотите удаить это?');
     });
 
-    $('.selectizable').selectize({
-        placeholder: 'Выбрать ...'
-    });
+    window.selectize = function() {
+        $('.selectizable').selectize({
+            placeholder: $(this).data('selectize-placeholder') || 'Выбрать ...'
+        });
+        $('.selectizable').removeClass('selectizable');
+    };
+    selectize();
 
     Array.prototype.removeValue = function (value) {
         if (this.indexOf(value) !== -1) {
@@ -54,11 +58,11 @@ $(function() {
         } else {
             this.removeValue(value);
         }
-    }
+    };
 
     Array.prototype.intersects = function (otherArray) {
         return this.filter(function(valueFromThis) {
             return otherArray.indexOf(valueFromThis) != -1;
         }).length > 0;
-    }
+    };
 });

@@ -1,11 +1,4 @@
 <script type="text/javascript">
-    function selectize() {
-        $('.selectizable').selectize({
-            placeholder: 'Выбрать ...'
-        });
-        $('.selectizable').removeClass('selectizable');
-    }
-
     function decorateLectures($parentNode) {
         var lectures = $parentNode.find('> .form-group').not('.decorated');
 
@@ -29,7 +22,6 @@
     $('.lectures').each(function () {
         decorateLectures($(this));
     });
-    selectize();
 
     $('#add-lecture').click(function () {
         var lecturesNode = $('form').find('.lectures'),

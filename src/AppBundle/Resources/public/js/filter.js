@@ -85,17 +85,18 @@ $(function () {
         //we need to encapsulate filterConfig, so use an anonymous function
         (function () {
             var filterConfig = filters[i];
+            var select = $('#select-' + filterConfig.singular);
 
             $('.remove-' + filterConfig.singular).click(function () {
                 removeUrlElement(filterConfig.plural, $(this).data('id'));
             });
-            $('#select-' + filterConfig.singular).selectize({
-                placeholder: 'Выбрать ...',
+            select.selectize({
+                placeholder: select.data('selectize-placeholder') || 'Выбрать ...',
                 'onItemAdd': function (id) {
                     addUrlElement(filterConfig.plural, id);
                 }
             });
-        })()
+        })();
     }
 
     $('#toggle-filters')
