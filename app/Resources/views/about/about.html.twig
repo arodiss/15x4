@@ -98,22 +98,15 @@
                 <div class="col-lg-12">
                     <div>
                         <p>
-                            {{ 'Лектории проходят в Киеве, Харькове, Львове, Черновцах, Москве и Кишиневе. Список городов постоянно растет.  Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях:' | trans }}
+                            {{ 'Наши лектории проходят в России, Украине, Молдове и Германии - всего открыто больше 20 отделений, и  список постоянно растёт' | trans }}.
+                            <br/>
+                            {{ 'Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях' | trans }}:
                             <ul>
                                 <li>
-                                    {{ 'Харьков' | trans }}: <a href="https://vk.com/15x4kh">Vkontakte</a> {{ 'и' | trans }} <a href="https://fb.com/15x4kh">Facebook</a>.
+                                    <a href="https://vk.com/15x4talks">Vkontakte</a>
                                 </li>
                                 <li>
-                                    {{ 'Киев' | trans }}: <a href="https://vk.com/15x4kyiv">Vkontakte</a> {{ 'и' | trans }} <a href="https://fb.com/15x4kyiv">Facebook</a>.
-                                </li>
-                                <li>
-                                    {{ 'Львов' | trans }}: <a href="https://vk.com/15x4lviv">Vkontakte</a> {{ 'и' | trans }} <a href="https://fb.com/15x4lviv">Facebook</a>.
-                                </li>
-                                <li>
-                                    {{ 'Москва' | trans }}: <a href="https://vk.com/15x4msk">Vkontakte</a> {{ 'и' | trans }} <a href="https://fb.com/15x4msk">Facebook</a>.
-                                </li>
-                                <li>
-                                    {{ 'Черновцы' | trans }}: <a href="https://vk.com/15x4chernivtsi">Vkontakte</a> {{ 'и' | trans }} <a href="https://fb.com/15x4chernivtsi">Facebook</a>.
+                                    <a href="https://fb.com/15x4talks">Facebook</a>
                                 </li>
                             </ul>
                         </p>
@@ -146,7 +139,11 @@
                             {{ 'Перед событиями мы собираемся на репетиции. Это нужно, чтобы доклад и презентация получились лучше/короче/интересней. Также на репетиции можно посоветоваться о том, чтобы скорректировать тему или взять больше времени на подготовку. ' | trans }}
                         </p>
                         <p>
-                            {{ 'Если в твоем городе уже есть лекторий 15х4, найди свой город здесь и напиши координатору. ' | trans }}
+                            {{ 'Если в твоем городе уже есть лекторий 15х4, найди свой город %sздесь%s и напиши координатору. '
+                                | trans
+                                | format('<a href="' ~ path('Contacts') ~ '">', '</a>')
+                                | raw
+                            }}
                         </p>
                     </div>
                 </div>
@@ -158,7 +155,7 @@
         <div class="container">
             <div class="jumbotron">
                 <div class="row">
-                    <div class="col-lg-8">В
+                    <div class="col-lg-8">
                         <h2>{{ 'Как стать волонтёром?' | trans }}</h2>
                         <h4>{{ 'Делай мир лучше вместе с нами' | trans }}</h4>
                     </div>
