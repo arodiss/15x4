@@ -34,6 +34,8 @@ $(function() {
         return confirm('Вы точно хотите удаить это?');
     });
 
+    particlesJS.load('particles', '/bundles/app/js/particles.json');
+
     window.selectize = function() {
         $('.selectizable').selectize({
             placeholder: $(this).data('selectize-placeholder') || 'Выбрать ...'
