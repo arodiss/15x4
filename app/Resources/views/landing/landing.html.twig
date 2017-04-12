@@ -16,14 +16,12 @@
     </table>
 
     <table class="table table-responsive noborders">
-        {% for event in recentEvents %}
-            <tr>
-                {% for lecture in event.lectures | head(4) %}
-                    <td style="width: 25%; border-style: none;">
-                        {% include 'shared/lecture-plate.html.twig' %}
-                    </td>
-                {% endfor %}
-            </tr>
+        {% for lecture in recent_lectures %}
+            {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
+            <td style="width: 25%; border-style: none;">
+                {% include 'shared/lecture-plate.html.twig' %}
+            </td>
+            {% if (loop.index0 + 1) is divisible by(4) %}</tr>{% endif %}
         {% endfor %}
     </table>
 

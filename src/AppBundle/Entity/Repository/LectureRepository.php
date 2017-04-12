@@ -71,6 +71,23 @@ class LectureRepository extends AbstractRepository
         ;
     }
 
+    /**
+     * @param int $number
+     * @return Entity\Lecture[]
+     */
+    public function findRecent($number)
+    {
+        $qb = $this->createQueryBuilder('lecture');
+
+        return $qb
+            ->setMaxResults($number)
+            ->innerJoin('lecture.event', 'event')
+            ->orderBy('event.created', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /** @return \Doctrine\ORM\QueryBuilder */
     public function getAdminQb()
     {
