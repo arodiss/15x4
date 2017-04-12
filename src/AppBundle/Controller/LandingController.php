@@ -17,7 +17,7 @@ class LandingController extends AbstractController
             [
                 'cities' => $this->getCityRepository()->findForLanding(),
                 'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
-                'recentEvents' => $this->getEventRepository()->findRecent(4),
+                'recent_lectures' => $this->getLectureRepository()->findRecent(16),
             ]
         );
     }
