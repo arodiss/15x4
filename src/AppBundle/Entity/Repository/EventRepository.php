@@ -30,13 +30,24 @@ class EventRepository extends AbstractRepository
     {
         $qb = $this->createQueryBuilderWithExcludeIds($excludeIds);
 
-        return $qb
+        $events = $qb
             ->innerJoin('entity.city', 'city')
             ->select('entity.id, entity.date, city.name AS city_name')
-            ->orderBy('entity.date', 'DESC')
+            ->addOrderBy('city_name', 'ASC')
+            ->addOrderBy('entity.date', 'DESC')
             ->getQuery()
             ->getArrayResult()
         ;
+        
+        $eventsGrouped = [];
+        foreach ($events as $event) {
+            if (false === isset($eventsGrouped[$event['city_name']])) {
+                $eventsGrouped[$event['city_name']] = [];
+            }
+            $eventsGrouped[$event['city_name']][] = $event;
+        }
+
+        return $eventsGrouped;
     }
 
     /** @return \Doctrine\ORM\QueryBuilder */

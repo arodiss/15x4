@@ -61,8 +61,12 @@
         {{ 'Встреча' | trans }}:
     </label>
     <select id="select-event" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-        {% for event in availableEvents %}
-            <option value="{{ event.id }}">{{ event.city_name }}, {{ event.date | date }}</option>
+        {% for city, events in availableEvents %}
+            <optgroup label="{{ city }}">
+                {% for event in events %}
+                    <option value="{{ event.id }}">{{ event.city_name }}, {{ event.date | date }}</option>
+                {% endfor %}
+            </optgroup>
         {% endfor %}
     </select>
     {% for event in selectedEvents %}
