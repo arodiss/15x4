@@ -4,25 +4,25 @@
 }
 
 footer {
-    border-top: 3px solid black;
+    border-top: 3px solid #1b1b1b;
     padding-top: 12px;
     padding-bottom: 6px;
     background: white;
-    color: black;
+    color: #1b1b1b;
     line-height: 100%;
     font-size: 13px;
 }
 
 header {
     position: relative;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: left;
     font-size: 24px;
 }
 
 footer a {
-    color: black;
+    color: #1b1b1b;
     text-decoration: underline;
 }
 
@@ -31,11 +31,11 @@ footer a:hover {
 }
 
 a .glyphicon {
-    color: black;
+    color: #1b1b1b;
 }
 
 a:hover .glyphicon {
-    color: gray;
+    color: #666;
 }
 
 .jumbotron {
@@ -46,17 +46,17 @@ a:hover .glyphicon {
 }
 
 .navbar {
-    margin: 14px;
     background: white;
     text-transform: uppercase;
     border-bottom: 1px solid black;
     border-left: none;
     border-right: none;
     border-radius: 0;
+    font-size: 110%;
 }
 
 .nav.navbar-nav > li > a {
-    color: #2b2b2b;
+    color: #1b1b1b;
 }
 
 .nav.navbar-nav > li > a:hover {
@@ -164,6 +164,10 @@ h3:not(.anchor) {
 .well.well-no-margin {
     margin-bottom: 0!important;
 }
+
+.glyphicon.active {
+    color: orangered;
+}
 /*end generic styles*/
 
 /*carousel styles*/
@@ -196,6 +200,7 @@ h3:not(.anchor) {
 }
 /*end tag cloud styles*/
 
+/* login styles */
 .btn-login {
     width: 100%;
     margin-bottom: 20px;
@@ -206,7 +211,4 @@ h3:not(.anchor) {
 .btn-login:hover {
     opacity: 0.8;
 }
-
-.glyphicon.active {
-    color: orangered;
-}
+/*end login styles*/
