@@ -46,15 +46,36 @@ class LocaleSubscriber implements EventSubscriberInterface
     public function setLocale(GetResponseEvent $event)
     {
         $request = $event->getRequest();
+
         if ($request->attributes->get('_route') === 'SetLanguage') {
             return;
         }
-        if (false === $request->hasPreviousSession() && false == $this->tokenStorage->getToken()) {
-            return;
-        }
+
+        $locale = $this->defaultLocale;
         if ($this->tokenStorage->getToken() && $this->authorizationChecker->isGranted('ROLE_USER')) {
-            $request->getSession()->set('locale', $this->tokenStorage->getToken()->getUser()->getLanguage());
+            $locale = $this->tokenStorage->getToken()->getUser()->getLanguage();
+        } else {
+            foreach ($request->getLanguages() as $browserLanguage) {
+                if (substr(strtolower($browserLanguage), 0, 2) === 'en') {
+                    $locale = 'en';
+                    break;
+                }
+                if (substr(strtolower($browserLanguage), 0, 2) === 'de') {
+                    $locale = 'de';
+                    break;
+                }
+                if (substr(strtolower($browserLanguage), 0, 2) === 'uk') {
+                    $locale = 'uk';
+                    break;
+                }
+                if (substr(strtolower($browserLanguage), 0, 2) === 'ru') {
+                    $locale = 'ru';
+                    break;
+                }
+            }
         }
-        $request->setLocale($request->getSession()->get('locale', $this->defaultLocale));
+
+        $request->getSession()->set('locale', $locale);
+        $request->setLocale($locale);
     }
 }
