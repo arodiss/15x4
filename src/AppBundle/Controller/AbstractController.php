@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Repository;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class AbstractController extends Controller
 {
@@ -60,5 +61,11 @@ class AbstractController extends Controller
     protected function getEm()
     {
         return $this->get("doctrine.orm.entity_manager");
+    }
+
+    /** @return TranslatorInterface */
+    protected function getTranslator()
+    {
+        return $this->get("translator");
     }
 } 

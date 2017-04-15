@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block content %}
+    <h1 class="text-center">{{ event }}</h1>
+    <h2 class="text-center">{{ 'Зарегестрироваться на встречу' | trans }}</h2>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="hide">{{ form_row(form.announcement) }}</div>
+            {{ form_row(form.name) }}
+            <div id="extra" class="btn btn-default">{{ 'Я буду не один' | trans }}</div>
+            <div class="hide">
+                {{ form_row(form.extra) }}
+            </div>
+        </div>
+        <div class="col-md-6" style="border-left: 1px solid #1b1b1b;">
+            <div id="volunteer" class="btn btn-default">{{ 'Я хочу поучаствовать в проекте' | trans }}!</div>
+            <div class="hide">
+                {{ form_row(form.contact) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <input class="btn btn-default" type="submit" value="{{ "Запишите меня!" | trans }}"/>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(function () {
+            $('#volunteer').click(function () {
+                $(this).hide();
+                $(this).next().removeClass('hide');
+            });
+
+            $('#extra').click(function () {
+                $(this).hide();
+                $(this).next().removeClass('hide');
+            });
+        });
+    </script>
+{% endblock %}

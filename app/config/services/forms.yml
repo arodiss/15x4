@@ -1,1 +1,7 @@
-services: ~
+services:
+    form.type.sign_up:
+        class: AppBundle\Form\SignUpType
+        arguments:
+            - '@security.token_storage'
+        tags:
+            - { name: form.type }

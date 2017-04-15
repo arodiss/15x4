@@ -44,10 +44,22 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <p class="form-inline event-sign-up" data-event-id="{{ city.nextAnnouncement.id }}" style="font-style: italic;">
-            </p>
+            {% if city.nextAnnouncement.registerable %}
+                {% if city.nextAnnouncement.hasFreeTickets() %}
+                    {{ '%sЗарегистрируйтесь%s, пока ещё есть места'
+                        | trans
+                        | format(
+                            '<a href="' ~ path('SignUpForEvent', { 'id': city.nextAnnouncement.id }) ~ '">',
+                            '</a>'
+                        )
+                        | raw
+                    }}
+                {% else %}
+                    {{ 'К сожалению, свободных мест для регистрации нет. Вы можете приходить, но мы не обещаем вам сидячее место' | trans }}
+                {% endif %}
+            {% else %}
+                {{ 'Регистрация не требуется' | trans }}
+            {% endif %}
         </div>
     </div>
-
-    {% include "landing/sign-up.html.twig" %}
 </div>

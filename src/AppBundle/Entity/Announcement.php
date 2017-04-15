@@ -93,6 +93,15 @@ class Announcement
         $this->lectures = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return sprintf(
+            '%s, %s',
+            $this->getCity(),
+            $this->getDate()->format('d.m.Y')
+        );
+    }
+
     /** @return int */
     public function getId()
     {
@@ -184,7 +193,6 @@ class Announcement
     {
         return $this->lectures;
     }
-
 
     /**
      * @param string $name

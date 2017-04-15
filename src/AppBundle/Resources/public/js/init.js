@@ -28,7 +28,7 @@ $(function() {
 
     $('.carousel').carousel({'interval': 50000000});
 
-    $(".flash").fadeOut(2000);
+    $(".flash").fadeOut(4000);
 
     $('a.delete').click(function () {
         return confirm('Вы точно хотите удаить это?');
