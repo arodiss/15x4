@@ -54,6 +54,8 @@ class LocaleSubscriber implements EventSubscriberInterface
         $locale = $this->defaultLocale;
         if ($this->tokenStorage->getToken() && $this->authorizationChecker->isGranted('ROLE_USER')) {
             $locale = $this->tokenStorage->getToken()->getUser()->getLanguage();
+        } elseif ($request->hasPreviousSession() && $request->getSession()->has('locale')) {
+            $locale = $request->getSession()->get('locale');
         } else {
             foreach ($request->getLanguages() as $browserLanguage) {
                 if (substr(strtolower($browserLanguage), 0, 2) === 'en') {
