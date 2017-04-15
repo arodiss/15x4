@@ -83,6 +83,11 @@ class Lecture
     protected $tags;
 
     /**
+     * @ORM\Column(name="language", type="string", length=3, nullable=false, options={"default": "ru"})
+     */
+    protected $language;
+
+    /**
      * @ORM\Column(name="random_rating", type="integer", nullable=false)
      */
     protected $randomRating = 500;
@@ -192,6 +197,18 @@ class Lecture
     public function getDate()
     {
         return $this->getEvent()->getDate();
+    }
+
+    /** @return string */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /** @param string $language */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
     }
 
     /** @return Field */

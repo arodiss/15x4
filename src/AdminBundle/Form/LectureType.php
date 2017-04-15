@@ -6,6 +6,7 @@ use AppBundle\Entity\Event;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -31,6 +32,20 @@ class LectureType extends AbstractType
                 'field',
                 EntityType::class,
                 ['label' => 'Дисциплина', 'class' => Entity\Field::class, 'choice_label' => 'name']
+            )
+            ->add(
+                'language',
+                ChoiceType::class,
+                [
+                    'label' => 'Язык',
+                    'choices' => [
+                        'Русский' => 'ru',
+                        'Английский' => 'en',
+                        'Украинский' => 'uk',
+                        'Немецкий' => 'de',
+                        'Румынский' => 'ro',
+                    ]
+                ]
             )
             ->add(
                 'lecturer',
