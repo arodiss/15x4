@@ -34,16 +34,6 @@
     </div>
 {% endblock %}
 
-{% block scripts %}
-    {{ parent() }}
-
-    {% javascripts
-        '@AppBundle/Resources/public/js/sign-up.js'
-    %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endblock %}
-
 {% block styles %}
     {{ parent() }}
 
