@@ -48,7 +48,12 @@ class LectureRepository extends AbstractRepository
     public function getRandom()
     {
         $ids = array_column(
-            $this->createQueryBuilder('lecture')->select('lecture.id')->getQuery()->getArrayResult(),
+            $this
+                ->createQueryBuilder('lecture')
+                ->select('lecture.id')
+                ->where('lecture.isFeatured = 1')
+                ->getQuery()
+                ->getArrayResult(),
             'id'
         );
 
