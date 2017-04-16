@@ -79,12 +79,8 @@ class LectureType extends AbstractType
                             ->orderBy('tag.name', 'ASC');
                     }
                 ]
-            )
-            ->add(
-                'is_featured',
-                CheckboxType::class,
-                ['label' => 'Рекомендованная лекция', 'required' => false]
             );
+
 
             if ($options['is_standalone']) {
                 $builder
