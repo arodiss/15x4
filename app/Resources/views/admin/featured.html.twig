@@ -1,18 +1,26 @@
 {% extends "admin/layout.html.twig" %}
 
-{% block admin_content %}
-    <div class="row">
-        <div class="col-lg-6">
-            <h2>
-                Рекомендованые лекции
-            </h2>
-        </div>
-        <div class="col-lg-2">
-            <h2 class="pull-right text-muted" style="font-size: 140%;">
-                Добавить:
-            </h2>
-        </div>
-        <div class="col-lg-4" style="position: relative; bottom: -12px;">
+{% block admin_header %}
+
+    <h2>
+        Рекомендованые лекции
+    </h2>
+    <div class="alert alert-info" role="alert">
+        <p>Рекомендованные лекции — это лучшие лекции 15х4, которые мы хотим показать гостю в первую очередь.</p>
+        <p>Рекомендованные лекции показываются в специальном блоке на главной странице и при выборе случайной лекции.</p>
+        <p>Мы считаем, что в "рекомендованные" должны попадать 10-15% от общего количества лекций.</p>
+        <p>
+            Количество рекомендованных лекций:
+            {{ featured_lectures | length }}/{{ (unfeatured_lectures | length) + (featured_lectures | length) }}
+            (<b>{{ (100 * featured_lectures|length  / (featured_lectures|length + unfeatured_lectures|length)) | round }}%</b>)
+        </p>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 control-label" for="enfeature">
+            Добавить новую лекцию в рекомендованные
+        </label>
+        <div class="col-sm-8">
             <select id="enfeature" multiple>
                 {% for lecture in unfeatured_lectures %}
                     <option value="{{ lecture.id }}">{{ lecture.title }} ({{ lecture.event.city }})</option>
@@ -20,6 +28,9 @@
             </select>
         </div>
     </div>
+{% endblock %}
+
+{% block admin_content %}
     <table class="table table-hover table-striped">
         <thead>
         <tr>
