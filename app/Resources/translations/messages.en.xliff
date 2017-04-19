@@ -174,7 +174,7 @@
       </trans-unit>
       <trans-unit id="46dff034a662d958da98e4029d0d6b21606daf90" resname="Города">
         <source>Города</source>
-        <target>Locations</target>
+        <target>Cities</target>
         <jms:reference-file line="25">/home/arodiss/projects/15x4/app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b2db0ae9ee6942fb91ae48de591170c3c11ef1ab" resname="Давайте делать мир лучше вместе!">
@@ -351,7 +351,7 @@
       </trans-unit>
       <trans-unit id="e7d46136deb9a670bc3effe9cdd8e81d1abbf74f" resname="Лекторы">
         <source>Лекторы</source>
-        <target>Lecturer</target>
+        <target>Lecturers</target>
         <jms:reference-file line="26">/home/arodiss/projects/15x4/app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ae9ac0a2ea8f5b11b7d08f7c8db1726ba35abd0c" resname="Лекции">

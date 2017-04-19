@@ -12,6 +12,10 @@ class AbstractRepository extends EntityRepository
      */
     public function findByIds(array $ids)
     {
+        if (empty($ids)) {
+            return [];
+        }
+        
         $qb = $this->createQueryBuilder('entity');
 
         return $qb

@@ -47,6 +47,7 @@ class LectureController extends AbstractController
         $eventIds = explode(',', $request->get('events', ''));
         $fieldIds = explode(',', $request->get('fields', ''));
         $lecturerIds = explode(',', $request->get('lecturers', ''));
+        $languages = array_filter(explode(',', $request->get('langs', '')));
 
         $tags = $this->getTagRepository()->findByIds($tagIds);
         $events = $this->getEventRepository()->findByIds($eventIds);
@@ -57,7 +58,7 @@ class LectureController extends AbstractController
             'lecture/list.html.twig',
             [
                 'pagination' => $this->getPager()->paginate(
-                    $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers),
+                    $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers, $languages),
                     $request->get('page', 1),
                     40
                 ),
@@ -70,6 +71,7 @@ class LectureController extends AbstractController
                 'availableFields' => $this->getFieldRepository()->findForFilter($fieldIds),
                 'selectedLecturers' => $lecturers,
                 'availableLecturers' => $this->getLecturerRepository()->findForFilter($lecturerIds),
+                'selectedLangs' => $languages
             ]
         );
     }

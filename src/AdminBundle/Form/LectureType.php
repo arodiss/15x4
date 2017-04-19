@@ -43,7 +43,7 @@ class LectureType extends AbstractType
                         'Английский' => 'en',
                         'Украинский' => 'uk',
                         'Немецкий' => 'de',
-                        'Румынский' => 'ro',
+                        'Română' => 'ro',
                     ]
                 ]
             )

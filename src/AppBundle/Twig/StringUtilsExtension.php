@@ -15,6 +15,7 @@ class StringUtilsExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFilter('cut', [$this, 'cut']),
+            new \Twig_SimpleFilter('humanize_language', [$this, 'humanizeLanguage']),
         ];
     }
 
@@ -29,5 +30,27 @@ class StringUtilsExtension extends \Twig_Extension
             ? mb_substr($string, 0, $length - 4) . " ..."
             : $string
         ;
+    }
+
+    /**
+     * @param string $languageCode
+     * @return string
+     */
+    public static function humanizeLanguage($languageCode)
+    {
+        switch ($languageCode) {
+            case "ru":
+                return "Русский";
+            case "uk":
+                return "Українська";
+            case "en":
+                return "English";
+            case "de":
+                return "Deutsch";
+            case "ro":
+                return "Română";
+            default:
+                throw new \InvalidArgumentException(sprintf('Cannot humanize language code "%s"', $languageCode));
+        }
     }
 }
