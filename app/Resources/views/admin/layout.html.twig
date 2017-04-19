@@ -4,12 +4,14 @@
 {% endif %}
 
 {% block content %}
-    <h1>Вы находитесь в админке</h1>
-    <div class="alert alert-warning" role="alert">
-        <p><strong>Это значит, что вы можете поломать этот сайт</strong></p>
-        <p>Пожалуйста, будьте аккуратны и проверяйте данные, перед тем как загрузить их</p>
-    </div>
-    {% block admin_hint%}{% endblock %}
+    {% block admin_header %}
+        <h1>Вы находитесь в админке</h1>
+        <div class="alert alert-warning" role="alert">
+            <p><strong>Это значит, что вы можете поломать этот сайт</strong></p>
+            <p>Пожалуйста, будьте аккуратны и проверяйте данные, перед тем как загрузить их</p>
+        </div>
+    {% endblock %}
+    {% block admin_hint %}{% endblock %}
     <hr/>
     <div class="row">
         {% block admin_content %}
