@@ -11,10 +11,16 @@ class LectureRepository extends AbstractRepository
      * @param array $tags
      * @param array $events
      * @param array $lecturers
+     * @param array $langs
      * @return \Doctrine\ORM\Query
      */
-    public function findByFilters(array $fields = [], array $tags = [], array $events = [], array $lecturers = [])
-    {
+    public function findByFilters(
+        array $fields = [],
+        array $tags = [],
+        array $events = [],
+        array $lecturers = [],
+        array $langs = []
+    ) {
         $qb = $this
             ->createQueryBuilder('lecture')
             ->innerJoin('lecture.event', 'event')
@@ -39,6 +45,9 @@ class LectureRepository extends AbstractRepository
         }
         if ($lecturers) {
             $qb->andWhere($qb->expr()->in('lecture.lecturer', array_map($idGetter, $lecturers)));
+        }
+        if ($langs) {
+            $qb->andWhere($qb->expr()->in('lecture.language', $langs));
         }
 
         return $qb->getQuery();

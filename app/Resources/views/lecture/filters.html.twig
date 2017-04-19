@@ -1,80 +1,101 @@
-<div class="col-sm-3">
-    <label for='select-field'>
-        {{ 'Область' | trans }}:
-    </label>
-    <select id="select-field" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-        {% for field in availableFields %}
-            <option value="{{ field.id }}">{{ field.name }}</option>
+<div id="lecture-filters" class="row hide">
+    <div class="col-sm-3">
+        <label for='select-field'>
+            {{ 'Область' | trans }}:
+        </label>
+        <select id="select-field" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
+            {% for field in availableFields %}
+                <option value="{{ field.id }}">{{ field.name }}</option>
+            {% endfor %}
+        </select>
+        {% for field in selectedFields %}
+            <div class="well well-sm well-no-margin">
+                {{ field }}
+                <span class="pull-right">
+                    <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
+                </span>
+            </div>
         {% endfor %}
-    </select>
-    {% for field in selectedFields %}
-        <div class="well well-sm well-no-margin">
-            {{ field }}
-            <span class="pull-right">
-                <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
-            </span>
-        </div>
-    {% endfor %}
-</div>
+    </div>
 
-<div class="col-sm-3">
-    <label for='select-tag'>
-        {{ 'Теги' | trans }}:
-    </label>
-    <select id="select-tag" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-        {% for tag in availableTags %}
-            <option value="{{ tag.id }}">{{ tag.name }}</option>
+    <div class="col-sm-3">
+        <label for='select-lecturer'>
+            {{ 'Лектор' | trans }}:
+        </label>
+        <select id="select-lecturer" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
+            {% for lecturer in availableLecturers %}
+                <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+            {% endfor %}
+        </select>
+        {% for lecturer in selectedLecturers %}
+            <div class="well well-sm well-no-margin filter-lecturer ">
+                <span>{{ lecturer }}</span>
+                <span class="pull-right">
+                    <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ lecturer.id }}"></span>
+                </span>
+                <p class="small">{{ lecturer.bio }}</p>
+            </div>
         {% endfor %}
-    </select>
-    {% for tag in selectedTags %}
-        <div class="well well-sm well-no-margin">
-            {{ tag }}
-            <span class="pull-right">
-                <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
-            </span>
-        </div>
-    {% endfor %}
-</div>
+    </div>
 
-<div class="col-sm-3">
-    <label for='select-lecturer'>
-        {{ 'Лектор'}}:
-    </label>
-    <select id="select-lecturer" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-        {% for lecturer in availableLecturers %}
-            <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+    <div class="col-sm-2">
+        <label for='select-tag'>
+            {{ 'Тег' | trans }}:
+        </label>
+        <select id="select-tag" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
+            {% for tag in availableTags %}
+                <option value="{{ tag.id }}">{{ tag.name }}</option>
+            {% endfor %}
+        </select>
+        {% for tag in selectedTags %}
+            <div class="well well-sm well-no-margin">
+                {{ tag }}
+                <span class="pull-right">
+                    <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
+                </span>
+            </div>
         {% endfor %}
-    </select>
-    {% for lecturer in selectedLecturers %}
-        <div class="well well-sm well-no-margin filter-lecturer ">
-            <span>{{ lecturer }}</span>
-            <span class="pull-right">
-                <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ lecturer.id }}"></span>
-            </span>
-            <p class="small">{{ lecturer.bio }}</p>
-        </div>
-    {% endfor %}
-</div>
+    </div>
 
-<div class="col-sm-3">
-    <label for='select-event'>
-        {{ 'Встреча' | trans }}:
-    </label>
-    <select id="select-event" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-        {% for city, events in availableEvents %}
-            <optgroup label="{{ city }}">
-                {% for event in events %}
-                    <option value="{{ event.id }}">{{ event.city_name }}, {{ event.date | date }}</option>
-                {% endfor %}
-            </optgroup>
+    <div class="col-sm-2">
+        <label for='select-event'>
+            {{ 'Встреча' | trans }}:
+        </label>
+        <select id="select-event" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
+            {% for city, events in availableEvents %}
+                <optgroup label="{{ city }}">
+                    {% for event in events %}
+                        <option value="{{ event.id }}">{{ event.city_name }}, {{ event.date | date }}</option>
+                    {% endfor %}
+                </optgroup>
+            {% endfor %}
+        </select>
+        {% for event in selectedEvents %}
+            <div class="well well-sm well-no-margin filter-lecturer">
+                {{ event.date | date }}, {{ event.city }}
+                <span class="pull-right">
+                    <span class="remove-event glyphicon glyphicon-remove cursor-pointer" data-id="{{ event.id }}"></span>
+                </span>
+            </div>
         {% endfor %}
-    </select>
-    {% for event in selectedEvents %}
-        <div class="well well-sm well-no-margin filter-lecturer">
-            {{ event.date | date }}, {{ event.city }}
-            <span class="pull-right">
-                <span class="remove-event glyphicon glyphicon-remove cursor-pointer" data-id="{{ event.id }}"></span>
-            </span>
-        </div>
-    {% endfor %}
+    </div>
+
+    <div class="col-sm-2">
+        <label for='select-lang'>
+            {{ 'Язык' | trans }}:
+        </label>
+        <select id="select-lang" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
+            {% for lang in ['ru', 'uk', 'en', 'de', 'ro'] if lang not in selectedLangs %}
+                <option value="{{ lang }}">{{ lang | humanize_language }}</option>
+            {% endfor %}
+        </select>
+        {% for lang in selectedLangs %}
+            <div class="well well-sm well-no-margin">
+                {{ lang }}
+                <span class="pull-right">
+                    <span class="remove-lang glyphicon glyphicon-remove cursor-pointer" data-id="{{ lang }}"></span>
+                </span>
+            </div>
+        {% endfor %}
+    </div>
 </div>

@@ -74,7 +74,8 @@ $(function () {
         { singular: 'field',    plural: 'fields'     },
         { singular: 'tag',      plural: 'tags'       },
         { singular: 'lecturer', plural: 'lecturers'  },
-        { singular: 'event',    plural: 'events'     }
+        { singular: 'event',    plural: 'events'     },
+        { singular: 'lang',     plural: 'langs'     }
     ];
 
     for (var i in filters) {
@@ -98,6 +99,8 @@ $(function () {
             });
         })();
     }
+
+    $('#lecture-filters').removeClass('hide');
 
     $('#toggle-filters')
         .tooltip()

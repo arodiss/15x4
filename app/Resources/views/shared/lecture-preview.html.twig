@@ -22,7 +22,10 @@
         <p>{{ lecture.teaser }}</p>
 
         <p>
-            {{ 'Дисциплина' | trans }}: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+            {{ 'Область' | trans }}: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+        </p>
+        <p>
+            {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language }}</a>
         </p>
 
         {% if lecture.tags|length > 0  %}
