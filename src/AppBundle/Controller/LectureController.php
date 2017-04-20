@@ -77,6 +77,28 @@ class LectureController extends AbstractController
     }
 
     /**
+     * @Extra\Route("/lectures/featured/", name="LectureListFeatured")
+     */
+    public function listFeaturedAction(Request $request)
+    {
+        return $this->render(
+            'lecture/featured.html.twig',
+            [
+                'pagination' => $this->getPager()->paginate(
+                    $this
+                        ->getLectureRepository()
+                        ->createQueryBuilder('l')
+                        ->andWhere('l.isFeatured = 1')
+                        ->leftJoin('l.event', 'e')
+                        ->orderBy('e.date', 'desc'),
+                    $request->get('page', 1),
+                    30
+                ),
+            ]
+        );
+    }
+
+    /**
      * @Extra\Route("/lecture/field/{id}", name="LectureByField")
      * @Extra\ParamConverter()
      */
