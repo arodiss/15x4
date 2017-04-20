@@ -9,6 +9,7 @@ class CityRepository extends AbstractRepository
     /** @return Entity\City[][] */
     public function findForLanding()
     {
+        //todo less DB queries
         $result = [
             'announced' => [],
             'unannounced' => [],
@@ -19,7 +20,9 @@ class CityRepository extends AbstractRepository
             if ($city->hasValidAnnouncement()) {
                 $result['announced'][] = $city;
             } else {
-                $result['unannounced'][] = $city;
+                if (false === $city->isDormant()) {
+                    $result['unannounced'][] = $city;
+                }
             }
         }
 

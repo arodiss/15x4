@@ -12,6 +12,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class City
 {
+    const DORMANT_THRESHOLD = "-6 month";
+
     /**
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -93,7 +95,7 @@ class City
     /** @return bool */
     public function hasVeryOutdatedAnnouncements()
     {
-        foreach ($this->getAnnouncements() as$announcement) {
+        foreach ($this->getAnnouncements() as $announcement) {
             if ($announcement->getDate() <= (new \DateTime)->modify('-1 month')) {
                 return true;
             }
@@ -103,7 +105,7 @@ class City
     }
 
     /** @return Announcement|null */
-    public function getLastEvent()
+    public function getLastAnnouncement()
     {
         /** @var Announcement|null $current */
         $current = null;
@@ -116,5 +118,21 @@ class City
         }
 
         return $current;
+    }
+
+    /** @return bool */
+    public function isDormant()
+    {
+        $lastAnnouncement = $this->getLastAnnouncement();
+        if ($lastAnnouncement && $lastAnnouncement->getDate() > (new \DateTime(self::DORMANT_THRESHOLD))) {
+            return false;
+        }
+        foreach ($this->getEvents() as $event) {
+            if ($event->getDate() > (new \DateTime(self::DORMANT_THRESHOLD))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
