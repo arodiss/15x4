@@ -35,8 +35,7 @@ class Aggregator
             $speakers->addVote($lecture->getLecturer()->getName(), $lecture->getIsFeatured());
             $this->all->vote($lecture->getIsFeatured());
         }
-        dump($this->all->getScore() * 1.3);
-        
+
         return [
             'fields' => $fields,
             'cities' => $cities,
