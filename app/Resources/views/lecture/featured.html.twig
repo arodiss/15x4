@@ -1,0 +1,21 @@
+{% extends 'shared/lecture-list.html.twig' %}
+
+{% block page_title %}
+    15x4 — {{ 'Лучшие лекции' | trans }}
+{% endblock %}
+
+{% block listHeader %}
+    <h1> {{ 'Лучшие лекции' | trans }} </h1>
+    <hr/>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@AppBundle/Resources/public/js/share.js'
+        '@AppBundle/Resources/public/js/like.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
