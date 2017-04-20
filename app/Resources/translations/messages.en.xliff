@@ -32,12 +32,12 @@
       </trans-unit>
       <trans-unit id="d4b9b6ceaf4e3a0e32a752473f0fbd4784492b09" resname="15х4 – это формат открытых научно-популярных лекториев. Наши события – это 4 доклада по 15 минут на различные темы. ">
         <source>15х4 – это формат открытых научно-популярных лекториев. Наши события – это 4 доклада по 15 минут на различные темы. </source>
-        <target>15x4 is a format of public popular science events. There are four lecturers, taking the floor for 15 minutes each to speak on various topics.</target>
+        <target>15x4 is a format of public popular science events. There are four speakers, taking the floor for 15 minutes each to speak on various topics.</target>
         <jms:reference-file line="70">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4da07912ba8b45c5f1c6e563d3e8b360bb68e7c2" resname="15х4 — это движение молодых учёных и фанатов науки.">
         <source>15х4 — это движение молодых учёных и фанатов науки.</source>
-        <target>15х4 it a movement of young scientists and science fans.</target>
+        <target>15х4 is a movement of young scientists and science fans.</target>
         <jms:reference-file line="14">/home/arodiss/projects/15x4/app/Resources/views/header.html.twig</jms:reference-file>
         <jms:reference-file line="73">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
@@ -346,12 +346,12 @@
       </trans-unit>
       <trans-unit id="1e419078b9c2e169f5892c8752106da6f62611cf" resname="Лектории 15х4 делаются силами волонтёров – лекторов, организаторов, техподдержки. Если ты умеешь снимать и монтировать видео, фотографировать, вести страницы в соцсетях, писать тексты, организовывать события, легко общаться с новыми людьми и просто хочешь нам помочь – пиши %sсюда%s.">
         <source>Лектории 15х4 делаются силами волонтёров – лекторов, организаторов, техподдержки. Если ты умеешь снимать и монтировать видео, фотографировать, вести страницы в соцсетях, писать тексты, организовывать события, легко общаться с новыми людьми и просто хочешь нам помочь – пиши %sсюда%s.</source>
-        <target>All 15x4 communitees are made up volunteers  – lecturers, managers and technical staff. If you can film and cut videos, make photos, maintain social pages, write texts, organize events, easy to come with strangers and simply want to help us – write %shere%s.</target>
+        <target>All 15x4 communitees are made up volunteers  – speakers, managers and technical staff. If you can film and cut videos, make photos, maintain social pages, write texts, organize events, easy to come with strangers and simply want to help us – write %shere%s.</target>
         <jms:reference-file line="171">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7d46136deb9a670bc3effe9cdd8e81d1abbf74f" resname="Лекторы">
         <source>Лекторы</source>
-        <target>Lecturers</target>
+        <target>Speakers</target>
         <jms:reference-file line="26">/home/arodiss/projects/15x4/app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ae9ac0a2ea8f5b11b7d08f7c8db1726ba35abd0c" resname="Лекции">
@@ -416,7 +416,7 @@
       </trans-unit>
       <trans-unit id="bd57e096c85cad07b05d3caf6204be9f7f752eba" resname="Мы хотим, чтобы люди выступали и делились знаниями. Поэтому наш лекторий открыт для всех, независимо от научной степени и опыта чтения лекций. Мы стараемся выдерживать баланс между лучшими лекторами и новыми лекторами. Работать с теми, кто ранее не выступал, одна из главных миссий проекта.">
         <source>Мы хотим, чтобы люди выступали и делились знаниями. Поэтому наш лекторий открыт для всех, независимо от научной степени и опыта чтения лекций. Мы стараемся выдерживать баланс между лучшими лекторами и новыми лекторами. Работать с теми, кто ранее не выступал, одна из главных миссий проекта.</source>
-        <target>We want people to speak out and share their knowledge. Hence our community is open for everybody, regardless of scientific title and experience. We do our best to maintain a balance between best lecturers and new lecturers. Working together with those who never delivered talks before is one of the core ideas of the project.</target>
+        <target>We want people to speak out and share their knowledge. Hence our community is open for everybody, regardless of scientific title and experience. We do our best to maintain a balance between best speakers and new speakers. Working together with those who never delivered talks before is one of the core ideas of the project.</target>
         <jms:reference-file line="136">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3526e5f4aace5aef35ec1c255c67781b5e9b8729" resname="Мюнхен">
