@@ -168,6 +168,14 @@ h3:not(.anchor) {
 .glyphicon.active {
     color: orangered;
 }
+
+.featured-sign {
+    text-transform: uppercase;
+    font-size: 80%;
+    color: white;
+    background-color: orangered;
+    padding: 5px;
+}
 /*end generic styles*/
 
 /*carousel styles*/
