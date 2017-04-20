@@ -1,7 +1,6 @@
 {% extends "admin/layout.html.twig" %}
 
 {% block admin_header %}
-
     <h2>
         Рекомендованые лекции
     </h2>
@@ -13,6 +12,9 @@
             Количество рекомендованных лекций:
             {{ featured_lectures | length }}/{{ (unfeatured_lectures | length) + (featured_lectures | length) }}
             (<b>{{ (100 * featured_lectures|length  / (featured_lectures|length + unfeatured_lectures|length)) | round }}%</b>)
+        </p>
+        <p>
+            <a href="{{ path('AdminLecturesFeaturedStatistics') }}">Больше статистики</a>
         </p>
     </div>
 

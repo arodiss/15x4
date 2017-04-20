@@ -30,6 +30,17 @@ class LecturesAdminController extends AbstractAdminController
     }
 
     /**
+     * @Extra\Route("/lectures/featured/statistics/", name="AdminLecturesFeaturedStatistics")
+     * @Extra\Template("admin/featured-stat.html.twig")
+     */
+    public function lecturesFeaturedStatisticsAction()
+    {
+        return [
+            'stats' => $this->get('15x4.featured.aggregator')->getStats()
+        ];
+    }
+
+    /**
      * @Extra\Route("/lectures/{id}/unfeature", name="AdminLectureUnfeature")
      */
     public function unfeatureLectureAction(Lecture $lecture)
