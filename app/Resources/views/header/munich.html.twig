@@ -1,0 +1,42 @@
+{% extends "header/header.html.twig" %}
+
+{% block social_icons %}
+    <a
+        href="https://www.youtube.com/channel/UCMAr-94KkdtiSqHoRJCPK1Q"
+        target="_blank"
+        style="font-size: 210%;"
+    >
+        <span class="fa-stack pull-right">
+            <i class="fa fa-youtube fa-stack-1x"></i>
+            <i class="fa fa-square-o fa-stack-2x"></i>
+        </span>
+    </a>
+
+    <a
+        href="https://www.facebook.com/15x4munich/"
+        target="_blank"
+        style="font-size: 210%;"
+    >
+        <span class="fa-stack pull-right">
+            <i class="fa fa-facebook fa-stack-1x"></i>
+            <i class="fa fa-square-o fa-stack-2x"></i>
+        </span>
+    </a>
+
+    <a
+        href="https://vk.com/15x4munich"
+        target="_blank"
+        style="font-size: 210%;"
+    >
+        <span class="fa-stack pull-right">
+            <i class="fa fa-vk fa-stack-1x"></i>
+            <i class="fa fa-square-o fa-stack-2x"></i>
+        </span>
+    </a>
+{% endblock %}
+
+{% block logo %}
+    {% image '@AppBundle/Resources/public/images/logo_munich.png' %}
+        <img src="{{ asset_url }}" alt="Logo" style="width: 70px;"/>
+    {% endimage %}
+{% endblock %}

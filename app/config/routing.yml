@@ -1,3 +1,8 @@
+munich_landing:
+    path:     /
+    host:     "munich.15x4.org"
+    defaults: { _controller: "AppBundle:Landing:munich" }
+
 fos_comment_api:
     type: rest
     resource: "@FOSCommentBundle/Resources/config/routing.yml"

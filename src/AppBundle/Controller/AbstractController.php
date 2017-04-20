@@ -68,4 +68,20 @@ class AbstractController extends Controller
     {
         return $this->get("translator");
     }
+
+    /**
+     * Some branches have landing on separate domain,
+     *   but all prod URLs generated should point to main domain
+     * Hence, have to force it
+     */
+    protected function forceMainDomain()
+    {
+        if (strpos(
+                $this->container->get('router')->getContext()->getHost(),
+                '15x4.org'
+            ) !== false
+        ) {
+            $this->container->get('router')->getContext()->setHost('15x4.org');
+        }
+    }
 } 
