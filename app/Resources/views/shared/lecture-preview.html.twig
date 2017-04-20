@@ -12,6 +12,9 @@
         {% endif %}
     </div>
     <div class="col-lg-6">
+        {% if lecture.isFeatured %}
+            <div class="pull-right featured-sign">Featured</div>
+        {% endif %}
         <h4>
             <a href="{{ path('LectureDetails', { 'id': lecture.id }) }}">
                 {{ lecture }}
