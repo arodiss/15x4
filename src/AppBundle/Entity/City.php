@@ -101,4 +101,20 @@ class City
         
         return false;
     }
+
+    /** @return Announcement|null */
+    public function getLastEvent()
+    {
+        /** @var Announcement|null $current */
+        $current = null;
+        foreach ($this->getAnnouncements() as $announcement) {
+            if ($announcement->getDate() < (new \DateTime)->modify('today midnight')) {
+                if ($current === null || $announcement->getDate() > $current->getDate()) {
+                    $current = $announcement;
+                }
+            }
+        }
+
+        return $current;
+    }
 }

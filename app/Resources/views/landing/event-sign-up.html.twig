@@ -1,0 +1,16 @@
+{% if announcement.registerable %}
+    {% if announcement.hasFreeTickets() %}
+        {{ '%sЗарегистрируйтесь%s, пока ещё есть места'
+        | trans
+        | format(
+                '<a href="' ~ path('SignUpForEvent', { 'id': announcement.id }) ~ '">',
+                '</a>'
+            )
+        | raw
+        }}
+    {% else %}
+        {{ 'К сожалению, свободных мест для регистрации нет. Вы можете приходить, но мы не обещаем вам сидячее место' | trans }}
+    {% endif %}
+{% else %}
+    {{ 'Регистрация не требуется' | trans }}
+{% endif %}

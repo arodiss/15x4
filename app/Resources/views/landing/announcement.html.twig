@@ -44,22 +44,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            {% if city.nextAnnouncement.registerable %}
-                {% if city.nextAnnouncement.hasFreeTickets() %}
-                    {{ '%sЗарегистрируйтесь%s, пока ещё есть места'
-                        | trans
-                        | format(
-                            '<a href="' ~ path('SignUpForEvent', { 'id': city.nextAnnouncement.id }) ~ '">',
-                            '</a>'
-                        )
-                        | raw
-                    }}
-                {% else %}
-                    {{ 'К сожалению, свободных мест для регистрации нет. Вы можете приходить, но мы не обещаем вам сидячее место' | trans }}
-                {% endif %}
-            {% else %}
-                {{ 'Регистрация не требуется' | trans }}
-            {% endif %}
+            {% include "landing/event-sign-up.html.twig" with { "announcement": city.nextAnnouncement } %}
         </div>
     </div>
 </div>
