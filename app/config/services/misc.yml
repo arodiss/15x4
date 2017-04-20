@@ -14,3 +14,8 @@ services:
           - '@jms_translation.config_factory'
           - '@jms_translation.updater'
           - '%kernel.cache_dir%'
+
+    15x4.featured.aggregator:
+        class: AppBundle\FeaturedStats\Aggregator
+        arguments:
+          - '@repository.lecture'
