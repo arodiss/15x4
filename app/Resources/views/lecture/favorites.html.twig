@@ -6,17 +6,5 @@
 
 {% block listHeader %}
     <h1> {{ 'Избранные лекции' | trans }} </h1>
-
     <hr/>
-{% endblock %}
-
-{% block scripts %}
-    {{ parent() }}
-
-    {% javascripts
-        '@AppBundle/Resources/public/js/share.js'
-        '@AppBundle/Resources/public/js/like.js'
-    %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
 {% endblock %}

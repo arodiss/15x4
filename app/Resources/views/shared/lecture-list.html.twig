@@ -11,3 +11,14 @@
     {% endif %}
     {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@AppBundle/Resources/public/js/share.js'
+        '@AppBundle/Resources/public/js/like.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
