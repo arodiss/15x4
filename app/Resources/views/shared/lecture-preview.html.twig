@@ -21,51 +21,51 @@
             </a>
             <em>- <a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
         </h4>
-
-        <p>{{ lecture.teaser }}</p>
-
-        <p>
-            {{ 'Область' | trans }}: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
-        </p>
-        <p>
-            {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language }}</a>
-        </p>
-
-        {% if lecture.tags|length > 0  %}
-            <p>
-            {{ 'Теги' | trans }}:
-            {% for tag in lecture.tags  %}
-                <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
-            {% endfor %}
-        </p>
-        {% endif %}
-
-
-        {% if lecture.hasDiscussionVideo() %}
-        <p>
-            <a href="{{ lecture.discussionVideoFullUrl }}">
-                {{ 'Смотреть обсуждение' | trans }}
-            </a>
-        </p>
-        {% endif %}
-
         <p>
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city | trans }}</a>
             <span
-                class="pull-right fb-share-button"
-                style="margin-right: 6px;"
-                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
-                data-layout="button"
+                    class="pull-right fb-share-button"
+                    style="margin-right: 6px;"
+                    data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+                    data-layout="button"
             >
             </span>
             <span
-                class="pull-right vk-share-button"
-                style="margin-top: 2px; margin-right: 6px;"
-                data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
+                    class="pull-right vk-share-button"
+                    style="margin-top: 2px; margin-right: 6px;"
+                    data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
             >
             </span>
         </p>
+
+        <p>{{ lecture.teaser }}</p>
+
+        {% if lecture.tags|length > 0  %}
+            <p>
+                {{ 'Теги' | trans }}:
+                {% for tag in lecture.tags  %}
+                    <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag }}</a>&nbsp;
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ 'Область' | trans }}: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+            </div>
+            <div class="col-md-6">
+                {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language }}</a>
+            </div>
+        </div>
+
+        {% if lecture.hasDiscussionVideo() %}
+            <p>
+                <a href="{{ lecture.discussionVideoFullUrl }}">
+                    {{ 'Смотреть обсуждение' | trans }}
+                </a>
+            </p>
+        {% endif %}
 
         <hr/>
 
