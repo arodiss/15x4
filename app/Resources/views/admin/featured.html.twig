@@ -59,6 +59,12 @@
                     >
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
+                    <a
+                            href="{{ path("AdminLectureEdit", { "id": lecture.id }) }}"
+                            title="Редактировать"
+                    >
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
                 </td>
             </tr>
         {% endfor %}

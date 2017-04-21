@@ -14,12 +14,15 @@ class NormzalizedContainer extends Container
             if ($item1->getScore() < $item2->getScore()) {
                 return 1;
             }
-            if ($item1->getScore() > $this->aggregator->getScore()) {
-                return -1;
-            }
-            if ($item1->getScore() < $this->aggregator->getScore()) {
+
+            //handle tossup
+            if ($item1->getTotalVotes() > $item2->getTotalVotes()) {
                 return 1;
             }
+            if ($item1->getTotalVotes() < $item2->getTotalVotes()) {
+                return -1;
+            }
+
 
             return 0;
         });
