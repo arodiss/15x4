@@ -118,4 +118,10 @@ class Event
 
         return $self;
     }
+
+    /** @return \DateTime */
+    public function getCreated()
+    {
+        return $this->created;
+    }
 }

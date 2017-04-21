@@ -1,4 +1,10 @@
-<div class="row">
+<div class="row" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+    <meta itemprop="name" content="{{ lecture.title }}" />
+    <meta itemprop="description" content="{{ lecture.teaser }}" />
+    <meta itemprop="thumbnailUrl" content="{{ lecture.videoThumbnailUrl }}" />
+    <meta itemprop="embedURL" content="{{ lecture.videoUrl }}" />
+    <meta itemprop="duration" content="T20M">
+    <meta itemprop="uploadDate" content="{{ lecture.event.created | date('Y-m-d') }}T00:00:00+03:00" />" />
     <div class="col-lg-6">
         {% if forceIframe | default(false) %}
             <iframe width="560" height="315" src="{{ lecture.videoUrl }}?html5=1" frameborder="0" allowfullscreen></iframe>
