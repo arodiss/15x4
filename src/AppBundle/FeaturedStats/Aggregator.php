@@ -27,7 +27,19 @@ class Aggregator
         $speakers = new Container($this);
         $languages = new NormzalizedContainer($this);
         $this->all = new Item('all');
-        foreach ($this->lectureRepository->findAll() as $lecture) {
+        foreach (
+            $this
+                ->lectureRepository
+                ->createQueryBuilder('l')
+                ->leftJoin('l.lecturer', 'll')
+                ->leftJoin('l.field', 'f')
+                ->leftJoin('l.event', 'e')
+                ->leftJoin('e.city', 'c')
+                ->select(['l', 'll', 'f', 'e', 'c'])
+                ->getQuery()
+                ->getResult()
+            as $lecture
+        ) {
             /** @var Lecture $lecture */
             $fields->addVote($lecture->getField()->getName(), $lecture->getIsFeatured());
             $cities->addVote($lecture->getCity()->getName(), $lecture->getIsFeatured());
@@ -41,6 +53,7 @@ class Aggregator
             'cities' => $cities,
             'speakers' => $speakers,
             'languages' => $languages,
+            'avgScore' => $this->all->getScore() * 1.3,
             'highScore' => $this->all->getScore() * 1.3,
             'lowScore' => $this->all->getScore() * 0.7,
         ];
