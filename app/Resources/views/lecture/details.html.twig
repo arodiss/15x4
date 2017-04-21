@@ -2,9 +2,25 @@
 
 {% block page_title %}15x4 — {{ lecture }}{% endblock %}
 
-{% block meta_og_description %}{{ lecture }}{% endblock %}
+{% block meta_og_description %}{{ lecture.teaser }}{% endblock %}
+{% block meta_og_title %}{{ lecture.title }}{% endblock %}
 
 {% block extra_head %}
+    <meta property="og:image" content="{{ lecture.videoThumbnailUrl }}">
+    <meta property="og:type" content="video">
+    <meta property="og:video:url" content="{{ lecture.videoUrl }}">
+    <meta property="og:video:secure_url" content="{{ lecture.videoUrl }}">
+    <meta property="og:video:tag" content="15x4">
+    <meta property="og:video:tag" content="15x4 Talks">
+    <meta property="og:video:tag" content="15x4talks">
+    <meta property="og:video:tag" content="научпоп">
+    <meta property="og:video:tag" content="наука">
+    <meta property="og:video:tag" content="лекции">
+    <meta property="og:video:tag" content="лекторий">
+    {% for tag in lecture.tags %}
+        <meta property="og:video:tag" content="{{ tag.name }}">
+    {% endfor %}
+
     <link rel="canonical" href="{{ url('LectureDetails', { 'id': lecture.id }) }}" />
 {% endblock %}
 
