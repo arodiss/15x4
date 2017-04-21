@@ -4,7 +4,7 @@
     <meta itemprop="thumbnailUrl" content="{{ lecture.videoThumbnailUrl }}" />
     <meta itemprop="embedURL" content="{{ lecture.videoUrl }}" />
     <meta itemprop="duration" content="T20M">
-    <meta itemprop="uploadDate" content="{{ lecture.event.created | date('Y-m-d') }}T00:00:00+03:00" />" />
+    <meta itemprop="uploadDate" content="{{ lecture.event.created | date('Y-m-d') }}T00:00:00+03:00" />
     <div class="col-lg-6">
         {% if forceIframe | default(false) %}
             <iframe width="560" height="315" src="{{ lecture.videoUrl }}?html5=1" frameborder="0" allowfullscreen></iframe>
