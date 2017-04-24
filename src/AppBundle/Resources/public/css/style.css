@@ -176,6 +176,11 @@ h3:not(.anchor) {
     background-color: orangered;
     padding: 5px;
 }
+
+.btn-default:focus {
+    background-color: #fff;
+    border-color: #ccc;
+}
 /*end generic styles*/
 
 /*carousel styles*/
