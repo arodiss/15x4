@@ -253,8 +253,8 @@
         <target>Запишіть мене!</target>
         <jms:reference-file line="26">/home/arodiss/projects/15x4/app/Resources/views/sign-up.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="3dbab2e26db1dcc198d4284ee8c36ec98d43e8ba" resname="Зарегестрироваться на встречу">
-        <source>Зарегестрироваться на встречу</source>
+      <trans-unit id="3dbab2e26db1dcc198d4284ee8c36ec98d43e8ba" resname="Зарегистрироваться на встречу">
+        <source>Зарегистрироваться на встречу</source>
         <target>Зареєструватись на зустріч</target>
         <jms:reference-file line="6">/home/arodiss/projects/15x4/app/Resources/views/sign-up.html.twig</jms:reference-file>
       </trans-unit>
