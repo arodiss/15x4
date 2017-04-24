@@ -61,6 +61,7 @@ a:hover .glyphicon {
 
 .nav.navbar-nav > li > a:hover {
     color: #666;
+    background-color: #f8f8f8;
 }
 
 #navbar-collapse {
