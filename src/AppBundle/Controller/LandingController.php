@@ -23,6 +23,14 @@ class LandingController extends AbstractController
     }
 
     /**
+     * @Extra\Route("/bg", name="Background")
+     */
+    public function bgAction()
+    {
+        return $this->render('landing/bg.html.twig');
+    }
+
+    /**
      * @Extra\Route("/contacts", name="Contacts")
      */
     public function contactsAction()
