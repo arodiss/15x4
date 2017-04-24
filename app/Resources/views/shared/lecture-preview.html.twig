@@ -58,7 +58,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                {{ 'Область' | trans }}: <a class="text-uppercase" href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a>
+                {{ 'Область' | trans }}: <b style="font-size: 110%;"><a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">{{ lecture.field }}</a></b>
             </div>
             <div class="col-md-6">
                 {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language }}</a>
