@@ -31,7 +31,7 @@ class LectureType extends AbstractType
             ->add(
                 'field',
                 EntityType::class,
-                ['label' => 'Дисциплина', 'class' => Entity\Field::class, 'choice_label' => 'name']
+                ['label' => 'Категория', 'class' => Entity\Field::class, 'choice_label' => 'name']
             )
             ->add(
                 'language',

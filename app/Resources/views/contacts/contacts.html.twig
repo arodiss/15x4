@@ -30,7 +30,7 @@
 
 {% block content %}
     <h2>{{ 'Связаться с нами' | trans }}</h2>
-    <p class="text-muted"><i>{{ '15x4 — волонтёрский проект. Участвуя в нём, вы можете сделать мир лучше' | trans }}</i></p>
+    <p class="text-muted"><i>{{ '15x4 — некоммерческий образовательный проект, который нуждается в вашей помощи. Вы можете стать лектором, волонтером или организатором в своем городе. Мы всегда рады новым людям и идеям' | trans }}</i></p>
 
     <div class="row">
         <div class="col-lg-12">
@@ -38,10 +38,10 @@
             <br/>
             <div id="goal" class="btn-group" role="group">
                 <button data-title="{{ 'Мы не требуем регалий и других формальных критериев' | trans }}" data-goal="lecturer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать лектором' | trans }}</button>
-                <button data-title="{{ 'Давайте делать мир лучше вместе!' | trans }}" data-goal="volunteer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать волонтёром' | trans }}</button>
-                <button data-title="{{ 'Мы поможем вам всеми своими ресурсами' | trans }}" data-goal="branch" type="button" class="btn btn-default tooltip-toggle">{{ 'Открыть 15х4 в своём городе' | trans }}</button>
-                <button data-title="{{ 'Жалобы, пожелания, предложения' | trans }}" data-goal="site" type="button" class="btn btn-default tooltip-toggle">{{ 'Этот сайт' | trans }}</button>
-                <button data-title="{{ 'Например, сотрудничество' | trans }}" data-goal="other" type="button" class="btn btn-default tooltip-toggle">{{ 'Другое' | trans }}</button>
+                <button data-title="{{ 'Наш проект существует благодаря усилиям волонтеров' | trans }}" data-goal="volunteer" type="button" class="btn btn-default tooltip-toggle">{{ 'Стать волонтёром' | trans }}</button>
+                <button data-title="{{ 'Мы поможем вам открыть лекторий в любой точке мира' | trans }}" data-goal="branch" type="button" class="btn btn-default tooltip-toggle">{{ 'Открыть 15х4 в своём городе' | trans }}</button>
+                <button data-title="{{ 'Предложения по улучшению сайта' | trans }}" data-goal="site" type="button" class="btn btn-default tooltip-toggle">{{ 'Этот сайт' | trans }}</button>
+                <button data-title="{{ 'Ссотрудничество, связь с прессой' | trans }}" data-goal="other" type="button" class="btn btn-default tooltip-toggle">{{ 'Другое' | trans }}</button>
             </div>
         </div>
 
@@ -98,8 +98,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'ehnara.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Киев' | trans),
-            goals_data: { 'volunteer': [2] },
+            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Киев' | trans) ~ ', ' ~ 'связь со СМИ' | trans,
+            goals_data: { 'volunteer': [2], 'other': [] },
             name: 'Александра Малевич',
             fb: 'ehnara',
             vk: 'ehnara',
