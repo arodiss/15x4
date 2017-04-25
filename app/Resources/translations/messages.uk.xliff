@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-04-24T16:46:48Z" source-language="en" target-language="uk" datatype="plaintext" original="not.available">
+  <file date="2017-04-25T10:00:36Z" source-language="en" target-language="uk" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -60,10 +60,40 @@
         <target>Авторизуватись</target>
         <jms:reference-file line="36">/home/arodiss/projects/15x4/app/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="e8ff0a59bba11564b5f28581ab5b623fdf2a6248" resname="Алан Тьюринг">
+        <source>Алан Тьюринг</source>
+        <target state="new">Алан Тьюринг</target>
+        <jms:reference-file line="45">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="48554b00f7738f7d15b197e8d5398ab76094b502" resname="Александр Флеминг">
+        <source>Александр Флеминг</source>
+        <target state="new">Александр Флеминг</target>
+        <jms:reference-file line="42">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="757a9afb97aa9996120d466f6c2c59cf44c768bc" resname="Альберт Эйнштейн">
+        <source>Альберт Эйнштейн</source>
+        <target state="new">Альберт Эйнштейн</target>
+        <jms:reference-file line="25">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="652f54e51e4854a9250be706fa5e47ac825210f4" resname="Английский">
         <source>Английский</source>
         <target>Англійська</target>
         <jms:reference-file line="43">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="00837cee4054794a4080d2a662142c140c889736" resname="Бенуа Мандельброт">
+        <source>Бенуа Мандельброт</source>
+        <target state="new">Бенуа Мандельброт</target>
+        <jms:reference-file line="31">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0ed9d507512765eaf1d874765534077c019ed5b7" resname="Бертран Рассел">
+        <source>Бертран Рассел</source>
+        <target state="new">Бертран Рассел</target>
+        <jms:reference-file line="22">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="51cd47d5b7228b8b369da9c7a67ec837ffc166ee" resname="Биология">
+        <source>Биология</source>
+        <target state="new">Биология</target>
+        <jms:reference-file line="9">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dc435e05b2ad1b1fc7f11fa9752b22c5d96cefd6" resname="Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях">
         <source>Больше о том, как и когда нас можно услышать и увидеть в твоем городе, ищи на страницах 15х4 в соцсетях</source>
@@ -84,6 +114,11 @@
         <source>Ваш город</source>
         <target>Ваше місто</target>
         <jms:reference-file line="49">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3e20e8ae03e4a7c17d5e2da0ee1456f5899fcb82" resname="Вернер Гейзенберг">
+        <source>Вернер Гейзенберг</source>
+        <target state="new">Вернер Гейзенберг</target>
+        <jms:reference-file line="32">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c5cc20dfac7dcf55f1ddf9ba583ea623c88da40b" resname="Видео лекции">
         <source>Видео лекции</source>
@@ -164,7 +199,7 @@
         <source>Встреча</source>
         <target>Зустріч</target>
         <jms:reference-file line="62">/home/arodiss/projects/15x4/app/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="32">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="40">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="b101989cf32b5fa6c752a73a63b521889c1ae9e6" resname="Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений">
         <source>Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений</source>
@@ -191,6 +226,11 @@
         <target>Де</target>
         <jms:reference-file line="36">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
       </trans-unit>
+      <trans-unit id="b27d7d6aab50ac90d735e299a61eee15604b390f" resname="Георг Кантор">
+        <source>Георг Кантор</source>
+        <target state="new">Георг Кантор</target>
+        <jms:reference-file line="41">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="95405f676698ce5e61588ee8eef7721e50e827c6" resname="Город">
         <source>Город</source>
         <target>Місто</target>
@@ -203,6 +243,16 @@
         <target>Міста</target>
         <jms:reference-file line="26">/home/arodiss/projects/15x4/app/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="a3dacb56418b5ea1903c14a4a3d5a61fac6e09b8" resname="Давид Гильберт">
+        <source>Давид Гильберт</source>
+        <target state="new">Давид Гильберт</target>
+        <jms:reference-file line="39">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b99efbec500fbbac304b5928e8120460cebde1a6" resname="Даниэль Каннеман">
+        <source>Даниэль Каннеман</source>
+        <target state="new">Даниэль Каннеман</target>
+        <jms:reference-file line="24">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="a5b49d2ebad23bf2780e72101fede3d124506a4f" resname="Дата">
         <source>Дата</source>
         <target>Дата</target>
@@ -214,6 +264,16 @@
         <source>Делай мир лучше вместе с нами</source>
         <target>Роби світ кращим разом з нами</target>
         <jms:reference-file line="48">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9d508655aa73eaf89f93385b3517dc38c870ba58" resname="Джон Нэш">
+        <source>Джон Нэш</source>
+        <target state="new">Джон Нэш</target>
+        <jms:reference-file line="38">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d0cfcccf4267cea82fca8239fd3cec207f9b3a3a" resname="Доктор Стрейнджлав">
+        <source>Доктор Стрейнджлав</source>
+        <target state="new">Доктор Стрейнджлав</target>
+        <jms:reference-file line="36">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="39903d43153163576e8d4c94419c77c7cb45559a" resname="Дополнительная информация">
         <source>Дополнительная информация</source>
@@ -263,10 +323,25 @@
         <target>Вибачте, тут поки що нема що показати</target>
         <jms:reference-file line="10">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-list.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="b39ddf748cc4f46ffce6a9f934be1c5542dd622b" resname="Илья Пригожин">
+        <source>Илья Пригожин</source>
+        <target state="new">Илья Пригожин</target>
+        <jms:reference-file line="35">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="aee78fe86022edaa19f3d38649fb5276c6163796" resname="Имя">
         <source>Имя</source>
         <target>Ім'я</target>
         <jms:reference-file line="19">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/LecturerType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bc7f27b4aa90893893b60ccc12de765814bff705" resname="Искусство">
+        <source>Искусство</source>
+        <target state="new">Искусство</target>
+        <jms:reference-file line="5">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d5fec7479b43780fc3d1054bbdf594a87de5799f" resname="История">
+        <source>История</source>
+        <target state="new">История</target>
+        <jms:reference-file line="6">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="171b217529b8230e3a50046567cf22a422c9bd8a" resname="Исходный код сайта доступен на">
         <source>Исходный код сайта доступен на</source>
@@ -287,7 +362,7 @@
       <trans-unit id="509dcccad07370a004580a675f4216b1b43cd9b2" resname="Как с вами связаться?">
         <source>Как с вами связаться?</source>
         <target>Як з вами зв'язатись?</target>
-        <jms:reference-file line="57">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="65">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="dc9eb93085df61ce4740f27dae6a3d7f44c751cb" resname="Как стать волонтёром?">
         <source>Как стать волонтёром?</source>
@@ -300,6 +375,11 @@
         <target>Як стати лектором?</target>
         <jms:reference-file line="39">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
         <jms:reference-file line="127">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dd5ae52fb210b65cd401dfcce967b60d1aff47fa" resname="Карл Поппер">
+        <source>Карл Поппер</source>
+        <target state="new">Карл Поппер</target>
+        <jms:reference-file line="43">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4cfaa12a9e810dd4ab98e3bd072816889f98c9f9" resname="Категории">
         <source>Категории</source>
@@ -342,6 +422,11 @@
         <jms:reference-file line="23">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
         <jms:reference-file line="26">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="03e4a56d4f0bbed0278868b1afa8cd6142940e09" resname="Компьютеры">
+        <source>Компьютеры</source>
+        <target state="new">Компьютеры</target>
+        <jms:reference-file line="12">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="dba0fcb2cbbb5f687489134fc3b3eed1245b266f" resname="Контакты">
         <source>Контакты</source>
         <target>Контакти</target>
@@ -360,10 +445,20 @@
         <jms:reference-file line="218">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="228">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="2fc2f869e80ee14e7affec987b0c92505fc056de" resname="Космос">
+        <source>Космос</source>
+        <target state="new">Космос</target>
+        <jms:reference-file line="14">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="4a4745b7d6ec72ba582aef9fe27c13f6ca8a94e6" resname="Куда ходить на лекции и где следить за нашими новостями">
         <source>Куда ходить на лекции и где следить за нашими новостями</source>
         <target>Куди ходити на лекції і де слідкувати за нашими новинами</target>
         <jms:reference-file line="93">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="507ae2086417a669d4480bf85cbbcfb7faa190ba" resname="Курт Гёдель">
+        <source>Курт Гёдель</source>
+        <target state="new">Курт Гёдель</target>
+        <jms:reference-file line="28">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="07d772c9c55e87f2377e063e07c228d0a7bdace9" resname="Лектор">
         <source>Лектор</source>
@@ -380,6 +475,7 @@
       <trans-unit id="ae9ac0a2ea8f5b11b7d08f7c8db1726ba35abd0c" resname="Лекции">
         <source>Лекции</source>
         <target>Лекції</target>
+        <jms:reference-file line="13">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
         <jms:reference-file line="75">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
         <jms:reference-file line="31">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/EventFromAnnouncementType.php</jms:reference-file>
       </trans-unit>
@@ -388,6 +484,11 @@
         <target>Лекція</target>
         <jms:reference-file line="82">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
         <jms:reference-file line="36">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/EventFromAnnouncementType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="62179cf0dc85618fcdbaf4cb81eff685345649f4" resname="Лингвистика">
+        <source>Лингвистика</source>
+        <target state="new">Лингвистика</target>
+        <jms:reference-file line="11">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0131c6d446ecdbae4dee92ceffe9ffec29b437f6" resname="Лучшие">
         <source>Лучшие</source>
@@ -406,20 +507,45 @@
         <jms:reference-file line="55">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="120">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="6e6557a4d24b597da09f4ce1039b2983ac85f46e" resname="Людвиг Витгенштейн">
+        <source>Людвиг Витгенштейн</source>
+        <target state="new">Людвиг Витгенштейн</target>
+        <jms:reference-file line="27">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f5e60f51ca3a32020737517b05a560b7da7ff679" resname="Марвин Мински">
+        <source>Марвин Мински</source>
+        <target state="new">Марвин Мински</target>
+        <jms:reference-file line="44">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="b564ff6ff2fb367c23fb05b3d53e5d22ffed9fbe" resname="Маркер для карты">
         <source>Маркер для карты</source>
         <target>Маркер для мапи</target>
         <jms:reference-file line="43">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
       </trans-unit>
+      <trans-unit id="7c01d901ddac3b32bf45ef34f1279d1a73cf9e5d" resname="Математика">
+        <source>Математика</source>
+        <target state="new">Математика</target>
+        <jms:reference-file line="4">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8e9e556af6e213bedc551b894d3164a19f8a2c8e" resname="Медицина">
+        <source>Медицина</source>
+        <target state="new">Медицина</target>
+        <jms:reference-file line="18">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="f950bd61a2316bace233b50097b2df7d074db2cc" resname="Меня зовут">
         <source>Меня зовут</source>
         <target>Мене звати</target>
-        <jms:reference-file line="83">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="91">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="ad88af5bde90a4495cddcbac78d30beb98d0bfdd" resname="Мест для регистрации">
         <source>Мест для регистрации</source>
         <target>Місць для реєстрації</target>
         <jms:reference-file line="71">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="505d5c03442411f4d553abdaee4a1550e2ad3cb0" resname="Методология науки">
+        <source>Методология науки</source>
+        <target state="new">Методология науки</target>
+        <jms:reference-file line="7">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="39ef3db3f6519c080f884574a0117445538d4fea" resname="Москва">
         <source>Москва</source>
@@ -533,6 +659,26 @@
         <target state="new">Необязательно быть учёным, чтобы спасти планету</target>
         <jms:reference-file line="128">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="fd87edd736715cac548d970acfa6c50f96d18eea" resname="Никола Тесла">
+        <source>Никола Тесла</source>
+        <target state="new">Никола Тесла</target>
+        <jms:reference-file line="29">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="282160ac2591fb7c904ecdeea35f83cf4cf5c94d" resname="Нильс Бор">
+        <source>Нильс Бор</source>
+        <target state="new">Нильс Бор</target>
+        <jms:reference-file line="33">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0d020b7ef44bc9c22fe7dbbbb5093f21f678fdbb" resname="Ноам Хомский">
+        <source>Ноам Хомский</source>
+        <target state="new">Ноам Хомский</target>
+        <jms:reference-file line="37">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f158fe4df1ca8caa4045949b0e55047aaee91e6f" resname="Норберт Винер">
+        <source>Норберт Винер</source>
+        <target state="new">Норберт Винер</target>
+        <jms:reference-file line="23">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="6a91eaec3d1a1908d0812faff2cb0eb8f275f2b7" resname="Нравится">
         <source>Нравится</source>
         <target>Подобається</target>
@@ -543,6 +689,11 @@
         <source>О проекте</source>
         <target>Про проект</target>
         <jms:reference-file line="19">/home/arodiss/projects/15x4/app/Resources/views/navigation.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="498fc055acb87b05f29d7968737b63515048570a" resname="Общество">
+        <source>Общество</source>
+        <target state="new">Общество</target>
+        <jms:reference-file line="19">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="615f976f462104be26a4ccb809f708d4650488f2" resname="Одесса">
         <source>Одесса</source>
@@ -589,7 +740,7 @@
       <trans-unit id="a95e99707375beab41553da41ec72c05a7b53ccb" resname="Под каким именем вас записать?">
         <source>Под каким именем вас записать?</source>
         <target>Під яким ім'ям вас записати?</target>
-        <jms:reference-file line="74">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="82">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="33aae627e84c7202ecb3dc7bb04e68e60d7a3131" resname="Показаны элементы с %s по %s, из %s">
         <source>Показаны элементы с %s по %s, из %s</source>
@@ -609,7 +760,7 @@
       <trans-unit id="a54242d6cc8d60d7cee95f726bb0ebe2c0477cf2" resname="Почта, ссылка на социальные сети, номер телефона...">
         <source>Почта, ссылка на социальные сети, номер телефона...</source>
         <target>Пошта, соціальні мережі, номер телефону...</target>
-        <jms:reference-file line="60">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="68">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="a00495987ca3a024f2b1d5b389b6d3fe7ea88453" resname="Предложения по улучшению сайта">
         <source>Предложения по улучшению сайта</source>
@@ -630,6 +781,11 @@
         <source>Произошла ошибка</source>
         <target>Виникла помилка</target>
         <jms:reference-file line="11">/home/arodiss/projects/15x4/app/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="09a160af160161bc718a17249478f6060674a114" resname="Психология">
+        <source>Психология</source>
+        <target state="new">Психология</target>
+        <jms:reference-file line="15">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2dc7f348091ba1c48305859b89a2bc773e7a2ed7" resname="Работа с волонтёрами">
         <source>Работа с волонтёрами</source>
@@ -653,6 +809,16 @@
         <source>Регистрация не требуется</source>
         <target>Реєстрація не потрібна</target>
         <jms:reference-file line="15">/home/arodiss/projects/15x4/app/Resources/views/landing/event-sign-up.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="77ebe453d86e89266475d5853a73a42e62384c5a" resname="Ричард Докинз">
+        <source>Ричард Докинз</source>
+        <target state="new">Ричард Докинз</target>
+        <jms:reference-file line="26">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dfc77d3d0e141a57c5c8ae15f21e85ea0a6814ae" resname="Ричард Фейнман">
+        <source>Ричард Фейнман</source>
+        <target state="new">Ричард Фейнман</target>
+        <jms:reference-file line="34">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5537fc8e69d7e9830f739eb94071c2212b4027ad" resname="Русский">
         <source>Русский</source>
@@ -679,7 +845,7 @@
       <trans-unit id="dea0fb1a51897308d94a119f5da30dcb815cab78" resname="Сколько вам нужно дополнительных билетов?">
         <source>Сколько вам нужно дополнительных билетов?</source>
         <target>Скільки вам треба додаткових квитків?</target>
-        <jms:reference-file line="43">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="51">/home/arodiss/projects/15x4/app/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0d04e81b0449662d254759ce17b6208e4e5ba5ae" resname="Следующая">
         <source>Следующая</source>
@@ -699,7 +865,12 @@
       <trans-unit id="81d257e5fea68b136b5f3c347efb47589d923d7e" resname="Смотреть обсуждение">
         <source>Смотреть обсуждение</source>
         <target>Переглянути обговорення</target>
-        <jms:reference-file line="71">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="35c50dbf7c0d462fde620ee257130c51c7216116" resname="Социология">
+        <source>Социология</source>
+        <target state="new">Социология</target>
+        <jms:reference-file line="16">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1449b519f61a5a67889b99d87a2cafc719a23f21" resname="Спасибо за регистрацию! Ждём вас в лектории">
         <source>Спасибо за регистрацию! Ждём вас в лектории</source>
@@ -732,6 +903,11 @@
         <target>Стати лектором</target>
         <jms:reference-file line="40">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="159">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="92210b0a055b98274e0c4b1ae0d85ba0a4072b07" resname="Стивен Хокинг">
+        <source>Стивен Хокинг</source>
+        <target state="new">Стивен Хокинг</target>
+        <jms:reference-file line="30">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b8a9604777e161b0c27261df04620ab1276bd429" resname="Страница не найдена">
         <source>Страница не найдена</source>
@@ -766,12 +942,27 @@
         <target>Українська</target>
         <jms:reference-file line="44">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
       </trans-unit>
+      <trans-unit id="a4b14dd0c708d9cb6e37562f45ccaba2b095d96b" resname="Физика">
+        <source>Физика</source>
+        <target state="new">Физика</target>
+        <jms:reference-file line="10">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="2b5ee6332559bd260e16adb647027798a23086a7" resname="Харьков">
         <source>Харьков</source>
         <target>Харків</target>
         <jms:reference-file line="54">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="72">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
         <jms:reference-file line="111">/home/arodiss/projects/15x4/app/Resources/views/contacts/contacts.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="540f56e251280154dd54c1bc97c66aea40de3105" resname="Химия">
+        <source>Химия</source>
+        <target state="new">Химия</target>
+        <jms:reference-file line="8">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="597180d02322a1a9d48a3cc3bff11f1cf9964113" resname="Чарльз Дарвин">
+        <source>Чарльз Дарвин</source>
+        <target state="new">Чарльз Дарвин</target>
+        <jms:reference-file line="40">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="81897658086030f64d5d2e229f5f82a1326360ae" resname="Черновцы">
         <source>Черновцы</source>
@@ -802,6 +993,11 @@
         <target state="new">Чтобы лекции были максимально качественными мы проводим репетиции, делимся рекомендациями и помогаем на всех этапах подготовки</target>
         <jms:reference-file line="144">/home/arodiss/projects/15x4/app/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="221597307553297f0eece0ffce7ea87b42624963" resname="Экономика">
+        <source>Экономика</source>
+        <target state="new">Экономика</target>
+        <jms:reference-file line="17">/home/arodiss/projects/15x4/app/Resources/views/i18n.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="a3c78bf7ff8063f04da0f7f16f7de8ff7a7cff53" resname="Этот сайт">
         <source>Этот сайт</source>
         <target>Цей сайт</target>
@@ -821,7 +1017,7 @@
         <source>Язык</source>
         <target>Мова</target>
         <jms:reference-file line="85">/home/arodiss/projects/15x4/app/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="64">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/home/arodiss/projects/15x4/app/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
         <jms:reference-file line="40">/home/arodiss/projects/15x4/app/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="2566a34313bde7c5b28df2f670c369b56b592c23" resname="в 15x4 нам важны люди">

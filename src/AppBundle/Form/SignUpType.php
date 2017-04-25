@@ -90,6 +90,7 @@ class SignUpType extends AbstractType
                 [
                     'label' => 'Меня зовут',
                     'attr' => [
+                        /** @Ignore */
                         'placeholder' => $this->translator->trans(Entity\RandomScientist::name()),
                     ]
                 ]
