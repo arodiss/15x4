@@ -9,16 +9,24 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class SignUpType extends AbstractType
 {
     /** @var TokenStorageInterface */
     private $tokenStorage;
 
-    /** @param TokenStorageInterface $tokenStorage */
-    public function __construct(TokenStorageInterface $tokenStorage)
+    /** @var TranslatorInterface */
+    private $translator;
+
+    /**
+     * @param TokenStorageInterface $tokenStorage
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
         $this->tokenStorage = $tokenStorage;
+        $this->translator = $tokenStorage;
     }
 
     /** {@inheritdoc} */
@@ -82,7 +90,8 @@ class SignUpType extends AbstractType
                 [
                     'label' => 'Меня зовут',
                     'attr' => [
-                        'placeholder' => Entity\RandomScientist::name()
+                        /** @Ignore */
+                        'placeholder' => $this->translator->trans(Entity\RandomScientist::name()),
                     ]
                 ]
             );
