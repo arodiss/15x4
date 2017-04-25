@@ -135,4 +135,16 @@ class City
 
         return true;
     }
+
+
+    /** @return array|int[] */
+    public function getEventIds()
+    {
+        $ids = [];
+        foreach ($this->getEvents() as $event) {
+            $ids[] = $event->getId();
+        }
+
+        return $ids;
+    }
 }

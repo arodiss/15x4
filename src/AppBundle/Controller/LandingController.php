@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LandingController extends AbstractController
 {
+    const MUNICH_ID = 14;
+
     /**
      * @Extra\Route("/", name="Landing")
      */
@@ -36,5 +38,25 @@ class LandingController extends AbstractController
     public function contactsAction()
     {
         return $this->render('contacts/contacts.html.twig');
+    }
+
+    /**
+     * @Extra\Route("/landing/munich", name="LandingMunich")
+     */
+    public function munichAction()
+    {
+        //should be moved to event subscriber if there would be more custom landings
+        $this->forceMainDomain();
+        $munich = $this->getCityRepository()->find(self::MUNICH_ID);
+
+        return $this->render(
+            'landing/munich.html.twig',
+            [
+                'next_announcement' => $munich->getNextAnnouncement(),
+                'past_announcement' => $munich->getLastAnnouncement(),
+                'munich_event_ids' => $munich->getEventIds(),
+                'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
+            ]
+        );
     }
 }
