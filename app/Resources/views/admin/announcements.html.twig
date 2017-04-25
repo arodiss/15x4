@@ -54,7 +54,7 @@
                                                 {{ announcement.date | date }}
                                                 {% for lecture in announcement.lectures %}
                                                     <i class="small text-muted" style="margin-left: 10px; display: block;">
-                                                        {{ lecture }}
+                                                        {{ lecture }} ({{ lecture.lecturer }})
                                                     </i>
                                                 {% endfor %}
                                             </td>

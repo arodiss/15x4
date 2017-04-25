@@ -18,7 +18,7 @@ class AnnouncementsController extends Controller
      */
     public function indexAction()
     {
-        return ['cities' => $this->get('repository.city')->findAll()];
+        return ['cities' => $this->get('repository.city')->findForAnnouncementList()];
     }
 
     /**

@@ -29,7 +29,23 @@ class CityRepository extends AbstractRepository
         return $result;
     }
 
-    /** @return array */
+    /** @return array|Entity\City[] */
+    public function findForAnnouncementList()
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->innerJoin('c.announcements', 'a')
+            ->innerJoin('a.lectures', 'l')
+            ->innerJoin('l.lecturer', 'll')
+            ->select(['c', 'a', 'l', 'll'])
+            ->addOrderBy('c.name', 'ASC')
+            ->addOrderBy('a.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /** @return array|Entity\City[] */
     public function findForList()
     {
         return $this
