@@ -3,5 +3,6 @@ services:
         class: AppBundle\Form\SignUpType
         arguments:
             - '@security.token_storage'
+            - '@translator'
         tags:
             - { name: form.type }
