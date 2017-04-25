@@ -7,13 +7,20 @@
     <meta itemprop="uploadDate" content="{{ lecture.event.created | date('Y-m-d') }}T00:00:00+03:00" />
     <div class="col-lg-6">
         {% if forceIframe | default(false) %}
-            <iframe width="560" height="315" src="{{ lecture.videoUrl }}?html5=1" frameborder="0" allowfullscreen></iframe>
+            <iframe
+                    width="560"
+                    height="315"
+                    src="{{ lecture.videoUrl }}?html5=1&cc_load_policy=1&cc_lang_pref={{ app.session.get('locale') | default(default_locale) }}"
+                    frameborder="0"
+                    allowfullscreen
+            >
+            </iframe>
         {% else %}
             <img
                 class="video-thumbnail"
                 style='width:560px; height:315px; cursor: pointer;'
                 src="{{ lecture.videoThumbnailUrl }}"
-                data-iframe-url="{{ lecture.videoUrl }}?html5=1&autoplay=1"
+                data-iframe-url="{{ lecture.videoUrl }}?html5=1&autoplay=1&cc_load_policy=1&cc_lang_pref={{ app.session.get('locale') | default(default_locale) }}"
             />
         {% endif %}
     </div>
