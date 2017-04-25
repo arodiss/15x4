@@ -53,7 +53,7 @@ class Aggregator
             'cities' => $cities,
             'speakers' => $speakers,
             'languages' => $languages,
-            'avgScore' => $this->all->getScore() * 1.3,
+            'avgScore' => $this->all->getScore(),
             'highScore' => $this->all->getScore() * 1.3,
             'lowScore' => $this->all->getScore() * 0.7,
         ];
