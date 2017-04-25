@@ -59,6 +59,11 @@ class LectureAnnouncement
      */
     protected $field;
 
+    /**
+     * @ORM\Column(name="language", type="string", length=3, nullable=false, options={"default": "ru"})
+     */
+    protected $language;
+
     /** {@inheritdoc} */
     public function __toString()
     {
@@ -123,5 +128,17 @@ class LectureAnnouncement
     public function setEvent(Announcement $event)
     {
         $this->event = $event;
+    }
+
+    /** @return string */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /** @param string $language */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
     }
 }

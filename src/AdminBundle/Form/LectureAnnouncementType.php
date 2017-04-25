@@ -17,6 +17,7 @@ class LectureAnnouncementType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'Название', 'attr' => ['class' => 'lecture-title']])
+            ->add('language', LectureLanguageType::class)
             ->add(
                 'teaser',
                 TextareaType::class,

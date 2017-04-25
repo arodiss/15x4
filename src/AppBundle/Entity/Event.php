@@ -104,13 +104,8 @@ class Event
         $self->setDate($announcement->getDate());
         $lectures = new ArrayCollection();
         foreach ($announcement->getLectures() as $lectureAnnouncement) {
-            $lecture = new Lecture();
-            $lecture->setTitle($lectureAnnouncement->getTitle());
-            $lecture->setTeaser($lectureAnnouncement->getTeaser());
-            $lecture->setLecturer($lectureAnnouncement->getLecturer());
-            $lecture->setField($lectureAnnouncement->getField());
+            $lecture = Lecture::fromAnnouncement($lectureAnnouncement);
             $lecture->setEvent($self);
-
             $lectures->add($lecture);
         }
         $self->lectures = $lectures;
