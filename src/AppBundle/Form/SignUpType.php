@@ -26,7 +26,7 @@ class SignUpType extends AbstractType
     public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
         $this->tokenStorage = $tokenStorage;
-        $this->translator = $tokenStorage;
+        $this->translator = $translator;
     }
 
     /** {@inheritdoc} */
