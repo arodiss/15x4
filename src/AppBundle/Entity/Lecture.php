@@ -127,6 +127,22 @@ class Lecture
      */
     protected $usersFavorited;
 
+    /**
+     * @param LectureAnnouncement $announcement
+     * @return self
+     */
+    public static function fromAnnouncement(LectureAnnouncement $announcement)
+    {
+        $lecture = new self;
+        $lecture->setTitle($announcement->getTitle());
+        $lecture->setTeaser($announcement->getTeaser());
+        $lecture->setLecturer($announcement->getLecturer());
+        $lecture->setField($announcement->getField());
+        $lecture->setLanguage($announcement->getLanguage());
+        
+        return $lecture;
+    }
+    
     /** {@inheritdoc} */
     public function __toString()
     {
