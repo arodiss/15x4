@@ -16,7 +16,7 @@ class CityRepository extends AbstractRepository
         ];
 
         /** @var Entity\City $city */
-        foreach ($this->findAll() as $city) {
+        foreach ($this->findAllWithEventsAndAnnouncements() as $city) {
             if ($city->hasValidAnnouncement()) {
                 $result['announced'][] = $city;
             } else {
@@ -64,5 +64,20 @@ class CityRepository extends AbstractRepository
     public function getAdminQb()
     {
         return $this->createQueryBuilder('e');
+    }
+
+    /** @return array|Entity\City[] */
+    public function findAllWithEventsAndAnnouncements()
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->innerJoin('c.events', 'e')
+            ->innerJoin('c.announcements', 'a')
+            ->innerJoin('a.lectures', 'l')
+            ->innerJoin('l.lecturer', 'll')
+            ->select(['c', 'a', 'e',  'l', 'll'])
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }
