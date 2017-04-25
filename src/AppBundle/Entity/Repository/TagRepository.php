@@ -6,14 +6,17 @@ use AppBundle\Entity;
 
 class TagRepository extends AbstractRepository
 {
-    /** @return \Doctrine\ORM\Query */
-    public function findForCloud()
+    /**
+     * @param int $count
+     * @return array|Entity\Tag[]
+     */
+    public function findForCloud($count = 40)
     {
         return $this
             ->createQueryBuilder('tag')
             ->select('tag.id, tag.name')
             ->orderBy('tag.randomRating', 'DESC')
-            ->setMaxResults(40)
+            ->setMaxResults($count)
             ->getQuery()
             ->getResult()
         ;

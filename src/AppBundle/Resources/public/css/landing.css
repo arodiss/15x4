@@ -9,7 +9,7 @@
     height: 203px;
 }
 
-.plate a {
+.plate a:not(.normal-link) {
     color: white;
     text-decoration: none;
 }
@@ -67,4 +67,12 @@
 .row3 .plate-details {
     width: 364px;
     height: 203px;
+}
+
+a.normal-link {
+    color: white;
+}
+
+a.normal-link:hover {
+    color: orangered;
 }

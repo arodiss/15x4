@@ -21,7 +21,23 @@
             <td style="width: 25%; border-style: none;">
                 {% include 'shared/lecture-plate.html.twig' %}
             </td>
-            {% if (loop.index0 + 1) is divisible by(4) %}</tr>{% endif %}
+
+            {% if loop.index == recent_lectures | length %}
+                <td style="width: 25%; border-style: none;">
+                    <div class="plate row4" style="background-color: #2f2e30; color: white; font-size: 110%; padding-left: 9px; padding-top: 10px;">
+                        <h4 style="margin-top: 0;">{{ 'А может, вас интересует' | trans }}...</h4>
+                        <ul>
+                            {% for tag in tags %}
+                                <li>
+                                    ... <a class="normal-link" href="{{ url('LectureList', { 'tags': tag.id }) }}">{{ tag.name | trans }}</a>?
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </td>
+            {% endif %}
+
+            {% if (loop.index) is divisible by(4) %}</tr>{% endif %}
         {% endfor %}
     </table>
 
