@@ -78,6 +78,8 @@ class LectureRepository extends AbstractRepository
         return  $this
             ->createQueryBuilder('lecture')
             ->andWhere('lecture.isFeatured = 1')
+            ->innerJoin('lecture.lecturer', 'lecturer')
+            ->select(['lecture', 'lecturer'])
             ->setMaxResults($number)
             ->orderBy('lecture.randomRating', 'DESC')
             ->getQuery()
@@ -95,6 +97,8 @@ class LectureRepository extends AbstractRepository
 
         return $qb
             ->setMaxResults($number)
+            ->innerJoin('lecture.lecturer', 'lecturer')
+            ->select(['lecture', 'lecturer'])
             ->innerJoin('lecture.event', 'event')
             ->orderBy('event.created', 'DESC')
             ->getQuery()
