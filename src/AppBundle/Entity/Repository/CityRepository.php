@@ -9,7 +9,6 @@ class CityRepository extends AbstractRepository
     /** @return Entity\City[][] */
     public function findForLanding()
     {
-        //todo less DB queries
         $result = [
             'announced' => [],
             'unannounced' => [],
@@ -34,9 +33,9 @@ class CityRepository extends AbstractRepository
     {
         return $this
             ->createQueryBuilder('c')
-            ->innerJoin('c.announcements', 'a')
-            ->innerJoin('a.lectures', 'l')
-            ->innerJoin('l.lecturer', 'll')
+            ->leftJoin('c.announcements', 'a')
+            ->leftJoin('a.lectures', 'l')
+            ->leftJoin('l.lecturer', 'll')
             ->select(['c', 'a', 'l', 'll'])
             ->addOrderBy('c.name', 'ASC')
             ->addOrderBy('a.date', 'DESC')
@@ -50,8 +49,8 @@ class CityRepository extends AbstractRepository
     {
         return $this
             ->createQueryBuilder('city')
-            ->innerJoin('city.events', 'event')
-            ->innerJoin('event.lectures', 'lecture')
+            ->leftJoin('city.events', 'event')
+            ->leftJoin('event.lectures', 'lecture')
             ->groupBy('city')
             ->select('city.id, city.name, COUNT(DISTINCT(event.id)) AS events_count')
             ->orderBy('events_count', 'DESC')
@@ -71,10 +70,10 @@ class CityRepository extends AbstractRepository
     {
         return $this
             ->createQueryBuilder('c')
-            ->innerJoin('c.events', 'e')
-            ->innerJoin('c.announcements', 'a')
-            ->innerJoin('a.lectures', 'l')
-            ->innerJoin('l.lecturer', 'll')
+            ->leftJoin('c.events', 'e')
+            ->leftJoin('c.announcements', 'a')
+            ->leftJoin('a.lectures', 'l')
+            ->leftJoin('l.lecturer', 'll')
             ->select(['c', 'a', 'e',  'l', 'll'])
             ->getQuery()
             ->getResult()
