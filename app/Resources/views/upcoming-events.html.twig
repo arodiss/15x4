@@ -27,7 +27,7 @@
             <ul>
                 {% for city in cities.unannounced %}
                     <li>
-                        {{ city }}
+                        {{ city | trans }}
                     </li>
                 {% endfor %}
             </ul>
