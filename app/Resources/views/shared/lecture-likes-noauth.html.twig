@@ -1,31 +1,32 @@
 <div class="row text-center" style="font-size: 150%;">
-    <div class="col-xs-3">
+    <div class="col-xs-2">
         <span
             class="glyphicon glyphicon-thumbs-up tooltip-toggle"
             data-title="{{ 'Нравится' | trans }}"
         ></span> {{ lecture.likesCount }}
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-2">
         <span
             class="glyphicon glyphicon-thumbs-down tooltip-toggle"
             data-title="{{ 'Не нравится' | trans }}"
         ></span> {{ lecture.dislikesCount }}
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-2">
         <span
             class="glyphicon glyphicon-star tooltip-toggle"
             data-title="{{ 'Избранное' | trans }}"
         ></span> {{ lecture.favsCount }}
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-2">
         <span
             class="glyphicon glyphicon-comment tooltip-toggle"
             data-title="{{ 'Комментарии' | trans }}"
         ></span>
         <span>{{ lecture.commentsCount }}</span>
     </div>
+    <div class="col-xs-4" style="font-size: 55%;">
+        <i class="text-muted pull-right">
+            <a href="{{ path('hwi_oauth_connect') }}" style="color: orangered; text-decoration: underline;">{{ 'Войдите%s, чтобы проголосовать за лекцию или добавить её в избранное' | trans | format('</a>') | raw }}
+        </i>
+    </div>
 </div>
-<br/>
-<i class="text-muted pull-right" style="font-size: 90%;">
-    <a href="{{ path('hwi_oauth_connect') }}" style="color: orangered; text-decoration: underline;">{{ 'Войдите %s, чтобы проголосовать за лекцию или добавить её в избранное' | trans | format('</a>') | raw }}
-</i>

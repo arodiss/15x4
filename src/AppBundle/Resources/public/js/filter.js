@@ -123,12 +123,12 @@ $(function () {
 
     $('img.video-thumbnail').click(function () {
         var iframe = $('<iframe/>')
-            .attr('width', '560')
-            .attr('height', '315')
+            .attr('width', $(this).width())
+            .attr('height', $(this).height())
             .attr('frameborderd', '0')
             .attr('src', $(this).data('iframe-url'))
             .css('background-color', '#000')
-            .prop('allowfullscreen', true);
+            .attr('allowfullscreen', '');
         $(this).after(iframe).remove();
     });
 });

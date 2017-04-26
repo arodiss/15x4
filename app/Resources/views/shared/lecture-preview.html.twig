@@ -5,11 +5,11 @@
     <meta itemprop="embedURL" content="{{ lecture.videoUrl }}" />
     <meta itemprop="duration" content="T20M">
     <meta itemprop="uploadDate" content="{{ lecture.event.created | date('Y-m-d') }}T00:00:00+03:00" />
-    <div class="col-lg-6">
+    <div class="col-lg-5">
         {% if forceIframe | default(false) %}
             <iframe
-                    width="560"
-                    height="315"
+                    width="457"
+                    height="257"
                     src="{{ lecture.videoUrl }}?html5=1&cc_load_policy=1&cc_lang_pref={{ app.session.get('locale') | default(default_locale) }}"
                     frameborder="0"
                     allowfullscreen
@@ -18,17 +18,17 @@
         {% else %}
             <img
                 class="video-thumbnail"
-                style='width:560px; height:315px; cursor: pointer;'
+                style='width:457px; height:257px; cursor: pointer;'
                 src="{{ lecture.videoThumbnailUrl }}"
                 data-iframe-url="{{ lecture.videoUrl }}?html5=1&autoplay=1&cc_load_policy=1&cc_lang_pref={{ app.session.get('locale') | default(default_locale) }}"
             />
         {% endif %}
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-7">
         {% if lecture.isFeatured %}
             <div class="pull-right featured-sign">Featured</div>
         {% endif %}
-        <h4>
+        <h4 style="margin-top: 0;">
             <a href="{{ path('LectureDetails', { 'id': lecture.id }) }}">
                 {{ lecture }}
             </a>
@@ -54,6 +54,22 @@
 
         <p>{{ lecture.teaser }}</p>
 
+        <p>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ 'Категория' | trans }}:
+                    <b style="font-size: 110%;">
+                        <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">
+                            {{ lecture.field | trans }}
+                        </a>
+                    </b>
+                </div>
+                <div class="col-md-6">
+                    {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language }}</a>
+                </div>
+            </div>
+        </p>
+
         {% if lecture.tags|length > 0  %}
             <p>
                 {{ 'Теги' | trans }}:
@@ -62,20 +78,6 @@
                 {% endfor %}
             </p>
         {% endif %}
-
-        <div class="row">
-            <div class="col-md-6">
-                {{ 'Категория' | trans }}:
-                <b style="font-size: 110%;">
-                    <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">
-                        {{ lecture.field | trans }}
-                    </a>
-                </b>
-            </div>
-            <div class="col-md-6">
-                {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language }}</a>
-            </div>
-        </div>
 
         {% if lecture.hasDiscussionVideo() %}
             <p>
