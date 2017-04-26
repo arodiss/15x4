@@ -48,13 +48,20 @@
             {% javascripts
                 '@AppBundle/Resources/public/js/jquery.js'
                 '@AppBundle/Resources/public/js/selectize.js'
-                '@AppBundle/Resources/public/js/jqcloud.js'
                 '@AppBundle/Resources/public/js/bootstrap.js'
-                '@AppBundle/Resources/public/js/particles.js'
                 '@AppBundle/Resources/public/js/init.js'
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+
+        {% block fe_only_scripts %}
+            {% javascripts
+                '@AppBundle/Resources/public/js/jqcloud.js'
+                '@AppBundle/Resources/public/js/particles.js'
                 '@AppBundle/Resources/public/js/auth.js'
             %}
-            <script src="{{ asset_url }}"></script>
+                <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
 
