@@ -38,7 +38,7 @@ security:
                     service: hwi_oauth.user.provider
             remember_me:
                 secret:   '%secret%'
-                lifetime: 31536000 # 1 year in seconds
+                lifetime: 2628000 # 1 month in seconds
                 path:     /
                 always_remember_me: true
 
