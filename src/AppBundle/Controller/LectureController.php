@@ -87,10 +87,9 @@ class LectureController extends AbstractController
                 'pagination' => $this->getPager()->paginate(
                     $this
                         ->getLectureRepository()
-                        ->createQueryBuilder('l')
-                        ->andWhere('l.isFeatured = 1')
-                        ->leftJoin('l.event', 'e')
-                        ->orderBy('e.date', 'desc'),
+                        ->createListQueryBuilder()
+                        ->andWhere('lecture.isFeatured = 1')
+                        ->orderBy('event.date', 'desc'),
                     $request->get('page', 1),
                     30
                 ),

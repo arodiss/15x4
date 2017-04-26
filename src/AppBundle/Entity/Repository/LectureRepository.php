@@ -21,21 +21,13 @@ class LectureRepository extends AbstractRepository
         array $lecturers = [],
         array $langs = []
     ) {
-        $qb = $this
-            ->createQueryBuilder('lecture')
-            ->innerJoin('lecture.event', 'event')
-            ->orderBy('event.date', 'DESC')
-        ;
-
+        $qb = $this->createListQueryBuilder();
         $idGetter = function ($entity) {
             return $entity->getId();
         };
 
         if ($tags) {
-            $qb
-                ->innerJoin('lecture.tags', 'tag')
-                ->andWhere($qb->expr()->in('tag.id', array_map($idGetter, $tags)))
-            ;
+            $qb->andWhere($qb->expr()->in('tag.id', array_map($idGetter, $tags)));
         }
         if ($fields) {
             $qb->andWhere($qb->expr()->in('lecture.field', array_map($idGetter, $fields)));
@@ -110,5 +102,20 @@ class LectureRepository extends AbstractRepository
     public function getAdminQb()
     {
         return $this->createQueryBuilder('l')->innerJoin('l.event', 'e')->orderBy('e.date', 'DESC');
+    }
+
+    /** @return \Doctrine\ORM\QueryBuilder */
+    public function createListQueryBuilder()
+    {
+        return $this
+            ->createQueryBuilder('lecture')
+            ->innerJoin('lecture.field', 'field')
+            ->innerJoin('lecture.event', 'event')
+            ->innerJoin('event.city', 'city')
+            ->innerJoin('lecture.lecturer', 'lecturer')
+            ->leftJoin('lecture.tags', 'tag')
+            ->select(['lecture', 'field', 'tag', 'event', 'lecturer', 'city'])
+            ->orderBy('event.date', 'DESC')
+        ;
     }
 }
