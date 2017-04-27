@@ -24,10 +24,11 @@ framework:
     fragments:       ~
     http_method_override: true
     assets:
-        version: "0.3.6"
+        version: "0.3.7"
 
 twig:
     globals:
+        google_maps_api_key: %google_maps_api_key%
         google_analytics_id: %google_analytics_id%
         default_locale: %kernel.default_locale%
     debug:            "%kernel.debug%"

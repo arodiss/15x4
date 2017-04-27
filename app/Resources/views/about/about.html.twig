@@ -12,9 +12,7 @@
 {% endblock %}
 
 {% block content %}
-
-    <div class="container">
-        <hr/>
+    <div class="container" style="margin-top: 15px;">
         <div class="row">
             <div class="col-lg-3 text-center">
                 <a href="#learn-more">
@@ -60,14 +58,14 @@
                         <h4>{{ '15x4 — это научно-популярный проект, который делает мир лучше' | trans }}</h4>
                     </div>
                     <div class="col-lg-4 text-right">
-                        <span style="font-size: 8em;" class="glyphicon glyphicon-question-sign"></span>
+                        <span style="font-size: 7em;" class="glyphicon glyphicon-question-sign"></span>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <p>
-                        {{ '15x4 — это некоммерческие мероприятия в 15 городах Европы и СНГ' | trans }}.
+                        {{ '15x4 — это некоммерческие мероприятия в городах Европы и СНГ' | trans }}.
                         {{ 'Мы проводим бесплатные образовательные встречи, на которых рассказывается по четыре научно-популярных лекции продолжительностью пятнадцати минут' | trans }}.
                     </p>
                     <p>
@@ -76,9 +74,16 @@
                     <p>
                         {{ 'Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества' | trans | format('<a href="https://www.youtube.com/channel/UCMAr-94KkdtiSqHoRJCPK1Q">', '</a>') | raw }}.
                     </p>
-                    <p>
-                        {{ 'Посмотрите %sэто видео%s, чтобы узнать о проекте больше' | trans | format('<a href="https://www.youtube.com/watch?v=MR4a1v8qVa4">', '</a>') | raw }}.
-                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <iframe
+                        width="457"
+                        height="257"
+                        src="https://youtube.com/embed/2zdfJoWn1Ok?html5=1&cc_load_policy=1&cc_lang_pref={{ app.session.get('locale') | default(default_locale) }}"
+                        frameborder="0"
+                        allowfullscreen
+                    >
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -93,12 +98,12 @@
                         <h4>{{ 'Куда ходить на лекции и где следить за нашими новостями' | trans }}</h4>
                     </div>
                     <div class="col-lg-4 text-right">
-                        <span style="font-size: 8em;" class="glyphicon glyphicon-education"></span>
+                        <span style="font-size: 6em;" class="glyphicon glyphicon-education"></span>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <div>
                         <p>
                             {{ 'Наши лектории проходят в России, Украине, Молдове и Германии - всего открыто больше 20 отделений, и  список постоянно растёт' | trans }}.
@@ -114,6 +119,9 @@
                             </ul>
                         </p>
                     </div>
+                </div>
+                <div class="col-lg-5">
+                    <div style="width:457px; height:257px;" id="map"></div>
                 </div>
             </div>
         </div>
@@ -186,3 +194,47 @@
     </div>
 {% endblock %}
 
+{% block scripts %}
+    {{ parent() }}
+    {#todo add cities automatically#}
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap"></script>
+    <script type="text/javascript">
+        var dnipro = {lat: 48.469042, lng: 35.050473};
+        var zhitomir = {lat: 50.253379, lng: 28.654146};
+        var kishenev = {lat: 47.012426, lng: 28.850615};
+        var kiev = {lat: 50.446319, lng: 30.527165};
+        var kna = {lat: 50.564954, lng: 136.979592};
+        var lviv = {lat: 49.839754, lng: 24.029056};
+        var moscow = {lat: 55.742327, lng: 37.596680};
+        var munich = {lat: 48.133749, lng: 11.580279};
+        var odessa = {lat: 46.479279, lng: 30.728945};
+        var samara = {lat: 53.240858, lng: 50.199420};
+        var spb = {lat: 59.930911, lng: 30.307180};
+        var kharkov = {lat: 49.992741, lng: 36.240498};
+        var khmelnitskiy = {lat: 49.421028, lng: 26.992167};
+        var cheboksary = {lat: 56.111686, lng: 47.258903};
+        var chernovtsy = {lat: 48.290205, lng: 25.935283};
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 3,
+                center: kiev
+            });
+            new google.maps.Marker({ position: dnipro, map: map, title: '{{ "Днепр" | trans }}'});
+            new google.maps.Marker({ position: zhitomir, map: map, title: '{{ "Житомир" | trans }}'});
+            new google.maps.Marker({ position: kishenev, map: map, title: '{{ "Кишинёв" | trans }}'});
+            new google.maps.Marker({ position: kiev, map: map, title: '{{ "Киев" | trans }}'});
+            new google.maps.Marker({ position: kna, map: map, title: '{{ "Комсомольск-на-Амуре" | trans }}'});
+            new google.maps.Marker({ position: lviv, map: map, title: '{{ "Львов" | trans }}'});
+            new google.maps.Marker({ position: moscow, map: map, title: '{{ "Москва" | trans }}'});
+            new google.maps.Marker({ position: munich, map: map, title: '{{ "Мюнхен" | trans }}'});
+            new google.maps.Marker({ position: odessa, map: map, title: '{{ "Одесса" | trans }}'});
+            new google.maps.Marker({ position: samara, map: map, title: '{{ "Самара" | trans }}'});
+            new google.maps.Marker({ position: spb, map: map, title: '{{ "Санкт-Петербург" | trans }}'});
+            new google.maps.Marker({ position: kharkov, map: map, title: '{{ "Харьков" | trans }}'});
+            new google.maps.Marker({ position: khmelnitskiy, map: map, title: '{{ "Хмельницкий" | trans }}'});
+            new google.maps.Marker({ position: cheboksary, map: map, title: '{{ "Чебоксары" | trans }}'});
+            new google.maps.Marker({ position: chernovtsy, map: map, title: '{{ "Черновцы" | trans }}'});
+        }
+    </script>
+{% endblock %}
