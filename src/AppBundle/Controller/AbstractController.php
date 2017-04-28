@@ -78,7 +78,7 @@ class AbstractController extends Controller
     {
         if (strpos(
                 $this->container->get('router')->getContext()->getHost(),
-                '15x4.org'
+                'munich.15x4.org'
             ) !== false
         ) {
             $this->container->get('router')->getContext()->setHost('15x4.org');

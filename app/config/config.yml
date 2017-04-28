@@ -19,6 +19,9 @@ framework:
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
+        #this means that dev installation should have domain xxx.15x4.org
+        #for lang switch to work properly
+        cookie_domain: "15x4.org"
         handler_id:  ~
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
     fragments:       ~
