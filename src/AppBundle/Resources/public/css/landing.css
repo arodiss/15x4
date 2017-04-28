@@ -1,3 +1,13 @@
+.plate-container.row4 {
+    width: 281px;
+    padding: 6px;
+}
+
+.plate-container.row3 {
+    width: 368px;
+    padding: 6px;
+}
+
 .plate {
     border-radius: 4px;
     background-size: cover;
@@ -5,20 +15,11 @@
     height: 152px;
 }
 
-.plate.row3 {
-    height: 203px;
-}
-
-.plate a:not(.normal-link) {
-    color: white;
-    text-decoration: none;
+.row3 .plate {
+    height: 191px;
 }
 
 @media(min-width:1200px)  {
-    .plate:hover .plate-details {
-        opacity: 0.8;
-    }
-
     .plate-main {
         font-size: 22px;
     }
@@ -65,8 +66,17 @@
 }
 
 .row3 .plate-details {
-    width: 364px;
-    height: 203px;
+    width: 356px;
+    height: 191px;
+}
+
+.plate:hover .plate-details {
+    opacity: 0.8;
+}
+
+.plate a:not(.normal-link) {
+    color: white;
+    text-decoration: none;
 }
 
 a.normal-link {
