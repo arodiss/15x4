@@ -34,6 +34,14 @@ class LandingController extends AbstractController
     }
 
     /**
+     * @Extra\Route("/particles", name="Particles")
+     */
+    public function particlesAction()
+    {
+        return $this->render('landing/particles.html.twig');
+    }
+
+    /**
      * @Extra\Route("/contacts", name="Contacts")
      */
     public function contactsAction()
