@@ -15,6 +15,15 @@ services:
           - '@jms_translation.updater'
           - '%kernel.cache_dir%'
 
+    15x4.i18n.extractor:
+        class: AppBundle\Translations\Extractor
+        arguments:
+          - '@repository.city'
+          - '@repository.field'
+          - '@repository.tag'
+        tags:
+            - { name: jms_translation.extractor, alias: 15x4 }
+
     15x4.featured.aggregator:
         class: AppBundle\FeaturedStats\Aggregator
         arguments:
