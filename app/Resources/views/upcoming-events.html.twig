@@ -1,36 +1,38 @@
-<h2 class="text-center" style="width: 100%; margin-top: 40px; margin-bottom: 20px;">{{ 'Будущие встречи' | trans }}</h2>
+{% if cities.announced is not empty %}
+    <h2 class="text-center" style="width: 100%; margin-top: 40px; margin-bottom: 20px;">{{ 'Будущие встречи' | trans }}</h2>
 
-<ul class="nav nav-tabs" role="tablist">
-    {% for city in cities.announced %}
-        <li role="presentation"{% if loop.first %} class="active"{% endif %}>
-            <a href="#city-{{ city.id  }}" role="tab" data-toggle="tab" class="tab-toggle">
-                {{ city | trans }}
+    <ul class="nav nav-tabs" role="tablist">
+        {% for city in cities.announced %}
+            <li role="presentation"{% if loop.first %} class="active"{% endif %}>
+                <a href="#city-{{ city.id  }}" role="tab" data-toggle="tab" class="tab-toggle">
+                    {{ city | trans }}
+                </a>
+            </li>
+        {% endfor %}
+        <li role="presentation">
+            <a href="#city-unannounced" role="tab" data-toggle="tab" class="tab-toggle">
+                {{ "Будет анонсировано позже" | trans }}
             </a>
         </li>
-    {% endfor %}
-    <li role="presentation">
-        <a href="#city-unannounced" role="tab" data-toggle="tab" class="tab-toggle">
-            {{ "Будет анонсировано позже" | trans }}
-        </a>
-    </li>
-</ul>
+    </ul>
 
-<div class="tab-content">
-    {% for city in cities.announced %}
-        <div id="city-{{ city.id  }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
-            {% include "landing/announcement.html.twig" %}
-        </div>
-    {% endfor %}
+    <div class="tab-content">
+        {% for city in cities.announced %}
+            <div id="city-{{ city.id  }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
+                {% include "landing/announcement.html.twig" %}
+            </div>
+        {% endfor %}
 
-    <div id="city-unannounced" role="tabpanel" class="tab-pane">
-        <div class="well">
-            <ul>
-                {% for city in cities.unannounced %}
-                    <li>
-                        {{ city | trans }}
-                    </li>
-                {% endfor %}
-            </ul>
+        <div id="city-unannounced" role="tabpanel" class="tab-pane">
+            <div class="well">
+                <ul>
+                    {% for city in cities.unannounced %}
+                        <li>
+                            {{ city | trans }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+{% endif %}
