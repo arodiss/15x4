@@ -1,9 +1,9 @@
 {% extends 'layout.html.twig' %}
 
-{% block page_title %}15x4 — {{ lecture }}{% endblock %}
+{% block page_title %}{{ lecture }} | 15x4{% endblock %}
 
-{% block meta_og_description %}{{ lecture.teaser }}{% endblock %}
-{% block meta_og_title %}{{ lecture.title }}{% endblock %}
+{% block meta_og_description %}{{ lecture.teaser }} — {{ lecture.lecturer }}{% endblock %}
+{% block meta_og_title %}{{ lecture.title }} | 15x4{% endblock %}
 
 {% block extra_head %}
     <meta property="og:image" content="{{ lecture.videoThumbnailUrl }}">

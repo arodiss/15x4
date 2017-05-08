@@ -1,31 +1,41 @@
-.contact > .row {
-    border: 1px solid darkgray;
-    border-radius: 6px;
-    margin: 3px;
-    padding: 2px;
-    text-align: center;
+#contacts {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.contact img {
+.contact {
+    width: 280px;
+    padding-bottom: 14px;
+}
+
+.contact-img {
+    width: 50%;
+    float: left;
+}
+
+.contact-img > img {
     width: 128px;
     height: 128px;
-    border-radius: 6px;
+    border-radius: 64px;
+}
+
+.contact-info {
+    width: 50%;
+    float: left;
+    padding-right: 4px;
 }
 
 .contact-name {
     font-weight: bold;
-    padding-top: 17px;
-    padding-bottom: 11px;
+    padding-top: 7px;
 }
 
-.contact > .row {
-    padding: 0;
+.contact-goal {
+    font-size: 95%;
+    color: dimgray;
 }
 
-.contact > .row > .col-lg-6 {
-    padding: 0;
-}
-
-.contact p {
-    word-wrap: break-word;
+.contact-city {
+    font-size: 85%;
+    color: dimgray;
 }
