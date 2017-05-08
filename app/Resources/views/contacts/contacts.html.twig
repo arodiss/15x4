@@ -9,10 +9,7 @@
 {% block scripts %}
     {{ parent() }}
 
-    {% javascripts
-        '@AppBundle/Resources/public/js/shuffle.js'
-        '@AppBundle/Resources/public/js/contacts.js'
-    %}
+    {% javascripts '@AppBundle/Resources/public/js/contacts.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
@@ -65,11 +62,12 @@
 
     <hr/>
 
-    <div id="grid" class="row">
+    <div id="contacts">
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'gapak.jpg',
-            goals_name: ('Основатель и глобальный координатор' | trans) ~ ', ' ~ ('Харьков' | trans),
+            goal: 'Основатель и глобальный координатор' | trans,
+            city: 'Харьков' | trans,
             goals_data: { "other": [], "branch": [], "volunteer": [3] },
             name: 'Александр Гапак',
             fb: 'aleksandr.gapak',
@@ -79,7 +77,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'arodiss.jpg',
-            goals_name: ('Разработка сайта' | trans) ~ ', ' ~ ('Киев' | trans),
+            goal: 'Разработка сайта' | trans,
+            city: 'Киев' | trans,
             goals_data: { "site": [] },
             name: 'Глеб Сидора',
             fb: 'profile.php?id=100001049885258',
@@ -89,7 +88,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 't-li.jpg',
-            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Киев' | trans),
+            goal: 'Работа с лекторами' | trans,
+            city: 'Киев' | trans,
             goals_data: { 'lecturer': [2] },
             name: 'Таня Погорецкая',
             vk: 'brunsweek',
@@ -98,7 +98,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'ehnara.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Киев' | trans) ~ ', ' ~ 'связь со СМИ' | trans,
+            goal: 'Связь со СМИ' | trans,
+            city: 'Киев' | trans,
             goals_data: { 'volunteer': [2], 'other': [] },
             name: 'Александра Малевич',
             fb: 'ehnara',
@@ -108,7 +109,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'gromova.jpg',
-            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Харьков' | trans),
+            goal: 'Работа с лекторами' | trans,
+            city: 'Харьков' | trans,
             goals_data: { 'lecturer': [3] },
             name: 'Ульяна Громова',
             vk: 'hell_low',
@@ -117,7 +119,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'feelofreel.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Львов' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Львов' | trans,
             goals_data: { 'volunteer': [4], 'lecturer': [4] },
             name: 'Дмитрий Кондратюк',
             fb: 'eeloffeel',
@@ -127,7 +130,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'real.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Москва' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Москва' | trans,
             goals_data: { 'volunteer': [1], 'lecturer': [1] },
             name: 'Валерия Грачёва',
             fb: 'realgrachova',
@@ -137,7 +141,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'stanislav.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Черновцы' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Черновцы' | trans,
             goals_data: { 'volunteer': [5], 'lecturer': [5] },
             name: 'Станислав Романюк',
             fb: 'romanyuker',
@@ -147,7 +152,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'tor.jpg',
-            goals_name: ('Работа с волонтёрами' | trans) ~ ', ' ~ ('Черновцы' | trans),
+            goal: 'Работа с волонтёрами' | trans,
+            city: 'Черновцы' | trans,
             goals_data: { 'volunteer': [5] },
             name: 'Марьяна Торкиш',
             vk: 'bgtor',
@@ -156,7 +162,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'trach.jpg',
-            goals_name: ('Стать лектором' | trans) ~ ', ' ~ ('Кишинёв' | trans),
+            goal: 'Работа с лекторами' | trans,
+            city: 'Кишинёв' | trans,
             goals_data: { 'lecturer': [6] },
             name: 'Артём Трач',
             fb: 'oliver.trach',
@@ -166,7 +173,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'batarchukova.jpg',
-            goals_name: ('Стать волонтёром' | trans) ~ ', ' ~ ('Кишинёв' | trans),
+            goal: 'Работа с волонтёрами' | trans,
+            city: 'Кишинёв' | trans,
             goals_data: { 'volunteer': [6] },
             name: 'Лина Батарчукова',
             fb: 'lina.kirin',
@@ -175,7 +183,8 @@
         } only %}
 
         {% include 'contacts/contact.html.twig' with {
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Кишинёв' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Кишинёв' | trans,
             goals_data: { 'volunteer': [6], 'lecturer': [6] },
             name: 'Артур Ковач',
             fb: 'profile.php?id=100010702322735',
@@ -185,7 +194,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'gaechka.jpg',
-            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Черновцы' | trans),
+            goal: 'Работа с лекторами' | trans,
+            city: 'Черновцы' | trans,
             goals_data: { 'lecturer': [5] },
             name: 'Елена Гомон',
             fb: 'elena.gomon.54',
@@ -195,7 +205,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'karlos.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Одесса' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Одесса' | trans,
             goals_data: { 'volunteer': [7], 'lecturer': [7] },
             name: 'Александр Карлов',
             fb: 'aleksandr.karlov',
@@ -205,7 +216,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'lizailonen.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Санкт-Петербург' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Санкт-Петербург' | trans,
             goals_data: { 'volunteer': [8], 'lecturer': [8] },
             name: 'Елизавета Бабицкая',
             fb: 'elizaveta.babitskaya',
@@ -215,7 +227,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'artemova.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Самара' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Самара' | trans,
             goals_data: { 'volunteer': [9], 'lecturer': [9] },
             name: 'Александра Артёмова',
             fb: 'black.persey',
@@ -225,7 +238,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'az.jpg',
-            goals_name: ('Координатор отделения' | trans) ~ ', ' ~ ('Мюнхен' | trans),
+            goal: 'Координатор отделения' | trans,
+            city: 'Мюнхен' | trans,
             goals_data: { 'volunteer': [10] },
             name: 'Алексей Зиновьев',
             fb: 'zinovev.aleksei',
@@ -235,7 +249,8 @@
 
         {% include 'contacts/contact.html.twig' with {
             picture: 'razbakov.jpg',
-            goals_name: ('Работа с лекторами' | trans) ~ ', ' ~ ('Мюнхен' | trans),
+            goal: 'Работа с лекторами' | trans,
+            city: 'Мюнхен' | trans,
             goals_data: { 'lecturer': [10] },
             name: 'Алексей Разбаков',
             fb: 'razbakov',

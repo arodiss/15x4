@@ -1,18 +1,12 @@
 $(function () {
     var selectedCities = [];
     var selectedGoals = [];
-    var Shuffle = window.shuffle;
-
-    var shuffle = new Shuffle(
-        document.getElementById('grid'),
-        {
-            itemSelector: '.contact'
-        }
-    );
 
     function filterContacts () {
-        shuffle.filter(function (item) {
-            var contactGoals = $(item).data('goals') || {};
+
+        $('.contact').each(function () {
+            var contactGoals = $(this).data('goals') || {};
+            var show = false;
 
             if (selectedGoals.length !== 0) {
                 for (var key in selectedGoals) {
@@ -21,43 +15,45 @@ $(function () {
                     if (contactGoals.hasOwnProperty(selectedGoal)) {
                         if (selectedCities.length === 0) {
                             //user want this goal in all cities
-                            return true;
+                            show = true;
                         }
 
                         if (contactGoals[selectedGoal].length === 0) {
                             //contact performs this goal in all cities
-                            return true;
+                            show = true;
                         }
 
                         if (selectedCities.intersects(contactGoals[selectedGoal])) {
                             //user selected both goal and city, and they intersect with contact
-                            return true;
+                            show = true;
                         }
                     }
                 }
             } else {
                 if (selectedCities.length === 0) {
                     //user did not specify any filters
-                    return true;
+                    show = true;
                 }
 
                 for (var goalKey in contactGoals) {
                     if (contactGoals[goalKey].intersects(selectedCities)) {
                         //contact performs this goal in one of selected cities
-                        return true;
+                        show = true;
                     }
 
                     if (contactGoals[goalKey].length === 0) {
                         //contact performs this goal in all cities
-                        return true;
+                        show = true;
                     }
                 }
             }
 
-            return false;
+            if (show) {
+                $(this).fadeIn();
+            } else {
+                $(this).fadeOut();
+            }
         });
-
-        shuffle.sort({randomize: true});
     }
 
     $("#goal button").click(function () {
