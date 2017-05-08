@@ -52,6 +52,9 @@ class Extractor implements ExtractorInterface
             /** @var Entity\City $city */
             $this->add($city->getName());
         }
+        foreach (Entity\Contact::getAllGoals() as $goal) {
+            $this->add($goal);
+        }
 
         return $this->catalogue;
     }

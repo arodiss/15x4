@@ -9,3 +9,8 @@ services:
         class: AppBundle\Twig\UnixPipesExtension
         tags:
             - { name: twig.extension }
+
+    twig.extension.contacts:
+        class: AppBundle\Twig\ContactsExtension
+        tags:
+            - { name: twig.extension }
