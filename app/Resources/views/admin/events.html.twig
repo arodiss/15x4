@@ -22,8 +22,10 @@
                     <td>{{ event.date | date }}</td>
                     <td>
                         {{ event.lectures | length }}
-                        {% if event.lectures | length != 4 %}
+                        {% if event.lectures | length == 0 %}
                             <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                        {% elseif event.lectures | length != 4 %}
+                            <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="glyphicon glyphicon-warning-sign"></span>
                         {% endif %}
                     </td>
                     <td>
