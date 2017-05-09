@@ -1,23 +1,19 @@
-<div class="contact" data-goals='{{ goals_data | json_encode }}'>
+<div class="contact" data-goals='{{ contact.goalsData | json_encode }}'>
     <div class="contact-img">
-        {% if picture is defined %}
-            <img src="{{ asset('bundles/app/images/contacts/' ~ picture) }}" alt="{{ name }}"/>
-        {% else %}
-            <img src="{{ asset('bundles/app/images/logo.png') }}" alt="{{ name }}"/>
-        {% endif %}
+        <img src="{{ asset('bundles/app/images/contacts/' ~ contact.picture) }}" alt="{{ contact.name }}"/>
     </div>
     <div class="contact-info">
-        <div class="contact-name">{{ name }}</div>
-        <div class="contact-goal"">{{ goal }}</div>
-        <div class="contact-city">{{ city }}</div>
-        {% if fb is defined %}
-            <a href="https://fb.com/{{ fb }}">fb</a>
+        <div class="contact-name">{{ contact.name }}</div>
+        <div class="contact-goal"">{{ contact.goal }}</div>
+        <div class="contact-city">{{ contact.city | contact_city }}</div>
+        {% if contact.fb %}
+            <a href="https://fb.com/{{ contact.fb }}">fb</a>
         {% endif %}
-        {% if vk is defined %}
-            <a href="https://vk.com/{{ vk }}">vk</a>
+        {% if contact.vk %}
+            <a href="https://vk.com/{{ contact.vk }}">vk</a>
         {% endif %}
-        {% if email is defined %}
-            <a href="mailto:{{ email }}">email</a>
+        {% if contact.email %}
+            <a href="mailto:{{ contact.email }}">email</a>
         {% endif %}
     </div>
 </div>
