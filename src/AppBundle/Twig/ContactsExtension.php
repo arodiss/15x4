@@ -146,7 +146,7 @@ class ContactsExtension extends \Twig_Extension
                 ['email' => 'tsar1305@gmail.com', 'vk' => 'evgtsar', 'fb' => 'profile.php?id=100011499874809'], 'eugen_nrs.jpg'),
 
             new Contact('Эрик Янцевич', Contact::CITY_KNA, Contact::GOAL_COORDINATOR,
-                ['email' => 'mostlyerik@gmail.com', 'vk' => 'erik_yan', 'fb' => 'erik.yancevich'], 'eugen_nrs.jpg'),
+                ['email' => 'mostlyerik@gmail.com', 'vk' => 'erik_yan', 'fb' => 'erik.yancevich'], 'eric_kna.jpg'),
 
             new Contact('Александр Хамнушкин', Contact::CITY_UU, Contact::GOAL_COORDINATOR,
                 ['vk' => 'saygut'], 'alexander_uu.jpg'),
