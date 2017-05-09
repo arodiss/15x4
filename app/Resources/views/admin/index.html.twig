@@ -3,3 +3,12 @@
 {% block admin_panel_header %}
     Главная страница
 {% endblock %}
+
+{% block admin_hint %}
+    <h1>Вы находитесь в админке</h1>
+    <div class="alert alert-warning" role="alert">
+        <p><strong>Это значит, что вы можете поломать этот сайт</strong></p>
+        <p>Пожалуйста, будьте аккуратны и проверяйте данные, перед тем как загрузить их</p>
+    </div>
+    <hr/>
+{% endblock %}
