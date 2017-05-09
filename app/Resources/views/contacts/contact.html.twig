@@ -6,13 +6,13 @@
         <div class="contact-name">{{ contact.name }}</div>
         <div class="contact-goal"">{{ contact.goal }}</div>
         <div class="contact-city">{{ contact.city | contact_city }}</div>
-        {% if contact.fb is defined %}
+        {% if contact.fb %}
             <a href="https://fb.com/{{ contact.fb }}">fb</a>
         {% endif %}
-        {% if contact.vk is defined %}
+        {% if contact.vk %}
             <a href="https://vk.com/{{ contact.vk }}">vk</a>
         {% endif %}
-        {% if contact.email is defined %}
+        {% if contact.email %}
             <a href="mailto:{{ contact.email }}">email</a>
         {% endif %}
     </div>

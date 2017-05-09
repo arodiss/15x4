@@ -73,11 +73,14 @@ class ContactsExtension extends \Twig_Extension
             new Contact('Александра Малевич', Contact::CITY_KIEV, Contact::GOAL_COORDINATOR,
                 ['email' => '15x4Kyiv@gmail.com', 'vk' => 'ehnara', 'fb' => 'ehnara'], 'ehnara.jpg'),
 
-            new Contact('Ульяна Громова', Contact::CITY_KHARKOV, Contact::GOAL_LECTURER,
+            new Contact('Ульяна Громова', Contact::CITY_KHARKOV, Contact::GOAL_VOLUNTEER,
                 ['email' => 'Malyarchyk.17@gmail.com', 'vk' => 'hell_low'], 'gromova.jpg'),
 
-            new Contact('Дмитрий Кондратюк', Contact::CITY_LVIV, Contact::GOAL_COORDINATOR,
-                ['email' => 'kondrdm@gmail.com', 'vk' => 'feelofeel', 'fb' => 'eeloffeel'], 'feelofreel.jpg'),
+            new Contact('Евгений Киося', Contact::CITY_KHARKOV, Contact::GOAL_LECTURER,
+                ['email' => 'yevgenkiosya@gmail.com', 'vk' => 'yevgen_kiosya'], 'kiosya.jpg'),
+
+            new Contact('Оксана Брошнівська', Contact::CITY_LVIV, Contact::GOAL_COORDINATOR,
+                ['email' => 'oksanabro93@gmail.com', 'vk' => 'do___bro', 'fb' => 'oksana.broshnivska'], 'oksana_lvov.jpg'),
 
             new Contact('Валерия Грачёва', Contact::CITY_MOSCOW, Contact::GOAL_COORDINATOR,
                 ['email' => 'eon@houston.ru', 'vk' => 'real_night', 'fb' => 'realgrachova'], 'real.jpg'),
@@ -112,8 +115,59 @@ class ContactsExtension extends \Twig_Extension
             new Contact('Алексей Зиновьев', Contact::CITY_MUNICH, Contact::GOAL_COORDINATOR,
                 ['email' => 'munich@15x4.org', 'vk' => 'ash4ever', 'fb' => 'zinovev.aleksei'], 'az.jpg'),
 
-            new Contact('Алексей Разбаков', Contact::CITY_MUNICH, Contact::GOAL_LECTURER,
+            new Contact('Алексей Разбаков', Contact::CITY_MUNICH, Contact::GOAL_COORDINATOR,
                 ['email' => 'razbakov@15x4.org.com', 'vk' => 'razbakov', 'fb' => 'razbakov'], 'razbakov.jpg'),
+
+            new Contact('Виктория Коржова', Contact::CITY_MUNICH, Contact::GOAL_LECTURER,
+                ['email' => 'viktoria.korzhova@gmail.com', 'vk' => 'viktoria.korzhova', 'fb' => 'viktoria.v.korzhova'], 'victoria_munich.jpg'),
+
+            new Contact('Яна Бондарчук', Contact::CITY_KHMELNITSKIY, Contact::GOAL_COORDINATOR,
+                ['email' => '15x4khm@gmail.com', 'vk' => 'yasna_yana', 'fb' => 'profile.php?id=100011673760027'], 'yana_khmel.jpg'),
+
+            new Contact('Ива', Contact::CITY_DNEPR, Contact::GOAL_COORDINATOR,
+                ['email' => 'k.nay@mail.ru', 'vk' => 'ivatelesik'], 'iva_dnepr.jpg'),
+
+            new Contact('Надя Коваль', Contact::CITY_DNEPR, Contact::GOAL_VOLUNTEER,
+                ['email' => 'nadiiakoval@gmail.com', 'vk' => 'nadiako', 'fb' => 'nadiiakoval'], 'nadia_dnepr.jpg'),
+
+            new Contact('Игорь Страх', Contact::CITY_MINSK, Contact::GOAL_COORDINATOR,
+                ['vk' => 'impirator'], 'igor_minsk.jpg'),
+
+            new Contact('Ника Верховенко', Contact::CITY_BELGOROD, Contact::GOAL_COORDINATOR,
+                ['email' => 'nikakoks039@gmail.com', 'vk' => 'my_reself'], 'nika_belgorod.jpg'),
+
+            new Contact('Елена Паренюк', Contact::CITY_BELGOROD, Contact::GOAL_COORDINATOR,
+                ['email' => 'olena.pareniuk@gmail.com', 'vk' => 'id6536342', 'fb' => 'elena.pareniuk'], 'elena_zh.jpg'),
+
+            new Contact('Айрат Садыков', Contact::CITY_KAZAN, Contact::GOAL_COORDINATOR,
+                ['email' => 'sadykov.airat@gmail.com', 'vk' => 'airat.sadykov', 'fb' => 'airat.sadykov'], 'airat.jpg'),
+
+            new Contact('Евгений Царицанский', Contact::CITY_NOVOROSSIYSK, Contact::GOAL_COORDINATOR,
+                ['email' => 'tsar1305@gmail.com', 'vk' => 'evgtsar', 'fb' => 'profile.php?id=100011499874809'], 'eugen_nrs.jpg'),
+
+            new Contact('Эрик Янцевич', Contact::CITY_KNA, Contact::GOAL_COORDINATOR,
+                ['email' => 'mostlyerik@gmail.com', 'vk' => 'erik_yan', 'fb' => 'erik.yancevich'], 'eugen_nrs.jpg'),
+
+            new Contact('Александр Хамнушкин', Contact::CITY_UU, Contact::GOAL_COORDINATOR,
+                ['vk' => 'saygut'], 'alexander_uu.jpg'),
+
+            new Contact('Пурбо Дамбиев', Contact::CITY_UU, Contact::GOAL_COORDINATOR,
+                ['email' => 'purboxa@mail.ru', 'vk' => 'id197981549'], 'purbo_uu.jpg'),
+
+            new Contact('Екатерина Гапон', Contact::CITY_TOMSK, Contact::GOAL_COORDINATOR,
+                ['email' => 'gapon12@icloud.com', 'vk' => 'id24185330', 'fb' => 'profile.php?id=100000928378788'], 'ekaterina_tsk.jpg'),
+
+            new Contact('Олеся Михайлова', Contact::CITY_TOMSK, Contact::GOAL_COORDINATOR,
+                ['email' => 'mihailova.olesyaa@yandex.ru', 'vk' => 'id30613945'], 'olesya_tomsk.jpg'),
+
+            new Contact('Константин Дьяченко', Contact::CITY_TULA, Contact::GOAL_COORDINATOR,
+                ['email' => 'odin_4@mail.ru', 'vk' => 'id169066349', 'fb' => 'constantin.dyachenko'], 'konstantin_tl.jpg'),
+
+            new Contact('Ким Аристов', Contact::CITY_TULA, Contact::GOAL_VOLUNTEER,
+                ['email' => 'aristov@yandeх.ru', 'vk' => 'kim_aristov', 'fb' => 'kim.aristov'], 'kim_tl.jpg'),
+
+            new Contact('Татьяна Максимова', Contact::CITY_TULA, Contact::GOAL_LECTURER,
+                ['vk' => 'mtv_71', 'fb' => 'profile.php?id=100004404150884'], 'tatiana_tula.jpg'),
         ];
     }
 
