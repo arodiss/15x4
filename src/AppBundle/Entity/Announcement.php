@@ -293,24 +293,31 @@ class Announcement
         $this->fbLink = $fbLink;
     }
 
-    /**
-     * @return \DateTime
-     */
+    /** @return \DateTime */
     public function getDateTime()
     {
         $date = clone $this->getDate();
 
         //like "19:00"
-        if (preg_match("[0-2][0-9]:[0-5][0-9]", $this->getWhen())) {
+        if (preg_match("/^[0-2][0-9]:[0-5][0-9]$/", $this->getWhen())) {
             return $date->setTime(substr($this->getWhen(), 0, 2), substr($this->getWhen(), 3, 2));
         }
 
         //like "19:00 - 22:00"
-        if (preg_match("[0-2][0-9]:[0-5][0-9] - [0-2][0-9]:[0-5][0-9]", $this->getWhen())) {
+        if (preg_match("/^[0-2][0-9]:[0-5][0-9] - [0-2][0-9]:[0-5][0-9]$/", $this->getWhen())) {
             return $date->setTime(substr($this->getWhen(), 0, 2), substr($this->getWhen(), 3, 2));
         }
         
         //random guess
         return $date->setTime(19, 0);
+    }
+
+    /** @return \DateTime */
+    public function getEndDateTime()
+    {
+        $date = clone $this->getDateTime();
+        $date->modify('+2 hours');
+
+        return $date;
     }
 }
