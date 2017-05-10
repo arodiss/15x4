@@ -127,7 +127,7 @@ class ContactsExtension extends \Twig_Extension
             new Contact('Ива', Contact::CITY_DNEPR, Contact::GOAL_COORDINATOR,
                 ['email' => 'k.nay@mail.ru', 'vk' => 'ivatelesik'], 'iva_dnepr.jpg'),
 
-            new Contact('Надя Коваль', Contact::CITY_DNEPR, Contact::GOAL_VOLUNTEER,
+            new Contact('Надія Коваль', Contact::CITY_DNEPR, Contact::GOAL_COORDINATOR,
                 ['email' => 'nadiiakoval@gmail.com', 'vk' => 'nadiako', 'fb' => 'nadiiakoval'], 'nadia_dnepr.jpg'),
 
             new Contact('Игорь Страх', Contact::CITY_MINSK, Contact::GOAL_COORDINATOR,
