@@ -12,6 +12,21 @@
                                     <h2>{{ "Следующая встреча" | trans }}</h2>
                                 </div>
                                 <div class="col-lg-4" style="font-size: 200%;">
+                                    <span class="addtocalendar atc-style-icon atc-style-menu-wb">
+                                        <a class="atcb-link" style="font-size: 150%; top: -5px; position: relative;">
+                                            <span class="fa fa-calendar-check-o" aria-hidden="true"></span>
+                                        </a>
+                                        <var class="atc_event">
+                                            <var class="atc_date_start">{{ next_announcement.getDateTime() | date('Y-m-d H:i:s') }}</var>
+                                            <var class="atc_date_end">{{ next_announcement.getEndDateTime() | date('Y-m-d H:i:s') }}</var>
+                                            <var class="atc_timezone">Europe/Berlin</var>
+                                            <var class="atc_title">15x4</var>
+                                            <var class="atc_description">{{ next_announcement.lectures | join(', ') }}</var>
+                                            <var class="atc_location">{{ next_announcement.where }}</var>
+                                            <var class="atc_organizer">15x4 {{ 'Мюнхен' | trans }}</var>
+                                            <var class="atc_organizer_email">munich@15x4.org</var>
+                                        </var>
+                                    </span>
                                     {% if next_announcement.vkLink %}
                                         <a class="cursor-pointer" href="{{ next_announcement.vkLink }}" target="_blank">
                                             <span class="fa-stack pull-right">
@@ -165,10 +180,19 @@
 
     {% stylesheets
         'bundles/app/css/landing.css'
+        'bundles/app/css/atc.css'
         filter='cssrewrite'
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts 'bundles/app/js/atc.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 
 {% block header %}
