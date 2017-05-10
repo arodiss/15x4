@@ -5,12 +5,12 @@
         </label>
         <select id="select-field" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
             {% for field in availableFields %}
-                <option value="{{ field.id }}">{{ field.name }}</option>
+                <option value="{{ field.id }}">{{ field.name | trans }}</option>
             {% endfor %}
         </select>
         {% for field in selectedFields %}
             <div class="well well-sm well-no-margin">
-                {{ field }}
+                {{ field | trans }}
                 <span class="pull-right">
                     <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
                 </span>
@@ -44,12 +44,12 @@
         </label>
         <select id="select-tag" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
             {% for tag in availableTags %}
-                <option value="{{ tag.id }}">{{ tag.name }}</option>
+                <option value="{{ tag.id }}">{{ tag.name | trans }}</option>
             {% endfor %}
         </select>
         {% for tag in selectedTags %}
             <div class="well well-sm well-no-margin">
-                {{ tag }}
+                {{ tag | trans }}
                 <span class="pull-right">
                     <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
                 </span>
