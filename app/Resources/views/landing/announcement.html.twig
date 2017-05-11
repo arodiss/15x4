@@ -13,6 +13,23 @@
             <b>
                 {{ city.nextAnnouncement.date | date }}{% if city.nextAnnouncement.when %}, {{ city.nextAnnouncement.when }}{% endif %}
             </b>
+
+            <span class="addtocalendar atc-style-icon atc-style-menu-wb">
+                <a class="atcb-link" style="font-size: 150%; top: -3px; margin-left: 3px; position: relative;">
+                    <span class="fa fa-calendar-check-o" aria-hidden="true"></span>
+                </a>
+                <var class="atc_event">
+                    <var class="atc_date_start">{{ city.nextAnnouncement.getDateTime() | date('Y-m-d H:i:s') }}</var>
+                    <var class="atc_date_end">{{ city.nextAnnouncement.getEndDateTime() | date('Y-m-d H:i:s') }}</var>
+                    <var class="atc_timezone">{{ city.timezone }}</var>
+                    <var class="atc_title">15x4</var>
+                    <var class="atc_description">{{ city.nextAnnouncement.lectures | join(', ') }}</var>
+                    <var class="atc_location">{{ city.nextAnnouncement.where }}</var>
+                    <var class="atc_organizer">15x4 {{ city | trans }}</var>
+                    <var class="atc_organizer_email">admin@15x4.org</var>
+                </var>
+            </span>
+
             {% if city.nextAnnouncement.vkLink %}
                 <a href="{{ city.nextAnnouncement.vkLink }}" target="_blank">
                                 <span class="fa-stack pull-right">
