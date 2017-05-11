@@ -57,8 +57,17 @@
 
     {% stylesheets
         'bundles/app/css/landing.css'
+        'bundles/app/css/atc.css'
         filter='cssrewrite'
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    {% javascripts 'bundles/app/js/atc.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
