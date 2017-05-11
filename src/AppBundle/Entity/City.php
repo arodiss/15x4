@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -37,6 +38,25 @@ class City
      * @ORM\Column(name="name", type="string", length=63, nullable=false, unique=true)
      */
     protected $name;
+
+    /**
+     * @Assert\Type("float")
+     * @Assert\Range(min = 0, max = 90)
+     * @ORM\Column(name="latitude", type="float", nullable=true)
+     */
+    protected $latitude;
+
+    /**
+     * @Assert\Type("float")
+     * @Assert\Range(min = -180, max = 180)
+     * @ORM\Column(name="longitude", type="float", nullable=true)
+     */
+    protected $longitude;
+
+    /**
+     * @ORM\Column(name="timezone", type="string", length=63, nullable=true)
+     */
+    protected $timezone;
 
     /** {@inheritdoc} */
     public function __toString()
@@ -74,6 +94,42 @@ class City
         return $this->events;
     }
 
+    /** @return float */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /** @param float $longitude */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
+
+    /** @return float */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /** @param float $latitude */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
+    /** @return string */
+    public function getTimezone()
+    {
+        return $this->timezone;
+    }
+
+    /** @param string $timezone */
+    public function setTimezone($timezone)
+    {
+        $this->timezone = $timezone;
+    }
+    
     /** @return Announcement|null */
     public function getNextAnnouncement()
     {

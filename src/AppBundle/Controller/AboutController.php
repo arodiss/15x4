@@ -3,9 +3,8 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class AboutController extends Controller
+class AboutController extends AbstractController
 {
     /**
      * @Extra\Route("/about", name="About")
@@ -16,6 +15,7 @@ class AboutController extends Controller
             'about/about.html.twig',
             [
                 'ignoreContainer' => true,
+                'cities' => $this->getCityRepository()->findAll()
             ]
         );
     }

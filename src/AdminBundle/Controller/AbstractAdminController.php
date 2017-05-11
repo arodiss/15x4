@@ -25,11 +25,24 @@ abstract class AbstractAdminController extends Controller
                 $this->getEm()->persist($form->getData());
                 $this->getEm()->flush();
                 $this->addFlash('success', 'Создано успешно');
+
+                return $this->redirectToRoute($this->getAdminConfig()['list_route']);
             } else {
                 $this->addFlash('error', 'Создать не удалось');
-            }
 
-            return $this->redirectToRoute($this->getAdminConfig()['list_route']);
+                return $this->render(
+                    $this->getAdminConfig()['list_template'],
+                    [
+                        'is_list_view' => false,
+                        'pagination' => $this->getPager()->paginate(
+                            $this->get($this->getAdminConfig()['repository_service'])->getAdminQb(),
+                            $request->get('page', 1),
+                            self::ITEMS_PER_PAGE
+                        ),
+                        'form' => $form->createView()
+                    ]
+                );
+            }
         }
 
         return $this->render(
