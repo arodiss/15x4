@@ -205,7 +205,7 @@
                 center: {lat: 50.446319, lng: 30.527165} // Kiev
             });
 
-            {% for city in cities if not city.dormant and city.latitude and city.longitude %}
+            {% for city in cities if not city.dormant %}
                 var content = '{%- include 'about/infowindow.html.twig' -%}';
                 var infowindow{{ city.id }} = new google.maps.InfoWindow({
                     content: content
