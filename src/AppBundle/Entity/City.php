@@ -42,19 +42,19 @@ class City
     /**
      * @Assert\Type("float")
      * @Assert\Range(min = 0, max = 90)
-     * @ORM\Column(name="latitude", type="float", nullable=true)
+     * @ORM\Column(name="latitude", type="float", nullable=false)
      */
     protected $latitude;
 
     /**
      * @Assert\Type("float")
      * @Assert\Range(min = -180, max = 180)
-     * @ORM\Column(name="longitude", type="float", nullable=true)
+     * @ORM\Column(name="longitude", type="float", nullable=false)
      */
     protected $longitude;
 
     /**
-     * @ORM\Column(name="timezone", type="string", length=63, nullable=true)
+     * @ORM\Column(name="timezone", type="string", length=63, nullable=false)
      */
     protected $timezone;
 
