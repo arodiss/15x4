@@ -196,45 +196,31 @@
 
 {% block scripts %}
     {{ parent() }}
-    {#todo add cities automatically#}
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap"></script>
     <script type="text/javascript">
-        var dnipro = {lat: 48.469042, lng: 35.050473};
-        var zhitomir = {lat: 50.253379, lng: 28.654146};
-        var kishenev = {lat: 47.012426, lng: 28.850615};
-        var kiev = {lat: 50.446319, lng: 30.527165};
-        var kna = {lat: 50.564954, lng: 136.979592};
-        var lviv = {lat: 49.839754, lng: 24.029056};
-        var moscow = {lat: 55.742327, lng: 37.596680};
-        var munich = {lat: 48.133749, lng: 11.580279};
-        var odessa = {lat: 46.479279, lng: 30.728945};
-        var samara = {lat: 53.240858, lng: 50.199420};
-        var spb = {lat: 59.930911, lng: 30.307180};
-        var kharkov = {lat: 49.992741, lng: 36.240498};
-        var khmelnitskiy = {lat: 49.421028, lng: 26.992167};
-        var cheboksary = {lat: 56.111686, lng: 47.258903};
-        var chernovtsy = {lat: 48.290205, lng: 25.935283};
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 3,
-                center: kiev
+                center: {lat: 50.446319, lng: 30.527165} // Kiev
             });
-            new google.maps.Marker({ position: dnipro, map: map, title: '{{ "Днепр" | trans }}'});
-            new google.maps.Marker({ position: zhitomir, map: map, title: '{{ "Житомир" | trans }}'});
-            new google.maps.Marker({ position: kishenev, map: map, title: '{{ "Кишинёв" | trans }}'});
-            new google.maps.Marker({ position: kiev, map: map, title: '{{ "Киев" | trans }}'});
-            new google.maps.Marker({ position: kna, map: map, title: '{{ "Комсомольск-на-Амуре" | trans }}'});
-            new google.maps.Marker({ position: lviv, map: map, title: '{{ "Львов" | trans }}'});
-            new google.maps.Marker({ position: moscow, map: map, title: '{{ "Москва" | trans }}'});
-            new google.maps.Marker({ position: munich, map: map, title: '{{ "Мюнхен" | trans }}'});
-            new google.maps.Marker({ position: odessa, map: map, title: '{{ "Одесса" | trans }}'});
-            new google.maps.Marker({ position: samara, map: map, title: '{{ "Самара" | trans }}'});
-            new google.maps.Marker({ position: spb, map: map, title: '{{ "Санкт-Петербург" | trans }}'});
-            new google.maps.Marker({ position: kharkov, map: map, title: '{{ "Харьков" | trans }}'});
-            new google.maps.Marker({ position: khmelnitskiy, map: map, title: '{{ "Хмельницкий" | trans }}'});
-            new google.maps.Marker({ position: cheboksary, map: map, title: '{{ "Чебоксары" | trans }}'});
-            new google.maps.Marker({ position: chernovtsy, map: map, title: '{{ "Черновцы" | trans }}'});
+
+            {% for city in cities if not city.dormant and city.latitude and city.longitude %}
+                var content = '{%- include 'about/infowindow.html.twig' -%}';
+                var infowindow{{ city.id }} = new google.maps.InfoWindow({
+                    content: content
+                });
+
+                var marker{{ city.id }} = new google.maps.Marker({
+                    position: {lat: {{ city.latitude }}, lng: {{ city.longitude }}},
+                    map: map,
+                    title: '{{ city | trans }}'
+                });
+
+                marker{{ city.id }}.addListener('click', function() {
+                    infowindow{{ city.id }}.open(map, marker{{ city.id }});
+                });
+            {% endfor %}
         }
     </script>
 {% endblock %}
