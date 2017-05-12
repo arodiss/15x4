@@ -1,6 +1,9 @@
-{#this is a hacky way to prevent trailin newline - it breaks JS#}
-{{- '<div>' -}}
-<h4 style="color: black;">
+{%- spaceless -%}
+<h4>
     {{- city | trans -}}
+    <br/>
+    <a href="{{ path('LectureByCity', { 'id': city.id } ) }}">{{ 'Лекции' | trans }} >></a>
+    <br/>
+    <a href="{{ path('Contacts', { 'city': city.id } ) }}">{{ 'Контакты' | trans }} >></a>
 </h4>
-{{- '</div>' -}}
+{%- endspaceless -%}

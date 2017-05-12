@@ -43,7 +43,7 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Extra\Route("/lecture/city/{id}", name="EventByCity")
+     * @Extra\Route("/event/city/{id}", name="EventByCity")
      * @Extra\ParamConverter()
      */
     public function listByCityAction(City $city, Request $request)

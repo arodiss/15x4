@@ -98,6 +98,18 @@ class LectureController extends AbstractController
     }
 
     /**
+     * @Extra\Route("/lecture/city/{id}", name="LectureByCity")
+     * @Extra\ParamConverter()
+     */
+    public function listByCityAction(Entity\City $city)
+    {
+        return $this->redirectToRoute(
+            'LectureList',
+            ['events' => implode(',', $city->getEventIds())]
+        );
+    }
+
+    /**
      * @Extra\Route("/lecture/field/{id}", name="LectureByField")
      * @Extra\ParamConverter()
      */
