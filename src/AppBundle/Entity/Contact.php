@@ -6,27 +6,28 @@ class Contact
 {
     const DEFAULT_PICTURE = '../logo.png';
 
-    const CITY_MOSCOW = 1;
+    const CITY_MOSCOW = 5;
     const CITY_KIEV = 2;
-    const CITY_KHARKOV = 3;
-    const CITY_LVIV = 4;
-    const CITY_CHERNIVTSI = 5;
+    const CITY_KHARKOV = 1;
+    const CITY_LVIV = 3;
+    const CITY_CHERNIVTSI = 4;
     const CITY_KISHENEV = 6;
     const CITY_ODESSA = 7;
-    const CITY_SPB = 8;
-    const CITY_SAMARA = 9;
-    const CITY_MUNICH = 10;
-    const CITY_DNEPR = 11;
-    const CITY_TULA = 12;
-    const CITY_KHMELNITSKIY = 13;
-    const CITY_ZHITOMIR = 14;
-    const CITY_KNA = 15;
-    const CITY_BELGOROD = 16;
-    const CITY_KAZAN = 17;
-    const CITY_NOVOROSSIYSK = 18;
-    const CITY_MINSK = 19;
-    const CITY_UU = 20;
-    const CITY_TOMSK = 21;
+    const CITY_SPB = 12;
+    const CITY_SAMARA = 8;
+    const CITY_MUNICH = 14;
+    const CITY_DNEPR = 13;
+    const CITY_TULA = 1200;
+    const CITY_KHMELNITSKIY = 9;
+    const CITY_ZHITOMIR = 11;
+    const CITY_KNA = 10;
+    const CITY_CHEBOKSARY = 15;
+    const CITY_BELGOROD = 1600;
+    const CITY_KAZAN = 1700;
+    const CITY_NOVOROSSIYSK = 1800;
+    const CITY_MINSK = 1900;
+    const CITY_UU = 2000;
+    const CITY_TOMSK = 2100;
     
     const GOAL_FOUNDER = 'Основатель и глобальный координатор';
     const GOAL_LECTURER = 'Работа с лекторами';

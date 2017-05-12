@@ -67,4 +67,15 @@ $(function () {
         $(this).toggleClass('active');
         filterContacts();
     });
+
+    if (window.location.search.indexOf('?') !== -1) {
+        var queryString = window.location.search.substring(
+            window.location.search.indexOf('?') + 1
+        ).split('&');
+        for (var element in queryString) {
+            if (queryString[element].startsWith && queryString[element].startsWith('city=')) {
+                $('#city').find('[data-city='+queryString[element].replace('city=', '')+']').click();
+            }
+        }
+    }
 });
