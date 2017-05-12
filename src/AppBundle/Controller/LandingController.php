@@ -61,9 +61,7 @@ class LandingController extends AbstractController
         return $this->render(
             'landing/munich.html.twig',
             [
-                'next_announcement' => $munich->getNextAnnouncement(),
-                'past_announcement' => $munich->getLastAnnouncement(),
-                'munich_event_ids' => $munich->getEventIds(),
+                'munich' => $munich,
                 'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
             ]
         );
