@@ -32,11 +32,12 @@ class GenerateRatingCommand extends AbstractCommand
         $this->getEm()->flush();
 
         $output->writeln("\nGenerating rating for tags...");
-        $tags = $this->getContainer()->get('repository.tag')->findAll();
+        $this->getContainer()->get('repository.tag')->nullAllRating();
+        $tags = $this->getContainer()->get('repository.tag')->findAllWhichHas2PlusLectures();
         $progress = new ProgressBar($output, count($tags));
         foreach ($tags as $tag) {
             /** @var Tag $tag */
-            $tag->setRandomRating(rand(0, 1000));
+            $tag->setRandomRating(rand(10, 1000));
             $this->getEm()->persist($tag);
             $progress->advance();
         }

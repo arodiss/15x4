@@ -38,6 +38,30 @@ class TagRepository extends AbstractRepository
         ;
     }
 
+    public function nullAllRating()
+    {
+        $this
+            ->createQueryBuilder('tag')
+            ->update()
+            ->set('tag.randomRating', 0)
+            ->getQuery()
+            ->execute()
+        ;
+    }
+
+    /** @return array|Entity\Tag[] */
+    public function findAllWhichHas2PlusLectures()
+    {
+        return $this
+            ->createQueryBuilder('tag')
+            ->innerJoin('tag.lectures', 'l')
+            ->having('COUNT(l) > 1')
+            ->groupBy('tag')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /** @return \Doctrine\ORM\QueryBuilder */
     public function getAdminQb()
     {
