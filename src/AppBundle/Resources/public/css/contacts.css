@@ -1,8 +1,3 @@
-#contacts {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .contact {
     width: 280px;
     padding-bottom: 14px;

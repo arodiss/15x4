@@ -182,6 +182,12 @@ h3:not(.anchor) {
     background-color: #fff;
     border-color: #ccc;
 }
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 /*end generic styles*/
 
 /*carousel styles*/
