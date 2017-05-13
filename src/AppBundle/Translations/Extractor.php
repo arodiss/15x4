@@ -41,9 +41,6 @@ class Extractor implements ExtractorInterface
     /** @return MessageCatalogue */
     public function extract()
     {
-        foreach (Entity\RandomScientist::all() as $scientist) {
-            $this->add($scientist);
-        }
         foreach ($this->fieldRepository->findAll() as $field) {
             /** @var Entity\Field $field */
             $this->add($field->getName());
@@ -51,6 +48,13 @@ class Extractor implements ExtractorInterface
         foreach ($this->cityRepository->findAll() as $city) {
             /** @var Entity\City $city */
             $this->add($city->getName());
+        }
+        foreach ($this->tagRepository->findAllWhichHas2PlusLectures() as $tag) {
+            /** @var Entity\Tag $city */
+            $this->add($tag->getName());
+        }
+        foreach (Entity\RandomScientist::all() as $scientist) {
+            $this->add($scientist);
         }
         foreach (Entity\Contact::getAllGoals() as $goal) {
             $this->add($goal);
