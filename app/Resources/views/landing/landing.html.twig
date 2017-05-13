@@ -5,7 +5,7 @@
 
     <h2 class="text-center" style="width: 100%;">{{ 'Недавние лекции' | trans }}</h2>
 
-    <div style="display: flex; flex-wrap: wrap;">
+    <div class="flexbox">
         {% for lecture in featured_lectures %}
             <div class="plate-container row3">
                 {% include 'shared/lecture-plate.html.twig' %}
@@ -13,7 +13,7 @@
         {% endfor %}
     </div>
 
-    <div style="display: flex; flex-wrap: wrap; margin-bottom: 20px;">
+    <div class="flexbox" style="margin-bottom: 20px;">
         {% for lecture in recent_lectures %}
             <div class="plate-container row4">
                 {% include 'shared/lecture-plate.html.twig' %}
