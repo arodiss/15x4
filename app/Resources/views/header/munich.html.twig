@@ -23,16 +23,18 @@
         </span>
     </a>
 
-    <a
-        href="https://vk.com/15x4munich"
-        target="_blank"
-        style="font-size: 210%;"
-    >
-        <span class="fa-stack pull-right">
-            <i class="fa fa-vk fa-stack-1x"></i>
-            <i class="fa fa-square-o fa-stack-2x"></i>
-        </span>
-    </a>
+    {% if app.session.get('locale') | default(default_locale) == 'ru' %}
+        <a
+            href="https://vk.com/15x4munich"
+            target="_blank"
+            style="font-size: 210%;"
+        >
+            <span class="fa-stack pull-right">
+                <i class="fa fa-vk fa-stack-1x"></i>
+                <i class="fa fa-square-o fa-stack-2x"></i>
+            </span>
+        </a>
+    {% endif %}
 {% endblock %}
 
 {% block logo %}
