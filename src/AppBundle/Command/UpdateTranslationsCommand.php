@@ -18,7 +18,7 @@ class UpdateTranslationsCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-        $question = new ConfirmationQuestion("<error>WARNING</error>\nAre you sure your DB is up-to-date? If not, some existing translations may be deleted\n(y/n)", false);
+        $question = new ConfirmationQuestion("<error>WARNING</error>\nAre you sure your DB is up-to-date? If it is not, some existing translations may be deleted\n(y/n)", false);
         if (false === $helper->ask($input, $output, $question)) {
             $output->writeln("Update canceled");
             return;
