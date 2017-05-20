@@ -69,16 +69,16 @@
                             <h2>{{ "Прошлая встреча" | trans }}</h2>
                         </div>
                         <div class="col-lg-4" style="font-size: 200%;">
-                            {% if munich.past_announcement.vkLink %}
-                                <a class="cursor-pointer" href="{{ munich.past_announcement.vkLink }}" target="_blank">
+                            {% if munich.lastAnnouncement.vkLink %}
+                                <a class="cursor-pointer" href="{{ munich.lastAnnouncement.vkLink }}" target="_blank">
                                     <span class="fa-stack pull-right">
                                         <i class="fa fa-vk fa-stack-1x"></i>
                                         <i class="fa fa-square-o fa-stack-2x"></i>
                                     </span>
                                 </a>
                             {% endif %}
-                            {% if munich.past_announcement.fbLink %}
-                                <a class="cursor-pointer" href="{{ munich.past_announcement.fbLink }}" target="_blank">
+                            {% if munich.lastAnnouncement.fbLink %}
+                                <a class="cursor-pointer" href="{{ munich.lastAnnouncement.fbLink }}" target="_blank">
                                     <span class="fa-stack pull-right">
                                         <i class="fa fa-facebook fa-stack-1x"></i>
                                         <i class="fa fa-square-o fa-stack-2x"></i>
@@ -87,10 +87,10 @@
                             {% endif %}
                         </div>
                     </div>
-                    <h4>{{ munich.past_announcement.date | date }}, {{ munich.past_announcement.when }}</h4>
-                    <h4>{{ munich.past_announcement.where }}</h4>
+                    <h4>{{ munich.lastAnnouncement.date | date }}, {{ munich.lastAnnouncement.when }}</h4>
+                    <h4>{{ munich.lastAnnouncement.where }}</h4>
                     <hr/>
-                    {% for lecture in munich.past_announcement.lectures %}
+                    {% for lecture in munich.lastAnnouncement.lectures %}
                         <p><b>{{ lecture.title }}</b> – <i>{{ lecture.lecturer }}</i></p>
                         <p>{{ lecture.teaser }}</p>
                     {% endfor %}
