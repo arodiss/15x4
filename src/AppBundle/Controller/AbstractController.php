@@ -51,6 +51,12 @@ class AbstractController extends Controller
         return $this->get("repository.city");
     }
 
+    /** @return Repository\ContactRepository */
+    protected function getContactRepository()
+    {
+        return $this->get("repository.contact");
+    }
+
     /** @return \Knp\Component\Pager\Paginator */
     protected function getPager()
     {

@@ -46,7 +46,13 @@ class LandingController extends AbstractController
      */
     public function contactsAction()
     {
-        return $this->render('contacts/contacts.html.twig');
+        return $this->render(
+            'contacts/contacts.html.twig',
+            [
+                'contacts' => $this->getContactRepository()->findAll(),
+                'cities' => $this->getCityRepository()->findAll(),
+            ]
+        );
     }
 
     /**

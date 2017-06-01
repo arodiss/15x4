@@ -1,5 +1,3 @@
-{#todo generate content dynamically#}
-
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}
@@ -46,7 +44,7 @@
             <b>{{ 'Ваш город' | trans }}</b>
             <br/>
             <div id="city" class="btn-group" role="group">
-                {% for id, city in get_contact_cities() %}
+                {% for id, city in cities %}
                     <button data-city={{ id }} type="button" class="btn btn-default">{{ city | trans }}</button>
                 {% endfor %}
             </div>
@@ -56,7 +54,7 @@
     <hr/>
 
     <div id="contacts" class="flexbox">
-        {% for contact in get_contacts() %}
+        {% for contact in contacts %}
             {% include 'contacts/contact.html.twig' %}
         {% endfor %}
     </div>

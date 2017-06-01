@@ -27,6 +27,12 @@ class City
      * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Event", mappedBy="city")
      */
     protected $events;
+    
+    /**
+     * @var \AppBundle\Entity\Contact[]
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Contact", mappedBy="contact")
+     */
+    protected $contacts;
 
     /**
      * @var \AppBundle\Entity\Announcement[]
