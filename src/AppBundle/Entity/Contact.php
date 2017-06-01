@@ -2,32 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Table(name="contact")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\ContactRepository")
+ */
 class Contact
 {
     const DEFAULT_PICTURE = '../logo.png';
-
-    const CITY_MOSCOW = 5;
-    const CITY_KIEV = 2;
-    const CITY_KHARKOV = 1;
-    const CITY_LVIV = 3;
-    const CITY_CHERNIVTSI = 4;
-    const CITY_KISHENEV = 6;
-    const CITY_ODESSA = 7;
-    const CITY_SPB = 12;
-    const CITY_SAMARA = 8;
-    const CITY_MUNICH = 14;
-    const CITY_DNEPR = 13;
-    const CITY_TULA = 1200;
-    const CITY_KHMELNITSKIY = 9;
-    const CITY_ZHITOMIR = 11;
-    const CITY_KNA = 10;
-    const CITY_CHEBOKSARY = 15;
-    const CITY_BELGOROD = 1600;
-    const CITY_KAZAN = 1700;
-    const CITY_NOVOROSSIYSK = 1800;
-    const CITY_MINSK = 1900;
-    const CITY_UU = 2000;
-    const CITY_TOMSK = 2100;
     
     const GOAL_FOUNDER = 'Основатель и глобальный координатор';
     const GOAL_LECTURER = 'Работа с лекторами';
@@ -36,93 +20,54 @@ class Contact
     const GOAL_WEBSITE = 'Разработка сайта';
     const GOAL_MEDIA = 'Связь со СМИ';
 
-    /** @var string */
-    private $picture;
-
-    /** @var string */
-    private $goal;
-
-    /** @var int */
-    private $city;
-
-    /** @var string */
-    private $name;
-
-    /** @var string */
-    private $fb;
-
-    /** @var string */
-    private $vk;
-
-    /** @var string */
-    private $email;
+    /**
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     /**
-     * @param string $name
-     * @param int $city
-     * @param string $goal
-     * @param array|string[] $contacts
-     * @param string $picture
+     * @ORM\Column(name="picture", type="string", length=63, nullable=true)
      */
-    public function __construct($name, $city, $goal, array $contacts, $picture = self::DEFAULT_PICTURE)
-    {
-        $this->name = $name;
-        $this->city = $city;
-        $this->goal = $goal;
-        $this->picture = $picture;
-        if (isset($contacts['fb'])) {
-            $this->fb = $contacts['fb'];
-        }
-        if (isset($contacts['vk'])) {
-            $this->vk = $contacts['vk'];
-        }
-        if (isset($contacts['email'])) {
-            $this->email = $contacts['email'];
-        }
-    }
+    private $picture;
 
-    /** @return string */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
+    /**
+     * @ORM\Column(name="goal", type="string", length=63, nullable=false)
+     */
+    private $goal;
 
-    /** @return string */
-    public function getGoal()
-    {
-        return $this->goal;
-    }
+    /**
+     * @var City
+     * @ORM\ManyToOne(
+     *  targetEntity="City",
+     *  inversedBy="contacts"
+     * )
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     */
+    private $city;
 
-    /** @return int */
-    public function getCity()
-    {
-        return $this->city;
-    }
+    /**
+     * @ORM\Column(name="name", type="string", length=63, nullable=false)
+     */
+    private $name;
 
-    /** @return string */
-    public function getName()
-    {
-        return $this->name;
-    }
+    /**
+     * @ORM\Column(name="fb", type="string", length=63, nullable=true)
+     */
+    private $fb;
 
-    /** @return string */
-    public function getVk()
-    {
-        return $this->vk;
-    }
+    /**
+     * @ORM\Column(name="vk", type="string", length=63, nullable=true)
+     */
+    private $vk;
 
-    /** @return string */
-    public function getEmail()
-    {
-        return $this->email;
-    }
+    /**
+     * @ORM\Column(name="email", type="string", length=63, nullable=true)
+     */
+    private $email;
 
-    /** @return string */
-    public function getFb()
-    {
-        return $this->fb;
-    }
-
+    /** @return array|string[] */
     public static function getAllGoals()
     {
         return [
@@ -133,6 +78,96 @@ class Contact
             self::GOAL_WEBSITE,
             self::GOAL_MEDIA,
         ];
+    }
+
+    /** @return int */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /** @return string|null */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /** @param string $picture */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /** @return string */
+    public function getGoal()
+    {
+        return $this->goal;
+    }
+
+    /** @param string $goal */
+    public function setGoal($goal)
+    {
+        $this->goal = $goal;
+    }
+
+    /** @return City */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /** @param City $city */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /** @return string */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /** @param string $name */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /** @return string */
+    public function getFb()
+    {
+        return $this->fb;
+    }
+
+    /** @param string $fb */
+    public function setFb($fb)
+    {
+        $this->fb = $fb;
+    }
+
+    /** @return string */
+    public function getVk()
+    {
+        return $this->vk;
+    }
+
+    /** @param string $vk */
+    public function setVk($vk)
+    {
+        $this->vk = $vk;
+    }
+
+    /** @return string */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /** @param string $email */
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 
     /** @return array */

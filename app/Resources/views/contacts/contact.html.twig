@@ -4,8 +4,8 @@
     </div>
     <div class="contact-info">
         <div class="contact-name">{{ contact.name }}</div>
-        <div class="contact-goal"">{{ contact.goal }}</div>
-        <div class="contact-city">{{ contact.city | contact_city }}</div>
+        <div class="contact-goal"">{{ contact.goal | trans }}</div>
+        <div class="contact-city">{{ contact.city | trans }}</div>
         {% if contact.fb %}
             <a href="https://fb.com/{{ contact.fb }}">fb</a>
         {% endif %}

@@ -43,3 +43,8 @@ services:
         class:                                      AppBundle\Entity\Repository\CommentThreadRepository
         factory:                                    ['@doctrine', 'getRepository']
         arguments:                                  [ AppBundle\Entity\CommentThread ]
+
+    repository.contact:
+        class:                                      AppBundle\Entity\Repository\ContactRepository
+        factory:                                    ['@doctrine', 'getRepository']
+        arguments:                                  [ AppBundle\Entity\Contact ]
