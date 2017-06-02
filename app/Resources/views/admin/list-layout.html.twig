@@ -24,6 +24,7 @@
                     </div>
                     <div class="panel-body">
                         {% if form is defined %}
+                            {% block before_form %}{% endblock %}
                             {{ form(form) }}
                         {% else %}
                             <p>На этой странице нечего создавать</p>

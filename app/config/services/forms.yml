@@ -6,3 +6,10 @@ services:
             - '@translator'
         tags:
             - { name: form.type }
+
+    form.type.contact_picture:
+        class: AdminBundle\Form\ContactPictureType
+        calls:
+            - ['setKernelRootDir', ['%kernel.root_dir%']]
+        tags:
+            - { name: form.type }

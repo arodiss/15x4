@@ -30,7 +30,7 @@ class Contact
     /**
      * @ORM\Column(name="picture", type="string", length=63, nullable=true)
      */
-    private $picture;
+    private $picture = self::DEFAULT_PICTURE;
 
     /**
      * @ORM\Column(name="goal", type="string", length=63, nullable=false)
@@ -89,7 +89,7 @@ class Contact
     /** @return string|null */
     public function getPicture()
     {
-        return $this->picture;
+        return $this->picture ?: self::DEFAULT_PICTURE;
     }
 
     /** @param string $picture */
@@ -203,5 +203,11 @@ class Contact
             default:
                 throw new \InvalidArgumentException(sprintf('Unknown goal `%s`', $this->getGoal()));
         }
+    }
+
+    /** @return bool */
+    public function hasOwnPicture()
+    {
+        return $this->getPicture() && $this->getPicture() !== self::DEFAULT_PICTURE;
     }
 }

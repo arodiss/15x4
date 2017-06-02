@@ -1,0 +1,50 @@
+{% extends "admin/list-layout.html.twig" %}
+
+{% block admin_panel_header %}
+    Контакты
+{% endblock %}
+
+{% block before_form %}
+    <div class="alert alert-info">
+        Чтобы новое фото появилось в списке, пришлите его в слак `arodiss`
+    </div>
+{% endblock %}
+
+{% block admin_list_content %}
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Город</th>
+                <th>Роль</th>
+                <th>Фото</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in pagination.items %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.city }}</td>
+                    <td>{{ contact.goal }}</td>
+                    <td>
+                        {% if contact.hasOwnPicture() %}
+                            Есть
+                        {% else %}
+                            <span style="color: red;">Нет</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ path("AdminContactEdit", { "id": contact.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="delete" href="{{ path("AdminContactDelete", { "id": contact.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr><td colspan="4">
+                {% include 'shared/pagination.html.twig' with { pagination: pagination.paginationData } %}
+            </td></tr>
+        </tfoot>
+    </table>
+{% endblock %}
