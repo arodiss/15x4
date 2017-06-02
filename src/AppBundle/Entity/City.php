@@ -30,7 +30,7 @@ class City
     
     /**
      * @var \AppBundle\Entity\Contact[]
-     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Contact", mappedBy="contact")
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Contact", mappedBy="city")
      */
     protected $contacts;
 
