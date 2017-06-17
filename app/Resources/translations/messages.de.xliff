@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-06-02T11:18:12Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-06-17T11:02:09Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -1279,6 +1279,10 @@
         <source>космонавтика</source>
         <target>Astronautik</target>
       </trans-unit>
+      <trans-unit id="eeedcabb48bd424e17db4317e4e311d5f72b7d66" resname="криптография">
+        <source>криптография</source>
+        <target state="new">криптография</target>
+      </trans-unit>
       <trans-unit id="1324b207fdc2bda35c41cec7deba509b66b603f7" resname="культура">
         <source>культура</source>
         <target>Kultur</target>
@@ -1414,6 +1418,10 @@
       <trans-unit id="3236c4d9e22bdbb73bfe4a1decbde8f37076ad78" resname="трансгуманизм">
         <source>трансгуманизм</source>
         <target>Transhumanism</target>
+      </trans-unit>
+      <trans-unit id="ca6f07347b3ddac6aa585b06dee4ebc4bc5c0526" resname="тролли">
+        <source>тролли</source>
+        <target state="new">тролли</target>
       </trans-unit>
       <trans-unit id="7ce4a825d0211e2d3be49ded09a812a94e1b9e4b" resname="фармакология">
         <source>фармакология</source>
