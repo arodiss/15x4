@@ -20,6 +20,7 @@
         "php": ">=7.0.8",
         "ext-mbstring": "*",
         "ext-curl": "*",
+        "ext-mysql": "*",
 
         "symfony/symfony": "3.2.*",
         "doctrine/orm": "^2.5",

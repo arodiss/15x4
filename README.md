@@ -21,7 +21,7 @@ bin/console assetic:dump --env=prod --no-debug
 ```
 To run application as a site, you need a webserver. You may use whatever you like, but production uses Apache2.
 
-Simplest option is Symfony built-in server:
+Simplest option is Symfony built-in server, though it has some known issues:
 ```
-bin/console server:run
+bin/console server:run --env=prod
 ```
