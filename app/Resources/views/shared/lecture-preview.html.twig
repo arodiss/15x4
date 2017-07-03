@@ -74,7 +74,7 @@
             <p>
                 {{ 'Теги' | trans }}:
                 {% for tag in lecture.tags  %}
-                    <a href="{{ path("LectureList", { "tags": tag.id }) }}">{{ tag | trans }}</a>&nbsp;
+                    <a href="{{ path("LectureList", { "tags": tag.id }) }}">#{{ tag.name | trans }}</a>&nbsp;
                 {% endfor %}
             </p>
         {% endif %}
