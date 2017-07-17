@@ -109,7 +109,6 @@ class Event
             $lectures->add($lecture);
         }
         $self->lectures = $lectures;
-        $self->created = new \DateTime(); //todo this should be set automatically, why it is not?
 
         return $self;
     }
