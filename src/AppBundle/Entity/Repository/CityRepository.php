@@ -68,16 +68,16 @@ class CityRepository extends AbstractRepository
     /** @return array|Entity\City[] */
     public function findAllWithEventsAndAnnouncements()
     {
-        return $this
+        return array_reverse($this
             ->createQueryBuilder('c')
             ->leftJoin('c.events', 'e')
             ->leftJoin('c.announcements', 'a')
             ->leftJoin('a.lectures', 'l')
             ->leftJoin('l.lecturer', 'll')
             ->select(['c', 'a', 'e',  'l', 'll'])
-            ->addOrderBy('a.date', 'ASC')
+            ->addOrderBy('a.date', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+        );
     }
 }
