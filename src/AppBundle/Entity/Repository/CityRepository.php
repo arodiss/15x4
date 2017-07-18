@@ -75,7 +75,7 @@ class CityRepository extends AbstractRepository
             ->leftJoin('a.lectures', 'l')
             ->leftJoin('l.lecturer', 'll')
             ->select(['c', 'a', 'e',  'l', 'll'])
-            ->addOrderBy('a.date', 'DESC')
+            ->addOrderBy('a.date', 'ASC')
             ->getQuery()
             ->getResult()
         ;
