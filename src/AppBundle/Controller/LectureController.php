@@ -146,4 +146,5 @@ class LectureController extends AbstractController
             ]
         );
     }
+
 }
