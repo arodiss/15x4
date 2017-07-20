@@ -131,7 +131,7 @@ class LectureController extends AbstractController
      */
     public function myFavoritesAction(Request $request)
     {
-        if (false == $this->getUser()) {
+        if (null === $this->getUser()) {
             return $this->redirectToRoute('LectureList');
         }
 
