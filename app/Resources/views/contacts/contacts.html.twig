@@ -44,8 +44,8 @@
             <b>{{ 'Ваш город' | trans }}</b>
             <br/>
             <div id="city" class="btn-group" role="group">
-                {% for id, city in cities %}
-                    <button data-city={{ id }} type="button" class="btn btn-default">{{ city | trans }}</button>
+                {% for city in cities %}
+                    <button data-city={{ city.id }} type="button" class="btn btn-default">{{ city | trans }}</button>
                 {% endfor %}
             </div>
         </div>

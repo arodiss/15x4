@@ -176,8 +176,8 @@ class Contact
         switch ($this->getGoal()) {
             case self::GOAL_COORDINATOR:
                 return [
-                    'lecturer' => [$this->getCity()],
-                    'volunteer' => [$this->getCity()],
+                    'lecturer' => [$this->getCity()->getId()],
+                    'volunteer' => [$this->getCity()->getId()],
                 ];
             case self::GOAL_FOUNDER:
                 return [
@@ -186,11 +186,11 @@ class Contact
                 ];
             case self::GOAL_LECTURER:
                 return [ 
-                    'lecturer' => [$this->getCity()],
+                    'lecturer' => [$this->getCity()->getId()],
                 ];
             case self::GOAL_VOLUNTEER:
                 return [
-                    'volunteer' => [$this->getCity()],
+                    'volunteer' => [$this->getCity()->getId()],
                 ];
             case self::GOAL_WEBSITE:
                 return [
