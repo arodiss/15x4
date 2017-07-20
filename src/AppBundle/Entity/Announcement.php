@@ -176,7 +176,7 @@ class Announcement
     /** @param LectureAnnouncement $lecture */
     public function addLecture(LectureAnnouncement $lecture)
     {
-        if (false == $this->lectures->contains($lecture)) {
+        if (false === $this->lectures->contains($lecture)) {
             $this->lectures->add($lecture);
         }
         $lecture->setEvent($this);
