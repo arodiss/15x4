@@ -1,6 +1,7 @@
 {
-    "name": "15x4",
-    "license": "proprietary",
+    "name": "website-15x4",
+    "license": "MIT",
+    "description": "15x4.org website",
     "type": "project",
     "autoload": {
         "psr-4": {
