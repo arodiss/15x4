@@ -13,6 +13,8 @@ class LectureController extends AbstractController
      */
     public function detailsOldAction(Request $request)
     {
+        //tipical typo
+        $requet = $request;
         return $this->redirectToRoute('LectureDetails', ['id' => $request->get('id')]);
     }
 
