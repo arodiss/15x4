@@ -1,4 +1,7 @@
 rules:
+    php.class_too_long:
+        enabled: false
+
 pre_composer_script: |
     #!/bin/bash
     cp app/config/parameters.yml.dist app/config/parameters.yml

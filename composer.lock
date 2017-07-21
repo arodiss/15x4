@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9e847126c9ce861d28e18f3db4f5741",
+    "content-hash": "992c78e3773ab4f5337a35291a4d6684",
     "packages": [
         {
             "name": "arodiss/xls-bundle",
