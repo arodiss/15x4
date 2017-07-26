@@ -8,6 +8,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LectureController extends AbstractController
 {
+    const SURVEYED_LECTURE_IDS = [1, 2, 3];
+
+    /**
+     * @Extra\Route("/lecture/survey/", name="LectureSurvey")
+     * @Extra\Route("/lecture/survey", name="LectureSurveyAlt")
+     */
+    public function surveyAction()
+    {
+        $lectureId = self::SURVEYED_LECTURE_IDS[array_rand(self::SURVEYED_LECTURE_IDS)];
+        $this->get('monolog.logger.survey')->info('Lecture shown for survey, id ' . $lectureId);
+        return $this->render('lecture/survey.html.twig', [
+            "lecture" => $this->getLectureRepository()->find($lectureId),
+        ]);
+    }
+
     /**
      * @Extra\Route("/lecture/discussion/{id}/", name="LectureDetailsLong")
      */

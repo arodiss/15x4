@@ -14,7 +14,13 @@ imports:
 #        query_cache_driver: apc
 
 monolog:
+    channels: [survey]
     handlers:
+        survey_dumper:
+            type:  stream
+            channels:  'survey'
+            path:  "%kernel.logs_dir%/survey.log"
+            level: debug
         mail_catcher:
             type:         fingers_crossed
             action_level: critical
