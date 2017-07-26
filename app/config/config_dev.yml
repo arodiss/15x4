@@ -12,7 +12,13 @@ web_profiler:
     intercept_redirects: false
 
 monolog:
+    channels: [survey]
     handlers:
+        survey_dumper:
+            type:  stream
+            channels:  'survey'
+            path:  "%kernel.logs_dir%/survey.log"
+            level: debug
         main:
             type: stream
             path: "%kernel.logs_dir%/%kernel.environment%.log"
