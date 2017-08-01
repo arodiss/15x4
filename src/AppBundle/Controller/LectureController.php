@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LectureController extends AbstractController
 {
-    const SURVEYED_LECTURE_IDS = [1, 2, 3];
+    const SURVEYED_LECTURE_IDS = [80, 207, 75, 104, 94, 82, 63, 12];
 
     /**
      * @Extra\Route("/lecture/survey/", name="LectureSurvey")
