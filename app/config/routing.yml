@@ -7,6 +7,10 @@ fos_comment_hack:
     path:     /api/threads.html
     defaults: { _controller: "AppBundle:Landing:index" }
 
+fos_comment_hack_2:
+    path:     /api/threads
+    defaults: { _controller: "AppBundle:Landing:index" }
+
 fos_comment_api:
     type: rest
     resource: "@FOSCommentBundle/Resources/config/routing.yml"
