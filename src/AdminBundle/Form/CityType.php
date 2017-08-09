@@ -38,6 +38,15 @@ class CityType extends AbstractType
             ->add('latitude', NumberType::class, ['label' => 'Широта'])
             ->add('longitude', NumberType::class, ['label' => 'Долгота'])
             ->add(
+                'iftttKey',
+                TextType::class,
+                [
+                    'label' => 'IFTTT ключ',
+                    'required' => false,
+                    'attr' => ['placeholder' => '(не обязательно)'],
+                ]
+            )
+            ->add(
                 'timezone',
                 ChoiceType::class,
                 [

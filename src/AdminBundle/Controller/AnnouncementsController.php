@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AppBundle\IFTTT\IftttHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AdminBundle\Form\AnnouncementType;
 use AdminBundle\Form\EventFromAnnouncementType;
@@ -33,6 +34,7 @@ class AnnouncementsController extends Controller
             if ($form->isValid()) {
                 $this->get("doctrine.orm.entity_manager")->persist($form->getData());
                 $this->get("doctrine.orm.entity_manager")->flush();
+                IftttHandler::handleAnnouncement($form->getData());
 
                 $this->addFlash('success', 'Анонс сохранён');
             } else {
