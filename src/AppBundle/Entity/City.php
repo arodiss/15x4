@@ -60,6 +60,11 @@ class City
     protected $longitude;
 
     /**
+     * @ORM\Column(name="ifttt_key", type="string", length=127, nullable=true)
+     */
+    protected $iftttKey;
+
+    /**
      * @ORM\Column(name="timezone", type="string", length=63, nullable=false)
      */
     protected $timezone;
@@ -134,6 +139,18 @@ class City
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
+    }
+
+    /** @return string|null */
+    public function getIftttKey()
+    {
+        return $this->iftttKey;
+    }
+
+    /** @param string $iftttKey */
+    public function setIftttKey($iftttKey)
+    {
+        $this->iftttKey = $iftttKey;
     }
     
     /** @return Announcement|null */
