@@ -40,7 +40,7 @@ class LectureAnnouncement
     protected $lecturer;
 
     /**
-     * @var Event
+     * @var Announcement
      * @ORM\ManyToOne(
      *  targetEntity="Announcement",
      *  inversedBy="lectures"
@@ -128,6 +128,12 @@ class LectureAnnouncement
     public function setEvent(Announcement $event)
     {
         $this->event = $event;
+    }
+
+    /** @return Announcement */
+    public function getEvent()
+    {
+        return $this->event;
     }
 
     /** @return string */
