@@ -34,7 +34,9 @@ class AnnouncementsController extends Controller
             if ($form->isValid()) {
                 $this->get("doctrine.orm.entity_manager")->persist($form->getData());
                 $this->get("doctrine.orm.entity_manager")->flush();
-                IftttHandler::handleAnnouncement($form->getData());
+                if (false === $this->get('kernel')->isDebug()) {
+                    IftttHandler::handleAnnouncement($form->getData());
+                }
 
                 $this->addFlash('success', 'Анонс сохранён');
             } else {
