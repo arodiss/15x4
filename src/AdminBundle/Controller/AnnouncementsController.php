@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AdminBundle\Form\LectureType;
 use AppBundle\IFTTT\IftttHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AdminBundle\Form\AnnouncementType;
@@ -34,7 +35,9 @@ class AnnouncementsController extends Controller
             if ($form->isValid()) {
                 $this->get("doctrine.orm.entity_manager")->persist($form->getData());
                 $this->get("doctrine.orm.entity_manager")->flush();
-                IftttHandler::handleAnnouncement($form->getData());
+                if (false === $this->get('kernel')->isDebug()) {
+                    IftttHandler::handleAnnouncement($form->getData());
+                }
 
                 $this->addFlash('success', 'Анонс сохранён');
             } else {
@@ -73,6 +76,38 @@ class AnnouncementsController extends Controller
                 $this->addFlash('success', 'Встреча создана');
             } else {
                 $this->addFlash('error', 'Не удалось создать встречу');
+            }
+
+            return $this->redirectToRoute('AdminAnnouncements');
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @Extra\Route("/lecture/{id}/implement", name="LectureFromAnnouncement")
+     * @Extra\Template("admin/raw-form.html.twig")
+     * @Extra\ParamConverter
+     */
+    public function lectureFromAnnouncementAction(Request $request, Entity\LectureAnnouncement $lectureAnnouncement)
+    {
+        $lecture = Entity\Lecture::fromAnnouncement($lectureAnnouncement);
+        $event = Entity\Event::fromAnnouncementWOLectures($lectureAnnouncement->getEvent());
+        $event->addLecture($lecture);
+        $this->get("doctrine.orm.entity_manager")->persist($event);
+        $form = $this->createForm(LectureType::class, $lecture, ['skip_event' => true]);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $this->get("doctrine.orm.entity_manager")->persist($form->getData());
+                if (count($lectureAnnouncement->getEvent()->getLectures()) === 1) {
+                    $this->get("doctrine.orm.entity_manager")->remove($lectureAnnouncement->getEvent());
+                }
+                $this->get("doctrine.orm.entity_manager")->remove($lectureAnnouncement);
+                $this->get("doctrine.orm.entity_manager")->flush();
+                $this->addFlash('success', 'Лекция добавлена');
+            } else {
+                $this->addFlash('error', 'Не удалось добавить лекцию');
             }
 
             return $this->redirectToRoute('AdminAnnouncements');

@@ -68,26 +68,28 @@ class LectureType extends AbstractType
 
 
             if ($options['is_standalone']) {
-                $builder
-                    ->add(
-                        'event',
-                        EntityType::class,
-                        [
-                            'label' => 'Ивент',
-                            'class' => Entity\Event::class,
-                            'group_by' => 'city',
-                            'required' => false,
-                            'attr' => ['class' => 'selectizable'],
-                            'choice_label' => function (Event $event) {
-                                return sprintf(
-                                    "%s, %s",
-                                    $event->getCity()->getName(),
-                                    $event->getDate()->format("d.m.Y")
-                                );
-                            }
-                        ]
-                    )
-                    ->add('save', SubmitType::class);
+                if (false === $options['skip_event']) {
+                    $builder
+                        ->add(
+                            'event',
+                            EntityType::class,
+                            [
+                                'label' => 'Ивент',
+                                'class' => Entity\Event::class,
+                                'group_by' => 'city',
+                                'required' => false,
+                                'attr' => ['class' => 'selectizable'],
+                                'choice_label' => function (Event $event) {
+                                    return sprintf(
+                                        "%s, %s",
+                                        $event->getCity()->getName(),
+                                        $event->getDate()->format("d.m.Y")
+                                    );
+                                }
+                            ]
+                        );
+                }
+                $builder->add('save', SubmitType::class);
             }
     }
 
@@ -97,6 +99,7 @@ class LectureType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Entity\Lecture::class,
             'is_standalone' => true,
+            'skip_event' => false
         ));
     }
 } 

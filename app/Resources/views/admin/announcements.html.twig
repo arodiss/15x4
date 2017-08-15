@@ -52,11 +52,15 @@
                                         <tr>
                                             <td>
                                                 {{ announcement.date | date }}
-                                                {% for lecture in announcement.lectures %}
-                                                    <i class="small text-muted" style="margin-left: 10px; display: block;">
-                                                        {{ lecture }} ({{ lecture.lecturer }})
-                                                    </i>
-                                                {% endfor %}
+                                                <div>
+                                                    {% for lecture in announcement.lectures %}
+                                                        <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Залить видео лекции">
+                                                            <i class="small text-muted" style="margin-left: 10px; display: block;">
+                                                                {{ lecture }} ({{ lecture.lecturer }})
+                                                            </i>
+                                                        </a>
+                                                    {% endfor %}
+                                                </div>
                                             </td>
                                             <td class="pull-right">
                                                 {% if announcement.totalTickets %}
@@ -65,7 +69,7 @@
                                                 {% if announcement.volunteers | length %}
                                                     <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-cloud-download" title="Выгрузить волонтёров"></span></a>
                                                 {% endif %}
-                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign" title="Залить видео"></span></a>
+                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign" title="Залить все видео"></span></a>
                                                 <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit" title="Редактировать"></span></a>
                                                 <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-trash" title="Удалить"></span></a>
                                             </td>

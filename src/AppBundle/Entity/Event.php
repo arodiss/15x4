@@ -49,6 +49,7 @@ class Event
     public function __construct()
     {
         $this->created = new \DateTime();
+        $this->lectures = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /** @return int */
@@ -93,15 +94,22 @@ class Event
         $this->lectures = $lectures;
     }
 
+    /** @param Lecture $lecture */
+    public function addLecture(Lecture $lecture)
+    {
+        if (false === $this->lectures->contains($lecture)) {
+            $this->lectures->add($lecture);
+        }
+        $lecture->setEvent($this);
+    }
+
     /**
      * @param Announcement $announcement
      * @return self
      */
     public static function fromAnnouncement(Announcement $announcement)
     {
-        $self = new self;
-        $self->setCity($announcement->getCity());
-        $self->setDate($announcement->getDate());
+        $self = self::fromAnnouncementWOLectures($announcement);
         $lectures = new ArrayCollection();
         foreach ($announcement->getLectures() as $lectureAnnouncement) {
             $lecture = Lecture::fromAnnouncement($lectureAnnouncement);
@@ -109,6 +117,19 @@ class Event
             $lectures->add($lecture);
         }
         $self->lectures = $lectures;
+
+        return $self;
+    }
+
+    /**
+     * @param Announcement $announcement
+     * @return self
+     */
+    public static function fromAnnouncementWOLectures(Announcement $announcement)
+    {
+        $self = new self;
+        $self->setCity($announcement->getCity());
+        $self->setDate($announcement->getDate());
 
         return $self;
     }
