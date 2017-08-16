@@ -91,8 +91,16 @@ class AnnouncementsController extends Controller
      */
     public function lectureFromAnnouncementAction(Request $request, Entity\LectureAnnouncement $lectureAnnouncement)
     {
+        $events = $this->get('repository.event')->findBy([
+            'city' => $lectureAnnouncement->getEvent()->getCity(),
+            'date' => $lectureAnnouncement->getEvent()->getDate(),
+        ]);
+        if ($events) {
+            $event = array_pop($events);
+        } else {
+            $event = Entity\Event::fromAnnouncementWOLectures($lectureAnnouncement->getEvent());
+        }
         $lecture = Entity\Lecture::fromAnnouncement($lectureAnnouncement);
-        $event = Entity\Event::fromAnnouncementWOLectures($lectureAnnouncement->getEvent());
         $event->addLecture($lecture);
         $this->get("doctrine.orm.entity_manager")->persist($event);
         $form = $this->createForm(LectureType::class, $lecture, ['skip_event' => true]);

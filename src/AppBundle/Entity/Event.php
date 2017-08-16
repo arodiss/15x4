@@ -5,10 +5,13 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
- * @ORM\Table(name="event")
+ * @ORM\Table(name="event", uniqueConstraints={@UniqueConstraint(name="city_date", columns={"city_id", "date"})})
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\EventRepository")
+ * @UniqueEntity(fields={"city", "date"})
  */
 class Event
 {
