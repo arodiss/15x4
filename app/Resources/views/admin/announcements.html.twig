@@ -52,15 +52,16 @@
                                         <tr>
                                             <td>
                                                 {{ announcement.date | date }}
-                                                <div>
-                                                    {% for lecture in announcement.lectures %}
-                                                        <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Залить видео лекции">
-                                                            <i class="small text-muted" style="margin-left: 10px; display: block;">
-                                                                {{ lecture }} ({{ lecture.lecturer }})
-                                                            </i>
+                                                {% for lecture in announcement.lectures %}
+                                                    <div class="row">
+                                                        <i class="small text-muted col-lg-5 col-lg-offset-1">
+                                                            {{ lecture }} ({{ lecture.lecturer }})
+                                                        </i>
+                                                        <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Залить видео лекции" class="col-lg-6">
+                                                            <span class="glyphicon glyphicon-ok-sign" title="Залить все видео"></span>
                                                         </a>
-                                                    {% endfor %}
-                                                </div>
+                                                    </div>
+                                                {% endfor %}
                                             </td>
                                             <td class="pull-right">
                                                 {% if announcement.totalTickets %}
