@@ -1,4 +1,7 @@
 <div class="plate" style="background-image: url('{{ lecture.videoThumbnailUrl }}');">
+    {% if featured is defined %}
+        <div class="pull-right featured-sign">Featured</div>
+    {% endif %}
     <a href="{{ url('LectureDetails', { 'id': lecture.id }) }}">
         <div class="plate-details text-justify">
             <p>
