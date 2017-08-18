@@ -8,7 +8,7 @@
     <div class="flexbox">
         {% for lecture in featured_lectures %}
             <div class="plate-container row3">
-                {% include 'shared/lecture-plate.html.twig' %}
+                {% include 'shared/lecture-plate.html.twig' with {'featured': 1} %}
             </div>
         {% endfor %}
     </div>
