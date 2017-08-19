@@ -12,7 +12,6 @@ web_profiler:
     intercept_redirects: false
 
 monolog:
-    channels: [survey]
     handlers:
         survey_dumper:
             type:  stream
