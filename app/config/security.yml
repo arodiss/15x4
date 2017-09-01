@@ -5,10 +5,7 @@ security:
                 providers: [in_memory, hwi_oauth]
         in_memory:
             memory:
-                users:
-                    admin:
-                        password: %admin_password%
-                        roles: 'ROLE_ADMIN'
+                users: %admin_users%
         hwi_oauth:
             id: hwi_oauth.user.provider
 
