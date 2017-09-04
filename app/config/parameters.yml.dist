@@ -6,7 +6,10 @@ parameters:
     database_host: 127.0.0.1
     database_port: ~
 
-    admin_password: admin
+    admin_users:
+      admin:
+        password: admin
+        roles: "ROLE_ADMIN"
     google_analytics_id: 1111
 
     mailer_password: some_pwd
