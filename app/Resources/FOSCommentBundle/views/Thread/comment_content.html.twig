@@ -22,30 +22,24 @@
         </div>
 
         {% block fos_comment_comment_children %}
-            {% if view is not same as('flat') %}
-                {% if fos_comment_can_comment(comment) %}
-                    <div class="fos_comment_comment_reply">
-                        {% block fos_comment_comment_reply %}
-                            <small
-                                class="pull-left cursor-pointer text-muted fos_comment_comment_reply_show_form"
-                                style="text-decoration: underline;"
-                                data-url="{{ url('fos_comment_new_thread_comments', {"id": comment.thread.id}) }}"
-                                data-name="{{ comment.authorName }}"
-                                data-parent-id="{{ comment.id }}"
-                            >
-                                {{ "Ответить" | trans }}
-                            </small>
-                        {% endblock fos_comment_comment_reply %}
-                    </div>
-                {% endif %}
-                <div class="fos_comment_comment_replies" style="margin-left: 30px;">
-                    {% if children is defined %}
-                        {% include "FOSCommentBundle:Thread:comments.html.twig" with { "comments": children, "depth": depth + 1, "parent": comment, "view": view } %}
-                    {% endif %}
+            {% if fos_comment_can_comment(comment) %}
+                <div class="fos_comment_comment_reply">
+                    <small
+                        class="pull-left cursor-pointer text-muted fos_comment_comment_reply_show_form"
+                        style="text-decoration: underline;"
+                        data-url="{{ url('fos_comment_new_thread_comments', {"id": comment.thread.id}) }}"
+                        data-name="{{ comment.authorName }}"
+                        data-parent-id="{{ comment.id }}"
+                    >
+                        {{ "Ответить" | trans }}
+                    </small>
                 </div>
-            {% elseif view is same as('flat') and children is defined %}
-                {% include "FOSCommentBundle:Thread:comments.html.twig" with { "comments": children, "depth": depth + 1, "parent": comment, "view": view } %}
             {% endif %}
+            <div class="fos_comment_comment_replies" style="margin-left: 30px;">
+                {% if children is defined %}
+                    {% include "FOSCommentBundle:Thread:comments.html.twig" with { "comments": children, "depth": depth + 1, "parent": comment, "view": view } %}
+                {% endif %}
+            </div>
         {% endblock fos_comment_comment_children %}
     </div>
 {% endblock fos_comment_comment %}
