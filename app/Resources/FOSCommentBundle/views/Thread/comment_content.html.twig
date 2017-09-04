@@ -17,11 +17,7 @@
 
         <div id="fos_comment_comment_body_{{ comment.id }}" class="fos_comment_comment_body">
             {% block fos_comment_comment_body %}
-                {% if comment is fos_comment_raw %}
-                    {{ comment.rawBody | raw }}
-                {% else %}
-                    {{ comment.body | nl2br }}
-                {% endif %}
+                {{ comment.body | nl2br }}
             {% endblock fos_comment_comment_body %}
         </div>
 
