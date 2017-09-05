@@ -44,7 +44,7 @@
     <hr/>
 
     <div class="collapse in" id="lecture-list-filters">
-        {% include 'lecture/filters.html.twig' %}
+        {% include 'lecture/filters.html.twig' with {'filters': filters} only %}
         <hr/>
     </div>
 {% endblock %}
