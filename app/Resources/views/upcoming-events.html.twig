@@ -4,7 +4,7 @@
     <ul class="nav nav-tabs" role="tablist">
         {% for city in cities.announced %}
             <li role="presentation"{% if loop.first %} class="active"{% endif %}>
-                <a href="#city-{{ city.id  }}" role="tab" data-toggle="tab" class="tab-toggle">
+                <a href="#city-{{ city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
                     {{ city | trans }}
                 </a>
             </li>
@@ -18,7 +18,7 @@
 
     <div class="tab-content">
         {% for city in cities.announced %}
-            <div id="city-{{ city.id  }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
+            <div id="city-{{ city.id }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
                 {% include "landing/announcement.html.twig" %}
             </div>
         {% endfor %}
