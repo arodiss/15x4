@@ -6,3 +6,7 @@ rules:
 pre_composer_script: |
     #!/bin/bash
     cp app/config/parameters.yml.dist app/config/parameters.yml
+
+global_exclude_dirs:
+    - app/Resources/FOSCommentBundle
+
