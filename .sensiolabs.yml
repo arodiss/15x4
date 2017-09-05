@@ -1,7 +1,4 @@
 rules:
-    php.class_too_long:
-        enabled: false
-
     # this rule forbids "log in %s here %s | trans | format | raw"
     twig.xss_vulnerability:
         enabled: false
