@@ -21,9 +21,10 @@
             'goldenrod'
         ];
 
-        $('#cloud-container').jQCloud(
-            [
-                {% for tag in tags %}
+        $(function () {
+            $('#cloud-container').jQCloud(
+                [
+                    {% for tag in tags %}
                     {
                         text: '{{ tag.name }}',
                         weight: 1,
@@ -36,9 +37,10 @@
                         }
                     }
                     {% if not loop.last %},{% endif %}
-                {% endfor %}
-            ],
-            { delayedMode: true }
-        );
+                    {% endfor %}
+                ],
+                { delayedMode: true }
+            );
+        });
     </script>
 {% endblock %}
