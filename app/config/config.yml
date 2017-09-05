@@ -35,7 +35,7 @@ twig:
         google_analytics_id: %google_analytics_id%
         default_locale: %kernel.default_locale%
     debug:            "%kernel.debug%"
-    strict_variables: true
+    strict_variables: "%kernel.debug%"
     date:
         format: d.m.Y
 
