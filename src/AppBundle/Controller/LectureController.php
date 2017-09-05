@@ -52,26 +52,38 @@ class LectureController extends AbstractController
         $tags = $this->getTagRepository()->findByIds($tagIds);
         $events = $this->getEventRepository()->findByIds($eventIds);
         $fields = $this->getFieldRepository()->findByIds($fieldIds);
-        $lecturers = $this->getLecturerRepository()->findByIds($lecturerIds);
+        $speakers = $this->getLecturerRepository()->findByIds($lecturerIds);
 
         return $this->render(
             'lecture/list.html.twig',
             [
                 'pagination' => $this->getPager()->paginate(
-                    $this->getLectureRepository()->findByFilters($fields, $tags, $events, $lecturers, $languages),
+                    $this->getLectureRepository()->findByFilters($fields, $tags, $events, $speakers, $languages),
                     $request->get('page', 1),
                     40
                 ),
-                'isFiltered' => $tags || $events || $fields || $lecturers,
-                'selectedTags' => $tags,
-                'availableTags' => $this->getTagRepository()->findForFilter($tagIds),
-                'selectedEvents' => $events,
-                'availableEvents' => $this->getEventRepository()->findForFilter($eventIds),
-                'selectedFields' => $fields,
-                'availableFields' => $this->getFieldRepository()->findForFilter($fieldIds),
-                'selectedLecturers' => $lecturers,
-                'availableLecturers' => $this->getLecturerRepository()->findForFilter($lecturerIds),
-                'selectedLangs' => $languages
+                'isFiltered' => $tags || $events || $fields || $speakers,
+                'filters' => [
+                    'tags' => [
+                        'selected' => $tags,
+                        'available' => $this->getTagRepository()->findForFilter($tagIds),
+                    ],
+                    'events' => [
+                        'selected' => $events,
+                        'available' => $this->getEventRepository()->findForFilter($eventIds),
+                    ],
+                    'fields' => [
+                        'selected' => $fields,
+                        'available' => $this->getFieldRepository()->findForFilter($fieldIds),
+                    ],
+                    'speakers' => [
+                        'selected' => $speakers,
+                        'available' => $this->getLecturerRepository()->findForFilter($lecturerIds),
+                    ],
+                    'langs' => [
+                        'selected' => $languages
+                    ]
+                ]
             ]
         );
     }

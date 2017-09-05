@@ -4,11 +4,11 @@
             {{ 'Категория' | trans }}:
         </label>
         <select id="select-field" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-            {% for field in availableFields %}
+            {% for field in filters.fields.available %}
                 <option value="{{ field.id }}">{{ field.name | trans }}</option>
             {% endfor %}
         </select>
-        {% for field in selectedFields %}
+        {% for field in filters.fields.selected %}
             <div class="well well-sm well-no-margin">
                 {{ field | trans }}
                 <span class="pull-right">
@@ -23,17 +23,17 @@
             {{ 'Лектор' | trans }}:
         </label>
         <select id="select-lecturer" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-            {% for lecturer in availableLecturers %}
-                <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+            {% for speaker in filters.speakers.available %}
+                <option value="{{ speaker.id }}">{{ speaker.name }}</option>
             {% endfor %}
         </select>
-        {% for lecturer in selectedLecturers %}
+        {% for speaker in filters.speakers.selected %}
             <div class="well well-sm well-no-margin filter-lecturer ">
-                <span>{{ lecturer }}</span>
+                <span>{{ speaker }}</span>
                 <span class="pull-right">
-                    <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ lecturer.id }}"></span>
+                    <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ speaker.id }}"></span>
                 </span>
-                <p class="small">{{ lecturer.bio }}</p>
+                <p class="small">{{ speaker.bio }}</p>
             </div>
         {% endfor %}
     </div>
@@ -43,11 +43,11 @@
             {{ 'Тег' | trans }}:
         </label>
         <select id="select-tag" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-            {% for tag in availableTags %}
+            {% for tag in filters.tags.available %}
                 <option value="{{ tag.id }}">{{ tag.name | trans }}</option>
             {% endfor %}
         </select>
-        {% for tag in selectedTags %}
+        {% for tag in filters.tags.selected %}
             <div class="well well-sm well-no-margin">
                 {{ tag | trans }}
                 <span class="pull-right">
@@ -62,7 +62,7 @@
             {{ 'Встреча' | trans }}:
         </label>
         <select id="select-event" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-            {% for city, events in availableEvents %}
+            {% for city, events in filters.events.available %}
                 <optgroup label="{{ city | trans }}">
                     {% for event in events %}
                         <option value="{{ event.id }}">{{ event.city_name | trans }}, {{ event.date | date }}</option>
@@ -70,7 +70,7 @@
                 </optgroup>
             {% endfor %}
         </select>
-        {% for event in selectedEvents %}
+        {% for event in filters.events.selected %}
             <div class="well well-sm well-no-margin filter-lecturer">
                 {{ event.date | date }}, {{ event.city }}
                 <span class="pull-right">
@@ -85,11 +85,11 @@
             {{ 'Язык' | trans }}:
         </label>
         <select id="select-lang" data-selectize-placeholder="{{ "Выбрать" | trans }}..." multiple>
-            {% for lang in ['ru', 'uk', 'en', 'de', 'ro'] if lang not in selectedLangs %}
+            {% for lang in ['ru', 'uk', 'en', 'de', 'ro'] if lang not in filters.langs.selected %}
                 <option value="{{ lang }}">{{ lang | humanize_language }}</option>
             {% endfor %}
         </select>
-        {% for lang in selectedLangs %}
+        {% for lang in filters.langs.selected %}
             <div class="well well-sm well-no-margin">
                 {{ lang }}
                 <span class="pull-right">

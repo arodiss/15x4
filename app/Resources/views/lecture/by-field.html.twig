@@ -15,9 +15,9 @@
                     {{ field.getDescription() }}
                 </div>
                 {% if tags|length > 0  %}
-                    {% include "shared/tag-list.html.twig" with { 'tags': tags | head(18), 'field': field, 'columnsCount': 3 } %}
-                    {% if tags|length > 18  %}
-                        (... {{ 'ещё' | trans }} {{ tags|length - 18 }})
+                    {% include "shared/tag-list.html.twig" with { 'tags': tags | head(50), 'field': field } %}
+                    {% if tags|length > 50  %}
+                        (... {{ 'ещё' | trans }} {{ tags|length - 50 }})
                         <br/>
                         <a href='{{ path('Tags') }}'>{{ 'Все теги' | trans }}</a>
                     {% endif %}
