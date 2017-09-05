@@ -3,6 +3,10 @@ rules:
     twig.xss_vulnerability:
         enabled: false
 
+    # this is not an accurate measure of "whether tpl contains business logic"
+    twig.template_too_complex:
+        enabled: false
+
 pre_composer_script: |
     #!/bin/bash
     cp app/config/parameters.yml.dist app/config/parameters.yml
