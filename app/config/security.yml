@@ -5,7 +5,7 @@ security:
                 providers: [in_memory, hwi_oauth]
         in_memory:
             memory:
-                users: %admin_users%
+                users: "%admin_users%"
         hwi_oauth:
             id: hwi_oauth.user.provider
 
