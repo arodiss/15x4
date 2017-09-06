@@ -17,7 +17,6 @@ framework:
         engines: ['twig']
     default_locale: "ru"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         #this means that dev installation should have domain xxx.15x4.org
         #for lang switch to work properly
