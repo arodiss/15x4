@@ -17,13 +17,13 @@ framework:
         engines: ['twig']
     default_locale: "ru"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         #this means that dev installation should have domain xxx.15x4.org
         #for lang switch to work properly
         cookie_domain: "15x4.org"
         handler_id:  ~
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        name: "15X4SESSIONID"
     fragments:       ~
     http_method_override: true
     assets:
@@ -31,9 +31,9 @@ framework:
 
 twig:
     globals:
-        google_maps_api_key: %google_maps_api_key%
-        google_analytics_id: %google_analytics_id%
-        default_locale: %kernel.default_locale%
+        google_maps_api_key: "%google_maps_api_key%"
+        google_analytics_id: "%google_analytics_id%"
+        default_locale: "%kernel.default_locale%"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     date:
@@ -154,8 +154,8 @@ fos_comment:
 jms_translation:
     configs:
         app:
-            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
-            output_dir: %kernel.root_dir%/Resources/translations
+            dirs: ["%kernel.root_dir%", "%kernel.root_dir%/../src"]
+            output_dir: "%kernel.root_dir%/Resources/translations"
             ignored_domains: [routes, validators]
             excluded_names: ["*TestCase.php", "*Test.php"]
             excluded_dirs: [cache, data, logs]
