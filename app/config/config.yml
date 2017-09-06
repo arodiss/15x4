@@ -24,6 +24,7 @@ framework:
         cookie_domain: "15x4.org"
         handler_id:  ~
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        name: "15X4SESSIONID"
     fragments:       ~
     http_method_override: true
     assets:
