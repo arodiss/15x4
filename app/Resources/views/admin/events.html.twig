@@ -45,3 +45,12 @@
         </tfoot>
     </table>
 {% endblock %}
+
+{% block before_form %}
+    <div class="alert alert-info">
+        <span class="glyphicon glyphicon-star"></span>
+        Если вы создавали анонс встречи, которую сейчас хотите создать - то не делайте этого здесь.
+        <br/>
+        Вместо этого найдите нужный анонс в <a href="{{ path('AdminAnnouncements') }}">списке</a> и нажмите напротив встречи / лекции кнопку "залить видео"
+    </div>
+{% endblock %}
