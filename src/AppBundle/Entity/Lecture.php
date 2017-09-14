@@ -392,14 +392,17 @@ class Lecture
     private function getEmbeddableUrl($watchUrl)
     {
         if (strpos($watchUrl, self::EMBEDDABLE_URL_PREFIX) === 0) {
+            // already embeddable
             return $watchUrl;
         }
 
         $query = parse_url($watchUrl, PHP_URL_QUERY);
         parse_str($query, $queryParsed);
         if (isset($queryParsed['v'])) {
+            //URL like youtube.com/watch?v=123123
             return self::EMBEDDABLE_URL_PREFIX . $queryParsed['v'];
         }
+        //URL like youtu.be/123123
         return self::EMBEDDABLE_URL_PREFIX . parse_url($watchUrl, PHP_URL_PATH);
     }
 }
