@@ -18,7 +18,7 @@ class IftttHandler
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HEADER, q);
+            curl_setopt($ch, CURLOPT_HEADER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
             curl_setopt($ch, CURLOPT_URL,"https://maker.ifttt.com/trigger/announcement/with/key/" . $key);
             curl_setopt(
