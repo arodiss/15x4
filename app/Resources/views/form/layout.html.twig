@@ -1,0 +1,14 @@
+{% extends "bootstrap_3_horizontal_layout.html.twig" %}
+
+{% block form_row -%}
+    <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
+        {{- form_label(form) -}}
+        <div class="{{ block('form_group_class') }}">
+            {{- form_widget(form) -}}
+            {{- form_errors(form) -}}
+            {% if attr.help is defined %}
+                <span class="help-block">{{ attr.help }}</span>
+            {% endif %}
+        </div>
+    </div>
+{%- endblock form_row %}

@@ -19,7 +19,17 @@ class LectureType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'Название'])
-            ->add('video_url', TextType::class, ['label' => 'Видео лекции'])
+            ->add(
+                'video_url',
+                TextType::class,
+                [
+                    'label' => 'Видео лекции',
+                    'attr' => [
+                        'help' => 'Допустимые форматы: youtube.com/watch?v=123123, youtu.be/123123, youtube.com/embed/123123',
+                    ]
+
+                ]
+            )
             ->add('discussion_video_url', TextType::class, [
                 'label' => 'Видео обсуждения',
                 'required' => false,
