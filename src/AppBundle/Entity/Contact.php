@@ -63,6 +63,11 @@ class Contact
     private $vk;
 
     /**
+     * @ORM\Column(name="telegram", type="string", length=63, nullable=true)
+     */
+    private $telegram;
+
+    /**
      * @ORM\Column(name="email", type="string", length=63, nullable=true)
      */
     private $email;
@@ -156,6 +161,18 @@ class Contact
     public function setVk($vk)
     {
         $this->vk = $vk;
+    }
+
+    /** @return string */
+    public function getTelegram()
+    {
+        return $this->telegram;
+    }
+
+    /** @param string $telegram */
+    public function setTelegram($telegram)
+    {
+        $this->telegram = $telegram;
     }
 
     /** @return string */

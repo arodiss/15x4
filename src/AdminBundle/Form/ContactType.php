@@ -40,6 +40,13 @@ class ContactType extends AbstractType
                     'placeholder' => '(не обязательно)'
                 ]
             ])
+            ->add('telegram', Type\TextType::class, [
+                'required' => false,
+                'label' => 'Telegram идентификатор',
+                'attr' => [
+                    'placeholder' => '(не обязательно)'
+                ]
+            ])
             ->add('email', Type\TextType::class, [
                 'required' => false,
                 'label' => 'E-mail',

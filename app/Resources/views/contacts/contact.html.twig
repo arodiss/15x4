@@ -12,6 +12,9 @@
         {% if contact.vk %}
             <a href="https://vk.com/{{ contact.vk }}">vk</a>
         {% endif %}
+        {% if contact.telegram %}
+            <a href="https://t.me/{{ contact.telegram }}">telegram</a>
+        {% endif %}
         {% if contact.email %}
             <a href="mailto:{{ contact.email }}">email</a>
         {% endif %}
