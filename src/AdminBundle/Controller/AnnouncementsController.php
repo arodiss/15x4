@@ -51,7 +51,7 @@ class AnnouncementsController extends Controller
             'form' => $this
                 ->createForm(
                     AnnouncementType::class,
-                    (new Entity\Announcement())->setCity($city)
+                    $city->getAnnouncementTemplate()
                 )
                 ->createView()
         ];

@@ -226,4 +226,19 @@ class City
 
         return $ids;
     }
+
+    /** @return Announcement */
+    public function getAnnouncementTemplate()
+    {
+        $announcement = new Announcement();
+        $announcement->setCity($this);
+        if ($lastAnnouncement = $this->getLastAnnouncement()) {
+            $announcement->setWhen($lastAnnouncement->getWhen());
+            $announcement->setWhere($lastAnnouncement->getWhere());
+            $announcement->setWhereMap($lastAnnouncement->getWhereMap());
+            $announcement->setTotalTickets($lastAnnouncement->getTotalTickets());
+        }
+
+        return $announcement;
+    }
 }
