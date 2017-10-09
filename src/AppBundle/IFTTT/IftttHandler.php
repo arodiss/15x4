@@ -25,7 +25,11 @@ class IftttHandler
                 $ch,
                 CURLOPT_POSTFIELDS,
                 json_encode([
-                    "value1" => $announcement->getDate()->format("d.m.Y"),
+                    "value1" => sprintf(
+                        '%s, %s',
+                        $announcement->getDate()->format("d.m.Y"),
+                        $announcement->getWhen()
+                    ),
                     "value2" => $topics,
                     "value3" => $announcement->getWhere(),
                 ])
