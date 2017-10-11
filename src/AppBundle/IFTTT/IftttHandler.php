@@ -20,7 +20,15 @@ class IftttHandler
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HEADER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
-            curl_setopt($ch, CURLOPT_URL,"https://maker.ifttt.com/trigger/announcement/with/key/" . $key);
+            curl_setopt(
+                $ch,
+                CURLOPT_URL,
+                sprintf(
+                    "https://maker.ifttt.com/trigger/announcement%s/with/key/%s",
+                    $announcement->getCity()->getId(),
+                    $key
+                )
+            );
             curl_setopt(
                 $ch,
                 CURLOPT_POSTFIELDS,
