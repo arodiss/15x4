@@ -37,6 +37,8 @@ class CityType extends AbstractType
             ->add('name', TextType::class, ['label' => 'Название'])
             ->add('latitude', NumberType::class, ['label' => 'Широта'])
             ->add('longitude', NumberType::class, ['label' => 'Долгота'])
+            ->add('fbLink', TextType::class, ['label' => 'Ссылув Facebook', 'required' => false])
+            ->add('tgLink', TextType::class, ['label' => 'Ссылка Telegram', 'required' => false])
             ->add(
                 'iftttKey',
                 TextType::class,
