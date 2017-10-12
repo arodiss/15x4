@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\City;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,11 +27,11 @@ class LandingController extends AbstractController
     }
 
     /**
-     * @Extra\Route("/bg", name="Background")
+     * @Extra\Route("/bg/{id}", name="Background")
      */
-    public function bgAction()
+    public function bgAction(City $city)
     {
-        return $this->render('landing/bg.html.twig');
+        return $this->render('landing/bg.html.twig', ['city' => $city]);
     }
 
     /**

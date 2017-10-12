@@ -69,6 +69,16 @@ class City
      */
     protected $timezone;
 
+    /**
+     * @ORM\Column(name="fb_link", type="string", length=63, nullable=true)
+     */
+    protected $fbLink;
+
+    /**
+     * @ORM\Column(name="tg_link", type="string", length=63, nullable=true)
+     */
+    protected $tgLink;
+
     /** {@inheritdoc} */
     public function __toString()
     {
@@ -151,6 +161,30 @@ class City
     public function setIftttKey($iftttKey)
     {
         $this->iftttKey = $iftttKey;
+    }
+
+    /** @return string */
+    public function getFbLink()
+    {
+        return $this->fbLink;
+    }
+
+    /** @param string $fbLink */
+    public function setFbLink($fbLink)
+    {
+        $this->fbLink = $fbLink;
+    }
+
+    /** @return string */
+    public function getTgLink()
+    {
+        return $this->tgLink;
+    }
+
+    /** @param string $tgLink */
+    public function setTgLink($tgLink)
+    {
+        $this->tgLink = $tgLink;
     }
     
     /** @return Announcement|null */
