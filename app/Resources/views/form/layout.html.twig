@@ -1,14 +1,23 @@
-{% extends "bootstrap_3_horizontal_layout.html.twig" %}
+{% extends "bootstrap_4_horizontal_layout.html.twig" %}
 
 {% block form_row -%}
-    <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
-        {{- form_label(form) -}}
-        <div class="{{ block('form_group_class') }}">
-            {{- form_widget(form) -}}
-            {{- form_errors(form) -}}
-            {% if attr.help is defined %}
-                <span class="help-block">{{ attr.help }}</span>
-            {% endif %}
+    {%- if expanded is defined and expanded -%}
+        {{ block('fieldset_form_row') }}
+    {%- else -%}
+        <div class="form-group row{% if (not compound or force_error|default(false)) and not valid %} is-invalid{% endif %}">
+            {{- form_label(form) -}}
+            <div class="{{ block('form_group_class') }}">
+                {{- form_widget(form) -}}
+                {{- form_errors(form) -}}
+                {% if attr.help is defined %}
+                    <span class="text-muted">{{ attr.help }}</span>
+                {% endif %}
+            </div>
         </div>
-    </div>
+    {%- endif -%}
 {%- endblock form_row %}
+
+{% block button_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('btn-primary') ~ ' btn')|trim}) -%}
+    {{- parent() -}}
+{%- endblock button_widget %}

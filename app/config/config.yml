@@ -36,6 +36,7 @@ twig:
         default_locale: "%kernel.default_locale%"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes: ['form/layout.html.twig']
     date:
         format: d.m.Y
 
