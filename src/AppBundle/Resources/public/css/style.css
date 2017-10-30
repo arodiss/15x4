@@ -49,10 +49,6 @@ a:hover .glyphicon {
     background: white;
     text-transform: uppercase;
     border-bottom: 1px solid black;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    font-size: 110%;
 }
 
 .nav.navbar-nav > li > a {
@@ -64,9 +60,6 @@ a:hover .glyphicon {
     background-color: #f8f8f8;
 }
 
-#navbar-collapse {
-    padding: 0;
-}
 
 .fa-stack {
     top: -1px;
