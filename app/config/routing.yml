@@ -3,6 +3,11 @@ munich_landing:
     host:     "munich.15x4.org"
     defaults: { _controller: "AppBundle:Landing:munich" }
 
+munich_live:
+    path:     /live
+    host:     "munich.15x4.org"
+    defaults: { _controller: "AppBundle:Landing:live", id: 14 }
+
 fos_comment_hack:
     path:     /api/threads.html
     defaults: { _controller: "AppBundle:Landing:index" }

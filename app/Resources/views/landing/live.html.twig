@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>15x4 {{ city.name | trans }}</h1>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div
+                    style="width: 700px; transform: translate(-50%); left: 50%; margin-top: 20px;"
+                    class="fb-video"
+                    data-href="https://www.facebook.com/facebook/videos/{{ videoId }}/"
+                    data-width="700"
+                    data-show-text="false"
+                    data-allowfullscreen="true"
+            >
+            </div>
+{% endblock %}
+
