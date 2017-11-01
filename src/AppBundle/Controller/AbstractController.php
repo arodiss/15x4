@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Repository;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -73,6 +74,12 @@ class AbstractController extends Controller
     protected function getTranslator()
     {
         return $this->get("translator");
+    }
+
+    /** @return LoggerInterface */
+    protected function getLogger()
+    {
+        return $this->get("logger");
     }
 
     /**
