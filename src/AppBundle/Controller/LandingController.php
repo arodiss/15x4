@@ -83,8 +83,6 @@ class LandingController extends AbstractController
     {
         $cityFbId = $city->getFbLink();
         if (false == $cityFbId) {
-            $this->getLogger()->critical($city->getId());
-            $this->getLogger()->critical($city->getFbLink());
             return $this->redirectToRoute('Landing');
         }
 
