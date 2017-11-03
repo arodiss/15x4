@@ -172,7 +172,7 @@ h3:not(.anchor) {
     padding: 5px;
 }
 
-.btn-default:focus {
+.btn-secondary:focus {
     background-color: #fff;
     border-color: #ccc;
 }

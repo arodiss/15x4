@@ -34,9 +34,9 @@
                 <div class="fos_comment_submit">
                     {% block fos_comment_form_submit %}
                         {% if parent is not null %}
-                            <input class="btn btn-default fos_comment_comment_reply_cancel" type="button" value="{{ "Отменить" | trans }}" />
+                            <input class="btn btn-secondary fos_comment_comment_reply_cancel" type="button" value="{{ "Отменить" | trans }}" />
                         {% endif %}
-                        <input class="btn btn-default" type="submit" value="{{ "Отправить" | trans }}" />
+                        <input class="btn btn-secondary" type="submit" value="{{ "Отправить" | trans }}" />
                     {% endblock %}
                 </div>
 

@@ -9,13 +9,13 @@
         <div class="col-md-6">
             <div class="hide">{{ form_row(form.announcement) }}</div>
             {{ form_row(form.name) }}
-            <div id="extra" class="btn btn-default">{{ 'Я буду не один' | trans }}</div>
+            <div id="extra" class="btn btn-secondary">{{ 'Я буду не один' | trans }}</div>
             <div class="hide">
                 {{ form_row(form.extra) }}
             </div>
         </div>
         <div class="col-md-6" style="border-left: 1px solid #1b1b1b;">
-            <div id="volunteer" class="btn btn-default">{{ 'Я хочу поучаствовать в проекте' | trans }}!</div>
+            <div id="volunteer" class="btn btn-secondary">{{ 'Я хочу поучаствовать в проекте' | trans }}!</div>
             <div class="hide">
                 {{ form_row(form.contact) }}
             </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="text-center">
-            <input class="btn btn-default" type="submit" value="{{ "Запишите меня!" | trans }}"/>
+            <input class="btn btn-secondary" type="submit" value="{{ "Запишите меня!" | trans }}"/>
         </div>
     </div>
     {{ form_end(form) }}
