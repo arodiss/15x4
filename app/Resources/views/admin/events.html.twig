@@ -19,9 +19,9 @@
                     <td>
                         {{ event.lectures | length }}
                         {% if event.lectures | length == 0 %}
-                            <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                            <span style="color: red;" class="fa fa-exclamation-triangle"></span>
                         {% elseif event.lectures | length != 4 %}
-                            <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="glyphicon glyphicon-warning-sign"></span>
+                            <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="fa fa-warning"></span>
                         {% endif %}
                     </td>
                     <td>
@@ -32,8 +32,8 @@
                         {% endfor %}
                     </td>
                     <td>
-                        <a href="{{ path("AdminEventEdit", { "id": event.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="delete" href="{{ path("AdminEventDelete", { "id": event.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path("AdminEventEdit", { "id": event.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="delete" href="{{ path("AdminEventDelete", { "id": event.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             {% endfor %}
@@ -48,7 +48,7 @@
 
 {% block before_form %}
     <div class="alert alert-info">
-        <span class="glyphicon glyphicon-star"></span>
+        <i class="fa fa-info-circle"></i>
         Если вы создавали анонс встречи, которую сейчас хотите создать - то не делайте этого здесь.
         <br/>
         Вместо этого найдите нужный анонс в <a href="{{ path('AdminAnnouncements') }}">списке</a> и нажмите напротив встречи / лекции кнопку "залить видео"

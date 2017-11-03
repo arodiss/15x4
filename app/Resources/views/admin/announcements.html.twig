@@ -5,13 +5,13 @@
     <div class="well well-sm">
         <div class="row">
             <div class="col-lg-6">
-                <span style="color: red; margin-left: 10px; margin-right: 10px;" class="glyphicon glyphicon-exclamation-sign"></span>
+                <span style="color: red; margin-left: 10px; margin-right: 10px;" class="fa fa-exclamation-triangle"></span>
                 <i class="text-muted">
                     Этот знак означает, что в городе не анонсирована следующая встреча
                 </i>
             </div>
             <div class="col-lg-6">
-                <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="glyphicon glyphicon-warning-sign"></span>
+                <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="fa fa-warning"></span>
                 <i class="text-muted">
                     Этот знак означает, что в городе есть сильно просроченные анонсы
                 </i>
@@ -24,10 +24,10 @@
             <li role="presentation"{% if loop.first %} class="active"{% endif %}>
                 <a href="#city-{{ city.id }}" aria-controls="city-{{ city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
                     {% if not city.hasValidAnnouncement() %}
-                        <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                        <span style="color: red;" class="fa fa-exclamation-triangle"></span>
                     {% endif %}
                     {% if city.hasVeryOutdatedAnnouncements() %}
-                        <span style="color: darkgoldenrod;" class="glyphicon glyphicon-warning-sign"></span>
+                        <span style="color: darkgoldenrod;" class="fa fa-warning"></span>
                     {% endif %}
                     {{ city }}
                 </a>
@@ -58,21 +58,21 @@
                                                             {{ lecture }} ({{ lecture.lecturer }})
                                                         </i>
                                                         <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Залить видео лекции" class="col-lg-6">
-                                                            <span class="glyphicon glyphicon-ok-sign" title="Залить все видео"></span>
+                                                            <i class="fa fa-check" title="Залить видео лекции"></i>
                                                         </a>
                                                     </div>
                                                 {% endfor %}
                                             </td>
                                             <td class="pull-right">
                                                 {% if announcement.totalTickets %}
-                                                    <a href="{{ path("GetAnnouncementTickets", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-download" title="Выгрузить билеты"></span></a>
+                                                    <a href="{{ path("GetAnnouncementTickets", { "id": announcement.id }) }}"><i class="fa fa-download" title="Выгрузить билеты"></i></a>
                                                 {% endif %}
                                                 {% if announcement.volunteers | length %}
-                                                    <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-cloud-download" title="Выгрузить волонтёров"></span></a>
+                                                    <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><i class="fa fa-cloud-download" title="Выгрузить волонтёров"></i></a>
                                                 {% endif %}
-                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-ok-sign" title="Залить все видео"></span></a>
-                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-edit" title="Редактировать"></span></a>
-                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><span class="glyphicon glyphicon-trash" title="Удалить"></span></a>
+                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><i class="fa fa-check" title="Залить все видео"></i></a>
+                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><i class="fa fa-pencil-square-o" title="Редактировать"></i></a>
+                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><i class="fa fa-trash-o" title="Удалить"></i></a>
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -96,8 +96,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <a class="btn btn-primary" href="{{ path("AddAnnouncement", { 'id': city.id }) }}">
-                                        <span class="glyphicon glyphicon-plus-sign" style="color: white;"></span>
-                                        &nbsp;
+                                        <i class="fa fa-plus-circle" style="color: white;"></i>
                                         Добавить анонс
                                     </a>
                                 </div>

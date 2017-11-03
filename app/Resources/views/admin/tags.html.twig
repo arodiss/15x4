@@ -28,8 +28,8 @@
                 <tr>
                     <td>{{ tag }}</td>
                     <td>
-                        <a href="{{ path("AdminTagEdit", { "id": tag.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="delete" href="{{ path("AdminTagDelete", { "id": tag.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path("AdminTagEdit", { "id": tag.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="delete" href="{{ path("AdminTagDelete", { "id": tag.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             {% endfor %}

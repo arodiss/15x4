@@ -10,7 +10,6 @@ footer {
     background: white;
     color: #1b1b1b;
     line-height: 100%;
-    font-size: 13px;
 }
 
 header {
@@ -30,11 +29,11 @@ footer a:hover {
     color: orangered;
 }
 
-a .glyphicon {
+a .fa {
     color: #1b1b1b;
 }
 
-a:hover .glyphicon {
+a:hover .fa {
     color: #666;
 }
 
@@ -160,7 +159,7 @@ h3:not(.anchor) {
     margin-bottom: 0!important;
 }
 
-.glyphicon.active {
+.fa.active {
     color: orangered;
 }
 

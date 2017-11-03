@@ -31,8 +31,8 @@
                         {% endif %}
                     </td>
                     <td>
-                        <a href="{{ path("AdminContactEdit", { "id": contact.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="delete" href="{{ path("AdminContactDelete", { "id": contact.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path("AdminContactEdit", { "id": contact.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="delete" href="{{ path("AdminContactDelete", { "id": contact.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             {% endfor %}

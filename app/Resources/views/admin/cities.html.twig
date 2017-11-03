@@ -17,18 +17,18 @@
                     <td>
                         {{ city.events | length }}
                         {% if city.events | length == 0 %}
-                            <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                            <span style="color: red;" class="fa fa-exclamation-triangle"></span>
                         {% endif %}
                     </td>
                     <td>
                         {{ city.announcements | length }}
                         {% if city.announcements | length > 1 %}
-                            <span style="color: red;" class="glyphicon glyphicon-exclamation-sign"></span>
+                            <span style="color: red;" class="fa fa-exclamation-triangle"></span>
                         {% endif %}
                     </td>
                     <td>
-                        <a href="{{ path("AdminCityEdit", { "id": city.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="delete" href="{{ path("AdminCityDelete", { "id": city.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path("AdminCityEdit", { "id": city.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="delete" href="{{ path("AdminCityDelete", { "id": city.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             {% endfor %}

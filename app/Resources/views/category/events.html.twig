@@ -20,7 +20,7 @@
                             <h4 style="font-size: 24px;"><a href="{{ path("LectureList", { "events": event.id }) }}">{{ event.date | date }}</a></h4>
                             {% for lecture in event.lectures %}
                                 <p>
-                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <span class="fa fa-check"></span>
                                     <a href="{{ path("LectureDetails", { 'id': lecture.id }) }}">{{ lecture.title }}</a>
                                     -
                                     <i>
@@ -35,11 +35,11 @@
             {% endfor %}
 
             <a class="left carousel-control" href="#events-carousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="fa fa-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">{{ 'Предыдущая встреча' | trans }}</span>
             </a>
             <a class="right carousel-control" href="#events-carousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="fa fa-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">{{ 'Следующая встреча' | trans }}</span>
             </a>
 
