@@ -146,19 +146,6 @@ h3:not(.anchor) {
     cursor: pointer;
 }
 
-.well a {
-    color: black;
-    text-decoration: underline;
-}
-
-.well a:hover {
-    color: orangered;
-}
-
-.well.well-no-margin {
-    margin-bottom: 0!important;
-}
-
 .fa.active {
     color: orangered;
 }
