@@ -54,7 +54,7 @@
                                                 {{ announcement.date | date }}
                                                 {% for lecture in announcement.lectures %}
                                                     <div class="row">
-                                                        <i class="small text-muted col-lg-5 col-lg-offset-1">
+                                                        <i class="small text-muted col-lg-5 offset-lg-1">
                                                             {{ lecture }} ({{ lecture.lecturer }})
                                                         </i>
                                                         <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Залить видео лекции" class="col-lg-6">

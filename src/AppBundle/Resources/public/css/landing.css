@@ -1,11 +1,11 @@
 .plate-container.row4 {
-    width: 281px;
-    padding: 6px;
+    width: 277px;
+    padding: 3px;
 }
 
 .plate-container.row3 {
-    width: 368px;
-    padding: 6px;
+    width: 370px;
+    padding: 4px;
 }
 
 .plate {
@@ -20,13 +20,13 @@
 }
 
 .plate-main {
-    font-size: 22px;
+    font-size: 30px;
     display: flex;
     align-items: center;
     text-align: center;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.85);
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -37,19 +37,19 @@
     opacity: 0;
     border-radius: 4px;
     transition: opacity .25s ease;
-    width: 269px;
+    width: 271px;
     height: 152px;
     overflow: hidden;
     background: #000000;
     color: white;
-    padding: 6px;
+    padding: 4px;
     z-index: 2;
     font-weight: bold;
     font-size: 12px;
 }
 
 .row3 .plate-details {
-    width: 356px;
+    width: 362px;
     height: 191px;
 }
 

@@ -22,7 +22,7 @@ class LandingController extends AbstractController
                 'cities' => $this->getCityRepository()->findForLanding(),
                 'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
                 'recent_lectures' => $this->getLectureRepository()->findRecent(15),
-                'tags' => $this->getTagRepository()->findForCloud(5),
+                'tags' => $this->getTagRepository()->findForCloud(4),
             ]
         );
     }

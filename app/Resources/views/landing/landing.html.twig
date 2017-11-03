@@ -22,7 +22,7 @@
             {% if loop.index == recent_lectures | length %}
                 <div class="plate-container row4">
                     <div class="plate" style="background-color: #2f2e30; color: white; font-size: 110%; padding-left: 9px; padding-top: 10px;">
-                        <h4 style="margin-top: 0;">{{ 'А может, вас интересует' | trans }}...</h4>
+                        <h4 style="margin-top: 0; font-size: 20px;">{{ 'А может, вас интересует' | trans }}...</h4>
                         <ul>
                             {% for tag in tags %}
                                 <li>
@@ -37,15 +37,15 @@
     </div>
 
     <div class="row" style="margin-bottom: 15px; font-size: 130%;">
-        <div class="col-md-4 col-md-offset-4">
-            <a class="btn btn-default" style="width: 100%; font-size: 140%;" href="{{ path("LectureList") }}">
+        <div class="col-md-4 offset-md-4">
+            <a class="btn btn-secondary" style="width: 100%; font-size: 140%;" href="{{ path("LectureList") }}">
                 {{ 'Все лекции' | trans }}
             </a>
         </div>
     </div>
     <div class="row" style="margin-bottom: 15px; font-size: 130%;">
-        <div class="col-md-4 col-md-offset-4">
-            <a class="btn btn-default" style="width: 100%; font-size: 140%;" href="{{ path("LectureListFeatured") }}">
+        <div class="col-md-4 offset-md-4">
+            <a class="btn btn-secondary" style="width: 100%; font-size: 140%;" href="{{ path("LectureListFeatured") }}">
                 {{ 'Лучшие лекции' | trans }}
             </a>
         </div>

@@ -49,6 +49,7 @@ a:hover .glyphicon {
     background: white;
     text-transform: uppercase;
     border-bottom: 1px solid black;
+    margin-bottom: 10px;
 }
 
 .nav.navbar-nav > li > a {
