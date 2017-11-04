@@ -60,6 +60,9 @@ a:hover .fa {
     background-color: #f8f8f8;
 }
 
+.tab-content {
+    width: 100%;
+}
 
 .fa-stack {
     top: -1px;

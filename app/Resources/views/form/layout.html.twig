@@ -21,3 +21,7 @@
     {%- set attr = attr|merge({class: (attr.class|default('btn-primary') ~ ' btn')|trim}) -%}
     {{- parent() -}}
 {%- endblock button_widget %}
+
+{% block form_label_class -%}
+    col-sm-2 text-right font-weight-bold
+{%- endblock form_label_class %}
