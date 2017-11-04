@@ -5,12 +5,12 @@
 {% block content %}
     <h1 class="page-header">{{ 'Все категори' | trans }}</h1>
 
-    <div class="panel-group" role="tablist">
+    <div role="tablist">
         {% for field in fields %}
             {% if field.lecture_count > 0 %}
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="field-{{ field.id }}-heading">
-                        <h4 class="panel-title">
+                <div class="card">
+                    <div class="card-header" role="tab" id="field-{{ field.id }}-heading">
+                        <h4 class="card-title">
                             <a
                                     role="button"
                                     data-toggle="collapse"
@@ -25,8 +25,8 @@
                             </a>
                         </h4>
                     </div>
-                    <div class="panel-collapse collapse" id="field-{{ field.id }}-body" role="tabpanel">
-                        <div class="panel-body">
+                    <div class="collapse" id="field-{{ field.id }}-body" role="tabpanel">
+                        <div class="card-block">
                             {% include "shared/tag-list.html.twig" with { 'tags': field.tags, 'field': field } %}
                         </div>
                     </div>
