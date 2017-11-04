@@ -1,4 +1,8 @@
 /*wrapper styles*/
+.transparent {
+    opacity: 0;
+}
+
 * {
     font-family: 'DIN2014Light', sans-serif;
 }

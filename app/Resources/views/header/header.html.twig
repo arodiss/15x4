@@ -2,7 +2,7 @@
     <div id="particles" style="position: absolute; width: 100%; height: 100%;"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-1 col-md-1 col-sm-2">
+            <div class="col-lg-1 col-md-2 col-sm-3">
                 {% block logo %}
                     <a href="{{ url("Landing") }}">
                         {% image '@AppBundle/Resources/public/images/logo.png' %}
@@ -20,10 +20,10 @@
                     {{ 'Мы хотим, чтобы люди выступали и делились знаниями.' | trans }}
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-2 hide pull-right">
-                <img id="avatar" style="border-radius: 35px; height: 70px; width: 70px;" src="" alt="Avatar"/>
+            <div class="col-lg-3 d-none d-lg-block">
+                <img class="pull-right" id="avatar" style="border-radius: 35px; height: 70px; width: 70px;" src="" alt="Avatar"/>
             </div>
-            <div class="col-lg-3 col-md-5 col-sm-3 social-icons pull-right" style="font-size: 70.3%;">
+            <div class="col-lg-3 col-md-4 d-none d-md-block social-icons pull-right" style="font-size: 70.3%;">
                 {% block social_icons %}
                     <a
                             href="https://www.youtube.com/channel/UCMAr-94KkdtiSqHoRJCPK1Q"

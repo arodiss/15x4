@@ -5,10 +5,10 @@ $(function() {
                 var $avatar = $("#avatar");
                 var avatarContainer = $avatar.parent();
 
-                avatarContainer.removeClass('hide');
-                $avatar.attr('src', response['picture_url']).removeClass('hide');
+                avatarContainer.removeClass('transparent');
+                $avatar.attr('src', response['picture_url']);
             } else {
-                $("#login-button").removeClass('hide');
+                $("#login-button").removeClass('d-none');
             }
         }
     });
