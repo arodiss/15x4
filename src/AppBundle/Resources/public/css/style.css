@@ -8,12 +8,12 @@
 }
 
 footer {
-    border-top: 3px solid #1b1b1b;
+    border-top: 1px solid #1b1b1b;
     padding-top: 12px;
-    padding-bottom: 6px;
     background: white;
     color: #1b1b1b;
-    line-height: 100%;
+    line-height: 40%;
+    font-size: 80%;
 }
 
 header {
