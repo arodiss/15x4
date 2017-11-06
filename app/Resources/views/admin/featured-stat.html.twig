@@ -2,28 +2,28 @@
 
 {% block admin_hint %}
     <h2>Статистика по рекомендованным лекциям</h2>
-    <h4>Доля рекомендованных лекций: {{ stats.avgScore | round }}%</h4>
+    <h5>Доля рекомендованных лекций: <strong>{{ stats.avgScore | round }}%</strong></h5>
 {% endblock %}
 
 {% block admin_content %}
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-                <a aria-controls="fields" href="#fields" role="tab" data-toggle="tab" class="tab-toggle">
+            <li role="presentation" class="nav-item active">
+                <a aria-controls="fields" href="#fields" role="tab" data-toggle="tab" class="tab-toggle nav-link active">
                     Категории
                 </a>
             </li>
-            <li role="presentation">
-                <a aria-controls="cities" href="#cities" role="tab" data-toggle="tab" class="tab-toggle">
+            <li role="presentation" class="nav-item">
+                <a aria-controls="cities" href="#cities" role="tab" data-toggle="tab" class="tab-toggle nav-link">
                     Города
                 </a>
             </li>
-            <li role="presentation">
-                <a aria-controls="speakers" href="#speakers" role="tab" data-toggle="tab" class="tab-toggle">
+            <li role="presentation" class="nav-item">
+                <a aria-controls="speakers" href="#speakers" role="tab" data-toggle="tab" class="tab-toggle nav-link">
                     Лекторы
                 </a>
             </li>
-            <li role="presentation">
-                <a aria-controls="langs" href="#langs" role="tab" data-toggle="tab" class="tab-toggle">
+            <li role="presentation" class="nav-item">
+                <a aria-controls="langs" href="#langs" role="tab" data-toggle="tab" class="tab-toggle nav-link">
                     Языки
                 </a>
             </li>
@@ -33,11 +33,11 @@
             <div role="tabpanel" class="tab-pane active" id="fields">
                 <table class="table">
                     {% for field in stats.fields.items %}
-                        <tr class="
-                                {% if field.score > stats.highScore %}success{% endif %}
-                                {% if field.score >= stats.lowScore and field.score <= stats.highScore %}info{% endif %}
-                                {% if field.score > 0 and field.score < stats.lowScore %}warning{% endif %}
-                                {% if field.score == 0 %}danger{% endif %}
+                        <tr class="text-white
+                                {% if field.score > stats.highScore %} bg-success{% endif %}
+                                {% if field.score >= stats.lowScore and field.score <= stats.highScore %} bg-info{% endif %}
+                                {% if field.score > 0 and field.score < stats.lowScore %} bg-warning{% endif %}
+                                {% if field.score == 0 %} bg-danger{% endif %}
                         ">
                             <td>{{ field.name }}</td>
                             <td>{{ field.upVotes }} / {{ field.totalVotes }}</td>
@@ -49,11 +49,11 @@
             <div role="tabpanel" class="tab-pane" id="cities">
                 <table class="table">
                     {% for city in stats.cities.items %}
-                        <tr class="
-                                {% if city.score > stats.highScore %}success{% endif %}
-                                {% if city.score >= stats.lowScore and city.score <= stats.highScore %}info{% endif %}
-                                {% if city.score > 0 and city.score < stats.lowScore %}warning{% endif %}
-                                {% if city.score == 0 %}danger{% endif %}
+                        <tr class="text-white
+                                {% if city.score > stats.highScore %} bg-success{% endif %}
+                                {% if city.score >= stats.lowScore and city.score <= stats.highScore %} bg-info{% endif %}
+                                {% if city.score > 0 and city.score < stats.lowScore %} bg-warning{% endif %}
+                                {% if city.score == 0 %} bg-danger{% endif %}
                         ">
                             <td>{{ city.name }}</td>
                             <td>{{ city.upVotes }} / {{ city.totalVotes }}</td>
@@ -75,11 +75,11 @@
             <div role="tabpanel" class="tab-pane" id="langs">
                 <table class="table">
                     {% for lang in stats.languages.items %}
-                        <tr class="
-                                    {% if lang.score > stats.highScore %}success{% endif %}
-                                    {% if lang.score >= stats.lowScore and lang.score <= stats.highScore %}info{% endif %}
-                                    {% if lang.score > 0 and lang.score < stats.lowScore %}warning{% endif %}
-                                    {% if lang.score == 0 %}danger{% endif %}
+                        <tr class="text-white
+                                    {% if lang.score > stats.highScore %} bg-success{% endif %}
+                                    {% if lang.score >= stats.lowScore and lang.score <= stats.highScore %} bg-info{% endif %}
+                                    {% if lang.score > 0 and lang.score < stats.lowScore %} bg-warning{% endif %}
+                                    {% if lang.score == 0 %} bg-danger{% endif %}
                             ">
                             <td>{{ lang.name | humanize_language }}</td>
                             <td>{{ lang.upVotes }} / {{ lang.totalVotes }}</td>
