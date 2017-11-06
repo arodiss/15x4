@@ -41,7 +41,7 @@ twig:
         format: d.m.Y
 
 assetic:
-    bundles: [ "FOSCommentBundle", "AppBundle", "AdminBundle" ]
+    bundles: [ "FOSCommentBundle", "AppBundle", "AdminBundle", "TwigBundle" ]
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
