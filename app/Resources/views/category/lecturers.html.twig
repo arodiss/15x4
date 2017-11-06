@@ -5,25 +5,20 @@
 {% block content %}
     <h2 class="page-header">{{ 'Наши лекторы' | trans }}:</h2>
 
-    <table class="table table-responsive">
-        <tbody>
+    <div class="row">
         {% for lecturer in pagination.items %}
-            {% if loop.index0 is divisible by(4) %}<tr>{% endif %}
-
-            <td style="width: 25%;">
+            <div class="col-sm-3">
                 <a href="{{ path("LectureList", { "lecturers": lecturer.id }) }}">
                     {{ lecturer.name }} ({{ lecturer.lectures_count }})
                 </a>
-
-                {% if lecturer.bio %}
-                    <p>{{ lecturer.bio }}</p>
-                {% endif %}
-            </td>
-
-            {% if loop.index is divisible by(4) %}</tr>{% endif %}
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
+    <div class="row">
+        <div class="col-lg-12">
+            <hr/>
+        </div>
+    </div>
     {% include 'shared/pagination.html.twig' with { 'pagination': pagination.paginationData } %}
 {% endblock %}
