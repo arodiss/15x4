@@ -163,22 +163,6 @@ h3:not(.anchor) {
 }
 /*end generic styles*/
 
-/*carousel styles*/
-.carousel-indicators li {
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    border: 2px solid orangered;
-}
-
-.carousel-indicators li.active {
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: orangered;
-}
-/*end carousel styles*/
-
 /*tag cloud styles*/
 #cloud-container span a {
     font-size: 160%;

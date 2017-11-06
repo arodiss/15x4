@@ -1,5 +1,5 @@
 $(function() {
-    $('a[href*=#]:not([href=#]):not(.carousel-control):not(.tab-toggle)').click(function() {
+    $('a[href*=#]:not([href=#]):not(.tab-toggle)').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -25,8 +25,6 @@ $(function() {
     });
 
     $('.tooltip-toggle').tooltip();
-
-    $('.carousel').carousel({'interval': 50000000});
 
     $(".flash").fadeOut(4000);
 
