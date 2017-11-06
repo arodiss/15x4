@@ -33,11 +33,11 @@ footer a:hover {
     color: orangered;
 }
 
-a .fa {
+a .fa:not(.fa-inverse) {
     color: #1b1b1b;
 }
 
-a:hover .fa {
+a:hover .fa:not(.fa-inverse) {
     color: #666;
 }
 
