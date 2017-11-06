@@ -43,9 +43,13 @@
         <div class="col-lg-12">
             <b>{{ 'Ваш город' | trans }}</b>
             <br/>
-            <div id="city" class="btn-group" role="group">
-                {% for city in cities %}
-                    <button data-city={{ city.id }} type="button" class="btn btn-secondary">{{ city | trans }}</button>
+            <div id="city" class="btn-toolbar" role="toolbar">
+                {% for cities_chunk in cities|batch(12) %}
+                    <div class="btn-group" role="group">
+                        {% for city in cities_chunk %}
+                            <button data-city={{ city.id }} type="button" class="btn btn-secondary">{{ city | trans }}</button>
+                        {% endfor %}
+                    </div>
                 {% endfor %}
             </div>
         </div>

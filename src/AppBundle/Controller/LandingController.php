@@ -48,10 +48,12 @@ class LandingController extends AbstractController
      */
     public function contactsAction()
     {
+        $contacts = $this->getContactRepository()->findAll();
+        shuffle($contacts);
         return $this->render(
             'contacts/contacts.html.twig',
             [
-                'contacts' => $this->getContactRepository()->findAll(),
+                'contacts' => $contacts,
                 'cities' => $this->getCityRepository()->findAll(),
             ]
         );

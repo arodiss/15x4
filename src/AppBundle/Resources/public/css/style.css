@@ -156,11 +156,6 @@ h3:not(.anchor) {
     padding: 5px;
 }
 
-.btn-secondary:focus {
-    background-color: #fff;
-    border-color: #ccc;
-}
-
 .flexbox {
     display: flex;
     flex-wrap: wrap;
