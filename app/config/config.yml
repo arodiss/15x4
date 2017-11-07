@@ -27,7 +27,7 @@ framework:
     fragments:       ~
     http_method_override: true
     assets:
-        version: "0.5.0"
+        version: "0.5.1"
 
 twig:
     globals:
