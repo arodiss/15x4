@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-08-19T22:09:58Z" source-language="en" target-language="uk" datatype="plaintext" original="not.available">
+  <file date="2017-11-07T16:33:20Z" source-language="en" target-language="uk" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -26,12 +26,13 @@
         <jms:reference-file line="53">/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
         <jms:reference-file line="60">/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
         <jms:reference-file line="67">/../src/AdminBundle/Form/AnnouncementType.php</jms:reference-file>
-        <jms:reference-file line="46">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
+        <jms:reference-file line="48">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
         <jms:reference-file line="33">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
         <jms:reference-file line="40">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
         <jms:reference-file line="47">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
+        <jms:reference-file line="54">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
         <jms:reference-file line="27">/../src/AdminBundle/Form/LectureAnnouncementType.php</jms:reference-file>
-        <jms:reference-file line="26">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="36">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="463e8e5e8791a152611cdebbe98bf645ebcd58e4" resname="(не обязательно, город указывать не нужно)">
         <source>(не обязательно, город указывать не нужно)</source>
@@ -69,10 +70,14 @@
         <target>Deutsch</target>
         <jms:reference-file line="22">/../src/AdminBundle/Form/LectureLanguageType.php</jms:reference-file>
       </trans-unit>
+      <trans-unit id="3feb1ce9764b33b4b72f25a3dda7c3484511ff41" resname="Disney">
+        <source>Disney</source>
+        <target state="new">Disney</target>
+      </trans-unit>
       <trans-unit id="0d01e2e86669e98441ab4dce5520696c318b7098" resname="E-mail">
         <source>E-mail</source>
         <target state="new">E-mail</target>
-        <jms:reference-file line="45">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
+        <jms:reference-file line="52">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="649df08a448ee3fa90f3746baaf6b0907df42c91" resname="English">
         <source>English</source>
@@ -82,7 +87,7 @@
       <trans-unit id="1b07b9a55e9c0c408676402f3f6e98b6cd15d2fa" resname="FAQ для лекторов">
         <source>FAQ для лекторов</source>
         <target>FAQ для лекторів</target>
-        <jms:reference-file line="153">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="159">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f0a25745d0be2cc266fc883299b5e32abe37abae" resname="FB идентификатор">
         <source>FB идентификатор</source>
@@ -92,12 +97,17 @@
       <trans-unit id="76a4f81e71b75c5c3e45db07a1670ecc2c0d79c2" resname="IFTTT ключ">
         <source>IFTTT ключ</source>
         <target state="new">IFTTT ключ</target>
-        <jms:reference-file line="44">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
+        <jms:reference-file line="46">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="cac71941ad5bdf7c02ba86e16fc69364349c0724" resname="Română">
         <source>Română</source>
         <target>Румуньска</target>
         <jms:reference-file line="23">/../src/AdminBundle/Form/LectureLanguageType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="464eca1c79d3b5beec4ed01f1e2feed90cfd3e7b" resname="Telegram идентификатор">
+        <source>Telegram идентификатор</source>
+        <target state="new">Telegram идентификатор</target>
+        <jms:reference-file line="45">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="7e58a71fb8fd6fd1470196b7fe1c19d46a7937c1" resname="VK идентификатор">
         <source>VK идентификатор</source>
@@ -112,7 +122,7 @@
       <trans-unit id="9c9765ca3cd4cfb0c903a9b1d7bf700538ce8067" resname="Авторизоваться">
         <source>Авторизоваться</source>
         <target>Авторизуватись</target>
-        <jms:reference-file line="36">/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e8ff0a59bba11564b5f28581ab5b623fdf2a6248" resname="Алан Тьюринг">
         <source>Алан Тьюринг</source>
@@ -177,17 +187,17 @@
       <trans-unit id="c5cc20dfac7dcf55f1ddf9ba583ea623c88da40b" resname="Видео лекции">
         <source>Видео лекции</source>
         <target>Відео лекції</target>
-        <jms:reference-file line="22">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="26">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="1d8e284a4c0fa4f7614be21ae80e9981c3baced1" resname="Видео обсуждения">
         <source>Видео обсуждения</source>
         <target>Відео обговорення</target>
-        <jms:reference-file line="24">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="34">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="d9088a39af48d55df0f8000c4b9c25a286b0369d" resname="Войдите%s, чтобы проголосовать за лекцию или добавить её в избранное">
         <source>Войдите%s, чтобы проголосовать за лекцию или добавить её в избранное</source>
         <target>Увійдіть%s, щоб проголосувати за лекцію або додати її у свій список обраних</target>
-        <jms:reference-file line="29">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="155a94ba9a909d052160928aefe62e4e092e0376" resname="Войти на сайт">
         <source>Войти на сайт</source>
@@ -223,7 +233,7 @@
         <jms:reference-file line="42">/Resources/views/landing/landing.html.twig</jms:reference-file>
         <jms:reference-file line="19">/Resources/views/lecture/list.html.twig</jms:reference-file>
         <jms:reference-file line="8">/Resources/views/lecture/list.html.twig</jms:reference-file>
-        <jms:reference-file line="14">/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="5">/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="67fd089c3491fb7fcce96e1ade0e58bf791ab6ef" resname="Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества">
         <source>Все лекции записываются и публикуются на официальном %sYouTube-канале%s сообщества</source>
@@ -243,18 +253,18 @@
       <trans-unit id="4c3689f4bd550c89d06293f0d2c55752db87da44" resname="Все теги">
         <source>Все теги</source>
         <target>Усі теґи</target>
-        <jms:reference-file line="22">/Resources/views/lecture/by-field.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/views/lecture/by-field.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e45a61bc019fdca848580a4ce87fb2c9207623b5" resname="Встреча">
         <source>Встреча</source>
         <target>Зустріч</target>
-        <jms:reference-file line="40">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
-        <jms:reference-file line="62">/Resources/views/lecture/filters.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="61">/Resources/views/lecture/filters.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b101989cf32b5fa6c752a73a63b521889c1ae9e6" resname="Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений">
         <source>Вы можете распространять и/или модифицировать все видео, размещённые на этом сайте, без каких-либо ограничений</source>
         <target>Ви можете розповсюджувати та/або модифікувати всі відео, розміщені на цьому сайті, без будь-яких обмежень</target>
-        <jms:reference-file line="15">/Resources/views/footer.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0519b9a48e2d7f5d9e48e002c0b125449535ec02" resname="Выбранные лекции">
         <source>Выбранные лекции</source>
@@ -266,10 +276,10 @@
         <source>Выбрать</source>
         <target>Обрати</target>
         <jms:reference-file line="25">/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="45">/Resources/views/lecture/filters.html.twig</jms:reference-file>
+        <jms:reference-file line="44">/Resources/views/lecture/filters.html.twig</jms:reference-file>
         <jms:reference-file line="6">/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="64">/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="87">/Resources/views/lecture/filters.html.twig</jms:reference-file>
+        <jms:reference-file line="63">/Resources/views/lecture/filters.html.twig</jms:reference-file>
+        <jms:reference-file line="86">/Resources/views/lecture/filters.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5d95fca8e04b31fc074ae43f69db620881e197b2" resname="Где">
         <source>Где</source>
@@ -356,7 +366,7 @@
       <trans-unit id="bcbfe033a73652418a4a34379db37912ea32a215" resname="Запишите меня!">
         <source>Запишите меня!</source>
         <target>Запишіть мене!</target>
-        <jms:reference-file line="26">/Resources/views/sign-up.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/views/sign-up.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="12a5e41561584be6e97184cf90bb1df9dc895c9a" resname="Зарегистрироваться на встречу">
         <source>Зарегистрироваться на встречу</source>
@@ -366,19 +376,29 @@
       <trans-unit id="66e7d25d0efe1441a831952191a8de6c0dccaf1b" resname="Заявка в организацию">
         <source>Заявка в организацию</source>
         <target>Заявка в організацію</target>
-        <jms:reference-file line="133">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="139">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="df528329b8cf2971a956de143607f2546d4891f8" resname="Ивент">
         <source>Ивент</source>
         <target>Івент</target>
-        <jms:reference-file line="77">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="87">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a4099ffe1e8595bb7855a4edec4d9d842d2e5ea1" resname="Идентификатор Facebook">
+        <source>Идентификатор Facebook</source>
+        <target state="new">Идентификатор Facebook</target>
+        <jms:reference-file line="40">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0e27d9efec5e91ff5a2008a04a1f10bd3e275234" resname="Идентификатор Telegram">
+        <source>Идентификатор Telegram</source>
+        <target state="new">Идентификатор Telegram</target>
+        <jms:reference-file line="41">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="b880e6a105204f3cd72a492787a543c3c21db8dc" resname="Избранное">
         <source>Избранное</source>
         <target>Обране</target>
-        <jms:reference-file line="17">/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/views/navigation.html.twig</jms:reference-file>
         <jms:reference-file line="19">/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
-        <jms:reference-file line="17">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="628f4b65590ab3de7ae444b37bd99c8132eb56e7" resname="Избранные лекции">
         <source>Избранные лекции</source>
@@ -432,7 +452,7 @@
       <trans-unit id="509dcccad07370a004580a675f4216b1b43cd9b2" resname="Как с вами связаться?">
         <source>Как с вами связаться?</source>
         <target>Як з вами зв'язатись?</target>
-        <jms:reference-file line="65">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="66">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="dc9eb93085df61ce4740f27dae6a3d7f44c751cb" resname="Как стать волонтёром?">
         <source>Как стать волонтёром?</source>
@@ -460,9 +480,9 @@
         <source>Категория</source>
         <target>Категорія</target>
         <jms:reference-file line="33">/../src/AdminBundle/Form/LectureAnnouncementType.php</jms:reference-file>
-        <jms:reference-file line="32">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="42">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
         <jms:reference-file line="4">/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="60">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+        <jms:reference-file line="59">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="29cbedd98e330c1227ccbec6be0f15301fe5d89b" resname="Киев">
         <source>Киев</source>
@@ -481,7 +501,7 @@
         <source>Комментарии</source>
         <target>Комментарі</target>
         <jms:reference-file line="26">/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
-        <jms:reference-file line="23">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="03e4a56d4f0bbed0278868b1afa8cd6142940e09" resname="Компьютеры">
         <source>Компьютеры</source>
@@ -495,7 +515,7 @@
         <source>Контакты</source>
         <target>Контакти</target>
         <jms:reference-file line="7">/Resources/views/about/infowindow.html.twig</jms:reference-file>
-        <jms:reference-file line="20">/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ca3d663713492b446eaa70caafb65b96da6f1b15" resname="Координатор отделения">
         <source>Координатор отделения</source>
@@ -519,7 +539,7 @@
         <source>Лектор</source>
         <target>Лектор</target>
         <jms:reference-file line="39">/../src/AdminBundle/Form/LectureAnnouncementType.php</jms:reference-file>
-        <jms:reference-file line="39">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="49">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
         <jms:reference-file line="23">/Resources/views/lecture/filters.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7d46136deb9a670bc3effe9cdd8e81d1abbf74f" resname="Лекторы">
@@ -537,12 +557,12 @@
       <trans-unit id="a33dc80106844375db6228a8a3a8273f807979f0" resname="Лекции из Мюнхена">
         <source>Лекции из Мюнхена</source>
         <target>Лекції з Мюнхену</target>
-        <jms:reference-file line="170">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="180">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2bbcd5785cdc9d7d8acf1156a67cf82c2645cd27" resname="Лекции на немецком">
         <source>Лекции на немецком</source>
         <target>Лекції німецькою</target>
-        <jms:reference-file line="164">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="174">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="df49f16c0bbf51a840efdb529479e38afe6f3f8a" resname="Лекция">
         <source>Лекция</source>
@@ -563,7 +583,7 @@
         <source>Лучшие лекции</source>
         <target>Найкращі лекції</target>
         <jms:reference-file line="49">/Resources/views/landing/landing.html.twig</jms:reference-file>
-        <jms:reference-file line="167">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="177">/Resources/views/landing/munich.html.twig</jms:reference-file>
         <jms:reference-file line="4">/Resources/views/lecture/featured.html.twig</jms:reference-file>
         <jms:reference-file line="8">/Resources/views/lecture/featured.html.twig</jms:reference-file>
       </trans-unit>
@@ -603,7 +623,7 @@
       <trans-unit id="f950bd61a2316bace233b50097b2df7d074db2cc" resname="Меня зовут">
         <source>Меня зовут</source>
         <target>Мене звати</target>
-        <jms:reference-file line="91">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="92">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="ad88af5bde90a4495cddcbac78d30beb98d0bfdd" resname="Мест для регистрации">
         <source>Мест для регистрации</source>
@@ -661,7 +681,7 @@
       <trans-unit id="3526e5f4aace5aef35ec1c255c67781b5e9b8729" resname="Мюнхен">
         <source>Мюнхен</source>
         <target>Мюнхен</target>
-        <jms:reference-file line="26">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3de49828e86a4016140f16781af6cceba1ad3c3c" resname="Название">
         <source>Название</source>
@@ -705,13 +725,13 @@
       <trans-unit id="f1d5fcab98e40e23086bc71a81c85c163cb9d8da" resname="Наши лучшие инженеры уже пытаются всё починить. Тем временем вы можете %s посмотреть случайную лекцию">
         <source>Наши лучшие инженеры уже пытаются всё починить. Тем временем вы можете %s посмотреть случайную лекцию</source>
         <target>Наші кращі інженери вже намагаються все полагодити. Тим часом ви можете %s переглянути випадкову лекцію</target>
-        <jms:reference-file line="12">/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="886000e9549b0b15d264d64322d72bfe217cee76" resname="Не нравится">
         <source>Не нравится</source>
         <target>Не подобається</target>
         <jms:reference-file line="12">/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
-        <jms:reference-file line="11">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5696d9f050227ec169f1571900a6a610dfe9d50c" resname="Не указано">
         <source>Не указано</source>
@@ -752,12 +772,12 @@
         <source>Нравится</source>
         <target>Подобається</target>
         <jms:reference-file line="5">/Resources/views/shared/lecture-likes-auth.html.twig</jms:reference-file>
-        <jms:reference-file line="5">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/views/shared/lecture-likes-noauth.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="21f8563b6545abc3bde25ec1014cb7d8e6e5d943" resname="О проекте">
         <source>О проекте</source>
         <target>Про проект</target>
-        <jms:reference-file line="19">/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="498fc055acb87b05f29d7968737b63515048570a" resname="Общество">
         <source>Общество</source>
@@ -779,7 +799,7 @@
       <trans-unit id="476475f94a7f112ca546ba29beb456be8d38e474" resname="Оставить отзыв">
         <source>Оставить отзыв</source>
         <target>Залишити відгук</target>
-        <jms:reference-file line="143">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="149">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="764dfcce6b573ed7f50f7d3d99d330f303d95bd9" resname="Оставьте первый комментарий">
         <source>Оставьте первый комментарий</source>
@@ -789,7 +809,7 @@
       <trans-unit id="c6f4665b45af069aeeeb1d90cad131025ecbe8f8" resname="Ответить">
         <source>Ответить</source>
         <target>Відповісти</target>
-        <jms:reference-file line="40">/Resources/FOSCommentBundle/views/Thread/comment_content.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/FOSCommentBundle/views/Thread/comment_content.html.twig</jms:reference-file>
         <jms:reference-file line="15">/Resources/FOSCommentBundle/views/Thread/comment_new_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9aa407304db43114d502683eb9648b267274f4fb" resname="Открыть 15х4 в своём городе">
@@ -810,17 +830,17 @@
       <trans-unit id="a95e99707375beab41553da41ec72c05a7b53ccb" resname="Под каким именем вас записать?">
         <source>Под каким именем вас записать?</source>
         <target>Під яким ім'ям вас записати?</target>
-        <jms:reference-file line="82">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="83">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="9cbef6356259ba1842daab8adacc950791a5339b" resname="Подписаться на рассылку">
         <source>Подписаться на рассылку</source>
         <target>Підписатися на розсилку</target>
-        <jms:reference-file line="148">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="154">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="33aae627e84c7202ecb3dc7bb04e68e60d7a3131" resname="Показаны элементы с %s по %s, из %s">
         <source>Показаны элементы с %s по %s, из %s</source>
         <target>Показано елементи з %s по %s, із %s</target>
-        <jms:reference-file line="32">/Resources/views/shared/pagination.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/views/shared/pagination.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="27c4523443f68b078491fc7d20b3842d424ade4c" resname="После входа вы сможете голосовать за лекции, оставлять комментарии, сохранять лекции в избранное - и многое другое">
         <source>После входа вы сможете голосовать за лекции, оставлять комментарии, сохранять лекции в избранное - и многое другое</source>
@@ -830,7 +850,7 @@
       <trans-unit id="a54242d6cc8d60d7cee95f726bb0ebe2c0477cf2" resname="Почта, ссылка на социальные сети, номер телефона...">
         <source>Почта, ссылка на социальные сети, номер телефона...</source>
         <target>Пошта, соціальні мережі, номер телефону...</target>
-        <jms:reference-file line="68">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="69">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="a00495987ca3a024f2b1d5b389b6d3fe7ea88453" resname="Предложения по улучшению сайта">
         <source>Предложения по улучшению сайта</source>
@@ -840,22 +860,17 @@
       <trans-unit id="1bc0670ecd600265754f62720d0d9a305066dad5" resname="Предыдущая">
         <source>Предыдущая</source>
         <target>Попередня</target>
-        <jms:reference-file line="6">/Resources/views/shared/pagination.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="e7b9ee2dad723d5f28f6caa5f8037bb15adce98f" resname="Предыдущая встреча">
-        <source>Предыдущая встреча</source>
-        <target>Попередня зустріч</target>
-        <jms:reference-file line="39">/Resources/views/category/events.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/views/shared/pagination.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c361a2b01e9e7583dacdff873260f94bf11dc24c" resname="Произошла ошибка">
         <source>Произошла ошибка</source>
         <target>Виникла помилка</target>
-        <jms:reference-file line="11">/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/TwigBundle/views/Exception/error.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a6d87fdae571363c282abfbe2930214c43f1bedb" resname="Прошлая встреча">
         <source>Прошлая встреча</source>
         <target>Минула зустріч</target>
-        <jms:reference-file line="69">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="68">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="09a160af160161bc718a17249478f6060674a114" resname="Психология">
         <source>Психология</source>
@@ -876,7 +891,7 @@
       <trans-unit id="aedb603cf4b8a93e265554965dd20900e410a777" resname="Регистрация на репетицию">
         <source>Регистрация на репетицию</source>
         <target>Реєстрація на репетицію</target>
-        <jms:reference-file line="138">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="144">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f264c97893e79033185b61be996b34f1e502e124" resname="Регистрация не требуется">
         <source>Регистрация не требуется</source>
@@ -886,7 +901,7 @@
       <trans-unit id="a9a8d18d9d825dce0348125bfedbc6b6ea65822b" resname="Рекомендованные лекции">
         <source>Рекомендованные лекции</source>
         <target>Рекомендовані лекції</target>
-        <jms:reference-file line="114">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="77ebe453d86e89266475d5853a73a42e62384c5a" resname="Ричард Докинз">
         <source>Ричард Докинз</source>
@@ -922,42 +937,45 @@
         <source>Связаться с нами</source>
         <target>Зв'язатись з нами</target>
         <jms:reference-file line="27">/Resources/views/contacts/contacts.html.twig</jms:reference-file>
-        <jms:reference-file line="128">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="133">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6611476bca4e802397bf22206b475e37644a084e" resname="Связь со СМИ">
         <source>Связь со СМИ</source>
         <target state="new">Связь со СМИ</target>
       </trans-unit>
+      <trans-unit id="5abb85f8875c36099a66c4aea85aeb54a0ef7a64" resname="Северодонецк">
+        <source>Северодонецк</source>
+        <target state="new">Северодонецк</target>
+      </trans-unit>
       <trans-unit id="dea0fb1a51897308d94a119f5da30dcb815cab78" resname="Сколько вам нужно дополнительных билетов?">
         <source>Сколько вам нужно дополнительных билетов?</source>
         <target>Скільки вам треба додаткових квитків?</target>
-        <jms:reference-file line="51">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
+        <jms:reference-file line="52">/../src/AppBundle/Form/SignUpType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0d04e81b0449662d254759ce17b6208e4e5ba5ae" resname="Следующая">
         <source>Следующая</source>
         <target>Наступна</target>
-        <jms:reference-file line="24">/Resources/views/shared/pagination.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/views/shared/pagination.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ed7a72340a87a65bf51f3f1f4c948006005d1608" resname="Следующая встреча">
         <source>Следующая встреча</source>
         <target>Наступна зустріч</target>
-        <jms:reference-file line="43">/Resources/views/category/events.html.twig</jms:reference-file>
-        <jms:reference-file line="12">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="39793f7f232f7cb84087621ec3e82d298d0ac6fd" resname="Случайная лекция">
         <source>Случайная лекция</source>
         <target>Випадкова лекція</target>
-        <jms:reference-file line="15">/Resources/views/navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/views/navigation.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5af0411927d65065d3da826afb93b548cac4eddf" resname="Смотреть">
         <source>Смотреть</source>
         <target state="new">Смотреть</target>
-        <jms:reference-file line="161">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="170">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="81d257e5fea68b136b5f3c347efb47589d923d7e" resname="Смотреть обсуждение">
         <source>Смотреть обсуждение</source>
         <target>Переглянути обговорення</target>
-        <jms:reference-file line="85">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+        <jms:reference-file line="83">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="35c50dbf7c0d462fde620ee257130c51c7216116" resname="Социология">
         <source>Социология</source>
@@ -1000,25 +1018,25 @@
       <trans-unit id="b8a9604777e161b0c27261df04620ab1276bd429" resname="Страница не найдена">
         <source>Страница не найдена</source>
         <target>Сторінка не знайдена</target>
-        <jms:reference-file line="12">/Resources/TwigBundle/views/Exception/error404.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/TwigBundle/views/Exception/error404.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="aea689a336186736d0fac9d40dc45ba4cf576bfa" resname="Тег">
         <source>Тег</source>
         <target>Тег</target>
-        <jms:reference-file line="43">/Resources/views/lecture/filters.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/views/lecture/filters.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5e52520af44e38fb9f11292b7215841854a01d1e" resname="Теги">
         <source>Теги</source>
         <target>Теґи</target>
-        <jms:reference-file line="55">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="65">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
         <jms:reference-file line="25">/Resources/views/lecture/list.html.twig</jms:reference-file>
-        <jms:reference-file line="75">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+        <jms:reference-file line="73">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e1225445977301dc67c1e23a2f0784995899d40f" resname="Тизер">
         <source>Тизер</source>
         <target>Тізер</target>
         <jms:reference-file line="25">/../src/AdminBundle/Form/LectureAnnouncementType.php</jms:reference-file>
-        <jms:reference-file line="28">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
+        <jms:reference-file line="38">/../src/AdminBundle/Form/LectureType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="fd62fb6e45aec8ae82f6b529b89b5666f81e4538" resname="Томск">
         <source>Томск</source>
@@ -1070,7 +1088,7 @@
       <trans-unit id="47947a0c467b8e7da11246bc312d54366ee62075" resname="Часовой пояс">
         <source>Часовой пояс</source>
         <target state="new">Часовой пояс</target>
-        <jms:reference-file line="53">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
+        <jms:reference-file line="55">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="3f1763a7592872b7fe4723fc159df11e8a6e62ac" resname="Чебоксары">
         <source>Чебоксары</source>
@@ -1083,7 +1101,7 @@
       <trans-unit id="0efb7557abb695b2c806bd715e6d48629c7dbda9" resname="Что бы вы ни искали, здесь этого точно нет. Может, на %s главной странице %s вам повезёт больше?">
         <source>Что бы вы ни искали, здесь этого точно нет. Может, на %s главной странице %s вам повезёт больше?</source>
         <target>Що б ви не шукали, тут цього точно немає. Може, на %s головній сторінці %s вам повезе більше?</target>
-        <jms:reference-file line="13">/Resources/TwigBundle/views/Exception/error404.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/TwigBundle/views/Exception/error404.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8632080ace8fb283ea4145ed2caf49390fa8e394" resname="Что вас интересует?">
         <source>Что вас интересует?</source>
@@ -1095,7 +1113,7 @@
         <target>Що таке 15х4?</target>
         <jms:reference-file line="21">/Resources/views/about/about.html.twig</jms:reference-file>
         <jms:reference-file line="57">/Resources/views/about/about.html.twig</jms:reference-file>
-        <jms:reference-file line="102">/Resources/views/landing/munich.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="af647362c20255647fcb39d9947610b3f338587a" resname="Чтобы лекции были максимально качественными мы проводим репетиции, делимся рекомендациями и помогаем на всех этапах подготовки">
         <source>Чтобы лекции были максимально качественными мы проводим репетиции, делимся рекомендациями и помогаем на всех этапах подготовки</source>
@@ -1119,7 +1137,7 @@
       <trans-unit id="ac084be6c71cad003d4f98203402870620b59892" resname="Я буду не один">
         <source>Я буду не один</source>
         <target>Я буду не один</target>
-        <jms:reference-file line="12">/Resources/views/sign-up.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/views/sign-up.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2438e7582a66910420764c783af7be455e0256eb" resname="Я хочу поучаствовать в проекте">
         <source>Я хочу поучаствовать в проекте</source>
@@ -1130,12 +1148,20 @@
         <source>Язык</source>
         <target>Мова</target>
         <jms:reference-file line="16">/../src/AdminBundle/Form/LectureLanguageType.php</jms:reference-file>
-        <jms:reference-file line="85">/Resources/views/lecture/filters.html.twig</jms:reference-file>
-        <jms:reference-file line="68">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/views/lecture/filters.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/views/shared/lecture-preview.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="44a6098c13efb1803cfef3a16ef23420097ad7f3" resname="Япония">
         <source>Япония</source>
         <target state="new">Япония</target>
+      </trans-unit>
+      <trans-unit id="04ecb5e5adcebd6cdcfe873608bcd2fc45801886" resname="абиогенез">
+        <source>абиогенез</source>
+        <target state="new">абиогенез</target>
+      </trans-unit>
+      <trans-unit id="938307dfcefe2eee843775553c16e1909ee75eda" resname="авиация">
+        <source>авиация</source>
+        <target state="new">авиация</target>
       </trans-unit>
       <trans-unit id="f4b28f324353f1cef85a5528d8f3d7033d4bf7cc" resname="актерское мастерство">
         <source>актерское мастерство</source>
@@ -1148,6 +1174,14 @@
       <trans-unit id="c3ccf074219d7da1c7ec4e84f9382800dd4fd9ea" resname="антибиотики">
         <source>антибиотики</source>
         <target state="new">антибиотики</target>
+      </trans-unit>
+      <trans-unit id="390c62d01042dc0bf6b45d024f5583929b1daf1d" resname="аргументация">
+        <source>аргументация</source>
+        <target state="new">аргументация</target>
+      </trans-unit>
+      <trans-unit id="16aaf33bcab225768a7a816d0f60c42cda8b94d5" resname="арматура">
+        <source>арматура</source>
+        <target state="new">арматура</target>
       </trans-unit>
       <trans-unit id="59999c4d5f461e06a9f9c040e5eb121b77f07318" resname="астробиология">
         <source>астробиология</source>
@@ -1245,7 +1279,7 @@
       <trans-unit id="74edeacb87a954d61ce18cca9980d08fdee53830" resname="ещё">
         <source>ещё</source>
         <target>Ще</target>
-        <jms:reference-file line="20">/Resources/views/lecture/by-field.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/views/lecture/by-field.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="97728d1582fed25b53195f97d9085aa415c93fda" resname="заболевания">
         <source>заболевания</source>
@@ -1258,6 +1292,10 @@
       <trans-unit id="3ecf6ad4fbd6fddf9aa316f54e574e0bef7bc231" resname="здоровье">
         <source>здоровье</source>
         <target state="new">здоровье</target>
+      </trans-unit>
+      <trans-unit id="d0a9bcc309069bfe8bd62492b4f658453fa96f41" resname="иммунитет">
+        <source>иммунитет</source>
+        <target state="new">иммунитет</target>
       </trans-unit>
       <trans-unit id="c854b1449a077372f9506be74a46c42e2a7c9b86" resname="импланты">
         <source>импланты</source>
@@ -1283,10 +1321,18 @@
         <source>квантовая физика</source>
         <target state="new">квантовая физика</target>
       </trans-unit>
+      <trans-unit id="3e205b4f566fee293184f94e4f3b7b05650eacbb" resname="когнитивистика">
+        <source>когнитивистика</source>
+        <target state="new">когнитивистика</target>
+      </trans-unit>
       <trans-unit id="f6309fc01d2949951e386fb09f3062c8b24e545a" resname="количество встреч">
         <source>количество встреч</source>
         <target>Кількість зустрічей</target>
         <jms:reference-file line="8">/Resources/views/category/cities.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b5ea0ce7d46ad1511651f3d40e7083a230948de6" resname="коммуникация">
+        <source>коммуникация</source>
+        <target state="new">коммуникация</target>
       </trans-unit>
       <trans-unit id="9b2018c28e9370eb0b261ebd290b55cd88cdfbd5" resname="компьютерные игры">
         <source>компьютерные игры</source>
@@ -1356,9 +1402,18 @@
         <source>нейрофизиология</source>
         <target state="new">нейрофизиология</target>
       </trans-unit>
+      <trans-unit id="0e2c3cf393882c27dc262ee6e09334fc84ec5e01" resname="нет тегов">
+        <source>нет тегов</source>
+        <target state="new">нет тегов</target>
+        <jms:reference-file line="9">/Resources/views/shared/tag-list.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="56eee7413a10d56e761cfad8689b9a7e0b005dce" resname="обучение">
         <source>обучение</source>
         <target state="new">обучение</target>
+      </trans-unit>
+      <trans-unit id="4ba7d63d231324c00db5affde26c2287cfae3d36" resname="общение">
+        <source>общение</source>
+        <target state="new">общение</target>
       </trans-unit>
       <trans-unit id="35afd81a89f05a927e9ba4d61b50482bebf8e5e6" resname="общество">
         <source>общество</source>
@@ -1387,6 +1442,10 @@
       <trans-unit id="68d6deee1389146bc1806b64cd0d753eb427b9cc" resname="публичные выступления">
         <source>публичные выступления</source>
         <target state="new">публичные выступления</target>
+      </trans-unit>
+      <trans-unit id="ca8a38ff8172058eb7ac40b286f53155b11116f2" resname="реактор">
+        <source>реактор</source>
+        <target state="new">реактор</target>
       </trans-unit>
       <trans-unit id="b6b8ee877692fcfaf8057beb360ef0a46182eb7a" resname="редактура текста">
         <source>редактура текста</source>
@@ -1420,6 +1479,10 @@
         <source>старение</source>
         <target state="new">старение</target>
       </trans-unit>
+      <trans-unit id="cfea00d2f21293efea181015cdc0684604d504e7" resname="строительство">
+        <source>строительство</source>
+        <target state="new">строительство</target>
+      </trans-unit>
       <trans-unit id="d76f72ddd1ec719ef664bb40e9a4265569b4e86b" resname="теломеры">
         <source>теломеры</source>
         <target state="new">теломеры</target>
@@ -1431,6 +1494,10 @@
       <trans-unit id="b7deb6a8ae18161ae7af06733fe1741e617f78ed" resname="термодинамика">
         <source>термодинамика</source>
         <target state="new">термодинамика</target>
+      </trans-unit>
+      <trans-unit id="c22dba006a03594d79e6a5a5565e4ba571d32f4c" resname="термоядерный синтез">
+        <source>термоядерный синтез</source>
+        <target state="new">термоядерный синтез</target>
       </trans-unit>
       <trans-unit id="756650fec1e45a846e23ef59bcafd7b84d9ed94f" resname="терраморфинг">
         <source>терраморфинг</source>
