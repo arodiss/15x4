@@ -15,8 +15,8 @@
                     <td>{{ lecturer }}</td>
                     <td>{{ lecturer.bio }}</td>
                     <td>
-                        <a href="{{ path("AdminLecturerEdit", { "id": lecturer.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="delete" href="{{ path("AdminLecturerDelete", { "id": lecturer.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path("AdminLecturerEdit", { "id": lecturer.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="delete" href="{{ path("AdminLecturerDelete", { "id": lecturer.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             {% endfor %}

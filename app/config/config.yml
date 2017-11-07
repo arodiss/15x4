@@ -27,7 +27,7 @@ framework:
     fragments:       ~
     http_method_override: true
     assets:
-        version: "0.4.6"
+        version: "0.5.0"
 
 twig:
     globals:
@@ -36,11 +36,12 @@ twig:
         default_locale: "%kernel.default_locale%"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes: ['form/layout.html.twig']
     date:
         format: d.m.Y
 
 assetic:
-    bundles: [ "FOSCommentBundle", "AppBundle", "AdminBundle" ]
+    bundles: [ "FOSCommentBundle", "AppBundle", "AdminBundle", "TwigBundle" ]
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:

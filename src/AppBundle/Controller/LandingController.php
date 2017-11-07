@@ -22,7 +22,7 @@ class LandingController extends AbstractController
                 'cities' => $this->getCityRepository()->findForLanding(),
                 'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
                 'recent_lectures' => $this->getLectureRepository()->findRecent(15),
-                'tags' => $this->getTagRepository()->findForCloud(5),
+                'tags' => $this->getTagRepository()->findForCloud(4),
             ]
         );
     }
@@ -48,10 +48,12 @@ class LandingController extends AbstractController
      */
     public function contactsAction()
     {
+        $contacts = $this->getContactRepository()->findAll();
+        shuffle($contacts);
         return $this->render(
             'contacts/contacts.html.twig',
             [
-                'contacts' => $this->getContactRepository()->findAll(),
+                'contacts' => $contacts,
                 'cities' => $this->getCityRepository()->findAll(),
             ]
         );

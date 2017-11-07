@@ -1,4 +1,4 @@
-<div id="lecture-filters" class="row hide">
+<div id="lecture-filters" class="row d-none">
     <div class="col-sm-3">
         <label for='select-field'>
             {{ 'Категория' | trans }}:
@@ -9,10 +9,10 @@
             {% endfor %}
         </select>
         {% for field in filters.fields.selected %}
-            <div class="well well-sm well-no-margin">
+            <div style="border: 1px solid lightgray; border-radius: 5px; padding: 6px; background-color: #eee;">
                 {{ field | trans }}
-                <span class="pull-right">
-                    <span class="remove-field glyphicon glyphicon-remove cursor-pointer" data-id="{{ field.id }}"></span>
+                <span class="pull-right" style="width: 0; position: relative; left: -4px; top: -5px; font-size: 70%;">
+                    <span class="remove-field fa fa-times cursor-pointer" data-id="{{ field.id }}"></span>
                 </span>
             </div>
         {% endfor %}
@@ -28,12 +28,11 @@
             {% endfor %}
         </select>
         {% for speaker in filters.speakers.selected %}
-            <div class="well well-sm well-no-margin filter-lecturer ">
+            <div style="border: 1px solid lightgray; border-radius: 5px; padding: 6px; background-color: #eee;">
                 <span>{{ speaker }}</span>
-                <span class="pull-right">
-                    <span class="remove-lecturer glyphicon glyphicon-remove cursor-pointer" data-id="{{ speaker.id }}"></span>
+                <span class="pull-right" style="width: 0; position: relative; left: -4px; top: -5px; font-size: 70%;">
+                    <span class="remove-lecturer fa fa-times cursor-pointer" data-id="{{ speaker.id }}"></span>
                 </span>
-                <p class="small">{{ speaker.bio }}</p>
             </div>
         {% endfor %}
     </div>
@@ -48,10 +47,10 @@
             {% endfor %}
         </select>
         {% for tag in filters.tags.selected %}
-            <div class="well well-sm well-no-margin">
+            <div style="border: 1px solid lightgray; border-radius: 5px; padding: 6px; background-color: #eee;">
                 {{ tag | trans }}
-                <span class="pull-right">
-                    <span class="remove-tag glyphicon glyphicon-remove cursor-pointer" data-id="{{ tag.id }}"></span>
+                <span class="pull-right" style="width: 0; position: relative; left: -4px; top: -5px; font-size: 70%;">
+                    <span class="remove-tag fa fa-times cursor-pointer" data-id="{{ tag.id }}"></span>
                 </span>
             </div>
         {% endfor %}
@@ -71,10 +70,10 @@
             {% endfor %}
         </select>
         {% for event in filters.events.selected %}
-            <div class="well well-sm well-no-margin filter-lecturer">
+            <div style="border: 1px solid lightgray; border-radius: 5px; padding: 6px; background-color: #eee; margin-bottom: 3px; ">
                 {{ event.date | date }}, {{ event.city }}
-                <span class="pull-right">
-                    <span class="remove-event glyphicon glyphicon-remove cursor-pointer" data-id="{{ event.id }}"></span>
+                <span class="pull-right" style="width: 0; position: relative; left: -4px; top: -5px; font-size: 70%;">
+                    <span style="position: absolute;" class="remove-event fa fa-times cursor-pointer" data-id="{{ event.id }}"></span>
                 </span>
             </div>
         {% endfor %}
@@ -90,10 +89,10 @@
             {% endfor %}
         </select>
         {% for lang in filters.langs.selected %}
-            <div class="well well-sm well-no-margin">
+            <div style="border: 1px solid lightgray; border-radius: 5px; padding: 6px; background-color: #eee;">
                 {{ lang }}
-                <span class="pull-right">
-                    <span class="remove-lang glyphicon glyphicon-remove cursor-pointer" data-id="{{ lang }}"></span>
+                <span class="pull-right" style="width: 0; height: 0; position: relative; left: -4px; top: -5px; font-size: 70%;">
+                    <span class="remove-lang fa fa-times cursor-pointer" data-id="{{ lang }}"></span>
                 </span>
             </div>
         {% endfor %}

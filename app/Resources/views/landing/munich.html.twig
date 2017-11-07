@@ -3,112 +3,116 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-9">
-            <div class="well">
-                {% if munich.nextAnnouncement %}
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <h2>{{ "Следующая встреча" | trans }}</h2>
-                                </div>
-                                <div class="col-lg-4" style="font-size: 200%;">
-                                    <span class="addtocalendar atc-style-icon atc-style-menu-wb">
-                                        <a class="atcb-link" style="font-size: 150%; top: -5px; position: relative;">
-                                            <span class="fa fa-calendar-check-o" aria-hidden="true"></span>
-                                        </a>
-                                        <var class="atc_event">
-                                            <var class="atc_date_start">{{ munich.nextAnnouncement.getDateTime() | date('Y-m-d H:i:s') }}</var>
-                                            <var class="atc_date_end">{{ munich.nextAnnouncement.getEndDateTime() | date('Y-m-d H:i:s') }}</var>
-                                            <var class="atc_timezone">Europe/Berlin</var>
-                                            <var class="atc_title">15x4</var>
-                                            <var class="atc_description">{{ munich.nextAnnouncement.lectures | join(', ') }}</var>
-                                            <var class="atc_location">{{ munich.nextAnnouncement.where }}</var>
-                                            <var class="atc_organizer">15x4 {{ 'Мюнхен' | trans }}</var>
-                                            <var class="atc_organizer_email">munich@15x4.org</var>
-                                        </var>
-                                    </span>
-                                    {% if munich.nextAnnouncement.vkLink %}
-                                        <a class="cursor-pointer" href="{{ munich.nextAnnouncement.vkLink }}" target="_blank">
-                                            <span class="fa-stack pull-right">
-                                                <i class="fa fa-vk fa-stack-1x"></i>
-                                                <i class="fa fa-square-o fa-stack-2x"></i>
-                                            </span>
-                                        </a>
-                                    {% endif %}
-                                    {% if munich.nextAnnouncement.fbLink %}
-                                        <a class="cursor-pointer" href="{{ munich.nextAnnouncement.fbLink }}" target="_blank">
-                                            <span class="fa-stack pull-right">
-                                                <i class="fa fa-facebook fa-stack-1x"></i>
-                                                <i class="fa fa-square-o fa-stack-2x"></i>
-                                            </span>
-                                        </a>
-                                    {% endif %}
-                                </div>
+            {% if munich.nextAnnouncement %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h2>{{ "Следующая встреча" | trans }}</h2>
                             </div>
-                            <h4>{{ munich.nextAnnouncement.date | date }}, {{ munich.nextAnnouncement.when }}</h4>
-                            <h4>{{ munich.nextAnnouncement.where }}</h4>
-                            {% include "landing/event-sign-up.html.twig" with { 'announcement': munich.nextAnnouncement} %}
-                            <hr/>
+                            <div class="col-lg-4" style="font-size: 200%;">
+                                <span class="addtocalendar atc-style-icon atc-style-menu-wb">
+                                    <a class="atcb-link" style="font-size: 150%; top: -5px; position: relative;">
+                                        <span class="fa fa-calendar-check-o" aria-hidden="true"></span>
+                                    </a>
+                                    <var class="atc_event">
+                                        <var class="atc_date_start">{{ munich.nextAnnouncement.getDateTime() | date('Y-m-d H:i:s') }}</var>
+                                        <var class="atc_date_end">{{ munich.nextAnnouncement.getEndDateTime() | date('Y-m-d H:i:s') }}</var>
+                                        <var class="atc_timezone">Europe/Berlin</var>
+                                        <var class="atc_title">15x4</var>
+                                        <var class="atc_description">{{ munich.nextAnnouncement.lectures | join(', ') }}</var>
+                                        <var class="atc_location">{{ munich.nextAnnouncement.where }}</var>
+                                        <var class="atc_organizer">15x4 {{ 'Мюнхен' | trans }}</var>
+                                        <var class="atc_organizer_email">munich@15x4.org</var>
+                                    </var>
+                                </span>
+                                {% if munich.nextAnnouncement.vkLink %}
+                                    <a class="cursor-pointer" href="{{ munich.nextAnnouncement.vkLink }}" target="_blank">
+                                        <span class="fa-stack pull-right">
+                                            <i class="fa fa-vk fa-stack-1x"></i>
+                                            <i class="fa fa-square-o fa-stack-2x"></i>
+                                        </span>
+                                    </a>
+                                {% endif %}
+                                {% if munich.nextAnnouncement.fbLink %}
+                                    <a class="cursor-pointer" href="{{ munich.nextAnnouncement.fbLink }}" target="_blank">
+                                        <span class="fa-stack pull-right">
+                                            <i class="fa fa-facebook fa-stack-1x"></i>
+                                            <i class="fa fa-square-o fa-stack-2x"></i>
+                                        </span>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                        <div class="col-lg-6">
-                            <iframe
-                                frameborder="0"
-                                style="width: 100%; height: 100%;"
-                                src="https://maps.google.com/maps?q=Munich,{{ munich.nextAnnouncement.whereMap | url_encode }}&z=14&output=embed"
-                            >
-                            </iframe>
-                        </div>
+                        <h4>{{ munich.nextAnnouncement.date | date }}, {{ munich.nextAnnouncement.when }}</h4>
+                        <h4>{{ munich.nextAnnouncement.where }}</h4>
+                        {% include "landing/event-sign-up.html.twig" with { 'announcement': munich.nextAnnouncement} %}
+                        <hr/>
                     </div>
-                    {% for lecture in munich.nextAnnouncement.lectures %}
-                        <p><b>{{ lecture.title }}</b> – <i>{{ lecture.lecturer }}</i></p>
-                        <p>{{ lecture.teaser }}</p>
-                    {% endfor %}
-                {% else %}
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <h2>{{ "Прошлая встреча" | trans }}</h2>
-                        </div>
-                        <div class="col-lg-4" style="font-size: 200%;">
-                            {% if munich.lastAnnouncement.vkLink %}
-                                <a class="cursor-pointer" href="{{ munich.lastAnnouncement.vkLink }}" target="_blank">
-                                    <span class="fa-stack pull-right">
-                                        <i class="fa fa-vk fa-stack-1x"></i>
-                                        <i class="fa fa-square-o fa-stack-2x"></i>
-                                    </span>
-                                </a>
-                            {% endif %}
-                            {% if munich.lastAnnouncement.fbLink %}
-                                <a class="cursor-pointer" href="{{ munich.lastAnnouncement.fbLink }}" target="_blank">
-                                    <span class="fa-stack pull-right">
-                                        <i class="fa fa-facebook fa-stack-1x"></i>
-                                        <i class="fa fa-square-o fa-stack-2x"></i>
-                                    </span>
-                                </a>
-                            {% endif %}
-                        </div>
+                    <div class="col-lg-6">
+                        <iframe
+                            frameborder="0"
+                            style="width: 100%; height: 100%;"
+                            src="https://maps.google.com/maps?q=Munich,{{ munich.nextAnnouncement.whereMap | url_encode }}&z=14&output=embed"
+                        >
+                        </iframe>
                     </div>
-                    <h4>{{ munich.lastAnnouncement.date | date }}, {{ munich.lastAnnouncement.when }}</h4>
-                    <h4>{{ munich.lastAnnouncement.where }}</h4>
-                    <hr/>
-                    {% for lecture in munich.lastAnnouncement.lectures %}
-                        <p><b>{{ lecture.title }}</b> – <i>{{ lecture.lecturer }}</i></p>
-                        <p>{{ lecture.teaser }}</p>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                </div>
+                {% for lecture in munich.nextAnnouncement.lectures %}
+                    <p><b>{{ lecture.title }}</b> – <i>{{ lecture.lecturer }}</i></p>
+                    <p>{{ lecture.teaser }}</p>
+                {% endfor %}
+            {% else %}
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2>{{ "Прошлая встреча" | trans }}</h2>
+                    </div>
+                    <div class="col-lg-4" style="font-size: 200%;">
+                        {% if munich.lastAnnouncement.vkLink %}
+                            <a class="cursor-pointer" href="{{ munich.lastAnnouncement.vkLink }}" target="_blank">
+                                <span class="fa-stack pull-right">
+                                    <i class="fa fa-vk fa-stack-1x"></i>
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if munich.lastAnnouncement.fbLink %}
+                            <a class="cursor-pointer" href="{{ munich.lastAnnouncement.fbLink }}" target="_blank">
+                                <span class="fa-stack pull-right">
+                                    <i class="fa fa-facebook fa-stack-1x"></i>
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <h4>{{ munich.lastAnnouncement.date | date }}, {{ munich.lastAnnouncement.when }}</h4>
+                <h4>{{ munich.lastAnnouncement.where }}</h4>
+                <hr/>
+                {% for lecture in munich.lastAnnouncement.lectures %}
+                    <p><b>{{ lecture.title }}</b> – <i>{{ lecture.lecturer }}</i></p>
+                    <p>{{ lecture.teaser }}</p>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="col-lg-3">
-            <div class="well">
-                <h2>{{ 'Что такое 15х4?' | trans }}</h2>
-                <p>{{ '15x4 — это научно-популярный проект, который делает мир лучше' | trans }}</p>
-                <p>
-                    {{ '15x4 — это некоммерческие мероприятия в городах Европы и СНГ' | trans }}.
-                    {{ 'Мы проводим бесплатные образовательные встречи, на которых рассказывается по четыре научно-популярных лекции продолжительностью пятнадцати минут' | trans }}.
-                    {{ 'Наша цель - продвигать идею популяризации науки и сделать знания более доступными' | trans }}.
-                </p>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{ 'Что такое 15х4?' | trans }}</h2>
+                    <div class="card-text">
+                        <p>{{ '15x4 — это научно-популярный проект, который делает мир лучше' | trans }}</p>
+                        <p>
+                            {{ '15x4 — это некоммерческие мероприятия в городах Европы и СНГ' | trans }}.
+                            {{ 'Мы проводим бесплатные образовательные встречи, на которых рассказывается по четыре научно-популярных лекции продолжительностью пятнадцати минут' | trans }}.
+                            {{ 'Наша цель - продвигать идею популяризации науки и сделать знания более доступными' | trans }}.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <hr/>
 
     <h2>
         {{ "Рекомендованные лекции"  | trans }}
@@ -123,53 +127,61 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="well">
-                <h2>
-                    {{ "Связаться с нами" | trans }}
-                </h2>
-                <ul>
-                    <li>
-                        <a target="_blank" href="https://goo.gl/forms/IlL9Skd9HHrtq3vH3">
-                            {{ "Заявка в организацию" | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://goo.gl/forms/BJnZQFkw0pSdmCkw1">
-                            {{ "Регистрация на репетицию" | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://goo.gl/forms/vk7ffDg0xEd0MK7G2">
-                            {{ "Оставить отзыв" | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://goo.gl/forms/oVVgR05Z3gyN7yVD2">
-                            {{ "Подписаться на рассылку" | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://docs.google.com/document/d/1FbRzQ6ZNsd7aw317p_zAIIwLg6A2T5g4Ae6Btd71czE">
-                            {{ "FAQ для лекторов" | trans }}
-                        </a>
-                    </li>
-                </ul>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        {{ "Связаться с нами" | trans }}
+                    </h2>
+                    <div class="card-text">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="https://goo.gl/forms/IlL9Skd9HHrtq3vH3">
+                                    {{ "Заявка в организацию" | trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://goo.gl/forms/BJnZQFkw0pSdmCkw1">
+                                    {{ "Регистрация на репетицию" | trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://goo.gl/forms/vk7ffDg0xEd0MK7G2">
+                                    {{ "Оставить отзыв" | trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://goo.gl/forms/oVVgR05Z3gyN7yVD2">
+                                    {{ "Подписаться на рассылку" | trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://docs.google.com/document/d/1FbRzQ6ZNsd7aw317p_zAIIwLg6A2T5g4Ae6Btd71czE">
+                                    {{ "FAQ для лекторов" | trans }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="well">
-                <h2>{{ 'Смотреть' | trans }}</h2>
-                <ul>
-                    <li>
-                        <a href="{{ url('LectureList', {'langs': 'de'}) }}">{{ "Лекции на немецком" | trans }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('LectureListFeatured') }}">{{ "Лучшие лекции" | trans }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('LectureByCity', {'id': munich.id }) }}">{{ "Лекции из Мюнхена" | trans }}</a>
-                    </li>
-                </ul>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{ 'Смотреть' | trans }}</h2>
+                    <div class="card-text">
+                        <ul>
+                            <li>
+                                <a href="{{ url('LectureList', {'langs': 'de'}) }}">{{ "Лекции на немецком" | trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('LectureListFeatured') }}">{{ "Лучшие лекции" | trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('LectureByCity', {'id': munich.id }) }}">{{ "Лекции из Мюнхена" | trans }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

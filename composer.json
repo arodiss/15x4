@@ -24,7 +24,7 @@
         "ext-curl": "*",
         "ext-mysqli": "*",
 
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "3.4.*@beta",
         "doctrine/orm": "2.5.*",
         "doctrine/doctrine-bundle": "1.6.*",
         "symfony/swiftmailer-bundle": "3.0.*",

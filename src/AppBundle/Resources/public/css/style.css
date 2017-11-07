@@ -1,16 +1,19 @@
 /*wrapper styles*/
+.transparent {
+    opacity: 0;
+}
+
 * {
     font-family: 'DIN2014Light', sans-serif;
 }
 
 footer {
-    border-top: 3px solid #1b1b1b;
+    border-top: 1px solid #1b1b1b;
     padding-top: 12px;
-    padding-bottom: 6px;
     background: white;
     color: #1b1b1b;
-    line-height: 100%;
-    font-size: 13px;
+    line-height: 40%;
+    font-size: 80%;
 }
 
 header {
@@ -30,11 +33,11 @@ footer a:hover {
     color: orangered;
 }
 
-a .glyphicon {
+a .fa:not(.fa-inverse) {
     color: #1b1b1b;
 }
 
-a:hover .glyphicon {
+a:hover .fa:not(.fa-inverse) {
     color: #666;
 }
 
@@ -49,10 +52,7 @@ a:hover .glyphicon {
     background: white;
     text-transform: uppercase;
     border-bottom: 1px solid black;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    font-size: 110%;
+    margin-bottom: 10px;
 }
 
 .nav.navbar-nav > li > a {
@@ -64,8 +64,8 @@ a:hover .glyphicon {
     background-color: #f8f8f8;
 }
 
-#navbar-collapse {
-    padding: 0;
+.tab-content {
+    width: 100%;
 }
 
 .fa-stack {
@@ -123,15 +123,6 @@ h3:not(.anchor) {
     padding-left: 10px;
 }
 
-.panel-collapse .panel-body {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.panel-collapse .panel-body .row {
-    margin-bottom: 0;
-}
-
 .flash {
     position: absolute;
     top: 2%;
@@ -153,20 +144,7 @@ h3:not(.anchor) {
     cursor: pointer;
 }
 
-.well a {
-    color: black;
-    text-decoration: underline;
-}
-
-.well a:hover {
-    color: orangered;
-}
-
-.well.well-no-margin {
-    margin-bottom: 0!important;
-}
-
-.glyphicon.active {
+.fa.active {
     color: orangered;
 }
 
@@ -178,33 +156,12 @@ h3:not(.anchor) {
     padding: 5px;
 }
 
-.btn-default:focus {
-    background-color: #fff;
-    border-color: #ccc;
-}
-
 .flexbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 /*end generic styles*/
-
-/*carousel styles*/
-.carousel-indicators li {
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    border: 2px solid orangered;
-}
-
-.carousel-indicators li.active {
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: orangered;
-}
-/*end carousel styles*/
 
 /*tag cloud styles*/
 #cloud-container span a {

@@ -21,8 +21,8 @@
                     <td>{{ lecture.event.city }}, {{ lecture.event.date | date }}</td>
                     <td>{{ lecture.tags | join(", ") }}</td>
                     <td>
-                        <a href="{{ path("AdminLectureEdit", { "id": lecture.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="delete" href="{{ path("AdminLectureDelete", { "id": lecture.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path("AdminLectureEdit", { "id": lecture.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="delete" href="{{ path("AdminLectureDelete", { "id": lecture.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             {% endfor %}
@@ -37,7 +37,7 @@
 
 {% block before_form %}
     <div class="alert alert-info">
-        <span class="glyphicon glyphicon-star"></span>
+        <i class="fa fa-info-circle"></i>
         Если вы создавали анонс лекции, которую сейчас хотите загрузить - то не делайте этого здесь.
         <br/>
         Вместо этого найдите нужный анонс в <a href="{{ path('AdminAnnouncements') }}">списке</a> и нажмите напротив встречи / лекции кнопку "залить видео"

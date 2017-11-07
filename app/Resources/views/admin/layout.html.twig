@@ -1,16 +1,11 @@
 {% extends "layout.html.twig" %}
-{% if form is defined %}
-    {% form_theme form 'form/layout.html.twig' %}
-{% endif %}
 
 {% block content %}
     {% block admin_hint %}{% endblock %}
-    <div class="row" style="margin-top: 10px;">
-        {% block admin_content %}
-            <p>На этой странице нет ничего интересного</p>
-            <p>Пожалуйста, воспользуйтесь навигацией, чтобы попасть куда-то ещё</p>
-        {% endblock %}
-    </div>
+    {% block admin_content %}
+        <p>На этой странице нет ничего интересного</p>
+        <p>Пожалуйста, воспользуйтесь навигацией, чтобы попасть куда-то ещё</p>
+    {% endblock %}
 {% endblock %}
 
 {% block navigation %}

@@ -3,14 +3,14 @@
 
     <ul class="nav nav-tabs" role="tablist">
         {% for city in cities.announced %}
-            <li role="presentation"{% if loop.first %} class="active"{% endif %}>
-                <a href="#city-{{ city.id }}" role="tab" data-toggle="tab" class="tab-toggle">
+            <li role="presentation" class="nav-item{% if loop.first %} active{% endif %}">
+                <a href="#city-{{ city.id }}" role="tab" data-toggle="tab" class="tab-toggle nav-link{% if loop.first %} active{% endif %}">
                     {{ city | trans }}
                 </a>
             </li>
         {% endfor %}
-        <li role="presentation">
-            <a href="#city-unannounced" role="tab" data-toggle="tab" class="tab-toggle">
+        <li class="nav-item" role="presentation">
+            <a href="#city-unannounced" role="tab" data-toggle="tab" class="tab-toggle nav-link">
                 {{ "Будет анонсировано позже" | trans }}
             </a>
         </li>
@@ -24,15 +24,14 @@
         {% endfor %}
 
         <div id="city-unannounced" role="tabpanel" class="tab-pane">
-            <div class="well">
-                <ul>
-                    {% for city in cities.unannounced %}
-                        <li>
-                            {{ city | trans }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+            <ul>
+                {% for city in cities.unannounced %}
+                    <li>
+                        {{ city | trans }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <hr/>
         </div>
     </div>
 {% endif %}

@@ -34,7 +34,7 @@
             </a>
             <em>- <a href="{{ path("LectureList", { "lecturers": lecture.lecturer.id }) }}">{{ lecture.lecturer }}</a></em>
         </h4>
-        <p>
+        <div>
             <a href="{{ path("LectureList", { "events": lecture.event.id }) }}">{{ lecture.date | date }}</a>,
             <a href="{{ path("EventByCity", { "id": lecture.city.id }) }}">{{ lecture.city | trans }}</a>
             <span
@@ -50,25 +50,23 @@
                     data-href="{{ url("LectureDetails", { "id": lecture.id }) }}"
             >
             </span>
-        </p>
+        </div>
 
-        <p>{{ lecture.teaser }}</p>
+        <p style="margin-bottom: 12px;">{{ lecture.teaser }}</p>
 
-        <p>
-            <div class="row">
-                <div class="col-md-6">
-                    {{ 'Категория' | trans }}:
-                    <b style="font-size: 110%;">
-                        <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">
-                            {{ lecture.field | trans }}
-                        </a>
-                    </b>
-                </div>
-                <div class="col-md-6">
-                    {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language | trans }}</a>
-                </div>
+        <div class="row">
+            <div class="col-md-6">
+                {{ 'Категория' | trans }}:
+                <b style="font-size: 110%;">
+                    <a href="{{ path("LectureByField", { "id": lecture.field.id }) }}">
+                        {{ lecture.field | trans }}
+                    </a>
+                </b>
             </div>
-        </p>
+            <div class="col-md-6">
+                {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language | trans }}</a>
+            </div>
+        </div>
 
         {% if lecture.tags|length > 0  %}
             <p>

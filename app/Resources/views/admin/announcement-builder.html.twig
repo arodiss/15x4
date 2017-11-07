@@ -4,9 +4,10 @@
 
         $.each(lectures, function (key, lectureNode) {
             $(lectureNode)
-                    .prepend('<span class="glyphicon glyphicon-remove pull-right remove"></span>')
-                    .addClass('decorated')
+                    .find('legend')
+                    .append('&nbsp;<i style="color: red;" class="fa fa-times remove cursor-pointer"></i>')
             ;
+            $(lectureNode).addClass('decorated');
             $(lectureNode).find('.remove').click(function () {
                 $(lectureNode).remove();
             });

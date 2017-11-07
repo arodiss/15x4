@@ -100,7 +100,7 @@ $(function () {
         })();
     }
 
-    $('#lecture-filters').removeClass('hide');
+    $('#lecture-filters').removeClass('d-none');
 
     $('#toggle-filters')
         .tooltip()

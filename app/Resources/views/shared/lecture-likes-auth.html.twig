@@ -1,30 +1,30 @@
 <div class="row text-center lecture-reactions" style="font-size: 150%;" data-lecture-id="{{ lecture.id }}">
-    <div class="col-xs-3">
-        <span
-            class="glyphicon glyphicon-thumbs-up tooltip-toggle cursor-pointer like{% if app.user.didLectureLike(lecture) %} active{% endif %}"
+    <div class="col-sm-3">
+        <i
+            class="fa fa-thumbs-up tooltip-toggle cursor-pointer like{% if app.user.didLectureLike(lecture) %} active{% endif %}"
             data-title="{{ 'Нравится' | trans }}"
-        ></span>
+        ></i>
         <span class="like-count">{{ lecture.likesCount }}</span>
     </div>
-    <div class="col-xs-3">
-        <span
-            class="glyphicon glyphicon-thumbs-down tooltip-toggle cursor-pointer dislike{% if app.user.didLectureDislike(lecture) %} active{% endif %}"
+    <div class="col-sm-3">
+        <i
+            class="fa fa-thumbs-down tooltip-toggle cursor-pointer dislike{% if app.user.didLectureDislike(lecture) %} active{% endif %}"
             data-title="{{ 'Не нравится' | trans }}"
-        ></span>
+        ></i>
         <span class="dislike-count">{{ lecture.dislikesCount }}</span>
     </div>
-    <div class="col-xs-3">
-        <span
-            class="glyphicon glyphicon-star tooltip-toggle cursor-pointer favorite{% if app.user.didLectureFav(lecture) %} active{% endif %}"
+    <div class="col-sm-3">
+        <i
+            class="fa fa-bookmark tooltip-toggle cursor-pointer favorite{% if app.user.didLectureFav(lecture) %} active{% endif %}"
             data-title="{{ 'Избранное' | trans }}"
-        ></span>
+        ></i>
         <span class="fav-count">{{ lecture.favsCount }}</span>
     </div>
-    <div class="col-xs-3">
-        <span
-            class="glyphicon glyphicon-comment tooltip-toggle"
+    <div class="col-sm-3">
+        <i
+            class="fa fa-comment tooltip-toggle"
             data-title="{{ 'Комментарии' | trans }}"
-        ></span>
+        ></i>
         <span>{{ lecture.commentsCount }}</span>
     </div>
 </div>

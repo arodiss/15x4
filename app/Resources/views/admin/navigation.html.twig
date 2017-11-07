@@ -1,36 +1,35 @@
-<nav class="navbar navbar-default" style="margin-bottom: 0;">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ path("AdminAnnouncements") }}"><b>Анонсы</b></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ path("AdminAnnouncements") }}"><b>Анонсы</b></a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Лекции
-                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path("AdminLectures") }}">Все</a></li>
-                        <li><a href="{{ path('AdminLecturesFeatured') }}">Рекомендованные</a></li>
+                        <a class="dropdown-item" href="{{ path("AdminLectures") }}">Все</a>
+                        <a class="dropdown-item" href="{{ path('AdminLecturesFeatured') }}">Рекомендованные</a>
                     </ul>
                 </li>
-                <li><a href="{{ path("AdminLecturers") }}">Лекторы</a></li>
-                <li><a href="{{ path("AdminEvents") }}">Встречи</a></li>
-                <li><a href="{{ path("AdminCities") }}">Города</a></li>
-                <li><a href="{{ path("AdminTags") }}">Теги</a></li>
-                <li><a href="{{ path("AdminContacts") }}">Контакты</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item"><a class="nav-link" href="{{ path("AdminLecturers") }}">Лекторы</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path("AdminEvents") }}">Встречи</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path("AdminCities") }}">Города</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path("AdminTags") }}">Теги</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path("AdminContacts") }}">Контакты</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Переводы
-                        <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path("jms_translation_index") }}">Редактировать</a></li>
-                        <li><a href="{{ path('AdminTranslationsUpdate') }}">Обновить</a></li>
-                    </ul>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ path("jms_translation_index") }}">Редактировать</a>
+                        <a class="dropdown-item" href="{{ path('AdminTranslationsUpdate') }}">Обновить</a>
+                    </div>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><li><a href="{{ path("Landing") }}">В клиентскую часть</a></li>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ path("Landing") }}">В клиентскую часть</a></li>
             </ul>
         </div>
     </div>

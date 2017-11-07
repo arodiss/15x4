@@ -5,19 +5,22 @@
 {% block content %}
     <div class="container">
         <div class="row" style="margin-top: 10px;">
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="min-height: 315px;">
                 <img
+                    style="position: absolute; left: -20px;"
                     src="/bundles/app/images/fields/{{ field.getImageName() ? : field.getDefaultImageName() }}"
                 />
             </div>
             <div class="col-lg-6">
-                <div class="well well-sm well-no-margin">
-                    {{ field.getDescription() }}
-                </div>
+                <h5>
+                    <i>
+                        {{ field.getDescription() }}
+                    </i>
+                </h5>
                 {% if tags|length > 0  %}
-                    {% include "shared/tag-list.html.twig" with { 'tags': tags | head(50), 'field': field } %}
-                    {% if tags|length > 50  %}
-                        (... {{ 'ещё' | trans }} {{ tags|length - 50 }})
+                    {% include "shared/tag-list.html.twig" with { 'tags': tags | head(40), 'field': field } %}
+                    {% if tags|length > 40  %}
+                        (... {{ 'ещё' | trans }} {{ tags|length - 40 }})
                         <br/>
                         <a href='{{ path('Tags') }}'>{{ 'Все теги' | trans }}</a>
                     {% endif %}
