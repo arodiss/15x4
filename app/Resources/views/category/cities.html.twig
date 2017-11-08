@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1 class="page-header">{{ 'Количество захваченных городов' | trans }}: {{ cities|length }}</h1>
-    {% for city in cities %}
+    {% for city in cities if city.events_count > 0 %}
         <h3><a href="{{ path("EventByCity", { "id": city.id }) }}">{{ city.name }} ({{ 'количество встреч' | trans }}: {{ city.events_count }})</a></h3>
         <hr/>
     {% endfor %}
