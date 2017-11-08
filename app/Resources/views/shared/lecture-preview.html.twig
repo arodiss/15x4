@@ -65,10 +65,18 @@
             </div>
             <div class="col-md-6">
                 {{ 'Язык' | trans }}: <a href="{{ path("LectureList", { "langs": lecture.language }) }}">{{ lecture.language | humanize_language | trans }}</a>
+                {% if lecture.getSubtitlesLanguages() | length > 0  %}
+                    <p class="small">
+                        {{ 'Субтитры' | trans }}:
+                        {% for subs_lang in lecture.getSubtitlesLanguages() %}
+                            {{ subs_lang.abbreviation }}
+                        {% endfor %}
+                    </p>
+                {% endif %}
             </div>
         </div>
 
-        {% if lecture.tags|length > 0  %}
+        {% if lecture.tags | length > 0  %}
             <p>
                 {{ 'Теги' | trans }}:
                 {% for tag in lecture.tags  %}
