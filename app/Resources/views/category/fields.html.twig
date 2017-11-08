@@ -21,7 +21,7 @@
                             </a>
 
                             <a href="{{ path("LectureByField", { "id": field.id }) }}">
-                                {{ field.name }} ({{ field.lecture_count }})
+                                {{ field.name | trans }} ({{ field.lecture_count }})
                             </a>
                         </h4>
                     </div>

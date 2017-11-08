@@ -3,7 +3,7 @@
 {% block page_title %}15x4 — Встречи в {{ city }}{% endblock %}
 
 {% block content %}
-    <h1 class="page-header">{{ 'Все встречи в городе' | trans }} {{ city }}</h1>
+    <h1 class="page-header">{{ 'Все встречи в городе' | trans }} {{ city.name | trans }}</h1>
 
     {% for event in pagination.items %}
             <div class="row">
