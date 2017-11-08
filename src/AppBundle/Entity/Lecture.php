@@ -83,6 +83,15 @@ class Lecture
     protected $tags;
 
     /**
+     * @ORM\ManyToMany(targetEntity="SubtitlesLanguage")
+     * @ORM\JoinTable(
+     *     joinColumns={@ORM\JoinColumn(name="lecture_id", referencedColumnName="id", onDelete="CASCADE")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="subtitles_language_id", referencedColumnName="id", onDelete="CASCADE")}
+     * )
+     */
+    protected $subtitlesLanguages;
+
+    /**
      * @ORM\Column(name="language", type="string", length=3, nullable=false, options={"default": "ru"})
      */
     protected $language;
@@ -261,6 +270,18 @@ class Lecture
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /** @return SubtitlesLanguage[] */
+    public function getSubtitlesLanguages()
+    {
+        return $this->subtitlesLanguages;
+    }
+
+    /** @param SubtitlesLanguage[] $subtitlesLanguages */
+    public function setSubtitlesLanguages($subtitlesLanguages)
+    {
+        $this->subtitlesLanguages = $subtitlesLanguages;
     }
 
     /** @return string */

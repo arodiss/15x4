@@ -74,6 +74,18 @@ class LectureType extends AbstractType
                             ->orderBy('tag.name', 'ASC');
                     }
                 ]
+            )
+            ->add(
+                'subtitlesLanguages',
+                EntityType::class,
+                [
+                    'label' => 'Субтитры',
+                    'class' => Entity\SubtitlesLanguage::class,
+                    'choice_label' => 'abbreviation',
+                    'multiple' => true,
+                    'required' => false,
+                    'attr' => ['class' => 'selectizable'],
+                ]
             );
 
 
