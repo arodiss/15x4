@@ -91,8 +91,7 @@ class LectureRepository extends AbstractRepository
             ->setMaxResults($number)
             ->innerJoin('lecture.lecturer', 'lecturer')
             ->select(['lecture', 'lecturer'])
-            ->innerJoin('lecture.event', 'event')
-            ->orderBy('event.created', 'DESC')
+            ->orderBy('lecture.created', 'DESC')
             ->getQuery()
             ->getResult()
         ;
