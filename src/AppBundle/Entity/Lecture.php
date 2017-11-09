@@ -24,8 +24,7 @@ class Lecture
     protected $id;
 
     /**
-     * @todo set nullable to false
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $created;
 
@@ -415,15 +414,6 @@ class Lecture
     public function getCommentsCount()
     {
         return $this->commentsCount;
-    }
-
-    /**
-     * @todo remove this
-     * @param $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 
     /**
