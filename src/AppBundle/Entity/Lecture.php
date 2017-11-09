@@ -24,6 +24,12 @@ class Lecture
     protected $id;
 
     /**
+     * @todo set nullable to false
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created;
+
+    /**
      * @ORM\Column(name="title", type="string", length=127, nullable=false)
      */
     protected $title;
@@ -135,6 +141,11 @@ class Lecture
      * @ORM\ManyToMany(targetEntity="User", inversedBy="favoriteLectures")
      */
     protected $usersFavorited;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
 
     /**
      * @param LectureAnnouncement $announcement
@@ -404,6 +415,15 @@ class Lecture
     public function getCommentsCount()
     {
         return $this->commentsCount;
+    }
+
+    /**
+     * @todo remove this
+     * @param $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
     }
 
     /**
