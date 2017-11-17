@@ -2,11 +2,10 @@
 
 namespace AdminBundle\Controller;
 
-use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
-abstract class AbstractAdminController extends Controller
+abstract class AbstractAdminController extends AbstractController
 {
     const ITEMS_PER_PAGE = 20;
 
@@ -15,10 +14,12 @@ abstract class AbstractAdminController extends Controller
 
     /**
      * @param Request $request
+     * @param null $queryBuilder
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    protected function manageList(Request $request)
+    protected function manageList(Request $request, $queryBuilder = null, $additionalData = [])
     {
+        $queryBuilder = $queryBuilder ?: $this->get($this->getAdminConfig()['repository_service'])->getAdminQb();
         if ($request->isMethod('POST')) {
             $form = $this->createForm($this->getAdminConfig()['form_type'])->handleRequest($request);
             if ($form->isValid()) {
@@ -32,30 +33,38 @@ abstract class AbstractAdminController extends Controller
 
                 return $this->render(
                     $this->getAdminConfig()['list_template'],
-                    [
-                        'is_list_view' => false,
-                        'pagination' => $this->getPager()->paginate(
-                            $this->get($this->getAdminConfig()['repository_service'])->getAdminQb(),
-                            $request->get('page', 1),
-                            self::ITEMS_PER_PAGE
-                        ),
-                        'form' => $form->createView()
-                    ]
+                    array_merge(
+                        [
+                            'is_list_view' => false,
+                            'pagination' => $this->getPager()->paginate(
+                                $queryBuilder,
+                                $request->get('page', 1),
+                                self::ITEMS_PER_PAGE
+                            ),
+                            'form' => $form->createView()
+                        ],
+                        $this->getAdditionalListData(),
+                        $additionalData
+                    )
                 );
             }
         }
 
         return $this->render(
             $this->getAdminConfig()['list_template'],
-            [
-                'is_list_view' => (bool) $request->get('page'),
-                'pagination' => $this->getPager()->paginate(
-                    $this->get($this->getAdminConfig()['repository_service'])->getAdminQb(),
-                    $request->get('page', 1),
-                    self::ITEMS_PER_PAGE
-                ),
-                'form' => $this->createForm($this->getAdminConfig()['form_type'])->createView()
-            ]
+            array_merge(
+                [
+                    'is_list_view' => (bool) $request->get('page'),
+                    'pagination' => $this->getPager()->paginate(
+                        $queryBuilder,
+                        $request->get('page', 1),
+                        self::ITEMS_PER_PAGE
+                    ),
+                    'form' => $this->createForm($this->getAdminConfig()['form_type'])->createView()
+                ],
+                $this->getAdditionalListData(),
+                $additionalData
+            )
         );
     }
 
@@ -95,15 +104,9 @@ abstract class AbstractAdminController extends Controller
         return $this->redirectToRoute($this->getAdminConfig()['list_route']);
     }
 
-    /** @return EntityManager */
-    protected function getEm()
+    /** @return array */
+    protected function getAdditionalListData()
     {
-        return $this->get("doctrine.orm.entity_manager");
-    }
-
-    /** @return \Knp\Component\Pager\Paginator */
-    protected function getPager()
-    {
-        return $this->get('knp_paginator');
+        return [];
     }
 } 

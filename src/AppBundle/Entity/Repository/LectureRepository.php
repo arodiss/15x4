@@ -117,4 +117,14 @@ class LectureRepository extends AbstractRepository
             ->orderBy('event.date', 'DESC')
         ;
     }
+
+    /**
+     * @param Entity\City $city
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function getQbByCity(Entity\City $city)
+    {
+        $qb = $this->getAdminQb();
+        return $qb->innerJoin('e.city', 'c')->andWhere($qb->expr()->eq('c.id', $city->getId()));
+    }
 }
