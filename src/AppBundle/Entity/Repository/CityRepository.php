@@ -80,4 +80,18 @@ class CityRepository extends AbstractRepository
             ->getResult()
         );
     }
+
+    /** @return array|Entity\City[] */
+    public function findAllWhichHaveLectures()
+    {
+        return $this
+            ->createQueryBuilder('city')
+            ->leftJoin('city.events', 'event')
+            ->leftJoin('event.lectures', 'lecture')
+            ->groupBy('city')
+            ->having('COUNT(lecture.id) > 0')
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
 }

@@ -1,6 +1,18 @@
 {% extends "admin/list-layout.html.twig" %}
 
 {% block admin_list_content %}
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link {% if current_city is not defined %} active{% endif %}" href="{{ path('AdminLectures') }}">Все</a>
+        </li>
+        {% for city in cities %}
+            <li class="nav-item">
+                <a class="nav-link {% if current_city is defined and current_city.id == city.id %} active{% endif %}" href="{{ path('AdminLecturesByCity', { 'id': city.id }) }}">{{ city.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
     <table class="table table-hover table-striped">
         <thead>
             <tr>

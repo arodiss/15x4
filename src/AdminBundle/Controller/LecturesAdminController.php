@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AppBundle\Entity\City;
 use AppBundle\Entity\Lecture;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use AdminBundle\Form;
@@ -15,6 +16,21 @@ class LecturesAdminController extends AbstractAdminController
     public function lecturesAction(Request $request)
     {
         return $this->manageList($request);
+    }
+
+    /**
+     * @Extra\Route("/lectures/{id}", name="AdminLecturesByCity")
+     */
+    public function listByCityAction(Request $request, City $city)
+    {
+        return $this->manageList(
+            $request,
+            $this->getLectureRepository()->getQbByCity($city),
+            [
+                'current_city' => $city,
+                'is_list_view' => true,
+            ]
+        );
     }
 
     /**
@@ -88,6 +104,14 @@ class LecturesAdminController extends AbstractAdminController
             'list_template' => 'admin/lectures.html.twig',
             'repository_service' => 'repository.lecture',
             'form_type' => Form\LectureType::class,
+        ];
+    }
+
+    /** @return array */
+    protected function getAdditionalListData()
+    {
+        return [
+            'cities' => $this->getCityRepository()->findAllWhichHaveLectures(),
         ];
     }
 } 
