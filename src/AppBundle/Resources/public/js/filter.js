@@ -100,26 +100,21 @@ $(function () {
         })();
     }
 
-    $('#lecture-filters').removeClass('d-none');
-
     $('#toggle-filters')
         .tooltip()
         .click(function () {
-            if ($(this).data('expanded') == 1) {
-                $(this)
-                    .data('expanded', 0)
-                    .attr('data-original-title', 'Показать фильтры')
-            } else {
-                $(this)
-                    .data('expanded', 1)
-                    .attr('data-original-title', 'Скрыть фильтры')
-            }
+            $(this).data('expanded', !$(this).data('expanded'));
+            var tmp = $(this).data('alt-title');
+            $(this).data('alt-title', $(this).data('title'));
+            $(this).data('title', tmp);
+            $(this).attr('data-original-title', tmp);
             $(this)
                 .find('i')
                 .toggleClass('fa-arrow-circle-up')
                 .toggleClass('fa-arrow-circle-down')
             ;
-        });
+        })
+        .click();
 
     $('img.video-thumbnail').click(function () {
         var iframe = $('<iframe/>')
