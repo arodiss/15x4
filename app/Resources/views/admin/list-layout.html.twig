@@ -21,7 +21,9 @@
                 <div class="card">
                     <div class="card-block">
                         {% if form is defined %}
-                            {% block before_form %}{% endblock %}
+                            {% block before_form %}
+                                <br/>
+                            {% endblock %}
                             {{ form(form) }}
                         {% else %}
                             <p>На этой странице нечего создавать</p>
