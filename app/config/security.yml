@@ -18,12 +18,16 @@ security:
             security: false
 
         admin:
+            logout_on_user_change: true
             pattern: ^/admin
-            http_basic: ~
+            http_basic:
+                provider: in_memory
 
         main:
+            logout_on_user_change: true
             anonymous: ~
             oauth:
+                provider: hwi_oauth
                 resource_owners:
                     facebook:      /login/facebook
                     vkontakte:     /login/vkontakte
