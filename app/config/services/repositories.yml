@@ -1,4 +1,7 @@
 services:
+    _defaults:
+        public: true
+
     repository.lecture:
         class:                                      AppBundle\Entity\Repository\LectureRepository
         factory:                                    ['@doctrine', 'getRepository']
