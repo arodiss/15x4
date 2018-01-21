@@ -9,8 +9,9 @@ class IftttHandler
     /** @param Announcement $announcement */
     public static function handleAnnouncement(Announcement $announcement)
     {
-        if ($key = $announcement->getCity()->getIftttKey()) {
-            $topics = "";
+        $key = $announcement->getCity()->getIftttKey();
+        $topics = "";
+        if ($key && $announcement->getDate() > (new \DateTime('today midnight'))) {
             foreach ($announcement->getLectures() as $lecture) {
                 $topics .= sprintf("%s - %s<br/>", $lecture->getLecturer()->getName(), $lecture->getTitle());
             }
