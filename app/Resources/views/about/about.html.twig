@@ -124,7 +124,27 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <div style="width:457px; height:257px;" id="map"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link tab-toggle active" id="tab-map" data-toggle="tab" href="#tab-content-map" role="tab" aria-controls="tab-content-map" aria-selected="true">{{ 'Карта' | trans }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tab-toggle" id="tab-list" data-toggle="tab" href="#tab-content-list" role="tab" aria-controls="tab-content-list" aria-selected="false">{{ 'Список' | trans }}</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-content-map" role="tabpanel" aria-labelledby="home-tab">
+                            <div style="width:457px; height:257px;" id="map"></div>
+                        </div>
+                        <div class="tab-pane" id="tab-content-list" role="tabpanel" aria-labelledby="profile-tab">
+                            <ul>
+                                {% for city in cities if not city.dormant %}
+                                    <li>{{ city.name | trans }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
