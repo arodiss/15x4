@@ -93,8 +93,8 @@ class LectureRepository extends AbstractRepository
                 $qb
                     ->expr()
                     ->orX(
-                        $qb->expr()->eq('lecture.language', 'en'),
-                        $qb->expr()->eq('lecture.language', 'de')
+                        $qb->expr()->eq('lecture.language', $qb->expr()->literal('en')),
+                        $qb->expr()->eq('lecture.language', $qb->expr()->literal('de'))
                     )
             )
             ->select(['lecture', 'lecturer'])
