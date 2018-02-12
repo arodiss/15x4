@@ -67,10 +67,36 @@ class LectureRepository extends AbstractRepository
      */
     public function findFeatured($number)
     {
-        return  $this
+        return $this
             ->createQueryBuilder('lecture')
             ->andWhere('lecture.isFeatured = 1')
             ->innerJoin('lecture.lecturer', 'lecturer')
+            ->select(['lecture', 'lecturer'])
+            ->setMaxResults($number)
+            ->orderBy('lecture.randomRating', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @param int $number
+     * @return Entity\Lecture[]
+     */
+    public function findFeaturedMunich($number)
+    {
+        $qb = $this->createQueryBuilder('lecture');
+        return $qb
+//            ->andWhere('lecture.isFeatured = 1')  todo get it back when Mu has own featured lectures
+            ->innerJoin('lecture.lecturer', 'lecturer')
+            ->andWhere(
+                $qb
+                    ->expr()
+                    ->orX(
+                        $qb->expr()->eq('lecture.language', 'en'),
+                        $qb->expr()->eq('lecture.language', 'de')
+                    )
+            )
             ->select(['lecture', 'lecturer'])
             ->setMaxResults($number)
             ->orderBy('lecture.randomRating', 'DESC')
