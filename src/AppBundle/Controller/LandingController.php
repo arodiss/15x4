@@ -72,7 +72,7 @@ class LandingController extends AbstractController
             'landing/munich.html.twig',
             [
                 'munich' => $munich,
-                'featured_lectures' => $this->getLectureRepository()->findFeatured(3),
+                'featured_lectures' => $this->getLectureRepository()->findFeaturedMunich(3),
             ]
         );
     }
