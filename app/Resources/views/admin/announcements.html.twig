@@ -7,7 +7,7 @@
             <div class="col-lg-6">
                 <span style="color: red; margin-left: 10px; margin-right: 10px;" class="fa fa-exclamation-triangle"></span>
                 <i class="text-muted">
-                    This indicates cities wre next event is not announced
+                    This indicates cities where next event is not announced
                 </i>
             </div>
             <div class="col-lg-6">
@@ -29,7 +29,7 @@
                     {% if city.hasVeryOutdatedAnnouncements() %}
                         <span style="color: darkgoldenrod;" class="fa fa-warning"></span>
                     {% endif %}
-                    {{ city }}
+                    {{ city | trans }}
                 </a>
             </li>
         {% endfor %}
@@ -41,7 +41,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            {{ city | trans }} – announcements
+                           Announcements of events in {{ city | trans }}
                         </div>
 
                         <div class="card-block">
