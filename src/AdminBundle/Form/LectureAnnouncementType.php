@@ -30,7 +30,12 @@ class LectureAnnouncementType extends AbstractType
             ->add(
                 'field',
                 EntityType::class,
-                ['label' => 'Категория', 'class' => Entity\Field::class, 'choice_label' => 'name']
+                [
+                    'label' => 'Категория',
+                    'class' => Entity\Field::class,
+                    'choice_label' => 'name',
+                    'choice_translation_domain' => true
+                ]
             )
             ->add(
                 'lecturer',

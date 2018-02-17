@@ -63,7 +63,7 @@ class LecturesAdminController extends AbstractAdminController
     {
         $lecture->setIsFeatured(false);
         $this->getEm()->flush();
-        $this->addFlash('success', sprintf('Лекция `%s` убрана из рекомендованных', $lecture->getTitle()));
+        $this->addFlash('success', sprintf('Talk `%s` is no longer featured', $lecture->getTitle()));
 
         return $this->redirectToRoute('AdminLecturesFeatured');
     }
@@ -75,7 +75,7 @@ class LecturesAdminController extends AbstractAdminController
     {
         $lecture->setIsFeatured(true);
         $this->getEm()->flush();
-        $this->addFlash('success', sprintf('Лекция `%s` добавлена в рекомендованные', $lecture->getTitle()));
+        $this->addFlash('success', sprintf('Talk `%s` is now featured', $lecture->getTitle()));
 
         return $this->redirectToRoute('AdminLecturesFeatured');
     }

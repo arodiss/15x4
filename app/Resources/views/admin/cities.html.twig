@@ -13,7 +13,7 @@
         <tbody>
             {% for city in pagination.items %}
                 <tr>
-                    <td>{{ city }}</td>
+                    <td>{{ city | trans }}</td>
                     <td>
                         {{ city.events | length }}
                         {% if city.events | length == 0 %}
