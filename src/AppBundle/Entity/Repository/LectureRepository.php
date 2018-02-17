@@ -87,7 +87,7 @@ class LectureRepository extends AbstractRepository
     {
         $qb = $this->createQueryBuilder('lecture');
         return $qb
-//            ->andWhere('lecture.isFeatured = 1')  todo get it back when Mu has own featured lectures
+            ->andWhere('lecture.isFeatured = 1')
             ->innerJoin('lecture.lecturer', 'lecturer')
             ->andWhere(
                 $qb

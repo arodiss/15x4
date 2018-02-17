@@ -39,9 +39,9 @@ class AnnouncementsController extends Controller
                     IftttHandler::handleAnnouncement($form->getData());
                 }
 
-                $this->addFlash('success', 'Анонс сохранён');
+                $this->addFlash('success', 'Announcement created');
             } else {
-                $this->addFlash('error', 'Не удалось сохранить анонс');
+                $this->addFlash('error', 'Failed to create announcement');
             }
 
             return $this->redirectToRoute('AdminAnnouncements');
@@ -73,9 +73,9 @@ class AnnouncementsController extends Controller
                 $this->get("doctrine.orm.entity_manager")->persist($form->getData());
                 $this->get("doctrine.orm.entity_manager")->remove($announcement);
                 $this->get("doctrine.orm.entity_manager")->flush();
-                $this->addFlash('success', 'Встреча создана');
+                $this->addFlash('success', 'Event created');
             } else {
-                $this->addFlash('error', 'Не удалось создать встречу');
+                $this->addFlash('error', 'Failed to create event');
             }
 
             return $this->redirectToRoute('AdminAnnouncements');
@@ -113,9 +113,9 @@ class AnnouncementsController extends Controller
                 }
                 $this->get("doctrine.orm.entity_manager")->remove($lectureAnnouncement);
                 $this->get("doctrine.orm.entity_manager")->flush();
-                $this->addFlash('success', 'Лекция добавлена');
+                $this->addFlash('success', 'Talk created');
             } else {
-                $this->addFlash('error', 'Не удалось добавить лекцию');
+                $this->addFlash('error', 'Failed to create talk');
             }
 
             return $this->redirectToRoute('AdminAnnouncements');
@@ -135,9 +135,9 @@ class AnnouncementsController extends Controller
             if ($form->isValid()) {
                 $this->get('doctrine.orm.entity_manager')->persist($form->getData());
                 $this->get('doctrine.orm.entity_manager')->flush();
-                $this->addFlash('success', 'Изменения сохранены');
+                $this->addFlash('success', 'Announcement updated');
             } else {
-                $this->addFlash('error', 'Не удалось сохранить изменения');
+                $this->addFlash('error', 'Failed to update announcement');
             }
 
             return $this->redirectToRoute('AdminAnnouncements');
@@ -154,7 +154,7 @@ class AnnouncementsController extends Controller
     {
         $this->get('doctrine.orm.entity_manager')->remove($announcement);
         $this->get('doctrine.orm.entity_manager')->flush();
-        $this->addFlash('success', 'Удалено');
+        $this->addFlash('success', 'Removed');
 
         return $this->redirectToRoute('AdminAnnouncements');
     }

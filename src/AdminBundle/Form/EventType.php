@@ -20,7 +20,12 @@ class EventType extends AbstractType
             ->add(
                 'city',
                 EntityType::class,
-                ['label' => 'Город', 'class' => Entity\City::class, 'choice_label' => 'name']
+                [
+                    'label' => 'Город',
+                    'class' => Entity\City::class,
+                    'choice_label' => 'name',
+                    'choice_translation_domain' => true
+                ]
             )
             ->add('save', SubmitType::class)
         ;

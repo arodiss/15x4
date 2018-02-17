@@ -26,6 +26,7 @@ class AnnouncementType extends AbstractType
                 [
                     'label' => 'Город',
                     'class' => Entity\City::class,
+                    'choice_translation_domain' => true,
                     'attr' => [
                         'readonly' => true,
                     ]

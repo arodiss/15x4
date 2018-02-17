@@ -16,12 +16,12 @@
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Название</th>
-                <th>Категория</th>
-                <th>Лектор</th>
-                <th>Ивент</th>
-                <th>Теги</th>
-                <th>Действия</th>
+                <th>Title</th>
+                <th>Field</th>
+                <th>Speaker</th>
+                <th>Event</th>
+                <th>Tags</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -50,8 +50,8 @@
 {% block before_form %}
     <div class="alert alert-info">
         <i class="fa fa-info-circle"></i>
-        Если вы создавали анонс лекции, которую сейчас хотите загрузить - то не делайте этого здесь.
+        If you've created announcement for the lecture you want to upload, DON'T DO IT HERE
         <br/>
-        Вместо этого найдите нужный анонс в <a href="{{ path('AdminAnnouncements') }}">списке</a> и нажмите напротив встречи / лекции кнопку "залить видео"
+        Instead find your announcement in <a href="{{ path('AdminAnnouncements') }}">list</a> and click "upload videos" for talk or event
     </div>
 {% endblock %}

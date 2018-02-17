@@ -25,7 +25,7 @@ class LectureType extends AbstractType
                 [
                     'label' => 'Видео лекции',
                     'attr' => [
-                        'help' => 'Допустимые форматы: youtube.com/watch?v=123123, youtu.be/123123, youtube.com/embed/123123',
+                        'help' => 'youtube.com/watch?v=123123, youtu.be/123123, youtube.com/embed/123123',
                     ]
 
                 ]
@@ -39,7 +39,12 @@ class LectureType extends AbstractType
             ->add(
                 'field',
                 EntityType::class,
-                ['label' => 'Категория', 'class' => Entity\Field::class, 'choice_label' => 'name']
+                [
+                    'label' => 'Категория',
+                    'class' => Entity\Field::class,
+                    'choice_label' => 'name',
+                    'choice_translation_domain' => true
+                ]
             )
             ->add('language', LectureLanguageType::class)
             ->add(

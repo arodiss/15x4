@@ -22,7 +22,7 @@ class AdminController extends Controller
     public function updateTranslationsAction(Request $request)
     {
         $this->get('15x4.i18n_updater')->update();
-        $this->addFlash('success', 'Переводы обновлены');
+        $this->addFlash('success', 'Translations updated');
 
         if ($request->headers->has('referer')) {
             return $this->redirect($request->headers->get('referer'));

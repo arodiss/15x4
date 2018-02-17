@@ -2,15 +2,14 @@
 
 {% block admin_hint %}
     <div class="alert alert-info" role="alert">
-        <p><strong>Как выбрать теги для видео</strong></p>
+        <p><strong>How do I select tags?</strong></p>
         <ul>
-            <li>По возможности используйте русский язык</li>
-            <li>Если лекция называется "15 минут о ХХХ", и ХХХ не совпадает с названием категории ("15 минут о лекциях") и не является очень общим ("15 минут о технологиях", "15 минут о сознании") – ХХХ становится первым тегом</li>
-            <li>Помимо этого, лекция может иметь от 0 до 3 дополнительных тегов</li>
-            <li>Дополнительные теги нужно выбирать так, чтобы максимизировать вероятность того, что под этим тегом будут ещё лекции</li>
-            <li>Если можно использовать существующий тег или создать новый – нужно использовать существующий</li>
-            <li>Если можно использовать можно использовать единственное или множественное число - нужно использовать единственное</li>
-            <li>Используйте свой мозг</li>
+            <li>If lecture name is "15 minutes about ХХХ", and ХХХ is not a field name ("15 minutes about talks") and is not very general ("15 minutes about technology", "15 minutes about consciousness") – ХХХ is your first tag</li>
+            <li>You can add 0 to 3 more tags</li>
+            <li>Select tags in such a way to maximize probability of getting it used in other talks</li>
+            <li>If you can create new tag or use existing one - use existing</li>
+            <li>If you can use singular or plural - use singular</li>
+            <li>Beforementioned rules are not ground truth. You intelligence is</li>
         </ul>
     </div>
 {% endblock %}
@@ -19,8 +18,8 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Имя тега</th>
-                <th>Действия</th>
+                <th>Tag</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>

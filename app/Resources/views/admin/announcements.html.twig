@@ -7,13 +7,13 @@
             <div class="col-lg-6">
                 <span style="color: red; margin-left: 10px; margin-right: 10px;" class="fa fa-exclamation-triangle"></span>
                 <i class="text-muted">
-                    Этот знак означает, что в городе не анонсирована следующая встреча
+                    This indicates cities wre next event is not announced
                 </i>
             </div>
             <div class="col-lg-6">
                 <span style="color: darkgoldenrod; margin-left: 10px; margin-right: 10px;" class="fa fa-warning"></span>
                 <i class="text-muted">
-                    Этот знак означает, что в городе есть сильно просроченные анонсы
+                    This indicates cities which have significantly overdue video uploads
                 </i>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            {{ city }} – анонсы
+                            {{ city | trans }} – announcements
                         </div>
 
                         <div class="card-block">
@@ -60,7 +60,7 @@
                                                             </i>
                                                         </div>
                                                         <div class="col-lg-4">
-                                                            <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Залить видео лекции" class="col-lg-6">
+                                                            <a href="{{ path("LectureFromAnnouncement", { "id": lecture.id }) }}" title="Upload video" class="col-lg-6">
                                                                 <i class="fa fa-check" title="Залить видео лекции"></i>
                                                             </a>
                                                         </div>
@@ -69,14 +69,14 @@
                                             </td>
                                             <td class="pull-right">
                                                 {% if announcement.totalTickets %}
-                                                    <a href="{{ path("GetAnnouncementTickets", { "id": announcement.id }) }}"><i class="fa fa-download" title="Выгрузить билеты"></i></a>
+                                                    <a href="{{ path("GetAnnouncementTickets", { "id": announcement.id }) }}"><i class="fa fa-download" title="Download tickets"></i></a>
                                                 {% endif %}
                                                 {% if announcement.volunteers | length %}
-                                                    <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><i class="fa fa-cloud-download" title="Выгрузить волонтёров"></i></a>
+                                                    <a href="{{ path("GetAnnouncementVolunteers", { "id": announcement.id }) }}"><i class="fa fa-cloud-download" title="Download volunteers"></i></a>
                                                 {% endif %}
-                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><i class="fa fa-check" title="Залить все видео"></i></a>
-                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><i class="fa fa-pencil-square-o" title="Редактировать"></i></a>
-                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><i class="fa fa-trash-o" title="Удалить"></i></a>
+                                                <a href="{{ path("EventFromAnnouncement", { "id": announcement.id }) }}"><i class="fa fa-check" title="Upload all videos"></i></a>
+                                                <a href="{{ path("AdminAnnouncementEdit", { "id": announcement.id }) }}"><i class="fa fa-pencil-square-o" title="Edit"></i></a>
+                                                <a class="delete" href="{{ path("AdminAnnouncementDelete", { "id": announcement.id }) }}"><i class="fa fa-trash-o" title="Delete"></i></a>
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -86,7 +86,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <i class="text-muted" style="margin: 5px;">
-                                            В этом городе нет анонсов
+                                            There are no announcements available for this city
                                         </i>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                 <div class="col-lg-12">
                                     <a class="btn btn-primary" href="{{ path("AddAnnouncement", { 'id': city.id }) }}" style="margin: 5px;">
                                         <i class="fa fa-plus-circle" style="color: white;"></i>
-                                        Добавить анонс
+                                        Add announcement
                                     </a>
                                 </div>
                             </div>

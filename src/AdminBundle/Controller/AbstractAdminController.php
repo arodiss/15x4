@@ -25,11 +25,11 @@ abstract class AbstractAdminController extends AbstractController
             if ($form->isValid()) {
                 $this->getEm()->persist($form->getData());
                 $this->getEm()->flush();
-                $this->addFlash('success', 'Создано успешно');
+                $this->addFlash('success', 'Creation successful');
 
                 return $this->redirectToRoute($this->getAdminConfig()['list_route']);
             } else {
-                $this->addFlash('error', 'Создать не удалось');
+                $this->addFlash('error', 'Failed to create');
 
                 return $this->render(
                     $this->getAdminConfig()['list_template'],
@@ -80,9 +80,9 @@ abstract class AbstractAdminController extends AbstractController
             if ($form->isValid()) {
                 $this->getEm()->persist($form->getData());
                 $this->getEm()->flush();
-                $this->addFlash('success', 'Изменения сохранены');
+                $this->addFlash('success', 'Changes saved');
             } else {
-                $this->addFlash('error', 'Не удалось сохранить изменения');
+                $this->addFlash('error', 'Failed to save changes');
             }
 
             return $this->redirectToRoute($this->getAdminConfig()['list_route']);
@@ -99,7 +99,7 @@ abstract class AbstractAdminController extends AbstractController
     {
         $this->getEm()->remove($entity);
         $this->getEm()->flush();
-        $this->addFlash('success', 'Удалено');
+        $this->addFlash('success', 'Removed');
 
         return $this->redirectToRoute($this->getAdminConfig()['list_route']);
     }
