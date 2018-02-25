@@ -31,10 +31,10 @@ class LectureController extends AbstractController
     /**
      * @Extra\Route("/lecture/random/", name="LectureRandom")
      */
-    public function randomAction()
+    public function randomAction(Request $request)
     {
         return $this->render('lecture/details.html.twig', [
-            'lecture' => $this->getLectureRepository()->getRandom(),
+            'lecture' => $this->getLectureRepository()->getRandom($request->get('lang')),
         ]);
     }
 

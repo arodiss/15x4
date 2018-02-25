@@ -1,9 +1,13 @@
+{% if app.session.get('locale') == 'de' or app.session.get('locale') == 'en' %}
+    {% set lang = 'en' %}
+{% endif %}
+
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ url("LectureList") }}">{{ 'Все лекции' | trans }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url("LectureRandom") }}">{{ 'Случайная лекция' | trans }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url("LectureList", {'langs': lang|default('')}) }}">{{ 'Все лекции' | trans }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url("LectureRandom", {'lang': lang|default('')}) }}">{{ 'Случайная лекция' | trans }}</a></li>
                 {% if is_granted('ROLE_USER') and app.user.favoriteLectureIds | length > 0 %}
                     <li class="nav-item"><a class="nav-link" href="{{ url("MyFavoriteLectures") }}">{{ 'Избранное' | trans }}</a></li>
                 {% endif %}

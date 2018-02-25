@@ -46,15 +46,21 @@ class LectureRepository extends AbstractRepository
     }
 
     /** @return Entity\Lecture */
-    public function getRandom()
+    public function getRandom($lang = null)
     {
+        $results =  $this
+            ->createQueryBuilder('lecture')
+            ->select('lecture.id')
+            ->where('lecture.isFeatured = 1')
+        ;
+        if ($lang) {
+            $results->andWhere($results->expr()->eq(
+                'lecture.language',
+                $results->expr()->literal($lang)
+            ));
+        }
         $ids = array_column(
-            $this
-                ->createQueryBuilder('lecture')
-                ->select('lecture.id')
-                ->where('lecture.isFeatured = 1')
-                ->getQuery()
-                ->getArrayResult(),
+            $results->getQuery()->getArrayResult(),
             'id'
         );
 
