@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2018-02-17T11:23:08Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2018-02-25T12:09:04Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -106,7 +106,7 @@
       </trans-unit>
       <trans-unit id="464eca1c79d3b5beec4ed01f1e2feed90cfd3e7b" resname="Telegram идентификатор">
         <source>Telegram идентификатор</source>
-        <target state="new">Telegram идентификатор</target>
+        <target>Telegram id</target>
         <jms:reference-file line="45">/../src/AdminBundle/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="7e58a71fb8fd6fd1470196b7fe1c19d46a7937c1" resname="VK идентификатор">
@@ -385,12 +385,12 @@
       </trans-unit>
       <trans-unit id="a4099ffe1e8595bb7855a4edec4d9d842d2e5ea1" resname="Идентификатор Facebook">
         <source>Идентификатор Facebook</source>
-        <target state="new">Идентификатор Facebook</target>
+        <target>Facebook id</target>
         <jms:reference-file line="40">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0e27d9efec5e91ff5a2008a04a1f10bd3e275234" resname="Идентификатор Telegram">
         <source>Идентификатор Telegram</source>
-        <target state="new">Идентификатор Telegram</target>
+        <target>Telegram id</target>
         <jms:reference-file line="41">/../src/AdminBundle/Form/CityType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="b880e6a105204f3cd72a492787a543c3c21db8dc" resname="Избранное">
@@ -472,7 +472,7 @@
       </trans-unit>
       <trans-unit id="5736d0caff2672ed27660b10856f8b3de3130a4a" resname="Карта">
         <source>Карта</source>
-        <target state="new">Карта</target>
+        <target>Karte</target>
         <jms:reference-file line="129">/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4cfaa12a9e810dd4ab98e3bd072816889f98c9f9" resname="Категории">
@@ -606,7 +606,7 @@
       </trans-unit>
       <trans-unit id="d629c21ee6ea2c163b4c22044d2971ee23cdaa65" resname="Мариуполь">
         <source>Мариуполь</source>
-        <target state="new">Мариуполь</target>
+        <target>Mariupol</target>
       </trans-unit>
       <trans-unit id="b564ff6ff2fb367c23fb05b3d53e5d22ffed9fbe" resname="Маркер для карты">
         <source>Маркер для карты</source>
@@ -849,7 +849,7 @@
       </trans-unit>
       <trans-unit id="1a8f48c8c7dd4a6dc8168def67eee95176f5f8ae" resname="Показать фильтры">
         <source>Показать фильтры</source>
-        <target state="new">Показать фильтры</target>
+        <target>Filter schauen</target>
         <jms:reference-file line="34">/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="27c4523443f68b078491fc7d20b3842d424ade4c" resname="После входа вы сможете голосовать за лекции, оставлять комментарии, сохранять лекции в избранное - и многое другое">
@@ -955,7 +955,7 @@
       </trans-unit>
       <trans-unit id="5abb85f8875c36099a66c4aea85aeb54a0ef7a64" resname="Северодонецк">
         <source>Северодонецк</source>
-        <target state="new">Северодонецк</target>
+        <target>Sieverodonetsk</target>
       </trans-unit>
       <trans-unit id="dea0fb1a51897308d94a119f5da30dcb815cab78" resname="Сколько вам нужно дополнительных билетов?">
         <source>Сколько вам нужно дополнительных билетов?</source>
@@ -964,7 +964,7 @@
       </trans-unit>
       <trans-unit id="a09e4e4ea8d92426e0e80d347acf744c30e86506" resname="Скрыть фильтры">
         <source>Скрыть фильтры</source>
-        <target state="new">Скрыть фильтры</target>
+        <target>Filter verbergen</target>
         <jms:reference-file line="35">/Resources/views/lecture/list.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0d04e81b0449662d254759ce17b6208e4e5ba5ae" resname="Следующая">
@@ -984,7 +984,7 @@
       </trans-unit>
       <trans-unit id="5af0411927d65065d3da826afb93b548cac4eddf" resname="Смотреть">
         <source>Смотреть</source>
-        <target>Смотреть</target>
+        <target>Schauen</target>
         <jms:reference-file line="170">/Resources/views/landing/munich.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="81d257e5fea68b136b5f3c347efb47589d923d7e" resname="Смотреть обсуждение">
@@ -1003,7 +1003,7 @@
       </trans-unit>
       <trans-unit id="a21729ad14630242d605618901c3b3b73107e4e0" resname="Список">
         <source>Список</source>
-        <target state="new">Список</target>
+        <target>Liste</target>
         <jms:reference-file line="132">/Resources/views/about/about.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5931a1632a7d65e47a56d4be36c882875078b3e8" resname="Ссотрудничество, связь с прессой">
