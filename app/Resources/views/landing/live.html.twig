@@ -2,6 +2,19 @@
 
 {% block content %}
     <h1>15x4 {{ city.name | trans }}</h1>
+    <span
+            class="fb-share-button"
+            style="margin-right: 6px;"
+            data-href="{{ url("Live", { "id": city.id }) }}"
+            data-layout="button"
+    >
+    </span>
+    <span
+            class="vk-share-button"
+            style="margin-top: 2px; margin-right: 6px;"
+            data-href="{{ url("Live", { "id": city.id }) }}"
+    >
+    </span>
 
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
