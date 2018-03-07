@@ -53,7 +53,12 @@ class EventRepository extends AbstractRepository
     /** @return \Doctrine\ORM\QueryBuilder */
     public function getAdminQb()
     {
-        return $this->createQueryBuilder('e')->orderBy('e.date', 'DESC');
+        return $this
+            ->createQueryBuilder('e')
+            ->innerJoin('e.city', 'city')
+            ->orderBy('city.name', 'ASC')
+            ->orderBy('e.date', 'DESC')
+        ;
     }
 
     /**
