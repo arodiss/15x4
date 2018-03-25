@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Http\HttplugBundle\HttplugBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Arodiss\XlsBundle\ArodissXlsBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
