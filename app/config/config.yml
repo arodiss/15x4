@@ -101,6 +101,7 @@ hwi_oauth:
             infos_url:     https://graph.facebook.com/me?fields=email,id,name,picture.type(square)
             options:
                 csrf: true
+                auth_type: rerequest
 
         vkontakte:
             type:          vkontakte
