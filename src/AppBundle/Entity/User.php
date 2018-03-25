@@ -121,24 +121,24 @@ class User extends BaseUSer
     {
         switch ($response->getResourceOwner()->getName()) {
             case 'facebook':
-                $this->setFacebookId($response->getResponse()['id']);
-                $this->setUsername('fb-' . $response->getResponse()['id']);
-                $this->setDisplayableName($response->getResponse()['name']);
-                if (isset($response->getResponse()['email']) && $response->getResponse()['email']) {
-                    $this->setEmail($response->getResponse()['email']);
+                $this->setFacebookId($response->getUsername());
+                $this->setUsername('fb-' . $response->getUsername());
+                $this->setDisplayableName($response->getNickname());
+                if ($response->getEmail()) {
+                    $this->setEmail($response->getEmail());
                 } else {
                     $this->setEmail('fb-no-email-' . md5(rand()) . '@example.com');
                 }
-                $this->setPictureUrl($response->getResponse()['picture']['data']['url']);
+                $this->setPictureUrl($response->getData()['picture']['data']['url']);
                 break;
 
             case 'vkontakte':
-                $responseInner = $response->getResponse()['response'][0];
+                $responseInner = $response->getData();
                 $this->setVkontakteId($responseInner['uid']);
                 $this->setUsername('vk-' . $responseInner['uid']);
                 $this->setDisplayableName($responseInner['first_name'] . ' ' . $responseInner['last_name']);
-                if ($response->getResponse()['email']) {
-                    $this->setEmail($response->getResponse()['email']);
+                if ($response->getEmail()) {
+                    $this->setEmail($response->getEmail());
                 } else {
                     //in VK user can hide his email, but FOS treats email as mandatory
                     $this->setEmail('vk-hidden-email-' . md5(rand()) . '@example.com');
@@ -147,19 +147,19 @@ class User extends BaseUSer
                 break;
 
             case 'twitter':
-                $this->setTwitterId($response->getResponse()['id']);
-                $this->setUsername('twitter-' . $response->getResponse()['id']);
-                $this->setDisplayableName($response->getResponse()['name']);
+                $this->setTwitterId($response->getUsername());
+                $this->setUsername('twitter-' . $response->getUsername());
+                $this->setDisplayableName($response->getNickname());
                 $this->setEmail('twitter-email-' . md5(rand()) . '@example.com');
-                $this->setPictureUrl($response->getResponse()['profile_image_url']);
+                $this->setPictureUrl($response->getProfilePicture());
                 break;
 
             case 'google':
-                $this->setGoogleId($response->getResponse()['id']);
-                $this->setUsername('google-' . $response->getResponse()['id']);
-                $this->setDisplayableName($response->getResponse()['name']);
-                $this->setEmail($response->getResponse()['email']);
-                $this->setPictureUrl($response->getResponse()['picture']);
+                $this->setGoogleId($response->getUsername());
+                $this->setUsername('google-' . $response->getUsername());
+                $this->setDisplayableName($response->getNickname());
+                $this->setEmail($response->getEmail());
+                $this->setPictureUrl($response->getProfilePicture());
                 break;
 
             default:
