@@ -33,7 +33,8 @@ class FOSUBUserProvider extends VendorUserProvider
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         try {
-            $user =  parent::loadUserByOAuthUserResponse($response);
+            $user = parent::loadUserByOAuthUserResponse($response);
+            /** @var User $user */
             $user->updateFromOauthResponse($response);
         } catch (AccountNotLinkedException $e) {
             //persist user on first login
