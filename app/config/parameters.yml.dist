@@ -24,3 +24,4 @@ parameters:
     google_id: "111.apps.googleusercontent.com"
     google_secret: "xxx"
     google_maps_api_key: "xxx"
+    google_2fa_seed: "123"

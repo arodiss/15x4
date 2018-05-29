@@ -1,0 +1,37 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block admin_content %}
+    <h2>Current code for Google auth: {{ totp }}</h2>
+    <h4>Code will be valid for <span id="seconds">{{ time }}</span> seconds more</h4>
+{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+    <style>
+        #seconds {
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(function() {
+            window.seconds_left = {{ time }};
+            setInterval(
+                function () {
+                    window.seconds_left -= 1;
+                    $('#seconds').text(window.seconds_left);
+                    if (window.seconds_left <= 0) {
+                        window.location.reload();
+                    }
+                },
+                1000
+            );
+        })
+    </script>
+{% endblock %}

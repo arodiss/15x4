@@ -41,7 +41,8 @@
         "friendsofsymfony/rest-bundle": "2.3.*",
         "php-http/guzzle6-adapter": "1.1.*",
         "guzzlehttp/guzzle": "6.3.*",
-        "php-http/httplug-bundle": "1.9.*"
+        "php-http/httplug-bundle": "1.9.*",
+        "spomky-labs/otphp": "8.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0"
