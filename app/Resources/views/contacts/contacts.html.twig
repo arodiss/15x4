@@ -36,7 +36,7 @@
                 <button data-title="{{ 'Наш проект существует благодаря усилиям волонтеров' | trans }}" data-goal="volunteer" type="button" class="btn btn-secondary tooltip-toggle">{{ 'Стать волонтёром' | trans }}</button>
                 <button data-title="{{ 'Мы поможем вам открыть лекторий в любой точке мира' | trans }}" data-goal="branch" type="button" class="btn btn-secondary tooltip-toggle">{{ 'Открыть 15х4 в своём городе' | trans }}</button>
                 <button data-title="{{ 'Предложения по улучшению сайта' | trans }}" data-goal="site" type="button" class="btn btn-secondary tooltip-toggle">{{ 'Этот сайт' | trans }}</button>
-                <a href="https://goo.gl/sdPUda" style="cursor: pointer; color: white;" class="btn btn-secondary">{{ 'Документация' | trans  }}</a>
+                <a href="https://goo.gl/sdPUda" style="cursor: pointer; color: white;" class="btn btn-secondary" target="_blank">{{ 'Документация' | trans  }}</a>
                 <button data-title="{{ 'Сотрудничество, связь с прессой' | trans }}" data-goal="other" type="button" class="btn btn-secondary tooltip-toggle">{{ 'Другое' | trans }}</button>
             </div>
         </div>
@@ -56,11 +56,44 @@
         </div>
     </div>
 
-    <hr/>
-
-    <div id="contacts" class="flexbox">
-        {% for contact in contacts %}
-            {% include 'contacts/contact.html.twig' %}
-        {% endfor %}
+    <div id="contacts">
+        <hr/>
+        <h4>{{ 'Локальные координаторы' | trans }}</h4>
+        <div class="flexbox">
+            {% for contact in contacts if not contact.isGlobalContact()%}
+                {% include 'contacts/contact.html.twig' %}
+            {% endfor %}
+        </div>
     </div>
+
+    <div id="global_contacts">
+        <hr/>
+        <h4>{{ 'Глобальные координаторы' | trans }}</h4>
+        <div class="flexbox">
+            {% for contact in contacts if contact.isGlobalContact() %}
+                {% include 'contacts/contact.html.twig' %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div id="city_resources">
+        <hr/>
+        <h4>{{ 'Мы в соцсетях' | trans }}</h4>
+        <div class="flexbox">
+            {% for city in cities if city.fbLink%}
+                <div class="contact social" data-city_id='{{ city.id }}'>
+                    <div class="city-img">
+                        <img src="{{ asset('bundles/app/images/logo.png') }}" alt="{{ city.name }}"/>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name">{{ city.name | trans  }}</div>
+                        <a href="https://fb.com/{{ city.fbLink }}" target="_blank">fb</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr/>
+    </div>
+
 {% endblock %}
