@@ -94,4 +94,15 @@ class CityRepository extends AbstractRepository
             ->getArrayResult()
         ;
     }
+
+    public function findAllWithContacts()
+    {
+        return $this
+            ->createQueryBuilder('city')
+            ->innerJoin('city.contacts', "contacts")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 }

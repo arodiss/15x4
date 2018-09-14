@@ -54,7 +54,7 @@ class LandingController extends AbstractController
             'contacts/contacts.html.twig',
             [
                 'contacts' => $contacts,
-                'cities' => $this->getCityRepository()->findAll(),
+                'cities' => $this->getCityRepository()->findAllWithContacts(),
             ]
         );
     }

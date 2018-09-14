@@ -20,6 +20,8 @@ class Contact
     const GOAL_WEBSITE = 'Разработка сайта';
     const GOAL_MEDIA = 'Связь со СМИ';
 
+    const GOALS_GLOBAL = [self::GOAL_FOUNDER, self::GOAL_WEBSITE, self::GOAL_MEDIA];
+
     /**
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -226,5 +228,13 @@ class Contact
     public function hasOwnPicture()
     {
         return $this->getPicture() && $this->getPicture() !== self::DEFAULT_PICTURE;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isGlobalContact()
+    {
+        return in_array($this->goal, self::GOALS_GLOBAL);
     }
 }

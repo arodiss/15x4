@@ -1,55 +1,114 @@
 $(function () {
-    var selectedCities = [];
     var selectedGoals = [];
+    var selectedCities = JSON.parse(window.location.href.slice(window.location.href.search("#")+1));
+    $("#city button").each(function () {
+        if (selectedCities.includes($(this).data('city'))) {
+            $(this).toggleClass('active');
+        }
+    });
 
-    function filterContacts () {
+    filterContacts();
+    filterGlobalContacts ();
+    filterCities ();
 
-        $('.contact').each(function () {
-            var contactGoals = $(this).data('goals') || {};
-            var show = false;
+    function filterSingleContact(contactGoals){
 
-            if (selectedGoals.length !== 0) {
-                for (var key in selectedGoals) {
-                    var selectedGoal = selectedGoals[key];
+        var show = false;
 
-                    if (contactGoals.hasOwnProperty(selectedGoal)) {
-                        if (selectedCities.length === 0) {
-                            //user want this goal in all cities
-                            show = true;
-                        }
+        if (selectedGoals.length !== 0) {
+            for (var key in selectedGoals) {
+                var selectedGoal = selectedGoals[key];
 
-                        if (contactGoals[selectedGoal].length === 0) {
-                            //contact performs this goal in all cities
-                            show = true;
-                        }
-
-                        if (selectedCities.intersects(contactGoals[selectedGoal])) {
-                            //user selected both goal and city, and they intersect with contact
-                            show = true;
-                        }
-                    }
-                }
-            } else {
-                if (selectedCities.length === 0) {
-                    //user did not specify any filters
-                    show = true;
-                }
-
-                for (var goalKey in contactGoals) {
-                    if (contactGoals[goalKey].intersects(selectedCities)) {
-                        //contact performs this goal in one of selected cities
+                if (contactGoals.hasOwnProperty(selectedGoal)) {
+                    if (selectedCities.length === 0) {
+                        //user want this goal in all cities
                         show = true;
                     }
 
-                    if (contactGoals[goalKey].length === 0) {
+                    if (contactGoals[selectedGoal].length === 0) {
                         //contact performs this goal in all cities
+                        show = true;
+                    }
+
+                    if (selectedCities.intersects(contactGoals[selectedGoal])) {
+                        //user selected both goal and city, and they intersect with contact
                         show = true;
                     }
                 }
             }
+        } else {
+            if (selectedCities.length === 0) {
+                //user did not specify any filters
+                show = true;
+            }
+
+            for (var goalKey in contactGoals) {
+                if (contactGoals[goalKey].intersects(selectedCities)) {
+                    //contact performs this goal in one of selected cities
+                    show = true;
+                }
+
+                if (contactGoals[goalKey].length === 0) {
+                    //contact performs this goal in all cities
+                    show = true;
+                }
+            }
+        }
+        return show;
+    }
+
+    function filterContacts () {
+        $("#contacts").hide();
+
+        $('#contacts .contact').each(function () {
+            var contactGoals = $(this).data('goals') || {};
+            var show = filterSingleContact(contactGoals);
 
             if (show) {
                 $(this).fadeIn();
+                $("#contacts").show();
+            } else {
+                $(this).fadeOut();
+            }
+        });
+    }
+
+    function filterGlobalContacts () {
+
+        $("#global_contacts").hide();
+
+        $('#global_contacts .contact').each(function () {
+            var contactGoals = $(this).data('goals') || {};
+            var show = filterSingleContact(contactGoals);
+
+            if (show) {
+                $(this).fadeIn();
+                $("#global_contacts").show();
+            } else {
+                $(this).fadeOut();
+            }
+        });
+    }
+
+    function filterCities () {
+        $("#city_resources").hide();
+
+        $('.social').each(function () {
+            var cityId = $(this).data('city_id');
+            var show = false;
+
+            if (selectedCities.length === 0) {
+                //user did not specify any filters
+                show = true;
+            }
+
+            if (selectedCities.includes(cityId)){
+                show = true;
+            }
+
+            if (show) {
+                $(this).fadeIn();
+                $("#city_resources").show();
             } else {
                 $(this).fadeOut();
             }
@@ -60,12 +119,16 @@ $(function () {
         selectedGoals.toggleValue($(this).data('goal'));
         $(this).toggleClass('active');
         filterContacts();
+        filterGlobalContacts ();
     });
 
     $("#city button").click(function () {
         selectedCities.toggleValue($(this).data('city'));
         $(this).toggleClass('active');
+        window.location.href = window.location.pathname + '#' + JSON.stringify(selectedCities);
         filterContacts();
+        filterGlobalContacts ();
+        filterCities();
     });
 
     if (window.location.search.indexOf('?') !== -1) {

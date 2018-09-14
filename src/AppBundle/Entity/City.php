@@ -275,4 +275,12 @@ class City
 
         return $announcement;
     }
+
+    /**
+     * @return Contact[]
+     */
+    public function getContacts()
+    {
+        return $this->contacts;
+    }
 }

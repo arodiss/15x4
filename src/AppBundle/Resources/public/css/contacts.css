@@ -34,3 +34,13 @@
     font-size: 85%;
     color: dimgray;
 }
+
+.city-img {
+    width: 50%;
+    float: left;
+}
+
+.city-img > img {
+    width: 128px;
+    height: 128px;
+}
