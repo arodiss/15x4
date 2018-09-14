@@ -1,4 +1,4 @@
-<div class="contact" data-goals='{{ contact.goalsData | json_encode }}'>
+<div class="contact" data-goals='{{ contact.goalsData | json_encode | raw }}'>
     <div class="contact-img">
         <img src="{{ asset('bundles/app/images/contacts/' ~ contact.picture) }}" alt="{{ contact.name }}"/>
     </div>
