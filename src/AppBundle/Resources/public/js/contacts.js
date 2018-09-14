@@ -1,6 +1,9 @@
 $(function () {
     var selectedGoals = [];
-    var selectedCities = JSON.parse(window.location.href.slice(window.location.href.search("#")+1));
+    var selectedCities = [];
+    if (window.location.href.search('#') != -1) {
+        var selectedCities = JSON.parse(window.location.href.slice(window.location.href.search("#")+1));
+    }
     $("#city button").each(function () {
         if (selectedCities.includes($(this).data('city'))) {
             $(this).toggleClass('active');
