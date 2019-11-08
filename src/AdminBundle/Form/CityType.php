@@ -14,7 +14,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class CityType extends AbstractType
 {
     private $timezones = [
-        'Europe/Berlin',
+	'Europe/Berlin',
+        'Europe/Warsaw',
         'Europe/Kiev',
         'Europe/Minsk',
         'Europe/Chisinau',
