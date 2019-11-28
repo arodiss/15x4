@@ -79,6 +79,26 @@ class City
      */
     protected $tgLink;
 
+    /**
+     * @ORM\Column(name="ig_link", type="string", length=63, nullable=true)
+     */
+    protected $instagramLink;
+
+    /**
+     * @ORM\Column(name="email", type="string", length=63, nullable=true)
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(name="meetup_link", type="string", length=63, nullable=true)
+     */
+    protected $meetupLink;
+
+    /**
+     * @ORM\Column(name="qr_code_link", type="string", length=63, nullable=true)
+     */
+    protected $qrCodeLink;
+
     /** {@inheritdoc} */
     public function __toString()
     {
@@ -282,5 +302,69 @@ class City
     public function getContacts()
     {
         return $this->contacts;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstagramLink()
+    {
+        return $this->instagramLink;
+    }
+
+    /**
+     * @param string $instagramLink
+     */
+    public function setInstagramLink($instagramLink)
+    {
+        $this->instagramLink = $instagramLink;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMeetupLink()
+    {
+        return $this->meetupLink;
+    }
+
+    /**
+     * @param string $meetupLink
+     */
+    public function setMeetupLink($meetupLink)
+    {
+        $this->meetupLink = $meetupLink;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQrCodeLink()
+    {
+        return $this->qrCodeLink;
+    }
+
+    /**
+     * @param mixed $qrCodeLink
+     */
+    public function setQrCodeLink($qrCodeLink)
+    {
+        $this->qrCodeLink = $qrCodeLink;
     }
 }

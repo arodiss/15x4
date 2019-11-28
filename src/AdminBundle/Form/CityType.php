@@ -40,6 +40,9 @@ class CityType extends AbstractType
             ->add('longitude', NumberType::class, ['label' => 'Долгота'])
             ->add('fbLink', TextType::class, ['label' => 'Идентификатор Facebook', 'required' => false])
             ->add('tgLink', TextType::class, ['label' => 'Идентификатор Telegram', 'required' => false])
+            ->add('instagramLink', TextType::class, ['label' => 'Идентификатор Instagram', 'required' => false])
+            ->add('meetupLink', TextType::class, ['label' => 'Идентификатор Meetup', 'required' => false])
+            ->add('qrCodeLink', TextType::class, ['label' => 'Ссылка для QR-кода ', 'required' => false])
             ->add(
                 'iftttKey',
                 TextType::class,
