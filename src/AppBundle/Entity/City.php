@@ -373,4 +373,21 @@ class City
     {
         $this->qrCodeLink = $qrCodeLink;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSiteLink()
+    {
+        return $this->siteLink;
+    }
+
+    /**
+     * @param mixed $siteLink
+     */
+    public function setSiteLink($siteLink)
+    {
+        $this->siteLink = $siteLink;
+    }
+
 }
