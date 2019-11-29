@@ -99,6 +99,12 @@ class City
      */
     protected $qrCodeLink;
 
+    /**
+     * @ORM\Column(name="site_url", type="string", length=63, nullable=true)
+     */
+    protected $siteLink;
+
+
     /** {@inheritdoc} */
     public function __toString()
     {

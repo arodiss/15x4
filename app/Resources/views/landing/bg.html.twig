@@ -15,7 +15,7 @@
 
                 <p>
                     <i class="fa fa-globe"></i>
-                    <span class="text">15x4.org</span>
+                    <span class="text">{% if city.siteLink %}{{ city.siteLink }}{% else %}15x4.org{% endif %}</span>
                 </p>
 
                 {% if city.tgLink %}
