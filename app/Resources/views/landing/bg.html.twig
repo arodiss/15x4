@@ -32,6 +32,14 @@
                     </p>
                 {% endif %}
 
+                {% if city.twitterLink %}
+                    <p>
+                        <i class="fa fa-twitter"></i>
+                        <span class="text">twitter.com/{{ city.twitterLink }}</span>
+                    </p>
+                {% endif %}
+
+
                 {% if city.email %}
                     <p>
                         <i class="fa fa-envelope"></i>
