@@ -42,6 +42,7 @@ class CityType extends AbstractType
             ->add('tgLink', TextType::class, ['label' => 'Идентификатор Telegram', 'required' => false])
             ->add('instagramLink', TextType::class, ['label' => 'Идентификатор Instagram', 'required' => false])
             ->add('meetupLink', TextType::class, ['label' => 'Идентификатор Meetup', 'required' => false])
+            ->add('twitterLink', TextType::class, ['label' => 'Идентификатор Twitter', 'required' => false])
             ->add('qrCodeLink', TextType::class, ['label' => 'Ссылка для QR-кода ', 'required' => false])
             ->add('email', TextType::class, ['label' => 'Email ', 'required' => false])
             ->add('siteLink', TextType::class, ['label' => 'Другой сайт', 'required' => false])

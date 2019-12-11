@@ -80,6 +80,11 @@ class City
     protected $tgLink;
 
     /**
+     * @ORM\Column(name="twitter_link", type="string", length=63, nullable=true)
+     */
+    protected $twitterLink;
+
+    /**
      * @ORM\Column(name="ig_link", type="string", length=63, nullable=true)
      */
     protected $instagramLink;
@@ -389,5 +394,22 @@ class City
     {
         $this->siteLink = $siteLink;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTwitterLink()
+    {
+        return $this->twitterLink;
+    }
+
+    /**
+     * @param mixed $twitterLink
+     */
+    public function setTwitterLink($twitterLink)
+    {
+        $this->twitterLink = $twitterLink;
+    }
+
 
 }
