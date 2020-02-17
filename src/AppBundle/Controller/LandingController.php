@@ -78,6 +78,17 @@ class LandingController extends AbstractController
     }
 
     /**
+     * @Extra\Route("/MUform", name="FeedbackMunich")
+     * @Extra\Route("/munich-form", name="FeedbackMunichAlt1")
+     * @Extra\Route("/mu-feedback", name="FeedbackMunichAlt2")
+     * @Extra\Route("/munich-feedback", name="FeedbackMunichAlt3")
+     */
+    public function munichFeedbackAction()
+    {
+        return $this->redirect("https://docs.google.com/forms/d/e/1FAIpQLSevZ8UPZBlrE3xXjEXcccdp56O769MtEgEJORsN-8vtCi_6tw/viewform?usp=sf_link");
+    }
+
+    /**
      * @Extra\Route("/{id}/live", name="Live")
      * @Extra\Template
      */
