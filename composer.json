@@ -40,7 +40,7 @@
         "jms/di-extra-bundle": "1.9.*",
         "friendsofsymfony/rest-bundle": "2.3.*",
         "php-http/guzzle6-adapter": "1.1.*",
-        "guzzlehttp/guzzle": "6.3.*",
+        "guzzlehttp/guzzle": "6.5.*",
         "php-http/httplug-bundle": "1.9.*",
         "spomky-labs/otphp": "8.*"
     },
